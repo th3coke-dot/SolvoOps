@@ -1,6 +1,13 @@
 # SolvoOps
 
-Company website for SolvoOps — tools that make operations efficient.
+Company website for SolvoOps — tools that solve operational bottlenecks.
+
+Demonstrated work featured on the site:
+
+- [Scope2Plan](https://scope2plan.com)
+- [BizDayz](https://www.bizdayz.com)
+- [PartnerForge](https://partnerforge.vercel.app)
+- [AutoName](https://www.autoname.pro)
 
 ## Development
 
@@ -16,4 +23,4 @@ npm run build
 npm run preview
 ```
 
-The site is a Vite + React landing page. Primary contact is wired to `hello@solvoops.com`.
+Primary contact is wired to `hello@solvoops.com`.

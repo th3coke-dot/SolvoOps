@@ -1,3 +1,34 @@
+const products = [
+  {
+    name: 'Scope2Plan',
+    href: 'https://scope2plan.com',
+    bottleneck: 'Delivery planning from SOWs',
+    summary:
+      'Turn a Statement of Work into a project plan, runbook, and transition pack in minutes — structured for real delivery, not workshop theatre.',
+  },
+  {
+    name: 'BizDayz',
+    href: 'https://www.bizdayz.com',
+    bottleneck: 'Working-day and payroll math',
+    summary:
+      'Norwegian working days, public holidays, holiday pay, and employer cost — clear answers for planning and payroll without spreadsheet archaeology.',
+  },
+  {
+    name: 'PartnerForge',
+    href: 'https://partnerforge.vercel.app',
+    bottleneck: 'Finding the right delivery partners',
+    summary:
+      'Natural-language partner discovery for European field service — AI ranking and validated rate benchmarks so the right crew surfaces first.',
+  },
+  {
+    name: 'AutoName',
+    href: 'https://www.autoname.pro',
+    bottleneck: 'Naming without the guesswork',
+    summary:
+      'A systematic naming pipeline: phonetic generation, domain checks, brand collision search, and ranked shortlists built for enterprise feel.',
+  },
+] as const
+
 function App() {
   return (
     <div className="site">
@@ -17,24 +48,26 @@ function App() {
           <a className="nav__mark" href="#top">
             SolvoOps
           </a>
-          <a className="nav__link" href="#contact">
-            Contact
+          <a className="nav__link" href="#work">
+            Work
           </a>
         </nav>
 
         <div className="hero__content" id="top">
           <p className="brand">SolvoOps</p>
-          <h1 className="hero__headline">Tools that clear the path for work.</h1>
+          <h1 className="hero__headline">
+            Tools that break operational bottlenecks.
+          </h1>
           <p className="hero__lede">
-            We build software that removes friction from day-to-day operations
-            so teams move faster with fewer handoffs.
+            SolvoOps builds focused software that helps companies find where
+            work stalls — and clear the path so delivery can move again.
           </p>
           <div className="cta-row">
-            <a className="btn btn--primary" href="#contact">
-              Start a conversation
+            <a className="btn btn--primary" href="#work">
+              See the tools
             </a>
-            <a className="btn btn--ghost" href="#approach">
-              See how we work
+            <a className="btn btn--ghost" href="#contact">
+              Talk about a bottleneck
             </a>
           </div>
         </div>
@@ -43,14 +76,15 @@ function App() {
       <main>
         <section className="section promise" aria-labelledby="promise-title">
           <div>
-            <p className="section__label">What we build</p>
+            <p className="section__label">The company</p>
             <h2 className="section__title" id="promise-title">
-              Operations software with a single job: keep work flowing.
+              One job: solve the friction that slows operations.
             </h2>
             <p className="section__copy">
-              SolvoOps designs focused tools for the people who run the floor —
-              scheduling, handoffs, status, and decisions — without burying
-              teams in another sprawling platform.
+              We do not ship another sprawling platform. We build sharp tools
+              aimed at a specific bottleneck — planning, partnering, payroll
+              timing, naming — so teams spend less time fighting process and
+              more time delivering.
             </p>
           </div>
           <div className="promise__visual" aria-hidden="true">
@@ -65,6 +99,44 @@ function App() {
           </div>
         </section>
 
+        <section className="work" id="work" aria-labelledby="work-title">
+          <div className="section">
+            <p className="section__label">Demonstrated work</p>
+            <h2 className="section__title" id="work-title">
+              Four tools. Four bottlenecks. Same craft.
+            </h2>
+            <p className="section__copy">
+              Live products that show how SolvoOps approaches operational
+              friction — find the stall, build the lever, put it in people&apos;s
+              hands.
+            </p>
+
+            <ul className="product-list">
+              {products.map((product) => (
+                <li key={product.name}>
+                  <a
+                    className="product-link"
+                    href={product.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <div className="product-link__meta">
+                      <span className="product-link__name">{product.name}</span>
+                      <span className="product-link__bottleneck">
+                        {product.bottleneck}
+                      </span>
+                    </div>
+                    <p className="product-link__summary">{product.summary}</p>
+                    <span className="product-link__cta" aria-hidden="true">
+                      Open
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section
           className="method"
           id="approach"
@@ -76,51 +148,33 @@ function App() {
               Find the bottleneck. Build the lever. Ship the habit.
             </h2>
             <p className="section__copy">
-              Every engagement starts on the ground, not in a feature backlog.
+              Every engagement starts with the stall — not a feature wishlist.
             </p>
             <div className="method__grid">
               <article className="method__item">
-                <h3>Map the real flow</h3>
+                <h3>Map the stall</h3>
                 <p>
-                  We watch how work actually moves — delays, rework, and the
-                  quiet workarounds people invent to stay on schedule.
+                  We look at how work actually moves: handoffs, rework, waiting
+                  time, and the quiet workarounds teams invent to stay on
+                  schedule.
                 </p>
               </article>
               <article className="method__item">
                 <h3>Ship a sharp tool</h3>
                 <p>
-                  We build the smallest useful system that removes the
-                  bottleneck, with interfaces operators can trust under pressure.
+                  We build the smallest useful system that removes that
+                  bottleneck — scoped tightly enough to trust on a busy day.
                 </p>
               </article>
               <article className="method__item">
-                <h3>Lock in the rhythm</h3>
+                <h3>Prove it in use</h3>
                 <p>
-                  We tune alerts, handoffs, and reporting so the new process
-                  sticks after the rollout excitement fades.
+                  We put the tool in the real flow, tune what sticks, and leave
+                  teams with a clearer rhythm than they started with.
                 </p>
               </article>
             </div>
           </div>
-        </section>
-
-        <section className="section audience" aria-labelledby="audience-title">
-          <div>
-            <p className="section__label">Who it&apos;s for</p>
-            <h2 className="section__title" id="audience-title">
-              Built for teams that measure the day in throughput.
-            </h2>
-            <p className="section__copy">
-              If your operation depends on timing, visibility, and clean
-              handoffs, SolvoOps is built for your floor.
-            </p>
-          </div>
-          <ul className="audience__list">
-            <li>Operations and plant leadership</li>
-            <li>Logistics and fulfillment teams</li>
-            <li>Field service coordinators</li>
-            <li>Founders scaling internal process</li>
-          </ul>
         </section>
 
         <section
@@ -135,9 +189,9 @@ function App() {
                 Tell us where work gets stuck.
               </h2>
               <p className="section__copy">
-                Share the operation you run and the friction you feel. We&apos;ll
-                reply with a clear read on whether SolvoOps can help — and how
-                we&apos;d start.
+                Share the bottleneck you are living with. We will come back with
+                a clear read on whether a SolvoOps tool is the right next move —
+                and how we would start.
               </p>
             </div>
             <a className="btn btn--ink" href="mailto:hello@solvoops.com">
@@ -149,7 +203,7 @@ function App() {
 
       <footer className="footer">
         <strong>SolvoOps</strong>
-        <span>Tools that make operations efficient.</span>
+        <span>Tools that solve operational bottlenecks.</span>
       </footer>
     </div>
   )
