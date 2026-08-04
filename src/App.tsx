@@ -1,3 +1,5 @@
+import { Analytics } from '@vercel/analytics/react'
+
 const products = [
   {
     name: 'Scope2Plan',
@@ -205,6 +207,7 @@ function App() {
         <strong>SolvoOps</strong>
         <span>Tools that solve operational bottlenecks.</span>
       </footer>
+      <Analytics />
     </div>
   )
 }
