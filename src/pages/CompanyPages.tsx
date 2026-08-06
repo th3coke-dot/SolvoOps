@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
+import { PilotForm } from '../components/PilotForm'
 import {
-  CtaPanel,
   FeatureCard,
   LinkButton,
   ProductCard,
@@ -12,8 +12,9 @@ import {
   company,
   labsProducts,
   pagesMetadata,
-  useCases,
 } from '../content'
+import { pilotPageContent } from '../content/pilot'
+import './ProductPage.css'
 
 export function HowItWorksPage() {
   return (
@@ -171,40 +172,45 @@ export function PilotPage() {
   return (
     <AppShell
       metadata={pagesMetadata.pilot}
-      eyebrow="Pilot"
-      title="Test SolvoOps against a real workflow"
-      copy="We work with organisations that want to test Scope2Plan or PartnerForge against a defined operational challenge."
+      showPageHeader={false}
+      mainClassName="product-page"
     >
-      {product ? (
-        <p>
-          Product of interest from link: <strong>{product}</strong>
-        </p>
-      ) : null}
-      <div className="product-capability-grid">
-        <FeatureCard title="Scope2Plan pilot">
-          Use a real or sanitised scope to test project extraction, package
-          generation, methodology alignment or scope-change control.
-        </FeatureCard>
-        <FeatureCard title="PartnerForge pilot">
-          Use a real sourcing requirement to test partner discovery, geographic
-          relevance, evidence quality and ranking.
-        </FeatureCard>
-      </div>
-      <p style={{ marginTop: 'var(--space-6)' }}>
-        <strong>Do not submit confidential customer information</strong> through
-        this site. A structured form ships in PR 9; until then contact us by
-        email.
-      </p>
-      <p>Delivery contexts in the content model: {useCases.groups.length}.</p>
-      <CtaPanel
-        title="Start a conversation"
-        titleId="pilot-cta"
-        actions={
-          <LinkButton to={`mailto:${company.contactEmail}`} variant="ink">
-            Email {company.contactEmail}
-          </LinkButton>
-        }
-      />
+      <section className="container product-hero" aria-labelledby="pilot-title">
+        <p className="product-hero__label">{pilotPageContent.label}</p>
+        <h1 className="product-hero__title" id="pilot-title">
+          {pilotPageContent.title}
+        </h1>
+        <p className="product-hero__lede">{pilotPageContent.lede}</p>
+      </section>
+      <section
+        className="container product-section"
+        aria-labelledby="pilot-options"
+      >
+        <SectionHeader
+          label="Options"
+          title="Choose a starting point"
+          id="pilot-options"
+        />
+        <div className="product-capability-grid">
+          {pilotPageContent.options.map((option) => (
+            <FeatureCard key={option.id} title={option.title}>
+              {option.body}
+            </FeatureCard>
+          ))}
+        </div>
+      </section>
+      <section
+        className="container product-section"
+        aria-labelledby="pilot-form-heading"
+      >
+        <SectionHeader
+          label="Request"
+          title="Request a pilot conversation"
+          id="pilot-form-heading"
+          copy="No file uploads. No new database. Email remains the delivery channel."
+        />
+        <PilotForm initialProduct={product} />
+      </section>
     </AppShell>
   )
 }
