@@ -38,9 +38,9 @@ export const products: ProductConfig[] = [
     shortName: 'Scope2Plan',
     tier: 'primary',
     category: 'Project planning and control',
-    headline: 'From customer scope to controlled delivery',
+    headline: 'Generate the package. Control the change.',
     description:
-      'Scope2Plan turns SOWs, project briefs and customer scopes into structured delivery plans and complete project packages, then helps teams maintain alignment as requirements change.',
+      'Scope2Plan Generate turns SOWs into delivery-ready project plans, runbooks and transition packs. Scope2Plan Control keeps the structured project model aligned as scopes and obligations change.',
     status: productStatusById.scope2plan,
     statusLabel: getStatusLabel(productStatusById.scope2plan),
     accent: 'scope2plan',
@@ -50,11 +50,13 @@ export const products: ProductConfig[] = [
     pilotUrl: '/pilot?product=scope2plan',
     bottleneck: 'Delivery planning from SOWs',
     availableCapabilities: [
-      'SOW and scope intake',
-      'Project package generation',
-      'ITIL 4 and PMP-aligned planning artefacts',
-      'Runbook / SOP generation',
-      'Transition pack generation',
+      'SOW / scope intake (Generate)',
+      'Structured project-model extraction (Generate)',
+      'Project plan generation (Generate)',
+      'Runbook / SOP generation (Generate)',
+      'Transition pack generation (Generate)',
+      'ITIL 4 and PMP-aligned artefacts (Generate)',
+      'PDF / DOCX export (Generate)',
     ],
     pilotCapabilities: [],
     plannedCapabilities: [
@@ -63,6 +65,7 @@ export const products: ProductConfig[] = [
       'Change-impact analysis (Control)',
       'Linked project registers (Control)',
       'Versioned document regeneration (Control)',
+      'Decision and evidence trail (Control)',
     ],
   },
   {
@@ -71,9 +74,9 @@ export const products: ProductConfig[] = [
     shortName: 'PartnerForge',
     tier: 'primary',
     category: 'Partner discovery and intelligence',
-    headline: 'Find delivery capability where you need it',
+    headline: 'Ranked partner intelligence across regions',
     description:
-      'PartnerForge helps organisations discover, structure and evaluate potential delivery partners and freelancers using geographic intent, multi-source discovery, evidence and explainable ranking.',
+      'PartnerForge helps organisations discover and evaluate delivery partners with multi-region search, project-document matching, geographic filters, evidence-backed profiles and explainable ranking that prioritises onboarded network partners.',
     status: productStatusById.partnerforge,
     statusLabel: getStatusLabel(productStatusById.partnerforge),
     accent: 'partnerforge',
@@ -84,13 +87,16 @@ export const products: ProductConfig[] = [
     bottleneck: 'Finding the right delivery partners',
     availableCapabilities: [
       'Natural-language requirement intake',
+      'Filter-based search (country, category, reach, distance)',
+      'Multi-region partner discovery',
       'Geographic intent resolution',
-      'Multi-source partner discovery',
       'Explainable ranking signals',
     ],
     pilotCapabilities: [
+      'Project-document matching to shortlist',
       'Structured candidate entity profiles',
       'Evidence and provenance attachment',
+      'Onboarded network partner priority',
     ],
     plannedCapabilities: [
       'CRM projection',

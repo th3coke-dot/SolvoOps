@@ -29,10 +29,16 @@ describe('content model', () => {
   it('separates available, pilot, and planned capabilities', () => {
     const scope = getProductById('scope2plan')
     expect(scope).toBeTruthy()
-    expect(scope!.availableCapabilities.length).toBeGreaterThan(0)
+    expect(scope!.availableCapabilities.some((c) => /Generate/i.test(c))).toBe(
+      true,
+    )
     expect(scope!.plannedCapabilities.some((c) => /Control/i.test(c))).toBe(
       true,
     )
+    const partner = getProductById('partnerforge')
+    expect(
+      partner!.pilotCapabilities.some((c) => /document matching/i.test(c)),
+    ).toBe(true)
   })
 
   it('defines metadata for every target IA route', () => {

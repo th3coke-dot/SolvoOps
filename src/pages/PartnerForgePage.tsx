@@ -56,10 +56,25 @@ export function PartnerForgePage() {
         <PartnerForgeProofVisual />
       </section>
 
+      <section className="container product-section" aria-labelledby="pf-coverage">
+        <SectionHeader
+          label="Coverage"
+          title={page.coverage.title}
+          copy={page.coverage.body}
+          id="pf-coverage"
+          accent="partnerforge"
+        />
+        <ul className="product-list">
+          {page.coverage.regions.map((region) => (
+            <li key={region}>{region}</li>
+          ))}
+        </ul>
+      </section>
+
       <section className="container product-section" aria-labelledby="pf-flow">
         <SectionHeader
           label="Workflow"
-          title="From requirement to shortlist"
+          title="From requirement to ranked shortlist"
           id="pf-flow"
           accent="partnerforge"
         />

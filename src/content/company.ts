@@ -34,9 +34,9 @@ export const company = {
   },
   narrative: {
     scope2plan:
-      'Scope2Plan helps organisations plan and control the work.',
+      'Scope2Plan Generate plans the work; Scope2Plan Control keeps it aligned.',
     partnerforge:
-      'PartnerForge helps them identify who can deliver it.',
+      'PartnerForge finds who can deliver it — with evidence and ranked shortlists.',
     company:
       'SolvoOps connects operational complexity with controlled execution.',
   },

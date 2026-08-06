@@ -26,7 +26,7 @@ export const homepageContent = {
   products: {
     label: 'Products',
     title: 'Focused products for critical delivery workflows',
-    copy: 'Each SolvoOps product solves a specific operational bottleneck while remaining compatible with the systems organisations already use.',
+    copy: 'Scope2Plan Generate and Control handle planning and change. PartnerForge handles partner intelligence. Labs explores adjacent tools.',
   },
   labs: {
     label: 'SolvoOps Labs',
@@ -36,25 +36,25 @@ export const homepageContent = {
   },
   workflow: {
     label: 'Connected workflow',
-    title: 'One delivery workflow. Two specialised products.',
-    copy: 'Scope2Plan and PartnerForge solve different parts of the same operational process.',
+    title: 'One delivery workflow. Specialised modules.',
+    copy: 'Scope2Plan Generate creates the package. PartnerForge finds who can deliver. Scope2Plan Control keeps the model aligned as work changes.',
     note: 'Designed to support a connected delivery workflow.',
     steps: [
       {
-        title: 'Understand the work',
-        body: 'Scope2Plan Generate interprets the source material and creates a structured project model.',
+        title: 'Intake the scope',
+        body: 'Bring in the SOW or project brief that defines the work.',
       },
       {
-        title: 'Build the delivery plan',
-        body: 'Generate creates the required project documents, responsibilities, milestones, risks and governance package.',
+        title: 'Generate the package',
+        body: 'Scope2Plan Generate builds the structured project model and delivery artefacts — plan, runbook and transition pack.',
       },
       {
-        title: 'Identify delivery coverage',
-        body: 'PartnerForge uses the structured requirements to identify relevant partner and freelancer candidates by location and capability.',
+        title: 'Source delivery coverage',
+        body: 'PartnerForge matches requirements to ranked partner shortlists with geography, evidence and onboarded-network priority.',
       },
       {
-        title: 'Maintain project control',
-        body: 'Scope2Plan Control tracks scope versions, changes, dependencies, decisions, evidence and affected project documentation.',
+        title: 'Control the change',
+        body: 'Scope2Plan Control tracks versions, impact and regenerated artefacts as the engagement evolves.',
       },
     ],
   },
@@ -80,7 +80,7 @@ export const homepageContent = {
       },
       {
         title: 'Modular',
-        body: 'Organisations can adopt the product they need without replacing their entire technology stack.',
+        body: 'Adopt Generate, Control or PartnerForge where you need them — without replacing the whole stack.',
       },
       {
         title: 'Continuously improving',
@@ -95,13 +95,13 @@ export const homepageContent = {
   pilot: {
     label: 'Pilot',
     title: 'Bring us an operational bottleneck',
-    copy: 'SolvoOps works with delivery organisations to test focused software against real workflows. We are particularly interested in project initiation, scope control, partner discovery and delivery-governance use cases.',
+    copy: 'SolvoOps works with delivery organisations to test focused software against real workflows — Scope2Plan Generate, Scope2Plan Control and PartnerForge use cases.',
     primaryCta: { label: 'Discuss a pilot', href: '/pilot' },
     secondaryCta: { label: 'Explore Scope2Plan', href: '/products/scope2plan' },
   },
   heroFlow: [
-    { id: 'scope', label: 'Scope', note: 'Intake' },
-    { id: 'plan', label: 'Plan', note: 'Scope2Plan Generate' },
+    { id: 'scope', label: 'Scope', note: 'SOW intake' },
+    { id: 'plan', label: 'Generate', note: 'Scope2Plan Generate' },
     { id: 'source', label: 'Source', note: 'PartnerForge' },
     { id: 'deliver', label: 'Deliver', note: 'Execution' },
     { id: 'control', label: 'Control', note: 'Scope2Plan Control' },
