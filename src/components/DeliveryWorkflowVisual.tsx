@@ -7,11 +7,15 @@ import { homepageContent } from '../content/homepage'
 export function DeliveryWorkflowVisual() {
   const steps = homepageContent.heroFlow
   return (
-    <div className="home-flow" aria-hidden="true">
+    <figure className="home-flow" aria-labelledby="home-flow-caption">
+      <figcaption id="home-flow-caption" className="sr-only">
+        Illustrative delivery workflow: Scope, Plan, Source, Deliver, Control.
+      </figcaption>
       <svg
         className="home-flow__svg"
         viewBox="0 0 920 160"
-        role="presentation"
+        role="img"
+        aria-hidden="true"
         focusable="false"
       >
         <defs>
@@ -72,6 +76,6 @@ export function DeliveryWorkflowVisual() {
           </li>
         ))}
       </ol>
-    </div>
+    </figure>
   )
 }

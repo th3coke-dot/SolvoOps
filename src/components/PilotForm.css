@@ -20,9 +20,9 @@
 .pilot-form__status {
   margin: 0;
   padding: var(--space-3) var(--space-4);
-  border: 1px solid #b42318;
+  border: 1px solid var(--color-danger);
   background: #fef3f2;
-  color: #b42318;
+  color: var(--color-danger);
   border-radius: var(--radius-sm);
 }
 
@@ -72,7 +72,7 @@
 .pilot-field input[aria-invalid='true'],
 .pilot-field select[aria-invalid='true'],
 .pilot-field textarea[aria-invalid='true'] {
-  border-color: #b42318;
+  border-color: var(--color-danger);
 }
 
 .pilot-field__hint {
@@ -84,7 +84,7 @@
 .pilot-field__error {
   margin: 0;
   font-size: var(--text-sm);
-  color: #b42318;
+  color: var(--color-danger);
   font-weight: 600;
 }
 
