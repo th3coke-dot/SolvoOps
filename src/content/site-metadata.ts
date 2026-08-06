@@ -62,7 +62,8 @@ export const pagesMetadata: Record<string, PageMetadata> = {
   about: {
     path: '/about',
     title: `About | ${company.name}`,
-    description: company.mission,
+    description:
+      'SolvoOps was founded by Morten to turn complex operational work into focused, repeatable software systems.',
   },
   labs: {
     path: '/labs',
@@ -79,12 +80,13 @@ export const pagesMetadata: Record<string, PageMetadata> = {
   privacy: {
     path: '/privacy',
     title: `Privacy | ${company.name}`,
-    description: 'Privacy information for SolvoOps.com.',
+    description:
+      'How SolvoOps handles information collected through the marketing website and pilot request flow.',
   },
   terms: {
     path: '/terms',
     title: `Terms | ${company.name}`,
-    description: 'Terms of use for SolvoOps.com.',
+    description: 'Terms of use for the SolvoOps marketing website.',
   },
   notFound: {
     path: '/404',

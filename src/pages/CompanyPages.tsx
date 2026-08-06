@@ -13,6 +13,11 @@ import {
   labsProducts,
   pagesMetadata,
 } from '../content'
+import {
+  legalDraftNotice,
+  privacyPageContent,
+  termsPageContent,
+} from '../content/legal'
 import { pilotPageContent } from '../content/pilot'
 import './ProductPage.css'
 
@@ -110,18 +115,33 @@ export function AboutPage() {
           title="Automation with accountability"
           copy="We do not add AI to a workflow simply because it is available. We use automation, structured data and AI where they can improve speed, consistency and decision quality without removing human accountability."
         />
-        <p>
-          Founder biography is intentionally omitted until approved factual copy
-          is provided. Verified themes that may appear later include service
-          delivery, operational workflows, project planning, partner sourcing and
-          building focused software tools.
-        </p>
         <div className="product-capability-grid" style={{ marginTop: 'var(--space-7)' }}>
           {company.pillars.map((pillar) => (
             <FeatureCard key={pillar.id} title={pillar.title}>
               {pillar.body}
             </FeatureCard>
           ))}
+        </div>
+      </section>
+      <section
+        className="container product-section"
+        aria-labelledby="founder-title"
+      >
+        <SectionHeader
+          label="Founder"
+          title={`${company.founder.name}, ${company.founder.role}`}
+          copy={company.founder.summary}
+          id="founder-title"
+        />
+        <div className="about-founder">
+          {company.founder.paragraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 48)} className="about-founder__p">
+              {paragraph}
+            </p>
+          ))}
+          <p className="about-founder__mission">
+            <strong>His mission is simple:</strong> {company.founderMission}
+          </p>
         </div>
       </section>
     </AppShell>
@@ -219,14 +239,33 @@ export function PrivacyPage() {
   return (
     <AppShell
       metadata={pagesMetadata.privacy}
-      eyebrow="Legal"
-      title="Privacy"
-      copy="Placeholder privacy page. Full policy copy will be added with legal review before production release."
+      showPageHeader={false}
+      mainClassName="product-page"
     >
-      <p>
-        Contact:{' '}
-        <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
-      </p>
+      <section className="container product-hero" aria-labelledby="privacy-title">
+        <p className="product-hero__label">{privacyPageContent.label}</p>
+        <h1 className="product-hero__title" id="privacy-title">
+          {privacyPageContent.title}
+        </h1>
+        <p className="product-hero__lede">{privacyPageContent.lede}</p>
+        <p className="product-hero__lede" role="note">
+          {legalDraftNotice}
+        </p>
+      </section>
+      <section className="container product-section" aria-label="Privacy details">
+        <div className="product-capability-grid">
+          {privacyPageContent.sections.map((section) => (
+            <FeatureCard key={section.title} title={section.title}>
+              {section.body}
+            </FeatureCard>
+          ))}
+        </div>
+        <p style={{ marginTop: 'var(--space-6)' }}>
+          <LinkButton to={`mailto:${company.contactEmail}`} variant="secondary">
+            Email {company.contactEmail}
+          </LinkButton>
+        </p>
+      </section>
     </AppShell>
   )
 }
@@ -235,14 +274,33 @@ export function TermsPage() {
   return (
     <AppShell
       metadata={pagesMetadata.terms}
-      eyebrow="Legal"
-      title="Terms"
-      copy="Placeholder terms page. Full terms will be added with legal review before production release."
+      showPageHeader={false}
+      mainClassName="product-page"
     >
-      <p>
-        Contact:{' '}
-        <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
-      </p>
+      <section className="container product-hero" aria-labelledby="terms-title">
+        <p className="product-hero__label">{termsPageContent.label}</p>
+        <h1 className="product-hero__title" id="terms-title">
+          {termsPageContent.title}
+        </h1>
+        <p className="product-hero__lede">{termsPageContent.lede}</p>
+        <p className="product-hero__lede" role="note">
+          {legalDraftNotice}
+        </p>
+      </section>
+      <section className="container product-section" aria-label="Terms details">
+        <div className="product-capability-grid">
+          {termsPageContent.sections.map((section) => (
+            <FeatureCard key={section.title} title={section.title}>
+              {section.body}
+            </FeatureCard>
+          ))}
+        </div>
+        <p style={{ marginTop: 'var(--space-6)' }}>
+          <LinkButton to={`mailto:${company.contactEmail}`} variant="secondary">
+            Email {company.contactEmail}
+          </LinkButton>
+        </p>
+      </section>
     </AppShell>
   )
 }

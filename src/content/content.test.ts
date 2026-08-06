@@ -56,10 +56,27 @@ describe('content model', () => {
     }
   })
 
+  it('includes approved founder biography content', async () => {
+    const { company } = await import('./company')
+    expect(company.founder.name).toBe('Morten')
+    expect(company.founder.paragraphs.length).toBeGreaterThan(3)
+    expect(company.founderMission.toLowerCase()).toContain('smarter')
+  })
+
   it('only links to approved external product URLs', () => {
     expect(getProductById('scope2plan')?.productUrl).toMatch(/scope2plan\.com/)
     expect(getProductById('partnerforge')?.productUrl).toMatch(
       /partnerforge\.vercel\.app/,
     )
+  })
+})
+
+describe('legal drafts', () => {
+  it('keeps privacy and terms draft notices explicit', async () => {
+    const { legalDraftNotice, privacyPageContent, termsPageContent } =
+      await import('./legal')
+    expect(legalDraftNotice.toLowerCase()).toContain('draft')
+    expect(privacyPageContent.sections.length).toBeGreaterThan(3)
+    expect(termsPageContent.sections.length).toBeGreaterThan(3)
   })
 })
