@@ -69,8 +69,7 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
       <div
         id={menuId}
         className="ds-site-nav__mobile"
-        data-open={open}
-        hidden={!open}
+        data-open={open ? 'true' : 'false'}
       >
         <nav aria-label="Mobile primary">
           {links.map((item) => (
