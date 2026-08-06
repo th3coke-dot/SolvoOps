@@ -1,42 +1,84 @@
+import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { LegacyHashRedirect } from './components/LegacyHashRedirect'
-import {
-  AboutPage,
-  HowItWorksPage,
-  LabsPage,
-  NotFoundPage,
-  PilotPage,
-  PrivacyPage,
-  TermsPage,
-} from './pages/CompanyPages'
-import { DesignSystemPage } from './pages/DesignSystemPage'
 import { HomePage } from './pages/HomePage'
-import { PartnerForgePage, Scope2PlanPage } from './pages/ProductDetailPages'
-import { ProductsPage } from './pages/ProductsPage'
+
+const ProductsPage = lazy(() =>
+  import('./pages/ProductsPage').then((m) => ({ default: m.ProductsPage })),
+)
+const Scope2PlanPage = lazy(() =>
+  import('./pages/ProductDetailPages').then((m) => ({
+    default: m.Scope2PlanPage,
+  })),
+)
+const PartnerForgePage = lazy(() =>
+  import('./pages/ProductDetailPages').then((m) => ({
+    default: m.PartnerForgePage,
+  })),
+)
+const HowItWorksPage = lazy(() =>
+  import('./pages/CompanyPages').then((m) => ({ default: m.HowItWorksPage })),
+)
+const AboutPage = lazy(() =>
+  import('./pages/CompanyPages').then((m) => ({ default: m.AboutPage })),
+)
+const LabsPage = lazy(() =>
+  import('./pages/CompanyPages').then((m) => ({ default: m.LabsPage })),
+)
+const PilotPage = lazy(() =>
+  import('./pages/CompanyPages').then((m) => ({ default: m.PilotPage })),
+)
+const PrivacyPage = lazy(() =>
+  import('./pages/CompanyPages').then((m) => ({ default: m.PrivacyPage })),
+)
+const TermsPage = lazy(() =>
+  import('./pages/CompanyPages').then((m) => ({ default: m.TermsPage })),
+)
+const NotFoundPage = lazy(() =>
+  import('./pages/CompanyPages').then((m) => ({ default: m.NotFoundPage })),
+)
+const DesignSystemPage = lazy(() =>
+  import('./pages/DesignSystemPage').then((m) => ({
+    default: m.DesignSystemPage,
+  })),
+)
+
+function RouteFallback() {
+  return (
+    <div className="container" style={{ paddingBlock: 'var(--space-section)' }}>
+      <p role="status">Loading page…</p>
+    </div>
+  )
+}
 
 export default function App() {
   return (
     <>
       <LegacyHashRedirect />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/products/scope2plan" element={<Scope2PlanPage />} />
-        <Route path="/products/partnerforge" element={<PartnerForgePage />} />
-        <Route path="/scope2plan" element={<Navigate to="/products/scope2plan" replace />} />
-        <Route
-          path="/partnerforge"
-          element={<Navigate to="/products/partnerforge" replace />}
-        />
-        <Route path="/how-it-works" element={<HowItWorksPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/labs" element={<LabsPage />} />
-        <Route path="/pilot" element={<PilotPage />} />
-        <Route path="/privacy" element={<PrivacyPage />} />
-        <Route path="/terms" element={<TermsPage />} />
-        <Route path="/design-system" element={<DesignSystemPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={<RouteFallback />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/scope2plan" element={<Scope2PlanPage />} />
+          <Route path="/products/partnerforge" element={<PartnerForgePage />} />
+          <Route
+            path="/scope2plan"
+            element={<Navigate to="/products/scope2plan" replace />}
+          />
+          <Route
+            path="/partnerforge"
+            element={<Navigate to="/products/partnerforge" replace />}
+          />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/labs" element={<LabsPage />} />
+          <Route path="/pilot" element={<PilotPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/design-system" element={<DesignSystemPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </>
   )
 }
