@@ -43,15 +43,15 @@ export const pagesMetadata: Record<string, PageMetadata> = {
   },
   scope2plan: {
     path: '/products/scope2plan',
-    title: 'Scope2Plan | From Project Scope to Controlled Delivery',
+    title: 'Scope2Plan | Generate and Control for Delivery',
     description:
-      'Turn SOWs and project scopes into structured plans, complete project packages and controlled project lifecycles.',
+      'Scope2Plan Generate turns SOWs into project plans, runbooks and transition packs. Scope2Plan Control keeps the project model aligned as work changes.',
   },
   partnerforge: {
     path: '/products/partnerforge',
-    title: 'PartnerForge | Partner Discovery and Intelligence',
+    title: 'PartnerForge | Partner Intelligence and Ranked Shortlists',
     description:
-      'Discover and evaluate delivery partners using geographic intent, structured evidence and explainable ranking.',
+      'Discover and evaluate delivery partners with multi-region search, project-document matching, evidence and explainable ranking.',
   },
   howItWorks: {
     path: '/how-it-works',
@@ -75,7 +75,7 @@ export const pagesMetadata: Record<string, PageMetadata> = {
     path: '/pilot',
     title: `Discuss a pilot | ${company.name}`,
     description:
-      'Test Scope2Plan or PartnerForge against a real operational workflow.',
+      'Test Scope2Plan Generate, Scope2Plan Control or PartnerForge against a real operational workflow.',
   },
   privacy: {
     path: '/privacy',

@@ -36,6 +36,7 @@ export function Scope2PlanPage() {
           {page.headline}
         </h1>
         <p className="product-hero__lede">{page.lede}</p>
+        <p className="product-hero__lede">{page.modulesNote}</p>
         <div className="product-hero__actions">
           <LinkButton to={page.primaryCta.href} variant="primary">
             {page.primaryCta.label}
@@ -43,6 +44,28 @@ export function Scope2PlanPage() {
           <LinkButton to={page.secondaryCta.href} variant="secondary">
             {page.secondaryCta.label}
           </LinkButton>
+        </div>
+      </section>
+
+      <section className="container product-section" aria-labelledby="modules-title">
+        <SectionHeader
+          label="Product modules"
+          title="Generate and Control"
+          id="modules-title"
+          accent="scope2plan"
+          copy="One product family. Two modules for different moments in the delivery lifecycle."
+        />
+        <div className="product-module-grid">
+          {page.modules.map((module) => (
+            <article key={module.id} className="product-module">
+              <div className="product-module__meta">
+                <h3>{module.name}</h3>
+                <ProductStatusBadge status={module.status} />
+              </div>
+              <p className="product-module__title">{module.title}</p>
+              <p>{module.summary}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -56,12 +79,22 @@ export function Scope2PlanPage() {
         />
         <p className="product-value">{page.generate.value}</p>
         <Scope2PlanProofVisual />
+        <WorkflowSteps steps={[...page.generate.flow]} labelledBy="generate-title" />
         <h3 className="product-subtitle">Potential outputs</h3>
         <ul className="product-list">
           {page.generate.outputs.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
+        <div className="product-capability-grid" style={{ marginTop: 'var(--space-7)' }}>
+          <FeatureCard title="Generate capabilities">
+            <ul>
+              {product.availableCapabilities.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </FeatureCard>
+        </div>
       </section>
 
       <section className="container product-section" aria-labelledby="control-title">
@@ -79,15 +112,9 @@ export function Scope2PlanPage() {
           accent="scope2plan"
           id="control-title"
         />
+        <WorkflowSteps steps={[...page.control.flow]} labelledBy="control-title" />
         <div className="product-capability-grid">
-          <FeatureCard title="Available capabilities">
-            <ul>
-              {product.availableCapabilities.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </FeatureCard>
-          <FeatureCard title="Planned / Control capabilities">
+          <FeatureCard title="Control capabilities (in development)">
             <ul>
               {product.plannedCapabilities.map((item) => (
                 <li key={item}>{item}</li>
@@ -95,16 +122,6 @@ export function Scope2PlanPage() {
             </ul>
           </FeatureCard>
         </div>
-      </section>
-
-      <section className="container product-section" aria-labelledby="s2p-flow-title">
-        <SectionHeader
-          label="Workflow"
-          title="From scope upload to controlled updates"
-          id="s2p-flow-title"
-          accent="scope2plan"
-        />
-        <WorkflowSteps steps={[...page.workflow]} labelledBy="s2p-flow-title" />
       </section>
 
       <section className="container product-section" aria-labelledby="method-title">

@@ -1,7 +1,6 @@
 import { AppShell } from '../components/AppShell'
 import { LinkButton, ProductCard, SectionHeader } from '../components/ui'
 import {
-  company,
   labsProducts,
   pagesMetadata,
   primaryProducts,
@@ -31,7 +30,7 @@ export function ProductsPage() {
           label="Primary products"
           title="Scope2Plan and PartnerForge"
           id="primary-products"
-          copy={company.connectedWorkflowNote}
+          copy="Scope2Plan Generate and Control for planning and change. PartnerForge for partner intelligence across regions."
         />
         <div>
           {primaryProducts.map((product) => (

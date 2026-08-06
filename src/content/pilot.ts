@@ -8,13 +8,13 @@ export const pilotPageContent = {
   options: [
     {
       id: 'scope2plan',
-      title: 'Scope2Plan pilot',
-      body: 'Use a real or sanitised scope to test project extraction, package generation, methodology alignment or scope-change control.',
+      title: 'Scope2Plan Generate / Control pilot',
+      body: 'Use a sanitised SOW to test Generate package creation, or explore Control for scope-versioning, change impact and governed updates.',
     },
     {
       id: 'partnerforge',
       title: 'PartnerForge pilot',
-      body: 'Use a real sourcing requirement to test partner discovery, geographic relevance, evidence quality and ranking.',
+      body: 'Use a real sourcing requirement or project document to test multi-region discovery, filters, evidence quality, onboarded-network priority and ranking.',
     },
   ],
   confidentialityNotice:
@@ -29,7 +29,7 @@ export const pilotPageContent = {
 
 export const pilotProductOptions = [
   { value: '', label: 'Select a product' },
-  { value: 'scope2plan', label: 'Scope2Plan' },
+  { value: 'scope2plan', label: 'Scope2Plan (Generate / Control)' },
   { value: 'partnerforge', label: 'PartnerForge' },
   { value: 'both', label: 'Both Scope2Plan and PartnerForge' },
   { value: 'unsure', label: 'Not sure yet' },
