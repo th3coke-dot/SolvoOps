@@ -6,6 +6,7 @@ export {
   secondaryNavigation,
   legacyHomeNavigation,
   footerNavigation,
+  type NavItem,
 } from './navigation'
 export {
   products,

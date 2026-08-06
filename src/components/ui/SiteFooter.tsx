@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import {
   company,
   primaryProducts,
@@ -28,9 +28,9 @@ export function SiteFooter() {
       </div>
       <nav className="ds-site-footer__nav" aria-label="Footer">
         {links.map((item) => (
-          <Link key={item.id} to={item.href}>
+          <NavLink key={item.id} to={item.href} end={item.href === '/'}>
             {item.label}
-          </Link>
+          </NavLink>
         ))}
       </nav>
     </footer>
