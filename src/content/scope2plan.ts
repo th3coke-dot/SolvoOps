@@ -1,0 +1,61 @@
+export const scope2planPage = {
+  label: 'Scope2Plan',
+  headline: 'From project scope to controlled delivery',
+  lede: 'Scope2Plan helps delivery teams transform SOWs, project briefs and customer requirements into structured plans, complete project packages and controlled project lifecycles.',
+  primaryCta: { label: 'Discuss a Scope2Plan pilot', href: '/pilot?product=scope2plan' },
+  secondaryCta: {
+    label: 'View Scope2Plan',
+    href: 'https://www.scope2plan.com',
+  },
+  generate: {
+    title: 'Create the project package',
+    body: 'Upload or paste the source material, review the structured project information and generate the required planning and governance documents in minutes.',
+    value:
+      'Generate reduces repetitive project-initiation work while improving consistency and completeness.',
+    outputs: [
+      'Project delivery plan',
+      'Project management plan',
+      'RAID register',
+      'RACI',
+      'Milestone plan',
+      'Communication plan',
+      'Governance structure',
+      'Assumptions and dependencies',
+      'Transition plan',
+      'Operational runbook',
+      'Action register',
+      'Methodology-aligned project package',
+    ],
+  },
+  control: {
+    title: 'Keep the project aligned as it changes',
+    body: 'Control maintains the structured project model throughout delivery, helping teams understand scope revisions, assess change impact and keep plans, registers, evidence and obligations aligned.',
+    note: 'Control capabilities below are labelled according to current product status and must not be presented as fully available unless confirmed.',
+  },
+  workflow: [
+    { title: 'Upload scope', body: 'Bring in the SOW, brief or customer requirements.' },
+    { title: 'Extract project information', body: 'Structure the work into a usable project model.' },
+    { title: 'Review and confirm', body: 'Humans remain in control of important interpretations.' },
+    { title: 'Generate package', body: 'Produce the planning and governance artefacts.' },
+    { title: 'Establish baseline', body: 'Lock the agreed starting point for delivery.' },
+    { title: 'Track changes', body: 'Capture revisions as the engagement evolves.' },
+    { title: 'Update affected plans', body: 'Keep documents and registers aligned to the live model.' },
+  ],
+  methodology: {
+    title: 'Adapt the output to how your organisation delivers',
+    body: 'Scope2Plan is designed to support recognised project-management approaches and organisation-specific delivery methods. Profiles are aligned to these approaches — not certified or endorsed by methodology owners.',
+    profiles: [
+      'Scope2Plan Standard',
+      'PMP-aligned',
+      'PRINCE2-aligned',
+      'ITIL transition',
+      'Agile delivery',
+      'Organisation-defined methodologies',
+    ],
+  },
+  finalCta: {
+    title: 'Turn your next project scope into a structured delivery package.',
+    href: '/pilot?product=scope2plan',
+    label: 'Discuss a Scope2Plan pilot',
+  },
+} as const
