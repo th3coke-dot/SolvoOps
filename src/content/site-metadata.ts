@@ -79,12 +79,13 @@ export const pagesMetadata: Record<string, PageMetadata> = {
   privacy: {
     path: '/privacy',
     title: `Privacy | ${company.name}`,
-    description: 'Privacy information for SolvoOps.com.',
+    description:
+      'How SolvoOps handles information collected through the marketing website and pilot request flow.',
   },
   terms: {
     path: '/terms',
     title: `Terms | ${company.name}`,
-    description: 'Terms of use for SolvoOps.com.',
+    description: 'Terms of use for the SolvoOps marketing website.',
   },
   notFound: {
     path: '/404',

@@ -13,6 +13,11 @@ import {
   labsProducts,
   pagesMetadata,
 } from '../content'
+import {
+  legalDraftNotice,
+  privacyPageContent,
+  termsPageContent,
+} from '../content/legal'
 import { pilotPageContent } from '../content/pilot'
 import './ProductPage.css'
 
@@ -219,14 +224,33 @@ export function PrivacyPage() {
   return (
     <AppShell
       metadata={pagesMetadata.privacy}
-      eyebrow="Legal"
-      title="Privacy"
-      copy="Placeholder privacy page. Full policy copy will be added with legal review before production release."
+      showPageHeader={false}
+      mainClassName="product-page"
     >
-      <p>
-        Contact:{' '}
-        <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
-      </p>
+      <section className="container product-hero" aria-labelledby="privacy-title">
+        <p className="product-hero__label">{privacyPageContent.label}</p>
+        <h1 className="product-hero__title" id="privacy-title">
+          {privacyPageContent.title}
+        </h1>
+        <p className="product-hero__lede">{privacyPageContent.lede}</p>
+        <p className="product-hero__lede" role="note">
+          {legalDraftNotice}
+        </p>
+      </section>
+      <section className="container product-section" aria-label="Privacy details">
+        <div className="product-capability-grid">
+          {privacyPageContent.sections.map((section) => (
+            <FeatureCard key={section.title} title={section.title}>
+              {section.body}
+            </FeatureCard>
+          ))}
+        </div>
+        <p style={{ marginTop: 'var(--space-6)' }}>
+          <LinkButton to={`mailto:${company.contactEmail}`} variant="secondary">
+            Email {company.contactEmail}
+          </LinkButton>
+        </p>
+      </section>
     </AppShell>
   )
 }
@@ -235,14 +259,33 @@ export function TermsPage() {
   return (
     <AppShell
       metadata={pagesMetadata.terms}
-      eyebrow="Legal"
-      title="Terms"
-      copy="Placeholder terms page. Full terms will be added with legal review before production release."
+      showPageHeader={false}
+      mainClassName="product-page"
     >
-      <p>
-        Contact:{' '}
-        <a href={`mailto:${company.contactEmail}`}>{company.contactEmail}</a>
-      </p>
+      <section className="container product-hero" aria-labelledby="terms-title">
+        <p className="product-hero__label">{termsPageContent.label}</p>
+        <h1 className="product-hero__title" id="terms-title">
+          {termsPageContent.title}
+        </h1>
+        <p className="product-hero__lede">{termsPageContent.lede}</p>
+        <p className="product-hero__lede" role="note">
+          {legalDraftNotice}
+        </p>
+      </section>
+      <section className="container product-section" aria-label="Terms details">
+        <div className="product-capability-grid">
+          {termsPageContent.sections.map((section) => (
+            <FeatureCard key={section.title} title={section.title}>
+              {section.body}
+            </FeatureCard>
+          ))}
+        </div>
+        <p style={{ marginTop: 'var(--space-6)' }}>
+          <LinkButton to={`mailto:${company.contactEmail}`} variant="secondary">
+            Email {company.contactEmail}
+          </LinkButton>
+        </p>
+      </section>
     </AppShell>
   )
 }

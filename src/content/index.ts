@@ -34,6 +34,11 @@ export {
   type PilotFormValues,
 } from './pilot'
 export {
+  legalDraftNotice,
+  privacyPageContent,
+  termsPageContent,
+} from './legal'
+export {
   siteMetadata,
   pagesMetadata,
   metadataForProduct,

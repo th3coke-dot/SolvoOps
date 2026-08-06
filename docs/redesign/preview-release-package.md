@@ -58,7 +58,7 @@ Ready for stakeholder preview review when:
 - [x] Tip preview deployed successfully
 - [ ] Product status labels confirmed by owner
 - [ ] Founder bio decision (omit vs approved copy)
-- [ ] Privacy / Terms legal copy scheduled
+- [x] Privacy / Terms draft pages published (still need counsel review before treating as final)
 - [x] Analytics integrated on redesign tip (`@vercel/analytics`; close orphan PR #2 without merging into old branch)
 - [x] Lighthouse gates met on local production preview (see `preview-qa-results.md`; preview URL SEO noindex is expected)
 
@@ -75,4 +75,4 @@ Ready for stakeholder preview review when:
 - Do **not** change DNS
 - Do **not** index preview URLs intentionally (keep noindex)
 
-See also: `rollback.md`, `preview-workflow.md`, `release-checklist.md`
+See also: `rollback.md`, `preview-workflow.md`, `release-checklist.md`, `merge-path.md`, `preview-qa-results.md`

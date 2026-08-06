@@ -7,10 +7,11 @@
 - [ ] Preview QA script completed (`preview-release-package.md`)
 - [ ] Product status enum confirmed (pilot / private-preview / planned labels)
 - [ ] External product URLs still correct
-- [ ] Privacy and Terms copy approved (or accepted as temporary placeholders)
+- [ ] Privacy and Terms draft reviewed by counsel (or explicitly accepted as temporary draft)
 - [ ] Founder / about facts approved or still intentionally omitted
-- [ ] Coordinate or close draft PR #2 (Vercel Analytics) so events do not double-fire
+- [ ] Close draft PR #2 (Vercel Analytics on old branch) — analytics already on redesign tip
 - [ ] Rollback plan acknowledged (`rollback.md`)
+- [ ] Merge path chosen (`merge-path.md` Option A recommended)
 
 ## Merge
 - [ ] Merge stacked PRs in order **or** merge tip branch to `main` after rebase/squash agreement
