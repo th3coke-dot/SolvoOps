@@ -28,6 +28,14 @@ export { homepageContent } from './homepage'
 export { scope2planPage } from './scope2plan'
 export { partnerforgePage } from './partnerforge'
 export {
+  pilotPageContent,
+  pilotProductOptions,
+  pilotContextOptions,
+  emptyPilotFormValues,
+  pilotFormLimits,
+  type PilotFormValues,
+} from './pilot'
+export {
   siteMetadata,
   pagesMetadata,
   metadataForProduct,
