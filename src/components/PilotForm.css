@@ -1,0 +1,117 @@
+.pilot-form {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 40rem;
+}
+
+.pilot-form__intro,
+.pilot-form__notice {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.pilot-form__notice {
+  padding: var(--space-4);
+  border-left: 3px solid var(--color-signal);
+  background: rgba(212, 162, 76, 0.08);
+  color: var(--color-ink);
+}
+
+.pilot-form__status {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-danger);
+  background: #fef3f2;
+  color: var(--color-danger);
+  border-radius: var(--radius-sm);
+}
+
+.pilot-form__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 720px) {
+  .pilot-form__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pilot-form__span {
+    grid-column: 1 / -1;
+  }
+}
+
+.pilot-field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.pilot-field label {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.pilot-field input,
+.pilot-field select,
+.pilot-field textarea {
+  width: 100%;
+  min-height: var(--control-height);
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.pilot-field textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.pilot-field input[aria-invalid='true'],
+.pilot-field select[aria-invalid='true'],
+.pilot-field textarea[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.pilot-field__hint {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.pilot-field__error {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-danger);
+  font-weight: 600;
+}
+
+.pilot-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.pilot-form__hp {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.pilot-form--success {
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(18, 60, 52, 0.04);
+}
+
+.pilot-form__success-title {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}

@@ -1,0 +1,27 @@
+export const useCases = {
+  heading: 'Designed for organisations where delivery complexity has a real cost',
+  groups: [
+    'IT services',
+    'Managed services',
+    'Field services',
+    'Infrastructure delivery',
+    'Data-centre projects',
+    'Multi-country rollouts',
+    'Consulting and transition programmes',
+    'Partner and supplier networks',
+  ],
+  audiences: [
+    'Managed service providers',
+    'IT service-delivery organisations',
+    'Infrastructure delivery organisations',
+    'Field-service organisations',
+    'Project and programme management offices',
+    'Service delivery managers',
+    'Project managers',
+    'Transition managers',
+    'Partner and supplier managers',
+    'Sourcing teams',
+    'Consulting organisations',
+    'Enterprise operations leaders',
+  ],
+} as const

@@ -1,0 +1,67 @@
+import type { ReactNode } from 'react'
+import { DocumentMeta } from './DocumentMeta'
+import { SectionHeader, SiteFooter, SiteNav } from './ui'
+import type { PageMetadata } from '../content'
+
+type AppShellProps = {
+  metadata: PageMetadata
+  title?: string
+  eyebrow?: string
+  copy?: ReactNode
+  children: ReactNode
+  showShellNav?: boolean
+  /** When false, page supplies its own H1 / hero. */
+  showPageHeader?: boolean
+  mainClassName?: string
+}
+
+/**
+ * Global redesign shell: skip-link, sticky nav, footer.
+ * Homepage may omit the default page header and supply a custom hero.
+ */
+export function AppShell({
+  metadata,
+  title,
+  eyebrow,
+  copy,
+  children,
+  showShellNav = true,
+  showPageHeader = true,
+  mainClassName,
+}: AppShellProps) {
+  return (
+    <>
+      <DocumentMeta metadata={metadata} />
+      <div className="ds-app">
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        {showShellNav ? <SiteNav /> : null}
+        <main
+          id="main-content"
+          className={mainClassName ?? 'container'}
+          style={
+            mainClassName
+              ? undefined
+              : { paddingBlock: 'var(--space-section)' }
+          }
+        >
+          {showPageHeader && title ? (
+            <>
+              <SectionHeader
+                label={eyebrow}
+                title={title}
+                copy={copy}
+                titleAs="h1"
+              />
+              <div style={{ marginTop: 'var(--space-8)' }}>{children}</div>
+            </>
+          ) : (
+            children
+          )}
+        </main>
+        <SiteFooter />
+      </div>
+    </>
+  )
+}

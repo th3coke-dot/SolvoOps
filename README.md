@@ -1,15 +1,9 @@
-# SolvoOps
+# SolvoOps website
 
-Live site: [solvoops.com](https://solvoops.com)
+Marketing site for [SolvoOps](https://solvoops.com) — operational intelligence software for complex service delivery.
 
-Company website for SolvoOps — tools that solve operational bottlenecks.
-
-Demonstrated work featured on the site:
-
-- [Scope2Plan](https://scope2plan.com)
-- [BizDayz](https://www.bizdayz.com)
-- [PartnerForge](https://partnerforge.vercel.app)
-- [AutoName](https://www.autoname.pro)
+**Primary products:** [Scope2Plan](https://www.scope2plan.com), [PartnerForge](https://partnerforge.vercel.app)  
+**Labs:** [BizDayz](https://www.bizdayz.com), [AutoNameSearch](https://www.autoname.pro)
 
 ## Development
 
@@ -18,11 +12,14 @@ npm install
 npm run dev
 ```
 
-## Production build
-
 ```bash
+npm test
 npm run build
 npm run preview
 ```
 
-Primary contact is wired to `hello@solvoops.com`.
+## Redesign docs
+
+Release and rollback notes live under `docs/redesign/` (`release-checklist.md`, `rollback.md`, `merge-path.md`).
+
+Contact: `hello@solvoops.com`
