@@ -38,6 +38,5 @@ Artifacts: `/opt/cursor/artifacts/lighthouse/`.
 
 ## Still owner-gated before production
 - Product status label confirmation
-- Founder bio decision
-- Privacy / Terms legal copy
+- Counsel review of Privacy / Terms drafts (or explicit acceptance as temporary)
 - Explicit production-release instruction

@@ -62,7 +62,8 @@ export const pagesMetadata: Record<string, PageMetadata> = {
   about: {
     path: '/about',
     title: `About | ${company.name}`,
-    description: company.mission,
+    description:
+      'SolvoOps was founded by Morten to turn complex operational work into focused, repeatable software systems.',
   },
   labs: {
     path: '/labs',

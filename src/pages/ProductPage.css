@@ -90,3 +90,24 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.about-founder {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 48rem;
+  margin-top: var(--space-6);
+}
+
+.about-founder__p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+.about-founder__mission {
+  margin: var(--space-4) 0 0;
+  padding: var(--space-4) 0 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink);
+  font-size: var(--text-lg);
+}

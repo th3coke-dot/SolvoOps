@@ -115,18 +115,33 @@ export function AboutPage() {
           title="Automation with accountability"
           copy="We do not add AI to a workflow simply because it is available. We use automation, structured data and AI where they can improve speed, consistency and decision quality without removing human accountability."
         />
-        <p>
-          Founder biography is intentionally omitted until approved factual copy
-          is provided. Verified themes that may appear later include service
-          delivery, operational workflows, project planning, partner sourcing and
-          building focused software tools.
-        </p>
         <div className="product-capability-grid" style={{ marginTop: 'var(--space-7)' }}>
           {company.pillars.map((pillar) => (
             <FeatureCard key={pillar.id} title={pillar.title}>
               {pillar.body}
             </FeatureCard>
           ))}
+        </div>
+      </section>
+      <section
+        className="container product-section"
+        aria-labelledby="founder-title"
+      >
+        <SectionHeader
+          label="Founder"
+          title={`${company.founder.name}, ${company.founder.role}`}
+          copy={company.founder.summary}
+          id="founder-title"
+        />
+        <div className="about-founder">
+          {company.founder.paragraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 48)} className="about-founder__p">
+              {paragraph}
+            </p>
+          ))}
+          <p className="about-founder__mission">
+            <strong>His mission is simple:</strong> {company.founderMission}
+          </p>
         </div>
       </section>
     </AppShell>

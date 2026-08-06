@@ -7,8 +7,8 @@
 - [ ] Preview QA script completed (`preview-release-package.md`)
 - [ ] Product status enum confirmed (pilot / private-preview / planned labels)
 - [ ] External product URLs still correct
+- [x] Founder / about facts approved and published on `/about`
 - [ ] Privacy and Terms draft reviewed by counsel (or explicitly accepted as temporary draft)
-- [ ] Founder / about facts approved or still intentionally omitted
 - [ ] Close draft PR #2 (Vercel Analytics on old branch) — analytics already on redesign tip
 - [ ] Rollback plan acknowledged (`rollback.md`)
 - [ ] Merge path chosen (`merge-path.md` Option A recommended)

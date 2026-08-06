@@ -20,5 +20,5 @@ Draft PR #2 targets the pre-redesign branch. Analytics is now on the redesign ti
 
 ## Next human action
 1. Review tip preview: https://solvoops-git-cursor-solvoops-preview-release-2034-biz-days.vercel.app
-2. Confirm owner-gated items (status labels, founder bio, counsel review of legal drafts)
+2. Confirm remaining owner-gated items (product status labels, counsel review of legal drafts)
 3. When satisfied, issue an **explicit production-release instruction** before any promote
