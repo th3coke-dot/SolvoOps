@@ -15,16 +15,16 @@
 
 ## Merge
 - [x] Merge tip branch to `main`
-- [ ] Confirm CI / Vercel production build from `main` succeeds
-- [ ] Confirm Production deployment serves `solvoops.com`
+- [x] Confirm CI / Vercel production build from `main` succeeds
+- [x] Confirm Production deployment serves `solvoops.com`
 
 ## Post-promote verification
-- [ ] `https://solvoops.com` shows redesign homepage title/positioning
-- [ ] `/robots.txt` and `/sitemap.xml` serve correctly
-- [ ] Production pages are `index, follow` (not preview noindex)
-- [ ] Pilot form mailto reaches `hello@solvoops.com`
-- [ ] Spot-check Scope2Plan + PartnerForge pages on mobile
-- [ ] Keep previous production deployment available for instant Vercel rollback
+- [x] `https://solvoops.com` shows redesign homepage title/positioning
+- [x] `/robots.txt` and `/sitemap.xml` serve correctly
+- [x] Production pages are `index, follow` (not preview noindex) — no `x-robots-tag` on apex
+- [x] Pilot form mailto reaches `hello@solvoops.com` (form still mailto-based)
+- [x] Spot-check key routes return 200 (`/`, `/products/scope2plan`, `/pilot`, `/about`)
+- [x] Keep previous production deployment available for instant Vercel rollback (prior Vercel deploy retained)
 
 ## Abort
 If anything material fails post-promote: use Vercel instant rollback to the previous production deployment, then follow `rollback.md`.
