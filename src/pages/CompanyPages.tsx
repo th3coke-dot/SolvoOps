@@ -104,25 +104,6 @@ export function AboutPage() {
           knowledge-dependent workflows into structured, repeatable systems.
         </p>
       </section>
-      <section className="container product-section" aria-labelledby="mission-title">
-        <SectionHeader
-          label="Mission"
-          title={company.mission}
-          id="mission-title"
-        />
-        <SectionHeader
-          label="Product philosophy"
-          title="Automation with accountability"
-          copy="We do not add AI to a workflow simply because it is available. We use automation, structured data and AI where they can improve speed, consistency and decision quality without removing human accountability."
-        />
-        <div className="product-capability-grid" style={{ marginTop: 'var(--space-7)' }}>
-          {company.pillars.map((pillar) => (
-            <FeatureCard key={pillar.id} title={pillar.title}>
-              {pillar.body}
-            </FeatureCard>
-          ))}
-        </div>
-      </section>
       <section
         className="container product-section"
         aria-labelledby="founder-title"
@@ -139,9 +120,29 @@ export function AboutPage() {
               {paragraph}
             </p>
           ))}
-          <p className="about-founder__mission">
-            <strong>His mission is simple:</strong> {company.founderMission}
-          </p>
+          <blockquote className="about-founder__mission">
+            <strong>His mission is simple</strong>
+            {company.founderMission}
+          </blockquote>
+        </div>
+      </section>
+      <section className="container product-section" aria-labelledby="mission-title">
+        <SectionHeader
+          label="Company mission"
+          title={company.mission}
+          id="mission-title"
+        />
+        <SectionHeader
+          label="Product philosophy"
+          title="Automation with accountability"
+          copy="We do not add AI to a workflow simply because it is available. We use automation, structured data and AI where they can improve speed, consistency and decision quality without removing human accountability."
+        />
+        <div className="product-capability-grid" style={{ marginTop: 'var(--space-7)' }}>
+          {company.pillars.map((pillar) => (
+            <FeatureCard key={pillar.id} title={pillar.title}>
+              {pillar.body}
+            </FeatureCard>
+          ))}
         </div>
       </section>
     </AppShell>

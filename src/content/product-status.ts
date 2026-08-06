@@ -15,8 +15,8 @@ export const productStatusLabels: Record<ProductStatus, string> = {
 }
 
 /**
- * Draft statuses from PR 1 audit. Treat as provisional until product-owner
- * confirmation (see docs/redesign/content-inventory.md).
+ * Product availability statuses — owner-confirmed for production launch (2026-08-06).
+ * Keep page components reading from this map; do not hard-code labels in UI.
  */
 export const productStatusById = {
   'scope2plan-generate': 'available',

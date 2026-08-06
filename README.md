@@ -5,8 +5,6 @@ Marketing site for [SolvoOps](https://solvoops.com) — operational intelligence
 **Primary products:** [Scope2Plan](https://www.scope2plan.com), [PartnerForge](https://partnerforge.vercel.app)  
 **Labs:** [BizDayz](https://www.bizdayz.com), [AutoNameSearch](https://www.autoname.pro)
 
-> Production (`solvoops.com`) remains on the pre-redesign experience until an explicit production-release instruction. Redesign work is reviewed on Vercel **preview** deployments only.
-
 ## Development
 
 ```bash
@@ -20,13 +18,8 @@ npm run build
 npm run preview
 ```
 
-## Redesign stack
+## Redesign docs
 
-Stacked draft PRs live under `cursor/solvoops-*-2034`. Tip of stack for preview review:
-
-- Branch: `cursor/solvoops-preview-release-2034`
-- Docs: `docs/redesign/preview-release-package.md`
-- Merge path: `docs/redesign/merge-path.md`
-- Rollback: `docs/redesign/rollback.md`
+Release and rollback notes live under `docs/redesign/` (`release-checklist.md`, `rollback.md`, `merge-path.md`).
 
 Contact: `hello@solvoops.com`

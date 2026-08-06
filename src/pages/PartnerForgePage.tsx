@@ -1,4 +1,5 @@
 import { AppShell } from '../components/AppShell'
+import { PartnerForgeProofVisual } from '../components/ProductProofVisuals'
 import {
   CtaPanel,
   FeatureCard,
@@ -23,11 +24,13 @@ export function PartnerForgePage() {
     <AppShell
       metadata={pagesMetadata.partnerforge}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--partnerforge"
     >
       <section className="container product-hero" aria-labelledby="pf-title">
-        <p className="product-hero__label">{page.label}</p>
-        <ProductStatusBadge status={product.status} />
+        <div className="product-hero__meta">
+          <p className="product-hero__label">{page.label}</p>
+          <ProductStatusBadge status={product.status} />
+        </div>
         <h1 className="product-hero__title" id="pf-title">
           {page.headline}
         </h1>
@@ -50,6 +53,7 @@ export function PartnerForgePage() {
           id="pf-problem"
           accent="partnerforge"
         />
+        <PartnerForgeProofVisual />
       </section>
 
       <section className="container product-section" aria-labelledby="pf-flow">

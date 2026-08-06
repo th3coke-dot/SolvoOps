@@ -1,8 +1,8 @@
 import { homepageContent } from '../content/homepage'
 
 /**
- * Illustrative workflow diagram — not a product screenshot.
- * Scope → Plan → Source → Deliver → Control
+ * Connected-workflow diagram for below-the-fold use — continuous process,
+ * not a hero card strip.
  */
 export function DeliveryWorkflowVisual() {
   const steps = homepageContent.heroFlow
@@ -13,50 +13,51 @@ export function DeliveryWorkflowVisual() {
       </figcaption>
       <svg
         className="home-flow__svg"
-        viewBox="0 0 920 160"
+        viewBox="0 0 1000 120"
         role="img"
         aria-hidden="true"
         focusable="false"
       >
         <defs>
           <linearGradient id="flow-line" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="#123c34" stopOpacity="0.25" />
-            <stop offset="50%" stopColor="#d4a24c" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#0f766e" stopOpacity="0.7" />
+            <stop offset="0%" stopColor="#123c34" stopOpacity="0.2" />
+            <stop offset="40%" stopColor="#d4a24c" stopOpacity="0.95" />
+            <stop offset="100%" stopColor="#0f766e" stopOpacity="0.75" />
           </linearGradient>
         </defs>
         <path
           className="home-flow__path"
-          d="M40 72 H880"
+          d="M40 48 H960"
           stroke="url(#flow-line)"
-          strokeWidth="2"
+          strokeWidth="2.5"
           fill="none"
         />
         {steps.map((step, index) => {
-          const x = 40 + index * 210
+          const x = 40 + index * 230
+          const isProduct = step.id === 'plan' || step.id === 'source' || step.id === 'control'
           return (
-            <g key={step.id} transform={`translate(${x} 36)`}>
-              <rect
-                width="140"
-                height="88"
-                rx="6"
-                fill="#ffffff"
-                stroke="rgba(18,60,52,0.16)"
+            <g key={step.id} className="home-flow__step" transform={`translate(${x} 0)`}>
+              <circle
+                cx="0"
+                cy="48"
+                r="7"
+                fill={isProduct ? '#d4a24c' : '#123c34'}
+                opacity={isProduct ? 1 : 0.55}
               />
               <text
-                x="70"
-                y="40"
+                x="0"
+                y="84"
                 textAnchor="middle"
                 fontFamily="Bricolage Grotesque, Georgia, serif"
-                fontSize="22"
+                fontSize="20"
                 fontWeight="700"
                 fill="#123c34"
               >
                 {step.label}
               </text>
               <text
-                x="70"
-                y="64"
+                x="0"
+                y="106"
                 textAnchor="middle"
                 fontFamily="Source Sans 3, sans-serif"
                 fontSize="12"

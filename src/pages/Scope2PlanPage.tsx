@@ -1,4 +1,5 @@
 import { AppShell } from '../components/AppShell'
+import { Scope2PlanProofVisual } from '../components/ProductProofVisuals'
 import {
   CtaPanel,
   FeatureCard,
@@ -24,11 +25,13 @@ export function Scope2PlanPage() {
     <AppShell
       metadata={pagesMetadata.scope2plan}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--scope2plan"
     >
       <section className="container product-hero" aria-labelledby="s2p-title">
-        <p className="product-hero__label">{page.label}</p>
-        <ProductStatusBadge status={product.status} />
+        <div className="product-hero__meta">
+          <p className="product-hero__label">{page.label}</p>
+          <ProductStatusBadge status={product.status} />
+        </div>
         <h1 className="product-hero__title" id="s2p-title">
           {page.headline}
         </h1>
@@ -52,6 +55,7 @@ export function Scope2PlanPage() {
           id="generate-title"
         />
         <p className="product-value">{page.generate.value}</p>
+        <Scope2PlanProofVisual />
         <h3 className="product-subtitle">Potential outputs</h3>
         <ul className="product-list">
           {page.generate.outputs.map((item) => (
