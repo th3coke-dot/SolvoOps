@@ -16,12 +16,15 @@ type ProductCardProps = {
   ctaLabel?: string
   /** Prefer internal product route over external URL for site IA cards. */
   preferInternalRoute?: boolean
+  /** Render CTA with button mass instead of text link. */
+  emphasizeCta?: boolean
 }
 
 export function ProductCard({
   product,
   ctaLabel = 'Explore',
   preferInternalRoute = true,
+  emphasizeCta = false,
 }: ProductCardProps) {
   const accent = productAccent(product)
   const href =
@@ -40,16 +43,27 @@ export function ProductCard({
         <p className="ds-product-card__headline">{product.headline}</p>
         <p className="ds-product-card__description">{product.description}</p>
       </div>
-      <span className="ds-product-card__cta">
+      <span
+        className={
+          emphasizeCta ? 'ds-btn ds-btn--secondary ds-btn--sm' : 'ds-product-card__cta'
+        }
+      >
         {ctaLabel} {product.shortName} →
       </span>
     </>
   )
 
+  const className = [
+    'ds-product-card',
+    emphasizeCta ? 'ds-product-card--emphasized' : '',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
   if (external) {
     return (
       <a
-        className="ds-product-card"
+        className={className}
         href={href}
         style={accentCssVars(accent)}
         target="_blank"
@@ -61,7 +75,7 @@ export function ProductCard({
   }
 
   return (
-    <Link className="ds-product-card" to={href} style={accentCssVars(accent)}>
+    <Link className={className} to={href} style={accentCssVars(accent)}>
       {content}
     </Link>
   )

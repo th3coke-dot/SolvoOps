@@ -27,10 +27,10 @@ export const primaryNavigation: NavItem[] = [
   },
   { id: 'how-it-works', label: 'How It Works', href: '/how-it-works' },
   { id: 'about', label: 'About', href: '/about' },
-  { id: 'pilot', label: 'Pilot', href: '/pilot' },
 ]
 
 export const secondaryNavigation: NavItem[] = [
+  { id: 'pilot', label: 'Pilot', href: '/pilot', secondary: true },
   { id: 'labs', label: 'Labs', href: '/labs', secondary: true },
   { id: 'privacy', label: 'Privacy', href: '/privacy', secondary: true },
   { id: 'terms', label: 'Terms', href: '/terms', secondary: true },

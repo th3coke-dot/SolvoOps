@@ -139,9 +139,10 @@ export function AboutPage() {
               {paragraph}
             </p>
           ))}
-          <p className="about-founder__mission">
-            <strong>His mission is simple:</strong> {company.founderMission}
-          </p>
+          <blockquote className="about-founder__mission">
+            <strong>Mission</strong>
+            {company.founderMission}
+          </blockquote>
         </div>
       </section>
     </AppShell>

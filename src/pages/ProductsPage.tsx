@@ -22,6 +22,7 @@ export function ProductsPage() {
             product={product}
             ctaLabel="Explore"
             preferInternalRoute
+            emphasizeCta
           />
         ))}
       </div>

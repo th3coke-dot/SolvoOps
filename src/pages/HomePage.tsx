@@ -1,11 +1,10 @@
 import { AppShell } from '../components/AppShell'
 import { DeliveryWorkflowVisual } from '../components/DeliveryWorkflowVisual'
+import { HeroAtmosphere } from '../components/HeroAtmosphere'
 import {
   CtaPanel,
-  FeatureCard,
   LinkButton,
   ProductCard,
-  ProductStatusBadge,
   SectionHeader,
   WorkflowSteps,
 } from '../components/ui'
@@ -27,22 +26,24 @@ export function HomePage() {
       showPageHeader={false}
       mainClassName="home"
     >
-      <section className="home-hero container" aria-labelledby="home-hero-title">
-        <p className="home-hero__eyebrow">{content.eyebrow}</p>
-        <p className="home-hero__brand">{company.name}</p>
-        <h1 className="home-hero__title" id="home-hero-title">
-          {content.headline}
-        </h1>
-        <p className="home-hero__lede">{content.lede}</p>
-        <div className="home-hero__actions">
-          <LinkButton to={content.primaryCta.href} variant="primary">
-            {content.primaryCta.label}
-          </LinkButton>
-          <LinkButton to={content.secondaryCta.href} variant="secondary">
-            {content.secondaryCta.label}
-          </LinkButton>
+      <section className="home-hero" aria-labelledby="home-hero-title">
+        <HeroAtmosphere />
+        <div className="home-hero__content container">
+          <p className="home-hero__eyebrow reveal">{content.eyebrow}</p>
+          <p className="home-hero__brand reveal reveal--delay-1">{company.name}</p>
+          <h1 className="home-hero__title reveal reveal--delay-2" id="home-hero-title">
+            {content.headline}
+          </h1>
+          <p className="home-hero__lede reveal reveal--delay-3">{content.lede}</p>
+          <div className="home-hero__actions reveal reveal--delay-4">
+            <LinkButton to={content.primaryCta.href} variant="primary">
+              {content.primaryCta.label}
+            </LinkButton>
+            <LinkButton to={content.secondaryCta.href} variant="ink">
+              {content.secondaryCta.label}
+            </LinkButton>
+          </div>
         </div>
-        <DeliveryWorkflowVisual />
       </section>
 
       <section className="home-section container" aria-labelledby="problem-title">
@@ -52,13 +53,14 @@ export function HomePage() {
           copy={content.problem.copy}
           id="problem-title"
         />
-        <div className="home-grid home-grid--3">
+        <ul className="home-problem-list">
           {content.problem.items.map((item) => (
-            <FeatureCard key={item.title} title={item.title}>
-              {item.body}
-            </FeatureCard>
+            <li key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
       <section
@@ -74,33 +76,35 @@ export function HomePage() {
         />
         <div className="home-products">
           {primaryProducts.map((product) => (
-            <div key={product.id} className="home-products__item">
-              <ProductStatusBadge status={product.status} />
-              <ProductCard
-                product={product}
-                ctaLabel="Explore"
-                preferInternalRoute
-              />
-            </div>
+            <ProductCard
+              key={product.id}
+              product={product}
+              ctaLabel="Explore"
+              preferInternalRoute
+              emphasizeCta
+            />
           ))}
         </div>
       </section>
 
-      <section className="home-section container" aria-labelledby="workflow-title">
-        <SectionHeader
-          label={content.workflow.label}
-          title={content.workflow.title}
-          copy={
-            <>
-              <p>{content.workflow.copy}</p>
-              <p>
-                <em>{content.workflow.note}</em>
-              </p>
-            </>
-          }
-          id="workflow-title"
-        />
-        <WorkflowSteps steps={[...content.workflow.steps]} labelledBy="workflow-title" />
+      <section className="home-section home-section--workflow" aria-labelledby="workflow-title">
+        <div className="container">
+          <SectionHeader
+            label={content.workflow.label}
+            title={content.workflow.title}
+            copy={
+              <>
+                <p>{content.workflow.copy}</p>
+                <p>
+                  <em>{content.workflow.note}</em>
+                </p>
+              </>
+            }
+            id="workflow-title"
+          />
+          <DeliveryWorkflowVisual />
+          <WorkflowSteps steps={[...content.workflow.steps]} labelledBy="workflow-title" />
+        </div>
       </section>
 
       <section className="home-section container" aria-labelledby="why-title">
@@ -109,16 +113,17 @@ export function HomePage() {
           title={content.why.title}
           id="why-title"
         />
-        <div className="home-grid home-grid--3">
+        <ul className="home-principles">
           {content.why.principles.map((item) => (
-            <FeatureCard key={item.title} title={item.title}>
-              {item.body}
-            </FeatureCard>
+            <li key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
-      <section className="home-section container" aria-labelledby="audience-title">
+      <section className="home-section home-section--compact container" aria-labelledby="audience-title">
         <SectionHeader
           label={content.audience.label}
           title={content.audience.title}
