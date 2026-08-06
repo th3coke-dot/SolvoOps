@@ -1,0 +1,93 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(212, 162, 76, 0.1), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(18, 60, 52, 0.07), transparent 50%),
+    linear-gradient(180deg, var(--color-mist) 0%, var(--color-paper) 42%, var(--color-white) 100%);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.container {
+  width: min(100% - (var(--gutter) * 2), var(--max));
+  margin-inline: auto;
+}
+
+.container--narrow {
+  width: min(100% - (var(--gutter) * 2), var(--max-narrow));
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 100;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-ink);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+  left: var(--space-3);
+  top: var(--space-3);
+}
