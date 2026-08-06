@@ -5,13 +5,18 @@
 - `release-checklist.md` — production cutover steps (**gated on explicit instruction**)
 - `rollback.md` — preview and post-release rollback
 - Updated `preview-workflow.md` pointers
+- Soft-launch polish on tip: drop unused legacy CSS, integrate `@vercel/analytics`, slim fonts
+- `preview-qa-results.md` — visual QA + Lighthouse gates
 
 ## Explicitly not delivered
 - No production merge
 - No Vercel Production promote
 - No DNS changes
 
+## Analytics note
+Draft PR #2 targets the pre-redesign branch. Analytics is now on the redesign tip — close PR #2 without merging that old branch.
+
 ## Next human action
-1. Review tip preview from this branch
-2. Complete QA script
+1. Review tip preview: https://solvoops-git-cursor-solvoops-preview-release-2034-biz-days.vercel.app
+2. Confirm owner-gated items (status labels, founder bio, legal copy)
 3. When satisfied, issue an **explicit production-release instruction** before any promote

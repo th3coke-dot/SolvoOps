@@ -8,8 +8,7 @@ export type NavItem = {
 }
 
 /**
- * Target primary navigation for the redesign shell (PR 4+).
- * Homepage continues to use legacy hash nav until the shell ships.
+ * Primary navigation for the redesign shell.
  */
 export const primaryNavigation: NavItem[] = [
   { id: 'home', label: 'Home', href: '/' },
@@ -35,12 +34,6 @@ export const secondaryNavigation: NavItem[] = [
   { id: 'labs', label: 'Labs', href: '/labs', secondary: true },
   { id: 'privacy', label: 'Privacy', href: '/privacy', secondary: true },
   { id: 'terms', label: 'Terms', href: '/terms', secondary: true },
-]
-
-/** Current production homepage anchors — preserved until PR 5. */
-export const legacyHomeNavigation: NavItem[] = [
-  { id: 'brand', label: 'SolvoOps', href: '#top' },
-  { id: 'work', label: 'Work', href: '#work' },
 ]
 
 export const footerNavigation: NavItem[] = [

@@ -153,11 +153,3 @@ export const labsProducts = products.filter((p) => p.tier === 'labs')
 export function getProductById(id: string): ProductConfig | undefined {
   return products.find((p) => p.id === id)
 }
-
-/** Homepage “demonstrated work” list still uses all four during transition. */
-export const homepageDemoProducts = products.map((p) => ({
-  name: p.name,
-  href: p.productUrl ?? p.route,
-  bottleneck: p.bottleneck ?? p.category,
-  summary: p.description,
-}))

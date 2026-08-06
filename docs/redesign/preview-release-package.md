@@ -55,12 +55,12 @@ Production (`https://solvoops.com`) must stay on the current live experience unt
 ## 4. Soft-launch readiness (still preview-only)
 
 Ready for stakeholder preview review when:
-- [ ] Tip preview deployed successfully
+- [x] Tip preview deployed successfully
 - [ ] Product status labels confirmed by owner
 - [ ] Founder bio decision (omit vs approved copy)
 - [ ] Privacy / Terms legal copy scheduled
-- [ ] Analytics PR #2 coordinated (events without message bodies)
-- [ ] Lighthouse gates met on preview
+- [x] Analytics integrated on redesign tip (`@vercel/analytics`; close orphan PR #2 without merging into old branch)
+- [x] Lighthouse gates met on local production preview (see `preview-qa-results.md`; preview URL SEO noindex is expected)
 
 **Not ready for production until:**
 - Explicit written instruction to promote / merge to `main` and assign Production in Vercel
