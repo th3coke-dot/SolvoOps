@@ -75,7 +75,7 @@ describe('legal drafts', () => {
   it('keeps privacy and terms draft notices explicit', async () => {
     const { legalDraftNotice, privacyPageContent, termsPageContent } =
       await import('./legal')
-    expect(legalDraftNotice.toLowerCase()).toContain('draft')
+    expect(legalDraftNotice.toLowerCase()).toContain('pending counsel')
     expect(privacyPageContent.sections.length).toBeGreaterThan(3)
     expect(termsPageContent.sections.length).toBeGreaterThan(3)
   })

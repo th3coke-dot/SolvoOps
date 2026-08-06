@@ -1,12 +1,12 @@
 import { company } from './company'
 
 /**
- * Draft legal copy for soft-launch / preview.
- * Not legal advice. Replace with counsel-approved text before relying on it
- * as a formal policy after production release.
+ * Temporary Privacy / Terms copy for production launch.
+ * Owner-accepted 2026-08-06 as interim site policy text pending counsel review.
+ * Not a substitute for a full counsel-reviewed legal pack.
  */
 export const legalDraftNotice =
-  'This page is a working draft for the SolvoOps.com redesign. It summarises current site behaviour and is not a substitute for counsel-reviewed Privacy or Terms documents.'
+  'These pages summarise current SolvoOps.com marketing-site behaviour. They have been accepted for production as temporary Privacy and Terms copy pending counsel review.'
 
 export const privacyPageContent = {
   label: 'Privacy',
