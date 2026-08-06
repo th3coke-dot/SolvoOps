@@ -62,7 +62,12 @@ export function LinkButton({
   external = false,
 }: LinkButtonProps) {
   const cls = classNames(variant, size, className)
-  if (external || to.startsWith('http') || to.startsWith('mailto:')) {
+  if (
+    external ||
+    to.startsWith('http') ||
+    to.startsWith('mailto:') ||
+    to.startsWith('#')
+  ) {
     return (
       <a
         className={cls}
