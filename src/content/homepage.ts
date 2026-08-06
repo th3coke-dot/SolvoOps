@@ -28,6 +28,12 @@ export const homepageContent = {
     title: 'Focused products for critical delivery workflows',
     copy: 'Each SolvoOps product solves a specific operational bottleneck while remaining compatible with the systems organisations already use.',
   },
+  labs: {
+    label: 'SolvoOps Labs',
+    title: 'Smaller tools from SolvoOps Labs',
+    copy: 'BizDayz and AutoNameSearch explore adjacent workflows. Labs stays secondary to Scope2Plan and PartnerForge.',
+    cta: { label: 'Explore Labs', href: '/labs' },
+  },
   workflow: {
     label: 'Connected workflow',
     title: 'One delivery workflow. Two specialised products.',

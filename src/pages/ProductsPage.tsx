@@ -1,32 +1,75 @@
-import { Link } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
-import { ProductCard } from '../components/ui'
-import { company, pagesMetadata, primaryProducts } from '../content'
+import { LinkButton, ProductCard, SectionHeader } from '../components/ui'
+import {
+  company,
+  labsProducts,
+  pagesMetadata,
+  primaryProducts,
+} from '../content'
+import './ProductPage.css'
 
 export function ProductsPage() {
   return (
     <AppShell
       metadata={pagesMetadata.products}
-      eyebrow="Products"
-      title="Focused products for critical delivery workflows"
-      copy="Each SolvoOps product solves a specific operational bottleneck while remaining compatible with the systems organisations already use."
+      showPageHeader={false}
+      mainClassName="product-page"
     >
-      <p>
-        <strong>Primary commercial products</strong> — Labs tools are listed on{' '}
-        <Link to="/labs">SolvoOps Labs</Link>.
-      </p>
-      <div>
-        {primaryProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            ctaLabel="Explore"
-            preferInternalRoute
-            emphasizeCta
-          />
-        ))}
-      </div>
-      <p style={{ marginTop: 'var(--space-6)' }}>{company.connectedWorkflowNote}</p>
+      <section className="container product-hero" aria-labelledby="products-title">
+        <p className="product-hero__label">Products</p>
+        <h1 className="product-hero__title" id="products-title">
+          Focused products for critical delivery workflows
+        </h1>
+        <p className="product-hero__lede">
+          Each SolvoOps product solves a specific operational bottleneck while
+          remaining compatible with the systems organisations already use.
+        </p>
+      </section>
+
+      <section className="container product-section" aria-labelledby="primary-products">
+        <SectionHeader
+          label="Primary products"
+          title="Scope2Plan and PartnerForge"
+          id="primary-products"
+          copy={company.connectedWorkflowNote}
+        />
+        <div>
+          {primaryProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              ctaLabel="Explore"
+              preferInternalRoute
+              emphasizeCta
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="container product-section" aria-labelledby="labs-products">
+        <SectionHeader
+          label="SolvoOps Labs"
+          title="Explore adjacent tools"
+          id="labs-products"
+          copy="Labs tools remain secondary to the primary commercial products, but they are part of the SolvoOps portfolio."
+          accent="labs"
+        />
+        <div>
+          {labsProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              ctaLabel="Open"
+              preferInternalRoute={false}
+            />
+          ))}
+        </div>
+        <p style={{ marginTop: 'var(--space-6)' }}>
+          <LinkButton to="/labs" variant="secondary" size="sm">
+            View SolvoOps Labs
+          </LinkButton>
+        </p>
+      </section>
     </AppShell>
   )
 }
