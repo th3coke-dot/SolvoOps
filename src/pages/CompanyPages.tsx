@@ -251,18 +251,30 @@ export function NotFoundPage() {
   return (
     <AppShell
       metadata={pagesMetadata.notFound}
-      eyebrow="404"
-      title="Page not found"
-      copy="The page you requested is not available."
+      showPageHeader={false}
+      mainClassName="product-page"
     >
-      <p style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
-        <LinkButton to="/" variant="secondary">
-          Back to home
-        </LinkButton>
-        <LinkButton to="/products" variant="primary">
-          Products
-        </LinkButton>
-      </p>
+      <section className="container product-hero" aria-labelledby="not-found-title">
+        <p className="product-hero__label">404</p>
+        <h1 className="product-hero__title" id="not-found-title">
+          Page not found
+        </h1>
+        <p className="product-hero__lede">
+          The page you requested is not available. It may have moved during the
+          SolvoOps site redesign.
+        </p>
+        <div className="product-hero__actions">
+          <LinkButton to="/" variant="ink">
+            Back to home
+          </LinkButton>
+          <LinkButton to="/products" variant="secondary">
+            Products
+          </LinkButton>
+          <LinkButton to="/pilot" variant="secondary">
+            Discuss a pilot
+          </LinkButton>
+        </div>
+      </section>
     </AppShell>
   )
 }

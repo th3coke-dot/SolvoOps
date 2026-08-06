@@ -16,6 +16,8 @@ export const siteMetadata = {
   siteName: company.name,
   siteUrl: company.siteUrl,
   locale: 'en',
+  ogLocale: 'en_GB',
+  ogImagePath: '/og-default.png',
   defaultTitle,
   defaultDescription,
   /** Current production homepage metadata until PR 5 / PR 10 cutover. */
