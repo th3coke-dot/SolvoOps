@@ -15,6 +15,7 @@ export function SiteFooter() {
       label: product.name,
       href: product.route,
     })),
+    { id: 'labs', label: 'Labs', href: '/labs' },
     { id: 'how-it-works', label: 'How It Works', href: '/how-it-works' },
     { id: 'about', label: 'About', href: '/about' },
   ]

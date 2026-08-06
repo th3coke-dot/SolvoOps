@@ -188,6 +188,47 @@
   gap: 0;
 }
 
+.home-labs {
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent-labs);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-labs-soft);
+}
+
+@media (min-width: 720px) {
+  .home-labs {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.home-labs__label {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent-labs);
+}
+
+.home-labs__title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.home-labs__copy {
+  margin: 0;
+  max-width: 48ch;
+  color: var(--color-text-muted);
+}
+
 /* —— Connected workflow visual —— */
 .home-flow {
   margin: var(--space-7) 0 var(--space-8);

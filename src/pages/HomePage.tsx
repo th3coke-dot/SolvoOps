@@ -85,6 +85,18 @@ export function HomePage() {
             />
           ))}
         </div>
+        <aside className="home-labs" aria-labelledby="home-labs-title">
+          <div>
+            <p className="home-labs__label">{content.labs.label}</p>
+            <h2 className="home-labs__title" id="home-labs-title">
+              {content.labs.title}
+            </h2>
+            <p className="home-labs__copy">{content.labs.copy}</p>
+          </div>
+          <LinkButton to={content.labs.cta.href} variant="secondary" size="sm">
+            {content.labs.cta.label}
+          </LinkButton>
+        </aside>
       </section>
 
       <section className="home-section home-section--workflow" aria-labelledby="workflow-title">
