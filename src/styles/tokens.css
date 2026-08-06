@@ -1,0 +1,113 @@
+/**
+ * SolvoOps design tokens
+ * Preserves existing brand assets (pine ink + amber signal, Bricolage / Source Sans).
+ * Product accents are directional overlays — not a logo change.
+ */
+
+:root {
+  /* Brand core (preserved) */
+  --color-ink: #123c34;
+  --color-ink-deep: #0a241f;
+  --color-mist: #e8f2ed;
+  --color-paper: #f6faf7;
+  --color-signal: #d4a24c;
+  --color-signal-deep: #b8842f;
+  --color-signal-text: #8a6420;
+  --color-white: #ffffff;
+  --color-black: #071411;
+
+  /* Surfaces */
+  --color-bg: var(--color-paper);
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-mist);
+  --color-border: rgba(18, 60, 52, 0.14);
+  --color-border-strong: rgba(18, 60, 52, 0.28);
+  --color-text: var(--color-ink);
+  --color-text-muted: rgba(18, 60, 52, 0.72);
+  --color-text-inverse: var(--color-white);
+  --color-focus: #1f6f5b;
+  --color-danger: #9b2c2c;
+
+  /* Product accents */
+  --color-accent-scope2plan: #3d4f9c;
+  --color-accent-scope2plan-soft: #e8ebf7;
+  --color-accent-partnerforge: #0f766e;
+  --color-accent-partnerforge-soft: #e0f2f0;
+  --color-accent-labs: #5c6670;
+  --color-accent-labs-soft: #eef0f2;
+
+  /* Legacy aliases used by current homepage CSS */
+  --ink: var(--color-ink);
+  --ink-deep: var(--color-ink-deep);
+  --mist: var(--color-mist);
+  --paper: var(--color-paper);
+  --signal: var(--color-signal);
+  --signal-deep: var(--color-signal-deep);
+  --line: var(--color-border);
+  --muted: var(--color-text-muted);
+  --white: var(--color-white);
+
+  /* Typography */
+  --font-display: "Bricolage Grotesque", Georgia, serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.35rem, 2.4vw, 1.65rem);
+  --text-2xl: clamp(1.75rem, 3.2vw, 2.25rem);
+  --text-3xl: clamp(2rem, 4.2vw, 3rem);
+  --text-display: clamp(3.2rem, 9vw, 6.25rem);
+  --leading-tight: 1.12;
+  --leading-snug: 1.25;
+  --leading-normal: 1.55;
+  --tracking-tight: -0.035em;
+  --tracking-label: 0.12em;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3.5rem;
+  --space-10: 5rem;
+  --space-section: clamp(3.5rem, 8vw, 5.5rem);
+
+  /* Layout */
+  --max: 1120px;
+  --max-narrow: 720px;
+  --max-wide: 1200px;
+  --gutter: 1rem;
+  --header-height: 4.25rem;
+
+  /* Radius — restrained, enterprise */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.35rem;
+  --radius-lg: 0.5rem;
+
+  /* Shadows — single soft layer only */
+  --shadow-sm: 0 1px 2px rgba(10, 36, 31, 0.06);
+  --shadow-md: 0 8px 24px rgba(10, 36, 31, 0.08);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 140ms;
+  --duration-mid: 220ms;
+  --duration-slow: 700ms;
+
+  /* Control sizes */
+  --control-height: 2.85rem;
+  --touch-min: 2.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-mid: 1ms;
+    --duration-slow: 1ms;
+  }
+}

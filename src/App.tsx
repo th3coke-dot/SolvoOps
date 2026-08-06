@@ -8,6 +8,7 @@ import {
   PrivacyPage,
   TermsPage,
 } from './pages/CompanyPages'
+import { DesignSystemPage } from './pages/DesignSystemPage'
 import { HomePage } from './pages/HomePage'
 import { PartnerForgePage, Scope2PlanPage } from './pages/ProductDetailPages'
 import { ProductsPage } from './pages/ProductsPage'
@@ -30,6 +31,7 @@ export default function App() {
       <Route path="/pilot" element={<PilotPage />} />
       <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="/terms" element={<TermsPage />} />
+      <Route path="/design-system" element={<DesignSystemPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )

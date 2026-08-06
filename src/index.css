@@ -1,63 +1,7 @@
-:root {
-  --ink: #123c34;
-  --ink-deep: #0a241f;
-  --mist: #e8f2ed;
-  --paper: #f6faf7;
-  --signal: #d4a24c;
-  --signal-deep: #b8842f;
-  --line: rgba(18, 60, 52, 0.14);
-  --muted: rgba(18, 60, 52, 0.68);
-  --white: #ffffff;
-
-  --font-display: "Bricolage Grotesque", Georgia, serif;
-  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
-
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --max: 1120px;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  font-family: var(--font-body);
-  font-size: 1.0625rem;
-  line-height: 1.55;
-  color: var(--ink);
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(212, 162, 76, 0.12), transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, rgba(18, 60, 52, 0.08), transparent 50%),
-    linear-gradient(180deg, var(--mist) 0%, var(--paper) 40%, var(--white) 100%);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-}
-
-#root {
-  min-height: 100vh;
-}
+/* Homepage / legacy marketing styles.
+ * Global tokens and base live in src/styles/.
+ * Do not redesign this surface in PR 3 — that is PR 5.
+ */
 
 .site {
   overflow-x: clip;
