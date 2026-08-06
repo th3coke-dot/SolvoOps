@@ -24,6 +24,7 @@ export {
   type ProductStatus,
 } from './product-status'
 export { useCases } from './use-cases'
+export { homepageContent } from './homepage'
 export {
   siteMetadata,
   pagesMetadata,

@@ -29,8 +29,9 @@ export const siteMetadata = {
 export const pagesMetadata: Record<string, PageMetadata> = {
   home: {
     path: '/',
-    title: siteMetadata.legacyHome.title,
-    description: siteMetadata.legacyHome.description,
+    title: 'SolvoOps | Operational Intelligence for Service Delivery',
+    description:
+      'SolvoOps builds focused software for project planning, scope control, partner discovery and complex service-delivery workflows.',
   },
   products: {
     path: '/products',
