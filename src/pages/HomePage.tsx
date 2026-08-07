@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
 import { company, pagesMetadata, primaryProducts } from '../content'
+import heroImage from '../../docs/redesign/content-backup/assets/hero-ops.jpg'
 import './HomePage.css'
 
 const workflowSteps = [
@@ -41,7 +42,7 @@ export function HomePage() {
     >
       <section className="home-hero" id="top" aria-labelledby="home-hero-title">
         <div className="home-hero__media" aria-hidden="true">
-          <img src="https://solvoops.com/hero-ops.jpg" alt="" width={1536} height={1024} fetchPriority="high" />
+          <img src={heroImage} alt="" width={1536} height={1024} fetchPriority="high" />
           <div className="home-hero__shade" />
         </div>
         <nav className="home-hero__nav" aria-label="Primary navigation">
