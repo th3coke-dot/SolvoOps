@@ -8,6 +8,7 @@ import {
   SectionHeader,
   WorkflowSteps,
 } from '../components/ui'
+import { EditorialHeading } from '../components/ui/EditorialHeading'
 import {
   company,
   getProductById,
@@ -33,7 +34,7 @@ export function Scope2PlanPage() {
           <ProductStatusBadge status={product.status} />
         </div>
         <h1 className="product-hero__title" id="s2p-title">
-          {page.headline}
+          <EditorialHeading text={page.headline} accent="controlled delivery" />
         </h1>
         <p className="product-hero__lede">{page.lede}</p>
         <p className="product-hero__lede">{page.modulesNote}</p>
