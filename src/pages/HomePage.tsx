@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
 import { HeroAtmosphere } from '../components/HeroAtmosphere'
-import { DeliveryWorkflowVisual } from '../components/DeliveryWorkflowVisual'
 import { LinkButton } from '../components/ui'
 import { company, homepageContent, pagesMetadata, primaryProducts } from '../content'
 import './HomePage.css'
@@ -60,16 +59,6 @@ export function HomePage() {
             </LinkButton>
           </div>
         </div>
-      </section>
-
-      <section className="home-illustration" aria-label="Illustrative SolvoOps delivery model">
-        <div className="home-wrap"><DeliveryWorkflowVisual /></div>
-        <p>Source with evidence <span>•</span> Control with confidence <span>•</span> Plan with clarity</p>
-      </section>
-
-      <section className="home-illustration" aria-label="Illustrative SolvoOps delivery model">
-        <div className="home-wrap"><div className="delivery-os" aria-label="Delivery OS live model"><header><span>DELIVERY OS / LIVE MODEL</span><span className="delivery-os__live">● SYNCHRONISED</span></header><div className="delivery-os__input"><b aria-hidden="true">▤</b><div><small>INPUT</small><strong>Customer SOW</strong><span>124 requirements detected</span></div><i aria-hidden="true">✓</i></div><div className="delivery-os__connector">STRUCTURE</div><div className="delivery-os__modules"><article className="delivery-os__module--generate"><small>SCOPE2PLAN</small><strong>Generate</strong><div className="delivery-os__meter"><i /></div><span>Delivery package ready</span></article><article><small>PARTNERFORGE</small><strong>Source</strong><div className="delivery-os__markets"><i>NL</i><i>DE</i><i>FR</i><b>+8</b></div><span>11 qualified partners</span></article><article className="delivery-os__module--control"><small>SCOPE2PLAN</small><strong>Control</strong><div className="delivery-os__control"><b>v3.2</b><span>4 impacts mapped</span><em>Aligned</em></div></article></div><footer><span>ONE STRUCTURED MODEL</span><span>EXPLAINABLE OUTPUTS</span><span>HUMAN APPROVED</span></footer></div></div>
-        <p>Source with evidence <span>•</span> Control with confidence <span>•</span> Plan with clarity</p>
       </section>
 
       <section className="home-problem home-wrap" aria-labelledby="problem-title">
