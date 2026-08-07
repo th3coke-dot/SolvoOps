@@ -50,6 +50,7 @@ export function PartnerForgePage() {
         <SectionHeader
           label="The sourcing problem"
           title={page.problem.title}
+          editorialAccent="individual memory"
           copy={page.problem.body}
           id="pf-problem"
           accent="partnerforge"
@@ -61,6 +62,7 @@ export function PartnerForgePage() {
         <SectionHeader
           label="Coverage"
           title={page.coverage.title}
+          editorialAccent="delivery coverage"
           copy={page.coverage.body}
           id="pf-coverage"
           accent="partnerforge"
@@ -76,6 +78,7 @@ export function PartnerForgePage() {
         <SectionHeader
           label="Workflow"
           title="From requirement to ranked shortlist"
+          editorialAccent="ranked shortlist"
           id="pf-flow"
           accent="partnerforge"
         />
@@ -86,6 +89,7 @@ export function PartnerForgePage() {
         <SectionHeader
           label="Capabilities"
           title="Structured partner intelligence"
+          editorialAccent="partner intelligence"
           id="pf-caps"
           accent="partnerforge"
         />
@@ -125,6 +129,7 @@ export function PartnerForgePage() {
         <SectionHeader
           label="Differentiation"
           title={page.differentiation.title}
+          editorialAccent="AI web search"
           copy={page.differentiation.body}
           id="pf-diff"
           accent="partnerforge"
