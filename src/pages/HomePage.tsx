@@ -26,7 +26,17 @@ const principles = [
 ] as const
 
 function Arrow() {
-  return <span aria-hidden="true">↗</span>
+  return (
+    <svg
+      className="home-arrow"
+      aria-hidden="true"
+      viewBox="0 0 20 20"
+      fill="none"
+      focusable="false"
+    >
+      <path d="M5 15 15 5M8 5h7v7" />
+    </svg>
+  )
 }
 
 function Brand() {
@@ -62,7 +72,9 @@ function HomeNav() {
           <Link to="/labs" onClick={() => setOpen(false)}>Labs</Link>
         </div>
         <Link className="home-nav__cta" to="/pilot">
-          Discuss a pilot <Arrow />
+          <span className="home-nav__cta-label home-nav__cta-label--desktop">Discuss a pilot</span>
+          <span className="home-nav__cta-label home-nav__cta-label--mobile">Pilot</span>
+          <Arrow />
         </Link>
         <button
           className="home-nav__toggle"
