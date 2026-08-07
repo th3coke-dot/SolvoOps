@@ -8,6 +8,7 @@ import {
   SectionHeader,
   WorkflowSteps,
 } from '../components/ui'
+import { EditorialHeading } from '../components/ui/EditorialHeading'
 import {
   company,
   labsProducts,
@@ -31,7 +32,10 @@ export function HowItWorksPage() {
       <section className="container product-hero" aria-labelledby="hiw-title">
         <p className="product-hero__label">How it works</p>
         <h1 className="product-hero__title" id="hiw-title">
-          Turn operational knowledge into repeatable systems
+          <EditorialHeading
+            text="Turn operational knowledge into repeatable systems"
+            accent="repeatable systems"
+          />
         </h1>
         <p className="product-hero__lede">
           SolvoOps products are built around workflows that are important,
@@ -90,7 +94,10 @@ export function AboutPage() {
       <section className="container product-hero" aria-labelledby="about-title">
         <p className="product-hero__label">About</p>
         <h1 className="product-hero__title" id="about-title">
-          Built from real operational problems
+          <EditorialHeading
+            text="Built from real operational problems"
+            accent="operational problems"
+          />
         </h1>
         <p className="product-hero__lede">
           SolvoOps was created from firsthand experience with the operational
@@ -159,7 +166,7 @@ export function LabsPage() {
       <section className="container product-hero" aria-labelledby="labs-title">
         <p className="product-hero__label">SolvoOps Labs</p>
         <h1 className="product-hero__title" id="labs-title">
-          SolvoOps Labs
+          <EditorialHeading text="SolvoOps Labs" accent="Labs" />
         </h1>
         <p className="product-hero__lede">
           Smaller tools and experiments used to explore new workflows,
@@ -199,7 +206,7 @@ export function PilotPage() {
       <section className="container product-hero" aria-labelledby="pilot-title">
         <p className="product-hero__label">{pilotPageContent.label}</p>
         <h1 className="product-hero__title" id="pilot-title">
-          {pilotPageContent.title}
+          <EditorialHeading text={pilotPageContent.title} accent="real workflow" />
         </h1>
         <p className="product-hero__lede">{pilotPageContent.lede}</p>
       </section>
