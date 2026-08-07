@@ -26,7 +26,7 @@ export function HowItWorksPage() {
     <AppShell
       metadata={pagesMetadata.howItWorks}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--method"
     >
       <section className="container product-hero" aria-labelledby="hiw-title">
         <p className="product-hero__label">How it works</p>
@@ -85,7 +85,7 @@ export function AboutPage() {
     <AppShell
       metadata={pagesMetadata.about}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--about"
     >
       <section className="container product-hero" aria-labelledby="about-title">
         <p className="product-hero__label">About</p>
@@ -154,7 +154,7 @@ export function LabsPage() {
     <AppShell
       metadata={pagesMetadata.labs}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--labs"
     >
       <section className="container product-hero" aria-labelledby="labs-title">
         <p className="product-hero__label">SolvoOps Labs</p>
@@ -194,7 +194,7 @@ export function PilotPage() {
     <AppShell
       metadata={pagesMetadata.pilot}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--pilot"
     >
       <section className="container product-hero" aria-labelledby="pilot-title">
         <p className="product-hero__label">{pilotPageContent.label}</p>
@@ -241,7 +241,7 @@ export function PrivacyPage() {
     <AppShell
       metadata={pagesMetadata.privacy}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--legal"
     >
       <section className="container product-hero" aria-labelledby="privacy-title">
         <p className="product-hero__label">{privacyPageContent.label}</p>
@@ -276,7 +276,7 @@ export function TermsPage() {
     <AppShell
       metadata={pagesMetadata.terms}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--legal"
     >
       <section className="container product-hero" aria-labelledby="terms-title">
         <p className="product-hero__label">{termsPageContent.label}</p>
@@ -311,7 +311,7 @@ export function NotFoundPage() {
     <AppShell
       metadata={pagesMetadata.notFound}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--not-found"
     >
       <section className="container product-hero" aria-labelledby="not-found-title">
         <p className="product-hero__label">404</p>

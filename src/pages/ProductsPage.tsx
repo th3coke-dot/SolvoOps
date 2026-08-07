@@ -12,7 +12,7 @@ export function ProductsPage() {
     <AppShell
       metadata={pagesMetadata.products}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--index"
     >
       <section className="container product-hero" aria-labelledby="products-title">
         <p className="product-hero__label">Products</p>

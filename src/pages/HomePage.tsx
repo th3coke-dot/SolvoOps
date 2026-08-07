@@ -172,7 +172,7 @@ export function HomePage() {
               <a className="home-button home-button--primary" href="#products">
                 Explore the products <Arrow />
               </a>
-              <a className="home-text-link" href="#method">See the workflow ↓</a>
+              <a className="home-text-link" href="#method">See the workflow</a>
             </div>
             <div className="home-proof" aria-label="SolvoOps principles">
               <span>Built from real delivery experience</span>
@@ -302,7 +302,7 @@ export function HomePage() {
         </div>
         <div className="home-wrap home-footer__bottom">
           <span>© 2026 SOLVOOPS</span><span>BUILT TO MAKE WORK MOVE.</span>
-          <nav aria-label="Footer legal"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><a href="#top">Back to top ↑</a></nav>
+          <nav aria-label="Footer legal"><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><a href="#top">Back to top</a></nav>
         </div>
       </footer>
     </AppShell>

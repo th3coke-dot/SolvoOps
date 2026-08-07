@@ -8,6 +8,24 @@ type SiteNavProps = {
   showPilotCta?: boolean
 }
 
+function BrandMark() {
+  return (
+    <span className="ds-brand-mark" aria-hidden="true">
+      <i />
+      <i />
+      <i />
+    </span>
+  )
+}
+
+function ArrowIcon() {
+  return (
+    <svg className="ds-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none">
+      <path d="M5 15 15 5M8 5h7v7" />
+    </svg>
+  )
+}
+
 function isActivePath(pathname: string, href: string, end = false) {
   if (end) return pathname === href
   if (href === '/') return pathname === '/'
@@ -59,7 +77,8 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
     <header className="ds-shell-header" ref={headerRef}>
       <div className="ds-site-nav">
         <Link className="ds-site-nav__brand" to="/" onClick={close}>
-          {company.name}
+          <BrandMark />
+          <span>{company.name}</span>
         </Link>
 
         <nav className="ds-site-nav__desktop" aria-label="Primary">
@@ -81,7 +100,6 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
                   onClick={() => setProductsOpen((value) => !value)}
                 >
                   {item.label}
-                  <span aria-hidden="true"> ▾</span>
                 </button>
                 <div
                   id={productsId}
@@ -122,7 +140,7 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
           )}
           {showPilotCta ? (
             <LinkButton to="/pilot" variant="primary" size="sm">
-              Discuss a pilot
+              Discuss a pilot <ArrowIcon />
             </LinkButton>
           ) : null}
         </nav>
@@ -163,7 +181,7 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
           {showPilotCta ? (
             <div onClick={close}>
               <LinkButton to="/pilot" variant="ink">
-                Discuss a pilot
+                Discuss a pilot <ArrowIcon />
               </LinkButton>
             </div>
           ) : null}

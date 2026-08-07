@@ -7,6 +7,27 @@ import {
 import { LinkButton } from './Button'
 import './ui.css'
 
+function FooterBrand() {
+  return (
+    <span className="ds-footer-brand-lockup">
+      <span className="ds-brand-mark" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+      </span>
+      <strong>{company.name}</strong>
+    </span>
+  )
+}
+
+function ArrowIcon() {
+  return (
+    <svg className="ds-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none">
+      <path d="M5 15 15 5M8 5h7v7" />
+    </svg>
+  )
+}
+
 export function SiteFooter() {
   const productLinks = [
     { id: 'products', label: 'Products', href: '/products' },
@@ -25,13 +46,13 @@ export function SiteFooter() {
       <div className="ds-site-footer__band">
         <div className="ds-site-footer__inner">
           <div className="ds-site-footer__brand">
-            <strong>{company.name}</strong>
+            <FooterBrand />
             <p>{company.tagline}</p>
           </div>
           <div className="ds-site-footer__cta">
             <p>Ready to test a real workflow?</p>
             <LinkButton to="/pilot" variant="primary" size="sm">
-              Discuss a pilot
+              Discuss a pilot <ArrowIcon />
             </LinkButton>
           </div>
         </div>
