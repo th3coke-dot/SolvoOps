@@ -43,6 +43,96 @@
   box-shadow: 0 0 0 130px rgba(255, 255, 255, 0.025);
 }
 
+.home-sand {
+  position: absolute;
+  z-index: 0;
+  inset: 5.5rem 0 2.8rem;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.72;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%);
+}
+
+.home-sand::before,
+.home-sand::after,
+.home-sand i {
+  content: '';
+  position: absolute;
+  display: block;
+  will-change: transform;
+}
+
+.home-sand::before {
+  width: 68rem;
+  height: 31rem;
+  right: -19rem;
+  bottom: -18rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 10%, rgba(228, 168, 58, 0.25), transparent 58%),
+    linear-gradient(165deg, rgba(228, 168, 58, 0.12), transparent 62%);
+  filter: blur(1px);
+  animation: home-sand-dune 14s ease-in-out infinite alternate;
+}
+
+.home-sand::after {
+  width: 54rem;
+  height: 22rem;
+  right: -12rem;
+  bottom: -13rem;
+  border: 1px solid rgba(228, 168, 58, 0.2);
+  border-radius: 50%;
+  box-shadow:
+    0 -2rem 5rem rgba(228, 168, 58, 0.055),
+    0 -5rem 8rem rgba(228, 168, 58, 0.035);
+  animation: home-sand-ridge 18s ease-in-out infinite alternate;
+}
+
+.home-sand i {
+  inset: -18% -10%;
+  background-image:
+    radial-gradient(circle, rgba(228, 168, 58, 0.58) 0 0.7px, transparent 1px),
+    radial-gradient(circle, rgba(247, 244, 233, 0.34) 0 0.65px, transparent 0.95px),
+    radial-gradient(circle, rgba(228, 168, 58, 0.36) 0 0.55px, transparent 0.85px);
+  background-position: 0 0, 37px 19px, 83px 47px;
+  background-size: 71px 67px, 97px 89px, 131px 113px;
+  opacity: 0.42;
+  transform: translate3d(0, 0, 0) rotate(-7deg);
+  animation: home-sand-drift 24s linear infinite;
+}
+
+.home-sand i:nth-child(2) {
+  inset: 4% -14% -22% 28%;
+  background-size: 43px 47px, 79px 73px, 109px 101px;
+  opacity: 0.28;
+  transform: translate3d(0, 0, 0) rotate(9deg);
+  animation-duration: 31s;
+  animation-direction: reverse;
+}
+
+.home-sand i:nth-child(3) {
+  inset: 34% -8% -28% 47%;
+  background-size: 29px 31px, 61px 59px, 89px 83px;
+  opacity: 0.22;
+  animation-duration: 19s;
+}
+
+.home-hero__grid,
+.home-ticker { position: relative; z-index: 1; }
+
+@keyframes home-sand-drift {
+  to { transform: translate3d(-5rem, 2.5rem, 0) rotate(-7deg); }
+}
+
+@keyframes home-sand-dune {
+  to { transform: translate3d(-2.5rem, -1.25rem, 0) scale(1.04); }
+}
+
+@keyframes home-sand-ridge {
+  to { transform: translate3d(1.75rem, -0.8rem, 0) rotate(-1deg); }
+}
+
 .home-nav-shell { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .home-nav { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; position: relative; z-index: 10; }
 .home-brand { display: inline-flex; align-items: center; gap: 11px; font-family: var(--font-display); font-size: 22px; font-weight: 800; letter-spacing: -0.04em; }
@@ -223,6 +313,12 @@
   .home-button--primary { width: 100%; justify-content: space-between; min-height: 52px; }
   .home-text-link { align-self: flex-start; }
   .home-proof { display: none; }
+  .home-sand { inset: 4.75rem 0 2.8rem; opacity: 0.52; -webkit-mask-image: none; mask-image: none; }
+  .home-sand::before { right: -34rem; }
+  .home-sand::after { right: -31rem; }
+  .home-sand i { inset-inline: 15% -45%; opacity: 0.3; }
+  .home-sand i:nth-child(2),
+  .home-sand i:nth-child(3) { display: none; }
   .home-ops { transform: none; margin-top: 20px; padding: 10px; }
   .home-ops > footer { display: none; }
   .home-problem,
@@ -255,4 +351,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .home-product { transition: none; }
+  .home-sand::before,
+  .home-sand::after,
+  .home-sand i { animation: none; will-change: auto; }
 }
