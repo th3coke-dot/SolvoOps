@@ -1,5 +1,6 @@
 import { AppShell } from '../components/AppShell'
 import { LinkButton, ProductCard, SectionHeader } from '../components/ui'
+import { EditorialHeading } from '../components/ui/EditorialHeading'
 import {
   labsProducts,
   pagesMetadata,
@@ -17,7 +18,10 @@ export function ProductsPage() {
       <section className="container product-hero" aria-labelledby="products-title">
         <p className="product-hero__label">Products</p>
         <h1 className="product-hero__title" id="products-title">
-          Focused products for critical delivery workflows
+          <EditorialHeading
+            text="Focused products for critical delivery workflows"
+            accent="delivery workflows"
+          />
         </h1>
         <p className="product-hero__lede">
           Each SolvoOps product solves a specific operational bottleneck while
