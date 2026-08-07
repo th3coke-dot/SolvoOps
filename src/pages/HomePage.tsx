@@ -1,99 +1,254 @@
 import { Link } from 'react-router-dom'
-import { AppShell } from '../components/AppShell'
-import { HeroAtmosphere } from '../components/HeroAtmosphere'
-import { LinkButton } from '../components/ui'
-import { company, homepageContent, pagesMetadata, primaryProducts } from '../content'
+import { DocumentMeta } from '../components/DocumentMeta'
+import { pagesMetadata } from '../content'
 import './HomePage.css'
 
-const workflowSteps = [
-  ['Scope', 'Bring in the brief, SOW or change.'],
-  ['Generate', 'Create the structured delivery package.'],
-  ['Source', 'Match requirements to qualified coverage.'],
-  ['Deliver', 'Execute from one operating model.'],
-  ['Control', 'Map impact and keep outputs aligned.'],
-] as const
-
-const frictions = [
-  ['Manual interpretation', 'Teams repeatedly decode the same scopes and rebuild the same documents.'],
-  ['Scattered intelligence', 'Partner knowledge and evidence disappear across searches, files and people.'],
-  ['Uncontrolled change', 'Plans, obligations and ownership drift apart as delivery evolves.'],
-] as const
-
-const principles = [
-  ['Domain first', 'Start with the operational problem, not the technology.'],
-  ['Explainable by design', 'Evidence and reasoning stay visible when decisions matter.'],
-  ['Human controlled', 'AI accelerates the work. People own the outcome.'],
-  ['Useful over universal', 'Focused modules complement the stack you already trust.'],
-] as const
-
-function Arrow() {
-  return <svg className="home-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="M5 15 15 5M8 5h7v7" /></svg>
-}
+const Arrow = () => <span aria-hidden="true">↗</span>
 
 export function HomePage() {
-  const scope2plan = primaryProducts.find((product) => product.id === 'scope2plan')!
-  const partnerforge = primaryProducts.find((product) => product.id === 'partnerforge')!
-
   return (
-    <AppShell
-      metadata={pagesMetadata.home}
-      showPageHeader={false}
-      mainClassName="home-redesign"
-      shellTone="light-landing"
-    >
-      <section className="home-hero" id="top" aria-labelledby="home-hero-title">
-        <HeroAtmosphere />
-        <div className="home-hero__content container">
-          <p className="home-hero__eyebrow reveal">{homepageContent.eyebrow}</p>
-          <p className="home-hero__brand reveal reveal--delay-1">{company.name}</p>
-          <h1 className="home-hero__title reveal reveal--delay-2" id="home-hero-title">
-            {homepageContent.headline}
-          </h1>
-          <p className="home-hero__lede reveal reveal--delay-3">{homepageContent.lede}</p>
-          <div className="home-hero__actions reveal reveal--delay-4">
-            <LinkButton to={homepageContent.primaryCta.href} variant="primary">
-              {homepageContent.primaryCta.label}
-            </LinkButton>
-            <LinkButton to={homepageContent.secondaryCta.href} variant="ink">
-              {homepageContent.secondaryCta.label}
-            </LinkButton>
+    <>
+      <DocumentMeta metadata={pagesMetadata.home} />
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <main className="concept-home" id="main-content">
+        <section className="concept-hero" id="top">
+          <nav className="concept-nav concept-wrap" aria-label="Primary navigation">
+            <Link className="concept-brand" to="/" aria-label="SolvoOps home">
+              <b aria-hidden="true"><i /><i /><i /></b>
+              SolvoOps
+            </Link>
+            <div className="concept-navlinks">
+              <a href="#products">Products</a>
+              <a href="#method">How it works</a>
+              <a href="#principles">Principles</a>
+            </div>
+            <Link className="concept-navcta" to="/pilot">
+              Discuss a pilot <Arrow />
+            </Link>
+          </nav>
+
+          <div className="concept-hero-grid concept-wrap">
+            <div className="concept-hero-copy">
+              <small><i /> OPERATIONAL SYSTEMS FOR REAL DELIVERY WORK</small>
+              <h1>
+                Turn operational<br />friction into<br />
+                <em>forward motion.</em>
+              </h1>
+              <p>
+                SolvoOps builds focused software for the moments where complex
+                service delivery slows down — planning work, finding partners and
+                controlling change.
+              </p>
+              <div className="concept-actions">
+                <a className="concept-primary" href="#products">
+                  Explore the products <Arrow />
+                </a>
+                <a href="#method">See the workflow ↓</a>
+              </div>
+              <div className="concept-proof" aria-label="Product principles">
+                <span>Built from real delivery experience</span>
+                <span>Human-controlled AI</span>
+                <span>Designed in Norway</span>
+              </div>
+            </div>
+
+            <div className="concept-ops" aria-label="SolvoOps live delivery model">
+              <header>
+                <span>DELIVERY OS / LIVE MODEL</span>
+                <span className="concept-live">● SYNCHRONISED</span>
+              </header>
+              <div className="concept-input">
+                <b aria-hidden="true">▤</b>
+                <div>
+                  <small>INPUT</small>
+                  <strong>Customer SOW</strong>
+                  <span>124 requirements detected</span>
+                </div>
+                <i aria-hidden="true">✓</i>
+              </div>
+              <div className="concept-connector">STRUCTURE</div>
+              <div className="concept-modules">
+                <article className="concept-module-gold">
+                  <small>SCOPE2PLAN</small>
+                  <strong>Generate</strong>
+                  <div className="concept-meter"><i /></div>
+                  <span>Delivery package ready</span>
+                </article>
+                <article>
+                  <small>PARTNERFORGE</small>
+                  <strong>Source</strong>
+                  <div className="concept-avatars" aria-label="Coverage in the Netherlands, Germany, France and eight more markets">
+                    <i>NL</i><i>DE</i><i>FR</i><i>+8</i>
+                  </div>
+                  <span>11 qualified partners</span>
+                </article>
+                <article className="concept-module-wide">
+                  <small>SCOPE2PLAN</small>
+                  <strong>Control</strong>
+                  <div className="concept-change">
+                    <b>v3.2</b><span>4 impacts mapped</span><i>Aligned</i>
+                  </div>
+                </article>
+              </div>
+              <footer>
+                <span>ONE STRUCTURED MODEL</span>
+                <span>EXPLAINABLE OUTPUTS</span>
+                <span>HUMAN APPROVED</span>
+              </footer>
+            </div>
           </div>
-        </div>
-      </section>
+          <div className="concept-ticker" aria-hidden="true">
+            PLAN WITH CLARITY　•　SOURCE WITH EVIDENCE　•　CONTROL WITH CONFIDENCE　•　PLAN WITH CLARITY　•　SOURCE WITH EVIDENCE
+          </div>
+        </section>
 
-      <section className="home-problem home-wrap" aria-labelledby="problem-title">
-        <p className="home-label">01 / THE PROBLEM</p>
-        <div className="home-problem__intro"><h2 id="problem-title">Complex work does not fail because people lack effort.</h2><div><h3>It slows down because the system around them is fragmented.</h3><p>Critical knowledge sits in documents, spreadsheets, inboxes and individual heads. Every new project starts with interpretation. Every change creates another version of the truth.</p></div></div>
-        <div className="home-frictions">{frictions.map(([title, body], index) => <article key={title}><b>0{index + 1}</b><h3>{title}</h3><p>{body}</p></article>)}</div>
-      </section>
+        <section className="concept-problem concept-wrap">
+          <div className="concept-label"><b>01</b> THE PROBLEM</div>
+          <div className="concept-problem-grid">
+            <h2>Complex work does not fail because people lack effort.</h2>
+            <div>
+              <h3>It slows down because the system around them is fragmented.</h3>
+              <p>
+                Critical knowledge sits in documents, spreadsheets, inboxes and
+                individual heads. Every new project starts with interpretation.
+                Every change creates another version of the truth.
+              </p>
+            </div>
+          </div>
+          <div className="concept-frictions">
+            {[
+              ['01', 'Manual interpretation', 'Teams repeatedly decode the same scopes and rebuild the same documents.'],
+              ['02', 'Scattered intelligence', 'Partner knowledge and evidence disappear across searches, files and people.'],
+              ['03', 'Uncontrolled change', 'Plans, obligations and ownership drift apart as delivery evolves.'],
+            ].map(([number, title, copy]) => (
+              <article key={number}>
+                <b>{number}</b><h3>{title}</h3><p>{copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      <section className="home-products" id="products" aria-labelledby="products-title"><div className="home-wrap">
-        <p className="home-label">02 / THE PRODUCTS</p>
-        <div className="home-section-head"><h2 id="products-title">Focused tools.<br />One operating logic.</h2><p>Each product solves a specific bottleneck. Together, they create a connected flow from project intake to controlled execution.</p></div>
-        <div className="home-product-stack">
-          <Link className="home-product home-product--scope" to={scope2plan.route}><b>01</b><div><small>{scope2plan.statusLabel}</small><h3>{scope2plan.name}</h3><h4>From scope to execution — in minutes.</h4><p>{scope2plan.description}</p><span>Generate · Control · Structured model</span></div><Arrow /></Link>
-          <Link className="home-product home-product--partner" to={partnerforge.route}><b>02</b><div><small>{partnerforge.statusLabel}</small><h3>{partnerforge.name}</h3><h4>Find who can deliver. Know why they fit.</h4><p>{partnerforge.description}</p><span>Discover · Validate · Rank</span></div><Arrow /></Link>
-        </div>
-        <Link className="home-labs" to="/labs"><small>LABS</small><div><strong>Small experiments. Useful outcomes.</strong><p>BizDayz and AutoNameSearch explore adjacent everyday workflows.</p></div><Arrow /></Link>
-      </div></section>
+        <section className="concept-products" id="products">
+          <div className="concept-wrap">
+            <div className="concept-label concept-label-light"><b>02</b> THE PRODUCTS</div>
+            <div className="concept-section-head">
+              <h2>Focused tools.<br />One operating logic.</h2>
+              <p>
+                Each product solves a specific bottleneck. Together, they create a
+                connected flow from project intake to controlled execution.
+              </p>
+            </div>
+            <div className="concept-product-stack">
+              <Link className="concept-product concept-product-gold" to="/products/scope2plan">
+                <b className="concept-num">01</b>
+                <div>
+                  <small>● PILOT</small>
+                  <h3>Scope2Plan</h3>
+                  <h4>From scope to execution — in minutes.</h4>
+                  <p>
+                    Generate delivery-ready plans, runbooks and transition packs.
+                    Then keep obligations, risks and responsibilities aligned as
+                    the project changes.
+                  </p>
+                  <div className="concept-chips"><span>Generate</span><span>Control</span><span>Structured model</span></div>
+                </div>
+                <Arrow />
+              </Link>
+              <Link className="concept-product concept-product-teal" to="/products/partnerforge">
+                <b className="concept-num">02</b>
+                <div>
+                  <small>● PRIVATE PREVIEW</small>
+                  <h3>PartnerForge</h3>
+                  <h4>Find who can deliver. Know why they fit.</h4>
+                  <p>
+                    Turn project requirements into ranked partner shortlists with
+                    geographic coverage, evidence-backed profiles and explainable scoring.
+                  </p>
+                  <div className="concept-chips"><span>Discover</span><span>Validate</span><span>Rank</span></div>
+                </div>
+                <Arrow />
+              </Link>
+            </div>
+            <Link className="concept-labs" to="/labs">
+              <small>LABS / 03</small>
+              <div>
+                <strong>Small experiments. Useful outcomes.</strong>
+                <p>BizDayz and AutoNameSearch explore adjacent everyday workflows.</p>
+              </div>
+              <Arrow />
+            </Link>
+          </div>
+        </section>
 
-      <section className="home-workflow home-wrap" id="method" aria-labelledby="workflow-title">
-        <p className="home-label">03 / THE METHOD</p><div className="home-section-head"><h2 id="workflow-title">One delivery workflow.<br />Specialised modules.</h2><p>The system follows the actual shape of delivery instead of forcing teams into another generic platform.</p></div>
-        <ol className="home-track">{workflowSteps.map(([title, body], index) => <li className={index === 1 || index === 2 || index === 4 ? 'is-active' : ''} key={title}><i /><b>{title}</b><p>{body}</p></li>)}</ol>
-      </section>
+        <section className="concept-principles" id="principles">
+          <div className="concept-wrap concept-principles-grid">
+            <div>
+              <div className="concept-label concept-label-light"><b>04</b> HOW WE THINK</div>
+              <h2>Built around the workflow.<br /><em>Not the hype.</em></h2>
+              <p>
+                Software should remove friction without hiding the reasoning or
+                taking control away from the people responsible for delivery.
+              </p>
+            </div>
+            <div className="concept-principle-list">
+              {[
+                ['01', 'Domain first', 'Start with the operational problem, not the technology.'],
+                ['02', 'Explainable by design', 'Evidence and reasoning stay visible when decisions matter.'],
+                ['03', 'Human controlled', 'AI accelerates the work. People own the outcome.'],
+                ['04', 'Useful over universal', 'Focused modules complement the stack you already trust.'],
+              ].map(([number, title, copy]) => (
+                <article key={number}><small>{number}</small><b>{title}</b><p>{copy}</p></article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-      <section className="home-principles" id="principles" aria-labelledby="principles-title"><div className="home-wrap home-principles__grid"><div><p className="home-label">04 / HOW WE THINK</p><h2 id="principles-title">Built around the workflow.<br />Not the hype.</h2><p>Software should remove friction without hiding the reasoning or taking control away from the people responsible for delivery.</p></div><div className="home-principle-list">{principles.map(([title, body], index) => <article key={title}><small>0{index + 1}</small><b>{title}</b><p>{body}</p></article>)}</div></div></section>
+        <section className="concept-founder concept-wrap">
+          <article className="concept-note">
+            <span aria-hidden="true">“</span>
+            <blockquote>
+              I started building SolvoOps because I kept seeing capable people
+              lose time to systems that made simple work unnecessarily hard.
+            </blockquote>
+            <p>
+              SolvoOps is the practical answer: understand the workflow, find the
+              friction, and build the smallest useful system that removes it.
+            </p>
+            <div><i>MH</i><b>Morten <small>Founder, SolvoOps</small></b></div>
+          </article>
+          <article className="concept-manifesto">
+            <small>THE FOUNDER&apos;S OPERATING PRINCIPLE</small>
+            <strong>Work smarter is not a slogan.<br />It is a design requirement.</strong>
+          </article>
+        </section>
 
-      <section className="home-founder home-wrap" aria-labelledby="founder-title">
-        <article className="home-founder__statement">
-          <span>“</span>
-          <h2 id="founder-title">I started building SolvoOps because I kept seeing capable people lose time to systems that made simple work unnecessarily hard.</h2>
-          <p>SolvoOps is the practical answer: understand the workflow, find the friction, and build the smallest useful system that removes it.</p>
-          <strong>{company.founder.name}<small>{company.founder.role}, SolvoOps</small></strong>
-        </article>
-      </section>
-      <section className="home-operating"><div className="home-wrap"><p>THE FOUNDER’S OPERATING PRINCIPLE</p><h2>Work smarter is not a slogan.<br />It is a design requirement.</h2></div></section>
-      <section className="home-cta"><div className="home-wrap"><div><p>HAVE A REAL WORKFLOW PROBLEM?</p><h2>Bring us the bottleneck.<em>We’ll bring the system.</em></h2></div><Link to="/pilot">Discuss<br />a pilot <Arrow /></Link></div></section>
-    </AppShell>
+        <section className="concept-cta">
+          <div className="concept-wrap">
+            <div>
+              <small>HAVE A REAL WORKFLOW PROBLEM?</small>
+              <h2>Bring us the bottleneck.<br /><em>We&apos;ll bring the system.</em></h2>
+            </div>
+            <Link to="/pilot">Discuss<br />a pilot <Arrow /></Link>
+          </div>
+        </section>
+
+        <footer className="concept-footer">
+          <div className="concept-wrap concept-footer-top">
+            <Link className="concept-brand" to="/" aria-label="SolvoOps home">
+              <b aria-hidden="true"><i /><i /><i /></b>SolvoOps
+            </Link>
+            <p>Operational systems for complex service delivery.</p>
+            <nav aria-label="Footer navigation">
+              <a href="#products">Products</a><a href="#method">Method</a><Link to="/about">About</Link>
+            </nav>
+          </div>
+          <div className="concept-wrap concept-footer-bottom">
+            <span>© 2026 SOLVOOPS</span><span>BUILT TO MAKE WORK MOVE.</span><a href="#top">BACK TO TOP ↑</a>
+          </div>
+        </footer>
+      </main>
+    </>
   )
 }
