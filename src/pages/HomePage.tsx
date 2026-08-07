@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
 import { HeroAtmosphere } from '../components/HeroAtmosphere'
+import { DeliveryWorkflowVisual } from '../components/DeliveryWorkflowVisual'
 import { LinkButton } from '../components/ui'
 import { company, homepageContent, pagesMetadata, primaryProducts } from '../content'
 import './HomePage.css'
@@ -61,6 +62,11 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="home-illustration" aria-label="Illustrative SolvoOps delivery model">
+        <div className="home-wrap"><DeliveryWorkflowVisual /></div>
+        <p>Source with evidence <span>•</span> Control with confidence <span>•</span> Plan with clarity</p>
+      </section>
+
       <section className="home-problem home-wrap" aria-labelledby="problem-title">
         <p className="home-label">01 / THE PROBLEM</p>
         <div className="home-problem__intro"><h2 id="problem-title">Complex work does not fail because people lack effort.</h2><div><h3>It slows down because the system around them is fragmented.</h3><p>Critical knowledge sits in documents, spreadsheets, inboxes and individual heads. Every new project starts with interpretation. Every change creates another version of the truth.</p></div></div>
@@ -84,8 +90,16 @@ export function HomePage() {
 
       <section className="home-principles" id="principles" aria-labelledby="principles-title"><div className="home-wrap home-principles__grid"><div><p className="home-label">04 / HOW WE THINK</p><h2 id="principles-title">Built around the workflow.<br />Not the hype.</h2><p>Software should remove friction without hiding the reasoning or taking control away from the people responsible for delivery.</p></div><div className="home-principle-list">{principles.map(([title, body], index) => <article key={title}><small>0{index + 1}</small><b>{title}</b><p>{body}</p></article>)}</div></div></section>
 
-      <section className="home-founder home-wrap" aria-labelledby="founder-title"><article><p className="home-label">THE FOUNDER</p><h2 id="founder-title">Work smarter is not a slogan. It is a design requirement.</h2><p>SolvoOps starts with the real workflow, then builds the smallest useful system that removes the friction.</p><strong>{company.founder.name}, {company.founder.role}</strong></article><Link className="home-founder__cta" to="/about">More about SolvoOps <Arrow /></Link></section>
-      <section className="home-cta"><div className="home-wrap"><div><p>HAVE A REAL WORKFLOW PROBLEM?</p><h2>Bring us the bottleneck.</h2></div><Link to="/pilot">Discuss a pilot <Arrow /></Link></div></section>
+      <section className="home-founder home-wrap" aria-labelledby="founder-title">
+        <article className="home-founder__statement">
+          <span>“</span>
+          <h2 id="founder-title">I started building SolvoOps because I kept seeing capable people lose time to systems that made simple work unnecessarily hard.</h2>
+          <p>SolvoOps is the practical answer: understand the workflow, find the friction, and build the smallest useful system that removes it.</p>
+          <strong>{company.founder.name}<small>{company.founder.role}, SolvoOps</small></strong>
+        </article>
+      </section>
+      <section className="home-operating"><div className="home-wrap"><p>THE FOUNDER’S OPERATING PRINCIPLE</p><h2>Work smarter is not a slogan.<br />It is a design requirement.</h2></div></section>
+      <section className="home-cta"><div className="home-wrap"><div><p>HAVE A REAL WORKFLOW PROBLEM?</p><h2>Bring us the bottleneck.<em>We’ll bring the system.</em></h2></div><Link to="/pilot">Discuss<br />a pilot <Arrow /></Link></div></section>
     </AppShell>
   )
 }
