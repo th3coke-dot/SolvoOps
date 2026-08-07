@@ -13,6 +13,17 @@
 
 .home-redesign * { box-sizing: border-box; }
 .home-redesign a { color: inherit; }
+.home-arrow {
+  width: 1.1em;
+  height: 1.1em;
+  flex: 0 0 auto;
+  display: block;
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
 .home-wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
 .home-hero,
 .home-products,
@@ -45,6 +56,7 @@
 .home-nav__links a:hover { color: #fff; }
 .home-nav__cta,
 .home-button--primary { background: var(--home-gold); color: var(--home-deep) !important; padding: 13px 18px; font-weight: 700; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 16px; }
+.home-nav__cta-label--mobile { display: none; }
 .home-nav__toggle { display: none; min-height: 44px; border: 1px solid rgba(255, 255, 255, 0.28); background: transparent; color: #fff; padding: 0 0.85rem; cursor: pointer; }
 
 .home-hero__grid { min-height: 690px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 70px; align-items: center; }
@@ -199,10 +211,17 @@
 
 @media (max-width: 600px) {
   .home-wrap { width: calc(100% - 30px); }
-  .home-nav__cta { font-size: 0; padding: 11px; }
-  .home-nav__cta span { font-size: 1.125rem; }
+  .home-nav { gap: 0.75rem; }
+  .home-nav__cta { margin-left: auto; padding: 10px 12px; gap: 7px; font-size: 0.75rem; }
+  .home-nav__cta-label--desktop { display: none; }
+  .home-nav__cta-label--mobile { display: inline; }
+  .home-nav__cta .home-arrow { width: 0.9rem; height: 0.9rem; }
   .home-nav__toggle { font-size: 0.75rem; }
+  .home-eyebrow { font-size: 0.61rem; letter-spacing: 0.11em; line-height: 1.6; }
   .home-hero h1 { font-size: clamp(3rem, 14.5vw, 3.5rem); }
+  .home-actions { align-items: stretch; flex-direction: column; gap: 18px; }
+  .home-button--primary { width: 100%; justify-content: space-between; min-height: 52px; }
+  .home-text-link { align-self: flex-start; }
   .home-proof { display: none; }
   .home-ops { transform: none; margin-top: 20px; padding: 10px; }
   .home-ops > footer { display: none; }
