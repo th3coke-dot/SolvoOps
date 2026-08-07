@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
-import { company, pagesMetadata, primaryProducts } from '../content'
-import heroImage from '../../docs/redesign/content-backup/assets/hero-ops.jpg'
+import { HeroAtmosphere } from '../components/HeroAtmosphere'
+import { LinkButton } from '../components/ui'
+import { company, homepageContent, pagesMetadata, primaryProducts } from '../content'
 import './HomePage.css'
 
 const workflowSteps = [
@@ -37,25 +38,24 @@ export function HomePage() {
     <AppShell
       metadata={pagesMetadata.home}
       showPageHeader={false}
-      showShellNav={false}
       mainClassName="home-redesign"
     >
       <section className="home-hero" id="top" aria-labelledby="home-hero-title">
-        <div className="home-hero__media" aria-hidden="true">
-          <img src={heroImage} alt="" width={1536} height={1024} fetchPriority="high" />
-          <div className="home-hero__shade" />
-        </div>
-        <nav className="home-hero__nav" aria-label="Primary navigation">
-          <Link className="home-hero__mark" to="/">SolvoOps</Link>
-          <a className="home-hero__work-link" href="#products">Work</a>
-        </nav>
-        <div className="home-hero__content">
-          <p className="home-hero__brand">SolvoOps</p>
-          <h1 className="home-hero__title" id="home-hero-title">Tools that break operational bottlenecks.</h1>
-          <p className="home-hero__lede">SolvoOps builds focused software that helps companies find where work stalls — and clear the path so delivery can move again.</p>
-          <div className="home-hero__actions">
-            <a className="home-hero__button home-hero__button--primary" href="#products">See the tools</a>
-            <Link className="home-hero__button home-hero__button--ghost" to="/pilot">Talk about a bottleneck</Link>
+        <HeroAtmosphere />
+        <div className="home-hero__content container">
+          <p className="home-hero__eyebrow reveal">{homepageContent.eyebrow}</p>
+          <p className="home-hero__brand reveal reveal--delay-1">{company.name}</p>
+          <h1 className="home-hero__title reveal reveal--delay-2" id="home-hero-title">
+            {homepageContent.headline}
+          </h1>
+          <p className="home-hero__lede reveal reveal--delay-3">{homepageContent.lede}</p>
+          <div className="home-hero__actions reveal reveal--delay-4">
+            <LinkButton to={homepageContent.primaryCta.href} variant="primary">
+              {homepageContent.primaryCta.label}
+            </LinkButton>
+            <LinkButton to={homepageContent.secondaryCta.href} variant="ink">
+              {homepageContent.secondaryCta.label}
+            </LinkButton>
           </div>
         </div>
       </section>
