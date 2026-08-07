@@ -964,3 +964,55 @@
 .ds-site-footer__nav a[aria-current='page'] { color: var(--color-ink); }
 
 @media (max-width: 900px) { .ds-workflow { grid-template-columns: 1fr; } }
+
+/* Production skin — one consistent, sans-serif system across all routes. */
+.ds-btn { border-radius: 0; justify-content: center; font-weight: 650; }
+.ds-btn--primary { color: #062a25; background: #d4a24c; border-color: #d4a24c; }
+.ds-btn--primary:hover:not(:disabled) { color: #062a25; background: #e0b15d; border-color: #e0b15d; }
+.ds-btn--ink { color: #f7f4e9; background: #062a25; border-color: #062a25; }
+.ds-section-header__label { font-family: var(--font-body); color: var(--page-accent, #b8842f); }
+.ds-section-header__title { color: #0d372f; font-size: var(--text-3xl); letter-spacing: var(--tracking-tight); line-height: var(--leading-tight); }
+.ds-section-header__title em { font-family: inherit; font-style: normal; font-weight: inherit; color: inherit; }
+.ds-section-header__copy { color: var(--color-text-muted); font-size: var(--text-lg); line-height: var(--leading-normal); }
+.ds-product-card { min-height: 0; margin: 0; padding: var(--space-6) var(--space-5); border: 0; border-top: 1px solid var(--color-border); border-left: 3px solid var(--accent, var(--color-signal)); background: transparent; }
+.ds-product-card:last-child { border-bottom: 1px solid var(--color-border); }
+.ds-product-card:hover { background: color-mix(in srgb, var(--accent-soft, var(--color-mist)) 70%, transparent); box-shadow: none; transform: none; }
+.ds-product-card__name { font-size: var(--text-xl); letter-spacing: -0.03em; }
+.ds-product-card__headline { font-family: var(--font-body); font-size: var(--text-md); }
+.ds-product-card__description { color: var(--color-text-muted); }
+.ds-product-card__cta { font-size: inherit; }
+.ds-product-card__cta::after { content: none; }
+.ds-feature-card { min-height: 0; padding: var(--space-5) 0 0; border: 0; border-top: 1px solid var(--color-border); background: transparent; }
+.ds-feature-card__body { color: var(--color-text-muted); }
+.ds-workflow { margin-top: var(--space-6); border: 0; gap: var(--space-5); }
+.ds-workflow__step { min-height: 0; padding: var(--space-5) 0; border-top: 1px solid var(--color-border); border-right: 0; border-bottom: 0; }
+.ds-workflow__step:last-child { border-bottom: 1px solid var(--color-border); }
+.ds-workflow__title { margin-top: 0; }
+.ds-workflow__body { color: var(--color-text-muted); }
+.ds-shell-header { color: #d2ded9; background: rgba(6, 42, 37, 0.96); border-bottom-color: rgba(255,255,255,.11); }
+.ds-site-nav { min-height: 5.5rem; }
+.ds-site-nav__brand { color: #f7f4e9; font-size: 1.35rem; }
+.ds-site-nav__link { color: #b8ccc5; font-size: .86rem; }
+.ds-site-nav__link:hover,
+.ds-site-nav__link[aria-current='page'],
+.ds-site-nav__trigger[aria-current='page'] { color: #fff; border-bottom: 0; }
+.ds-site-nav__trigger::after { display: inline-block; }
+.ds-site-nav__menu { border-radius: 0; border-color: rgba(255,255,255,.12); background: #0b352f; box-shadow: 0 20px 55px rgba(0,0,0,.25); }
+.ds-site-nav__menu-link { color: #d2ded9; }
+.ds-site-nav__menu-link:hover,
+.ds-site-nav__menu-link[aria-current='page'] { color: #fff; background: rgba(255,255,255,.07); }
+.ds-site-nav__toggle { border-radius: 0; color: #fff; border-color: rgba(255,255,255,.28); background: transparent; }
+.ds-site-nav__mobile { border-radius: 0; border-color: rgba(255,255,255,.12); background: #0b352f; box-shadow: none; }
+.ds-site-nav__mobile a { color: #d2ded9; }
+.ds-site-nav__mobile-child { color: #91aaa2 !important; }
+.ds-site-footer { color: #c2d1cc; background: #041e1b; }
+.ds-site-footer__band { padding: 4.8rem 0 3.5rem; background: transparent; }
+.ds-site-footer__inner,
+.ds-site-footer__links { width: min(1180px, calc(100% - 48px)); }
+.ds-footer-brand-lockup strong { color: #f7f4e9; font-size: 1.45rem; }
+.ds-site-footer__brand p { color: #718f86; }
+.ds-site-footer__cta p { color: #8fa79f; font-family: var(--font-body); font-size: inherit; letter-spacing: normal; text-transform: none; }
+.ds-site-footer__links { padding: 1.4rem 0 2rem; border-top-color: rgba(255,255,255,.12); }
+.ds-site-footer__nav a { color: #78978e; }
+.ds-site-footer__nav a:hover,
+.ds-site-footer__nav a[aria-current='page'] { color: #fff; }

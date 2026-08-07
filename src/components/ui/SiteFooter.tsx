@@ -20,14 +20,6 @@ function FooterBrand() {
   )
 }
 
-function ArrowIcon() {
-  return (
-    <svg className="ds-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none">
-      <path d="M5 15 15 5M8 5h7v7" />
-    </svg>
-  )
-}
-
 export function SiteFooter() {
   const productLinks = [
     { id: 'products', label: 'Products', href: '/products' },
@@ -52,7 +44,7 @@ export function SiteFooter() {
           <div className="ds-site-footer__cta">
             <p>Ready to test a real workflow?</p>
             <LinkButton to="/pilot" variant="primary" size="sm">
-              Discuss a pilot <ArrowIcon />
+              Discuss a pilot
             </LinkButton>
           </div>
         </div>

@@ -62,3 +62,44 @@
 .home-cta { padding-block:var(--space-section);background:var(--color-ink);color:#fff; }.home-cta > div { display:flex;align-items:center;justify-content:space-between;gap:var(--space-7); }.home-cta h2 { max-width:none; }.home-cta p { color:rgba(255,255,255,.7);font-size:var(--text-xs);font-weight:700;letter-spacing:var(--tracking-label); }.home-cta a { display:inline-flex;align-items:center;gap:var(--space-3);padding:.8rem 1.1rem;background:var(--color-signal);color:var(--color-ink-deep);font-weight:700;border-radius:var(--radius-md); }
 @media (max-width: 760px) { .home-hero__actions { flex-direction:column;align-items:stretch; }.home-hero__actions .ds-btn { width:100%; }.home-problem__intro,.home-section-head,.home-principles__grid,.home-founder { grid-template-columns:1fr; gap:var(--space-6); }.home-frictions,.home-track { grid-template-columns:1fr; }.home-product { grid-template-columns:3rem 1fr; }.home-product > svg { display:none; }.home-labs { grid-template-columns:1fr auto; }.home-labs small { grid-column:1 / -1; }.home-principle-list article { grid-template-columns:2.5rem 1fr; }.home-principle-list p { grid-column:2; }.home-cta > div { align-items:flex-start;flex-direction:column; } }
 @media (prefers-reduced-motion: reduce) { .hero-atmosphere__mesh path,.hero-atmosphere__node,.reveal { animation:none; opacity:1; transform:none; } }
+
+/* Production visual system: retain the new information architecture, but use
+   the same deep emerald / paper / gold composition as the live brand. */
+.home-redesign { background: #faf9f4; color: #0d372f; }
+.home-hero {
+  min-height: min(88vh, 52rem);
+  background: #062a25;
+  color: #f7f4e9;
+}
+.hero-atmosphere {
+  background:
+    radial-gradient(800px 500px at 78% 42%, rgba(212, 162, 76, 0.12), transparent 68%),
+    linear-gradient(135deg, #041e1b 0%, #062a25 58%, #0c382f 100%);
+}
+.home-hero__eyebrow { color: #d4a24c; }
+.home-hero__brand,
+.home-hero__title { color: #f7f4e9; }
+.home-hero__lede { color: #b7cbc4; }
+.home-hero__actions .ds-btn--ink {
+  color: #f7f4e9;
+  border-color: rgba(247, 244, 233, 0.38);
+  background: transparent;
+}
+.home-hero__actions .ds-btn--ink:hover:not(:disabled) {
+  background: rgba(247, 244, 233, 0.08);
+  border-color: rgba(247, 244, 233, 0.75);
+}
+.home-products,
+.home-principles { background: #f0eee6; }
+.home-label { color: #b8842f; }
+.home-product,
+.home-labs { border-color: rgba(13, 55, 47, 0.16); background: #fff; }
+.home-product { border-left-color: #d4a24c; }
+.home-product--partner { border-left-color: #329a83; }
+.home-product > b,
+.home-product > svg { color: #a66f11; border-color: rgba(13, 55, 47, 0.16); }
+.home-product small,
+.home-frictions b,
+.home-principle-list small { color: #a66f11; }
+.home-cta { background: #062a25; }
+.home-cta a { border-radius: 0; background: #d4a24c; color: #062a25; }

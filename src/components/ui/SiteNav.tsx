@@ -8,14 +8,6 @@ type SiteNavProps = {
   showPilotCta?: boolean
 }
 
-function ArrowIcon() {
-  return (
-    <svg className="ds-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none">
-      <path d="M5 15 15 5M8 5h7v7" />
-    </svg>
-  )
-}
-
 function isActivePath(pathname: string, href: string, end = false) {
   if (end) return pathname === href
   if (href === '/') return pathname === '/'
@@ -171,7 +163,7 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
           {showPilotCta ? (
             <div onClick={close}>
               <LinkButton to="/pilot" variant="ink">
-                Discuss a pilot <ArrowIcon />
+                Discuss a pilot
               </LinkButton>
             </div>
           ) : null}
