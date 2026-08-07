@@ -52,6 +52,7 @@ export function Scope2PlanPage() {
         <SectionHeader
           label="Product modules"
           title="Generate and Control"
+          editorialAccent="Control"
           id="modules-title"
           accent="scope2plan"
           copy="One product family. Two modules for different moments in the delivery lifecycle."
@@ -74,6 +75,7 @@ export function Scope2PlanPage() {
         <SectionHeader
           label="Scope2Plan Generate"
           title={page.generate.title}
+          editorialAccent="project package"
           copy={page.generate.body}
           accent="scope2plan"
           id="generate-title"
@@ -102,6 +104,7 @@ export function Scope2PlanPage() {
         <SectionHeader
           label="Scope2Plan Control"
           title={page.control.title}
+          editorialAccent="as it changes"
           copy={
             <>
               <p>{page.control.body}</p>
@@ -129,6 +132,7 @@ export function Scope2PlanPage() {
         <SectionHeader
           label="Methodology"
           title={page.methodology.title}
+          editorialAccent="organisation delivers"
           copy={page.methodology.body}
           id="method-title"
           accent="scope2plan"
