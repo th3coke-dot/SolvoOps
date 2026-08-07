@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
-import { SandFlow } from '../components/SandFlow'
+import { HeroAtmosphere } from '../components/HeroAtmosphere'
 import { company, pagesMetadata, primaryProducts } from '../content'
 import './HomePage.css'
 
@@ -159,7 +159,7 @@ export function HomePage() {
     >
       <section className="home-hero" id="top" aria-labelledby="home-hero-title">
         <HomeNav />
-        <SandFlow />
+        <HeroAtmosphere />
         <div className="home-hero__grid home-wrap">
           <div className="home-hero__copy">
             <p className="home-eyebrow"><i /> OPERATIONAL SYSTEMS FOR REAL DELIVERY WORK</p>
