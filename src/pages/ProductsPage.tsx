@@ -33,6 +33,7 @@ export function ProductsPage() {
         <SectionHeader
           label="Primary products"
           title="Scope2Plan and PartnerForge"
+          editorialAccent="PartnerForge"
           id="primary-products"
           copy="Scope2Plan Generate and Control for planning and change. PartnerForge for partner intelligence across regions."
         />
@@ -53,6 +54,7 @@ export function ProductsPage() {
         <SectionHeader
           label="SolvoOps Labs"
           title="Explore adjacent tools"
+          editorialAccent="adjacent tools"
           id="labs-products"
           copy="Labs tools remain secondary to the primary commercial products, but they are part of the SolvoOps portfolio."
           accent="labs"
