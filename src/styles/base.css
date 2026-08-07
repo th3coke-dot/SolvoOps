@@ -24,7 +24,10 @@ body {
   font-size: var(--text-md);
   line-height: var(--leading-normal);
   color: var(--color-text);
-  background: #faf9f4;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(212, 162, 76, 0.1), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(18, 60, 52, 0.07), transparent 50%),
+    linear-gradient(180deg, var(--color-mist) 0%, var(--color-paper) 42%, var(--color-white) 100%);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
