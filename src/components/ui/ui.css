@@ -902,3 +902,65 @@
   .ds-workflow__title { margin-top: 1.5rem; }
   .ds-site-footer__nav { gap: 0.8rem 1.2rem; }
 }
+
+/* Hybrid direction: the original SolvoOps light brand system, used on the
+   redesigned routes and information architecture. */
+.ds-brand-mark { border-color: rgba(18, 60, 52, 0.3); }
+.ds-btn { border-radius: var(--radius-md); font-weight: 650; }
+.ds-btn--primary { color: var(--color-ink-deep); background: var(--color-signal); border-color: var(--color-signal); }
+.ds-btn--primary:hover:not(:disabled) { background: #e0b15d; border-color: #e0b15d; }
+.ds-btn--ink { color: #fff; background: var(--color-ink); border-color: var(--color-ink); }
+.ds-btn--secondary { color: var(--color-ink); border-color: var(--color-border-strong); }
+
+.ds-section-header__label { font-family: var(--font-body); color: var(--accent, var(--color-signal-deep)); }
+.ds-section-header__title { color: var(--color-ink); font-size: var(--text-3xl); letter-spacing: var(--tracking-tight); line-height: var(--leading-tight); }
+.ds-section-header__title em { font-family: inherit; font-style: normal; font-weight: inherit; color: inherit; }
+.ds-section-header__copy { color: var(--color-text-muted); font-size: var(--text-lg); line-height: var(--leading-normal); }
+
+.ds-product-card { min-height: 0; gap: var(--space-6); margin: 0; padding: var(--space-6) var(--space-5); border: 0; border-top: 1px solid var(--color-border); border-left: 3px solid var(--accent, var(--color-signal)); background: transparent; }
+.ds-product-card:last-child { border-bottom: 1px solid var(--color-border); }
+.ds-product-card:hover { background: color-mix(in srgb, var(--accent-soft, var(--color-mist)) 70%, transparent); box-shadow: none; transform: none; }
+.ds-product-card__name { font-size: var(--text-xl); letter-spacing: -0.03em; }
+.ds-product-card__headline { font-family: var(--font-body); font-size: var(--text-md); }
+.ds-product-card__description { color: var(--color-text-muted); }
+.ds-product-card__cta { font-size: inherit; }
+.ds-product-card__cta::after { content: none; }
+.ds-feature-card { min-height: 0; padding: var(--space-5) 0 0; border: 0; border-top: 1px solid var(--color-border); background: transparent; }
+.ds-feature-card__title { font-size: 1.35rem; }
+.ds-feature-card__body { color: var(--color-text-muted); }
+.ds-workflow { margin-top: var(--space-6); border: 0; gap: var(--space-5); }
+.ds-workflow__step { min-height: 0; padding: var(--space-5) 0; border-top: 1px solid var(--color-border); border-right: 0; border-bottom: 0; }
+.ds-workflow__step:last-child { border-bottom: 1px solid var(--color-border); }
+.ds-workflow__title { margin-top: 0; }
+.ds-workflow__body { color: var(--color-text-muted); }
+
+.ds-shell-header { color: var(--color-ink); background: color-mix(in srgb, var(--color-paper) 92%, transparent); border-bottom: 1px solid var(--color-border); }
+.ds-site-nav { min-height: var(--header-height); }
+.ds-site-nav__brand { color: var(--color-ink); font-size: 1.125rem; }
+.ds-site-nav__link { color: var(--color-ink); font-size: inherit; }
+.ds-site-nav__link:hover,
+.ds-site-nav__link[aria-current='page'],
+.ds-site-nav__trigger[aria-current='page'] { color: var(--color-ink); border-bottom: 1px solid currentColor; }
+.ds-site-nav__trigger::after { display: none; }
+.ds-site-nav__menu { border-radius: var(--radius-md); border-color: var(--color-border); background: var(--color-surface); box-shadow: var(--shadow-md); }
+.ds-site-nav__menu-link { color: var(--color-ink); }
+.ds-site-nav__menu-link:hover,
+.ds-site-nav__menu-link[aria-current='page'] { color: var(--color-ink); background: var(--color-mist); }
+.ds-site-nav__toggle { color: var(--color-ink); border-color: var(--color-border-strong); background: var(--color-surface); }
+.ds-site-nav__mobile { border-radius: var(--radius-md); border-color: var(--color-border); background: var(--color-surface); box-shadow: var(--shadow-md); }
+.ds-site-nav__mobile a { color: var(--color-ink); }
+.ds-site-nav__mobile-child { color: var(--color-text-muted) !important; }
+
+.ds-site-footer { color: var(--color-text-inverse); background: transparent; }
+.ds-site-footer__band { padding: var(--space-8) 0; background: linear-gradient(135deg, var(--color-ink) 0%, #1a4a40 55%, #0f2e28 100%); }
+.ds-site-footer__inner,
+.ds-site-footer__links { width: min(100% - (var(--gutter) * 2), var(--max)); }
+.ds-footer-brand-lockup strong { color: #fff; font-size: 1.35rem; }
+.ds-site-footer__brand p { color: rgba(255, 255, 255, 0.72); }
+.ds-site-footer__cta p { color: rgba(255, 255, 255, 0.78); font-family: var(--font-body); font-size: inherit; letter-spacing: normal; text-transform: none; }
+.ds-site-footer__links { padding: var(--space-6) 0 var(--space-7); border-top: 0; color: var(--color-text); }
+.ds-site-footer__nav a { color: var(--color-text-muted); font-size: inherit; }
+.ds-site-footer__nav a:hover,
+.ds-site-footer__nav a[aria-current='page'] { color: var(--color-ink); }
+
+@media (max-width: 900px) { .ds-workflow { grid-template-columns: 1fr; } }
