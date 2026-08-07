@@ -158,6 +158,11 @@ export function HomePage() {
     >
       <section className="home-hero" id="top" aria-labelledby="home-hero-title">
         <HomeNav />
+        <div className="home-sand" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </div>
         <div className="home-hero__grid home-wrap">
           <div className="home-hero__copy">
             <p className="home-eyebrow"><i /> OPERATIONAL SYSTEMS FOR REAL DELIVERY WORK</p>
