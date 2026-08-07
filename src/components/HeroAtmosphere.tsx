@@ -13,17 +13,17 @@ export function HeroAtmosphere() {
       >
         <defs>
           <linearGradient id="ha-wash" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#041e1b" stopOpacity="0.92" />
-            <stop offset="48%" stopColor="#062a25" stopOpacity="0.62" />
-            <stop offset="100%" stopColor="#17483f" stopOpacity="0.42" />
+            <stop offset="0%" stopColor="#123c34" stopOpacity="0.07" />
+            <stop offset="45%" stopColor="#d4a24c" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#0f766e" stopOpacity="0.1" />
           </linearGradient>
           <linearGradient id="ha-line" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.06" />
-            <stop offset="50%" stopColor="#d4a24c" stopOpacity="0.48" />
-            <stop offset="100%" stopColor="#cce1d9" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#123c34" stopOpacity="0.05" />
+            <stop offset="50%" stopColor="#d4a24c" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#0f766e" stopOpacity="0.35" />
           </linearGradient>
           <radialGradient id="ha-glow" cx="72%" cy="38%" r="45%">
-            <stop offset="0%" stopColor="#d4a24c" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#d4a24c" stopOpacity="0.22" />
             <stop offset="100%" stopColor="#d4a24c" stopOpacity="0" />
           </radialGradient>
         </defs>
@@ -35,19 +35,19 @@ export function HeroAtmosphere() {
           <path d="M-20 180 C300 260, 520 80, 780 200 S1200 340, 1480 220" />
           <path d="M120 700 C360 560, 640 640, 900 520 S1280 400, 1520 560" />
         </g>
-        <g className="hero-atmosphere__nodes" fill="#d9e8e2">
-          <circle className="hero-atmosphere__node" cx="220" cy="470" r="5" opacity="0.2" />
-          <circle className="hero-atmosphere__node" cx="520" cy="530" r="4" opacity="0.18" />
+        <g className="hero-atmosphere__nodes" fill="#123c34">
+          <circle className="hero-atmosphere__node" cx="220" cy="470" r="5" opacity="0.45" />
+          <circle className="hero-atmosphere__node" cx="520" cy="530" r="4" opacity="0.35" />
           <circle className="hero-atmosphere__node hero-atmosphere__node--signal" cx="780" cy="200" r="6" fill="#d4a24c" opacity="0.85" />
-          <circle className="hero-atmosphere__node" cx="980" cy="470" r="5" opacity="0.22" />
-          <circle className="hero-atmosphere__node" cx="1180" cy="360" r="4" opacity="0.2" />
-          <circle className="hero-atmosphere__node" cx="1320" cy="520" r="5" opacity="0.16" />
+          <circle className="hero-atmosphere__node" cx="980" cy="470" r="5" opacity="0.4" />
+          <circle className="hero-atmosphere__node" cx="1180" cy="360" r="4" opacity="0.35" />
+          <circle className="hero-atmosphere__node" cx="1320" cy="520" r="5" opacity="0.3" />
         </g>
         {/* Soft horizon band */}
         <path
           d="M0 560 Q360 500 720 540 T1440 500 L1440 720 L0 720 Z"
-          fill="#041e1b"
-          opacity="0.45"
+          fill="#123c34"
+          opacity="0.04"
         />
       </svg>
     </div>

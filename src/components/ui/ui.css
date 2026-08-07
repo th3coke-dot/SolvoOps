@@ -878,6 +878,29 @@
 .ds-site-footer__nav a:hover,
 .ds-site-footer__nav a[aria-current='page'] { color: #fff; }
 
+/* Homepage only: restore the light, inviting treatment the test direction used
+   before the production skin was applied across the entire site. */
+.ds-app--light-landing .ds-shell-header {
+  color: var(--color-ink);
+  background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+  border-bottom-color: var(--color-border);
+}
+.ds-app--light-landing .ds-site-nav { min-height: var(--header-height); }
+.ds-app--light-landing .ds-site-nav__brand { color: var(--color-ink); font-size: 1.125rem; }
+.ds-app--light-landing .ds-site-nav__link { color: var(--color-ink); font-size: inherit; }
+.ds-app--light-landing .ds-site-nav__link:hover,
+.ds-app--light-landing .ds-site-nav__link[aria-current='page'],
+.ds-app--light-landing .ds-site-nav__trigger[aria-current='page'] { color: var(--color-ink); border-bottom: 1px solid currentColor; }
+.ds-app--light-landing .ds-site-nav__trigger::after { display: none; }
+.ds-app--light-landing .ds-site-nav__menu { border-radius: var(--radius-md); border-color: var(--color-border); background: var(--color-surface); box-shadow: var(--shadow-md); }
+.ds-app--light-landing .ds-site-nav__menu-link { color: var(--color-ink); }
+.ds-app--light-landing .ds-site-nav__menu-link:hover,
+.ds-app--light-landing .ds-site-nav__menu-link[aria-current='page'] { color: var(--color-ink); background: var(--color-mist); }
+.ds-app--light-landing .ds-site-nav__toggle { border-radius: var(--radius-md); color: var(--color-ink); border-color: var(--color-border-strong); background: var(--color-surface); }
+.ds-app--light-landing .ds-site-nav__mobile { border-radius: var(--radius-md); border-color: var(--color-border); background: var(--color-surface); box-shadow: var(--shadow-md); }
+.ds-app--light-landing .ds-site-nav__mobile a { color: var(--color-ink); }
+.ds-app--light-landing .ds-site-nav__mobile-child { color: var(--color-text-muted) !important; }
+
 @media (max-width: 900px) {
   .ds-product-card { grid-template-columns: 1fr; gap: 1.5rem; }
   .ds-product-card__cta,

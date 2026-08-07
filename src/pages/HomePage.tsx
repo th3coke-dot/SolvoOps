@@ -39,6 +39,7 @@ export function HomePage() {
       metadata={pagesMetadata.home}
       showPageHeader={false}
       mainClassName="home-redesign"
+      shellTone="light-landing"
     >
       <section className="home-hero" id="top" aria-labelledby="home-hero-title">
         <HeroAtmosphere />
