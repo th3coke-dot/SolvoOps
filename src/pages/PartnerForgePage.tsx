@@ -8,6 +8,7 @@ import {
   SectionHeader,
   WorkflowSteps,
 } from '../components/ui'
+import { EditorialHeading } from '../components/ui/EditorialHeading'
 import {
   getProductById,
   pagesMetadata,
@@ -32,7 +33,7 @@ export function PartnerForgePage() {
           <ProductStatusBadge status={product.status} />
         </div>
         <h1 className="product-hero__title" id="pf-title">
-          {page.headline}
+          <EditorialHeading text={page.headline} accent="ranked shortlists" />
         </h1>
         <p className="product-hero__lede">{page.lede}</p>
         <div className="product-hero__actions">
