@@ -181,6 +181,13 @@
   color: var(--color-text);
 }
 
+.ds-section-header__title em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent, var(--color-signal-deep));
+}
+
 .ds-section-header__copy {
   margin: 0;
   color: var(--color-text-muted);
