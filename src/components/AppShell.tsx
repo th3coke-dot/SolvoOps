@@ -10,6 +10,7 @@ type AppShellProps = {
   copy?: ReactNode
   children: ReactNode
   showShellNav?: boolean
+  showShellFooter?: boolean
   /** When false, page supplies its own H1 / hero. */
   showPageHeader?: boolean
   mainClassName?: string
@@ -26,6 +27,7 @@ export function AppShell({
   copy,
   children,
   showShellNav = true,
+  showShellFooter = true,
   showPageHeader = true,
   mainClassName,
 }: AppShellProps) {
@@ -60,7 +62,7 @@ export function AppShell({
             children
           )}
         </main>
-        <SiteFooter />
+        {showShellFooter ? <SiteFooter /> : null}
       </div>
     </>
   )
