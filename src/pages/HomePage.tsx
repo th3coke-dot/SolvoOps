@@ -67,6 +67,11 @@ export function HomePage() {
         <p>Source with evidence <span>•</span> Control with confidence <span>•</span> Plan with clarity</p>
       </section>
 
+      <section className="home-illustration" aria-label="Illustrative SolvoOps delivery model">
+        <div className="home-wrap"><div className="delivery-os" aria-label="Delivery OS live model"><header><span>DELIVERY OS / LIVE MODEL</span><span className="delivery-os__live">● SYNCHRONISED</span></header><div className="delivery-os__input"><b aria-hidden="true">▤</b><div><small>INPUT</small><strong>Customer SOW</strong><span>124 requirements detected</span></div><i aria-hidden="true">✓</i></div><div className="delivery-os__connector">STRUCTURE</div><div className="delivery-os__modules"><article className="delivery-os__module--generate"><small>SCOPE2PLAN</small><strong>Generate</strong><div className="delivery-os__meter"><i /></div><span>Delivery package ready</span></article><article><small>PARTNERFORGE</small><strong>Source</strong><div className="delivery-os__markets"><i>NL</i><i>DE</i><i>FR</i><b>+8</b></div><span>11 qualified partners</span></article><article className="delivery-os__module--control"><small>SCOPE2PLAN</small><strong>Control</strong><div className="delivery-os__control"><b>v3.2</b><span>4 impacts mapped</span><em>Aligned</em></div></article></div><footer><span>ONE STRUCTURED MODEL</span><span>EXPLAINABLE OUTPUTS</span><span>HUMAN APPROVED</span></footer></div></div>
+        <p>Source with evidence <span>•</span> Control with confidence <span>•</span> Plan with clarity</p>
+      </section>
+
       <section className="home-problem home-wrap" aria-labelledby="problem-title">
         <p className="home-label">01 / THE PROBLEM</p>
         <div className="home-problem__intro"><h2 id="problem-title">Complex work does not fail because people lack effort.</h2><div><h3>It slows down because the system around them is fragmented.</h3><p>Critical knowledge sits in documents, spreadsheets, inboxes and individual heads. Every new project starts with interpretation. Every change creates another version of the truth.</p></div></div>
