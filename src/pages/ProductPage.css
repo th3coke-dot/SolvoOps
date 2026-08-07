@@ -99,10 +99,18 @@
   max-width: 12ch;
   font-family: var(--font-display);
   font-size: clamp(3.4rem, 7vw, 6rem);
-  font-weight: 750;
+  font-weight: 700;
   letter-spacing: -0.065em;
   line-height: 0.95;
   text-wrap: balance;
+}
+
+.product-hero__title em,
+.ds-section-header__title em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--page-accent, var(--vision-gold));
 }
 
 .product-hero__lede {
