@@ -44,7 +44,12 @@ export function HowItWorksPage() {
         </p>
       </section>
       <section className="container product-section" aria-labelledby="hiw-process">
-        <SectionHeader label="Process" title="A practical operating rhythm" id="hiw-process" />
+        <SectionHeader
+          label="Process"
+          title="A practical operating rhythm"
+          editorialAccent="operating rhythm"
+          id="hiw-process"
+        />
         <WorkflowSteps
           labelledBy="hiw-process"
           steps={[
@@ -137,11 +142,13 @@ export function AboutPage() {
         <SectionHeader
           label="Company mission"
           title={company.mission}
+          editorialAccent="easier to control"
           id="mission-title"
         />
         <SectionHeader
           label="Product philosophy"
           title="Automation with accountability"
+          editorialAccent="with accountability"
           copy="We do not add AI to a workflow simply because it is available. We use automation, structured data and AI where they can improve speed, consistency and decision quality without removing human accountability."
         />
         <div className="product-capability-grid" style={{ marginTop: 'var(--space-7)' }}>
@@ -217,6 +224,7 @@ export function PilotPage() {
         <SectionHeader
           label="Options"
           title="Choose a starting point"
+          editorialAccent="starting point"
           id="pilot-options"
         />
         <div className="product-capability-grid">
@@ -234,6 +242,7 @@ export function PilotPage() {
         <SectionHeader
           label="Request"
           title="Request a pilot conversation"
+          editorialAccent="pilot conversation"
           id="pilot-form-heading"
           copy="No file uploads. No new database. Email remains the delivery channel."
         />
