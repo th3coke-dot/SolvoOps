@@ -92,6 +92,7 @@
    Factual statements stay in the display face; the point of contrast becomes
    a mustard, serif-italic line. */
 .home-problem__statement,
+.home-section-head h2 em,
 .home-principles h2 em,
 .home-cta h2 em {
   color: var(--color-signal-deep);
@@ -102,6 +103,7 @@
   letter-spacing: -0.04em;
 }
 
+.home-section-head h2 em,
 .home-principles h2 em {
   display: block;
   margin-top: 0.04em;
