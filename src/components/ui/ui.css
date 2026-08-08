@@ -942,6 +942,17 @@
 
 .ds-product-card { min-height: 0; gap: var(--space-6); margin: 0; padding: var(--space-6) var(--space-5); border: 0; border-top: 1px solid var(--color-border); border-left: 3px solid var(--accent, var(--color-signal)); background: transparent; }
 .ds-product-card:last-child { border-bottom: 1px solid var(--color-border); }
+
+/* v2.2.01: retain the editorial accent after the route-specific skin rules.
+   This is intentionally limited to phrases supplied through EditorialHeading. */
+.ds-section-header__title em {
+  color: var(--page-accent, var(--color-signal));
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.06em;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
 .ds-product-card:hover { background: color-mix(in srgb, var(--accent-soft, var(--color-mist)) 70%, transparent); box-shadow: none; transform: none; }
 .ds-product-card__name { font-size: var(--text-xl); letter-spacing: -0.03em; }
 .ds-product-card__headline { font-family: var(--font-body); font-size: var(--text-md); }
