@@ -560,6 +560,15 @@
 }
 @media (prefers-reduced-motion: reduce) { .product-hero::before { animation: none; } }
 
+/* v2.2: carry the headline accent into the product, method, about and pilot heroes. */
+.product-hero__title em {
+  color: var(--page-accent, var(--color-signal));
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.04em;
+  font-style: italic;
+  font-weight: 500;
+}
+
 /* Production surface overrides: the rebuilt page structure keeps the live
    emerald hero, paper sections and compact sans-serif hierarchy. */
 .product-page { background: #faf9f4; color: #0d372f; }
