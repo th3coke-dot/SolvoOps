@@ -4,8 +4,20 @@ import {
   primaryProducts,
   secondaryNavigation,
 } from '../../content'
-import { LinkButton } from './Button'
 import './ui.css'
+
+function FooterBrand() {
+  return (
+    <span className="ds-footer-brand-lockup">
+      <span className="ds-brand-mark" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+      </span>
+      <strong>{company.name}</strong>
+    </span>
+  )
+}
 
 export function SiteFooter() {
   const productLinks = [
@@ -25,14 +37,8 @@ export function SiteFooter() {
       <div className="ds-site-footer__band">
         <div className="ds-site-footer__inner">
           <div className="ds-site-footer__brand">
-            <strong>{company.name}</strong>
+            <FooterBrand />
             <p>{company.tagline}</p>
-          </div>
-          <div className="ds-site-footer__cta">
-            <p>Ready to test a real workflow?</p>
-            <LinkButton to="/pilot" variant="primary" size="sm">
-              Discuss a pilot
-            </LinkButton>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ export const partnerforgePage = {
   },
   problem: {
     title: 'Partner discovery should not depend on repeated searches and individual memory',
-    body: 'Traditional sourcing is fragmented across search engines, spreadsheets, registries, CRM records and specialist knowledge. PartnerForge turns that into a controlled discovery workflow: intent → multi-source retrieval → entity intelligence → evidence → explainable ranking → human shortlist.',
+    body: 'Traditional sourcing is fragmented across search engines, spreadsheets, registries, CRM records and specialist knowledge. PartnerForge turns that into a controlled discovery workflow spanning intent, multi-source retrieval, entity intelligence, evidence, explainable ranking and a human-approved shortlist.',
   },
   coverage: {
     title: 'Built for multi-region delivery coverage',

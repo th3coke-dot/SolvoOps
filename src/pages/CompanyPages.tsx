@@ -8,6 +8,7 @@ import {
   SectionHeader,
   WorkflowSteps,
 } from '../components/ui'
+import { EditorialHeading } from '../components/ui/EditorialHeading'
 import {
   company,
   labsProducts,
@@ -26,12 +27,15 @@ export function HowItWorksPage() {
     <AppShell
       metadata={pagesMetadata.howItWorks}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--method"
     >
       <section className="container product-hero" aria-labelledby="hiw-title">
         <p className="product-hero__label">How it works</p>
         <h1 className="product-hero__title" id="hiw-title">
-          Turn operational knowledge into repeatable systems
+          <EditorialHeading
+            text="Turn operational knowledge into repeatable systems"
+            accent="repeatable systems"
+          />
         </h1>
         <p className="product-hero__lede">
           SolvoOps products are built around workflows that are important,
@@ -40,7 +44,12 @@ export function HowItWorksPage() {
         </p>
       </section>
       <section className="container product-section" aria-labelledby="hiw-process">
-        <SectionHeader label="Process" title="A practical operating rhythm" id="hiw-process" />
+        <SectionHeader
+          label="Process"
+          title="A practical operating rhythm"
+          editorialAccent="operating rhythm"
+          id="hiw-process"
+        />
         <WorkflowSteps
           labelledBy="hiw-process"
           steps={[
@@ -85,12 +94,15 @@ export function AboutPage() {
     <AppShell
       metadata={pagesMetadata.about}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--about"
     >
       <section className="container product-hero" aria-labelledby="about-title">
         <p className="product-hero__label">About</p>
         <h1 className="product-hero__title" id="about-title">
-          Built from real operational problems
+          <EditorialHeading
+            text="Built from real operational problems"
+            accent="operational problems"
+          />
         </h1>
         <p className="product-hero__lede">
           SolvoOps was created from firsthand experience with the operational
@@ -130,11 +142,13 @@ export function AboutPage() {
         <SectionHeader
           label="Company mission"
           title={company.mission}
+          editorialAccent="easier to control"
           id="mission-title"
         />
         <SectionHeader
           label="Product philosophy"
           title="Automation with accountability"
+          editorialAccent="with accountability"
           copy="We do not add AI to a workflow simply because it is available. We use automation, structured data and AI where they can improve speed, consistency and decision quality without removing human accountability."
         />
         <div className="product-capability-grid" style={{ marginTop: 'var(--space-7)' }}>
@@ -154,12 +168,12 @@ export function LabsPage() {
     <AppShell
       metadata={pagesMetadata.labs}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--labs"
     >
       <section className="container product-hero" aria-labelledby="labs-title">
         <p className="product-hero__label">SolvoOps Labs</p>
         <h1 className="product-hero__title" id="labs-title">
-          SolvoOps Labs
+          <EditorialHeading text="SolvoOps Labs" accent="Labs" />
         </h1>
         <p className="product-hero__lede">
           Smaller tools and experiments used to explore new workflows,
@@ -194,12 +208,12 @@ export function PilotPage() {
     <AppShell
       metadata={pagesMetadata.pilot}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--pilot"
     >
       <section className="container product-hero" aria-labelledby="pilot-title">
         <p className="product-hero__label">{pilotPageContent.label}</p>
         <h1 className="product-hero__title" id="pilot-title">
-          {pilotPageContent.title}
+          <EditorialHeading text={pilotPageContent.title} accent="real workflow" />
         </h1>
         <p className="product-hero__lede">{pilotPageContent.lede}</p>
       </section>
@@ -210,6 +224,7 @@ export function PilotPage() {
         <SectionHeader
           label="Options"
           title="Choose a starting point"
+          editorialAccent="starting point"
           id="pilot-options"
         />
         <div className="product-capability-grid">
@@ -227,6 +242,7 @@ export function PilotPage() {
         <SectionHeader
           label="Request"
           title="Request a pilot conversation"
+          editorialAccent="pilot conversation"
           id="pilot-form-heading"
           copy="No file uploads. No new database. Email remains the delivery channel."
         />
@@ -241,7 +257,7 @@ export function PrivacyPage() {
     <AppShell
       metadata={pagesMetadata.privacy}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--legal"
     >
       <section className="container product-hero" aria-labelledby="privacy-title">
         <p className="product-hero__label">{privacyPageContent.label}</p>
@@ -276,7 +292,7 @@ export function TermsPage() {
     <AppShell
       metadata={pagesMetadata.terms}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--legal"
     >
       <section className="container product-hero" aria-labelledby="terms-title">
         <p className="product-hero__label">{termsPageContent.label}</p>
@@ -311,7 +327,7 @@ export function NotFoundPage() {
     <AppShell
       metadata={pagesMetadata.notFound}
       showPageHeader={false}
-      mainClassName="product-page"
+      mainClassName="product-page product-page--not-found"
     >
       <section className="container product-hero" aria-labelledby="not-found-title">
         <p className="product-hero__label">404</p>

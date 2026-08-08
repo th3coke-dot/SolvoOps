@@ -5,6 +5,10 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    host: '0.0.0.0',
+    allowedHosts: ['terminal.local'],
+  },
   // Expose Vercel env to the client for preview noindex behaviour.
   envPrefix: ['VITE_', 'VERCEL_'],
   define: {
