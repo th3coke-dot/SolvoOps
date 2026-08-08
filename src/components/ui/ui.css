@@ -988,6 +988,15 @@
 
 @media (max-width: 900px) { .ds-workflow { grid-template-columns: 1fr; } }
 
+/* v2.2: reserve the two-tone treatment for page-defining statements. */
+.ds-section-header__title em {
+  color: var(--page-accent, var(--color-signal));
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.06em;
+  font-style: italic;
+  font-weight: 500;
+}
+
 /* Production skin — one consistent, sans-serif system across all routes. */
 .ds-btn { border-radius: 0; justify-content: center; font-weight: 650; }
 .ds-btn--primary { color: #062a25; background: #d4a24c; border-color: #d4a24c; }
