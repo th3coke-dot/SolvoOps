@@ -4,7 +4,6 @@ import {
   primaryProducts,
   secondaryNavigation,
 } from '../../content'
-import { LinkButton } from './Button'
 import './ui.css'
 
 function FooterBrand() {
@@ -40,12 +39,6 @@ export function SiteFooter() {
           <div className="ds-site-footer__brand">
             <FooterBrand />
             <p>{company.tagline}</p>
-          </div>
-          <div className="ds-site-footer__cta">
-            <p>Ready to test a real workflow?</p>
-            <LinkButton to="/pilot" variant="primary" size="sm">
-              Discuss a pilot
-            </LinkButton>
           </div>
         </div>
       </div>
