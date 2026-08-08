@@ -621,3 +621,14 @@
 .product-proof__board { border-top: 4px solid var(--page-accent, #329a83); background: #fff; }
 .about-founder__p:first-child { font-family: var(--font-body); font-size: inherit; color: #66736e; }
 .about-founder__mission { background: #d4a24c; color: #062a25; border-left: 0; }
+
+
+/* v2.2.01 public-preview enforcement: preserve the editorial contrast after the final route skin. */
+.product-hero__title em {
+  color: var(--page-accent, #d4a24c) !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 1.04em;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.04em;
+}
