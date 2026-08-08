@@ -560,6 +560,17 @@
 }
 @media (prefers-reduced-motion: reduce) { .product-hero::before { animation: none; } }
 
+/* v2.2.01: product, method, about and pilot hero accents keep the shared
+   SolvoOps editorial contrast treatment after the dark-hero skin is applied. */
+.product-hero__title em {
+  color: var(--page-accent, var(--color-signal));
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.04em;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
 /* v2.2: carry the headline accent into the product, method, about and pilot heroes. */
 .product-hero__title em {
   color: var(--page-accent, var(--color-signal));
