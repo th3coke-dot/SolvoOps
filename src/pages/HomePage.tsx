@@ -78,7 +78,7 @@ export function HomePage() {
 
       <section className="home-products" id="products" aria-labelledby="products-title"><div className="home-wrap">
         <p className="home-label">02 / THE PRODUCTS</p>
-        <div className="home-section-head"><h2 id="products-title">Focused tools.<br />One operating logic.</h2><p>Each product solves a specific bottleneck. Together, they create a connected flow from project intake to controlled execution.</p></div>
+        <div className="home-section-head"><h2 id="products-title">Focused tools.<br /><em>One operating logic.</em></h2><p>Each product solves a specific bottleneck. Together, they create a connected flow from project intake to controlled execution.</p></div>
         <div className="home-product-stack">
           <Link className="home-product home-product--scope" to={scope2plan.route}><b>01</b><div><small>{scope2plan.statusLabel}</small><h3>{scope2plan.name}</h3><h4>From scope to execution — in minutes.</h4><p>{scope2plan.description}</p><span>Generate · Control · Structured model</span></div><Arrow /></Link>
           <Link className="home-product home-product--partner" to={partnerforge.route}><b>02</b><div><small>{partnerforge.statusLabel}</small><h3>{partnerforge.name}</h3><h4>Find who can deliver. Know why they fit.</h4><p>{partnerforge.description}</p><span>Discover · Validate · Rank</span></div><Arrow /></Link>
