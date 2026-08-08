@@ -106,3 +106,16 @@
   display: block;
   margin-top: 0.04em;
 }
+
+
+/* v2.2.01 public-preview enforcement: the editorial counterpoint is deliberately distinct. */
+.home-principles h2 em {
+  display: block;
+  margin-top: 0.04em;
+  color: #b8842f !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 1.04em;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.04em;
+}
