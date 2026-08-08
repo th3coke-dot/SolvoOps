@@ -72,7 +72,7 @@ export function HomePage() {
 
       <section className="home-problem home-wrap" aria-labelledby="problem-title">
         <p className="home-label">01 / THE PROBLEM</p>
-        <div className="home-problem__intro"><h2 id="problem-title">Complex work does not fail because people lack effort.</h2><div><h3>It slows down because the system around them is fragmented.</h3><p>Critical knowledge sits in documents, spreadsheets, inboxes and individual heads. Every new project starts with interpretation. Every change creates another version of the truth.</p></div></div>
+        <div className="home-problem__intro"><h2 id="problem-title">Complex work does not fail because people lack effort.</h2><div><h3 className="home-problem__statement">It slows down because the system around them is fragmented.</h3><p>Critical knowledge sits in documents, spreadsheets, inboxes and individual heads. Every new project starts with interpretation. Every change creates another version of the truth.</p></div></div>
         <div className="home-frictions">{frictions.map(([title, body], index) => <article key={title}><b>0{index + 1}</b><h3>{title}</h3><p>{body}</p></article>)}</div>
       </section>
 
