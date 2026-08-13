@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom'
 import {
-  company,
   primaryProducts,
   secondaryNavigation,
 } from '../../content'
@@ -9,12 +8,14 @@ import './ui.css'
 function FooterBrand() {
   return (
     <span className="ds-footer-brand-lockup">
-      <span className="ds-brand-mark" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-      </span>
-      <strong>{company.name}</strong>
+      <img
+        className="ds-brand-logo ds-brand-logo--footer"
+        src="/brand/solvoops-horizontal-dark.png"
+        alt="SolvoOps"
+        width={1853}
+        height={559}
+        decoding="async"
+      />
     </span>
   )
 }
@@ -38,7 +39,6 @@ export function SiteFooter() {
         <div className="ds-site-footer__inner">
           <div className="ds-site-footer__brand">
             <FooterBrand />
-            <p>{company.tagline}</p>
           </div>
         </div>
       </div>
