@@ -80,7 +80,7 @@
 @media (prefers-reduced-motion: reduce) { .hero-atmosphere__mesh path,.hero-atmosphere__node,.reveal { animation:none; opacity:1; transform:none; } }
 
 .home-illustration { padding: var(--space-7) 0 var(--space-section); background: var(--color-ink); color: rgba(255,255,255,.62); overflow: hidden; }
-.delivery-os { max-width: 34rem; margin: 0 auto; padding: clamp(.8rem, 3vw, 1.1rem); background: #edf0e9; color: var(--color-ink); border-radius: .5rem; box-shadow: 0 2rem 5rem rgba(0,0,0,.34); transform: rotate(1.3deg); }
+.delivery-os { max-width: 34rem; margin: 0 auto; padding: clamp(.8rem, 3vw, 1.1rem); background: #edf0e9; color: var(--color-ink); border-radius: .5rem; box-shadow: 0 2rem 5rem rgba(0,0,0,.34); }
 .delivery-os header,.delivery-os footer { display:flex; justify-content:space-between; gap:.5rem; font-size:.48rem; font-weight:700; letter-spacing:.08em; color:#71837c; }
 .delivery-os__live { color:#16806b; }.delivery-os__input { display:flex; align-items:center; gap:.75rem; margin-top:.85rem; padding:.85rem; border:1px solid #d4ddd7; background:#fff; }
 .delivery-os__input>b { padding:.6rem; background:var(--color-ink); color:var(--color-signal); font-size:1.25rem; }.delivery-os__input div { display:flex; flex:1; flex-direction:column; color:#788780; font-size:.58rem; }.delivery-os__input strong { color:var(--color-ink); font-size:.82rem; }.delivery-os__input>i { display:grid; place-items:center; width:1.25rem; aspect-ratio:1; border-radius:50%; background:#d6eee6; color:#17705f; font-size:.65rem; font-style:normal; }
@@ -98,7 +98,7 @@
   text-align: center;
   text-wrap: balance;
 }
-@media (max-width:760px) { .delivery-os { max-width:none; margin-inline:.1rem; transform:none; } .delivery-os footer { display:none; } }
+@media (max-width:760px) { .delivery-os { max-width:none; margin-inline:.1rem; } .delivery-os footer { display:none; } }
 
 /* v2.2.01: editorial counterpoints use the same contrast language throughout.
    Factual statements stay in the display face; the point of contrast becomes
