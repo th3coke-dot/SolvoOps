@@ -8,7 +8,7 @@ export type PageMetadata = {
   noIndex?: boolean
 }
 
-const defaultTitle = `${company.name} | Operational Intelligence for Service Delivery`
+const defaultTitle = `${company.name} | From operational complexity to controlled execution`
 const defaultDescription =
   'SolvoOps builds focused software for project planning, scope control, partner discovery and complex service-delivery workflows.'
 
@@ -31,7 +31,7 @@ export const siteMetadata = {
 export const pagesMetadata: Record<string, PageMetadata> = {
   home: {
     path: '/',
-    title: 'SolvoOps | Operational Intelligence for Service Delivery',
+    title: 'SolvoOps | From operational complexity to controlled execution',
     description:
       'SolvoOps builds focused software for project planning, scope control, partner discovery and complex service-delivery workflows.',
   },
