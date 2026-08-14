@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { LegacyHashRedirect } from './components/LegacyHashRedirect'
 import { HomePage } from './pages/HomePage'
 
@@ -51,10 +51,21 @@ function RouteFallback() {
   )
 }
 
+function ScrollToTop() {
+  const { pathname, search } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 })
+  }, [pathname, search])
+
+  return null
+}
+
 export default function App() {
   return (
     <>
       <LegacyHashRedirect />
+      <ScrollToTop />
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<HomePage />} />

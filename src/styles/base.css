@@ -57,8 +57,15 @@ button {
 }
 
 .container {
-  width: min(100% - (var(--gutter) * 2), var(--max));
+  width: min(1180px, calc(100% - 48px));
   margin-inline: auto;
+}
+
+@media (max-width: 600px) {
+  .container,
+  .container--narrow {
+    width: calc(100% - 30px);
+  }
 }
 
 .container--narrow {

@@ -8,6 +8,7 @@ import {
   SectionHeader,
   WorkflowSteps,
 } from '../components/ui'
+import { EditorialHeading } from '../components/ui/EditorialHeading'
 import {
   company,
   getProductById,
@@ -33,7 +34,7 @@ export function Scope2PlanPage() {
           <ProductStatusBadge status={product.status} />
         </div>
         <h1 className="product-hero__title" id="s2p-title">
-          {page.headline}
+          <EditorialHeading text={page.headline} accent="controlled delivery" />
         </h1>
         <p className="product-hero__lede">{page.lede}</p>
         <p className="product-hero__lede">{page.modulesNote}</p>
@@ -51,6 +52,7 @@ export function Scope2PlanPage() {
         <SectionHeader
           label="Product modules"
           title="Generate and Control"
+          editorialAccent="Control"
           id="modules-title"
           accent="scope2plan"
           copy="One product family. Two modules for different moments in the delivery lifecycle."
@@ -73,6 +75,7 @@ export function Scope2PlanPage() {
         <SectionHeader
           label="Scope2Plan Generate"
           title={page.generate.title}
+          editorialAccent="project package"
           copy={page.generate.body}
           accent="scope2plan"
           id="generate-title"
@@ -101,6 +104,7 @@ export function Scope2PlanPage() {
         <SectionHeader
           label="Scope2Plan Control"
           title={page.control.title}
+          editorialAccent="as it changes"
           copy={
             <>
               <p>{page.control.body}</p>
@@ -128,6 +132,7 @@ export function Scope2PlanPage() {
         <SectionHeader
           label="Methodology"
           title={page.methodology.title}
+          editorialAccent="organisation delivers"
           copy={page.methodology.body}
           id="method-title"
           accent="scope2plan"

@@ -1,11 +1,24 @@
 import { NavLink } from 'react-router-dom'
 import {
-  company,
   primaryProducts,
   secondaryNavigation,
 } from '../../content'
-import { LinkButton } from './Button'
 import './ui.css'
+
+function FooterBrand() {
+  return (
+    <span className="ds-footer-brand-lockup">
+      <img
+        className="ds-brand-logo ds-brand-logo--footer"
+        src="/brand/solvoops-horizontal-dark.png"
+        alt="SolvoOps"
+        width={1853}
+        height={559}
+        decoding="async"
+      />
+    </span>
+  )
+}
 
 export function SiteFooter() {
   const productLinks = [
@@ -25,14 +38,7 @@ export function SiteFooter() {
       <div className="ds-site-footer__band">
         <div className="ds-site-footer__inner">
           <div className="ds-site-footer__brand">
-            <strong>{company.name}</strong>
-            <p>{company.tagline}</p>
-          </div>
-          <div className="ds-site-footer__cta">
-            <p>Ready to test a real workflow?</p>
-            <LinkButton to="/pilot" variant="primary" size="sm">
-              Discuss a pilot
-            </LinkButton>
+            <FooterBrand />
           </div>
         </div>
       </div>

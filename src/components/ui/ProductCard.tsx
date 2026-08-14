@@ -48,7 +48,7 @@ export function ProductCard({
           emphasizeCta ? 'ds-btn ds-btn--secondary ds-btn--sm' : 'ds-product-card__cta'
         }
       >
-        {ctaLabel} {product.shortName} →
+        {ctaLabel} {product.shortName}
       </span>
     </>
   )
