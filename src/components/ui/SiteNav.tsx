@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { company, primaryNavigation, type NavItem } from '../../content'
+import { primaryNavigation, type NavItem } from '../../content'
 import { LinkButton } from './Button'
 import './ui.css'
 
@@ -58,8 +58,28 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
   return (
     <header className="ds-shell-header" ref={headerRef}>
       <div className="ds-site-nav">
-        <Link className="ds-site-nav__brand" to="/" onClick={close}>
-          {company.name}
+        <Link
+          className="ds-site-nav__brand"
+          to="/"
+          onClick={close}
+          aria-label="SolvoOps home"
+        >
+          <img
+            className="ds-brand-logo ds-brand-logo--nav-light"
+            src="/brand/solvoops-horizontal-light.png"
+            alt=""
+            width={1853}
+            height={559}
+            decoding="async"
+          />
+          <img
+            className="ds-brand-logo ds-brand-logo--nav-dark"
+            src="/brand/solvoops-horizontal-dark.png"
+            alt=""
+            width={1853}
+            height={559}
+            decoding="async"
+          />
         </Link>
 
         <nav className="ds-site-nav__desktop" aria-label="Primary">
