@@ -69,6 +69,12 @@ describe('content model', () => {
     expect(company.founderMission.toLowerCase()).toContain('smarter')
   })
 
+  it('records the current operating entity until SolvoOps AS exists', async () => {
+    const { company } = await import('./company')
+    expect(company.operator.legalName).toBe('Pedersen IT Consulting')
+    expect(company.operator.organizationNumber).toBe('924547405')
+  })
+
   it('only links to approved external product URLs', () => {
     expect(getProductById('scope2plan')?.productUrl).toMatch(/scope2plan\.com/)
     expect(getProductById('partnerforge')?.productUrl).toMatch(

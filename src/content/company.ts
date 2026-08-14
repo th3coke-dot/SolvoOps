@@ -16,6 +16,11 @@ export const company = {
   founderMission: 'Build technology that helps people work smarter, not harder.',
   contactEmail: 'hello@solvoops.com',
   siteUrl: 'https://solvoops.com',
+  operator: {
+    legalName: 'Pedersen IT Consulting',
+    organizationNumber: '924547405',
+    organizationNumberLabel: '924 547 405',
+  },
   connectedWorkflowNote:
     'Designed to support a connected delivery workflow.',
   founder: {
