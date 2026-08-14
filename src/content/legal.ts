@@ -15,7 +15,7 @@ export const privacyPageContent = {
   sections: [
     {
       title: 'Who we are',
-      body: `${company.name} operates ${company.siteUrl}. Contact: ${company.contactEmail}.`,
+      body: `${company.name} is operated by ${company.operator.legalName}, org.nr. ${company.operator.organizationNumberLabel}. Contact: ${company.contactEmail}.`,
     },
     {
       title: 'What this site collects',
@@ -51,7 +51,7 @@ export const termsPageContent = {
   sections: [
     {
       title: 'About this site',
-      body: `${company.siteUrl} provides company and product information for ${company.name}. Product environments linked from this site may have separate terms.`,
+      body: `${company.siteUrl} provides company and product information for ${company.name}, operated by ${company.operator.legalName}, org.nr. ${company.operator.organizationNumberLabel}. Product environments linked from this site may have separate terms.`,
     },
     {
       title: 'Informational content',

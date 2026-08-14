@@ -654,6 +654,14 @@
   font-size: var(--text-sm);
 }
 
+.ds-site-footer__operator {
+  margin: 0;
+  max-width: 42rem;
+  color: #6f8880;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ds-btn,
   .ds-product-card {

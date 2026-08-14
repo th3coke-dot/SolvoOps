@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import {
+  company,
   primaryProducts,
   secondaryNavigation,
 } from '../../content'
@@ -57,6 +58,11 @@ export function SiteFooter() {
             </NavLink>
           ))}
         </nav>
+        <p className="ds-site-footer__operator">
+          {company.name} is operated by {company.operator.legalName}
+          <span aria-hidden="true"> · </span>
+          Org.nr. {company.operator.organizationNumberLabel}
+        </p>
       </div>
     </footer>
   )
