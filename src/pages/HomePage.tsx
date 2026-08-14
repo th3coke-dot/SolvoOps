@@ -67,7 +67,7 @@ export function HomePage() {
             <footer><span>ONE STRUCTURED MODEL</span><span>EXPLAINABLE OUTPUTS</span><span>HUMAN APPROVED</span></footer>
           </div>
         </div>
-        <p>Source with evidence <span>•</span> Control with confidence <span>•</span> Plan with clarity</p>
+        <p className="home-illustration__tagline">Complexity in. Clarity out.</p>
       </section>
 
       <section className="home-problem home-wrap" aria-labelledby="problem-title">
