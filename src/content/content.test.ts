@@ -80,6 +80,9 @@ describe('content model', () => {
     expect(getProductById('partnerforge')?.productUrl).toMatch(
       /partnerforge\.vercel\.app/,
     )
+    expect(getProductById('autoname')?.productUrl).toMatch(
+      /autonamesearch\.vercel\.app/,
+    )
   })
 })
 
