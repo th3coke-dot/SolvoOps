@@ -65,6 +65,12 @@ export const pagesMetadata: Record<string, PageMetadata> = {
     description:
       'SolvoOps was founded by Morten to turn complex operational work into focused, repeatable software systems.',
   },
+  company: {
+    path: '/company',
+    title: `Company | ${company.name}`,
+    description:
+      'SolvoOps is operated by Pedersen IT Consulting, org.nr. 924 547 405. Contact, legal identity and how to start a pilot.',
+  },
   labs: {
     path: '/labs',
     title: `SolvoOps Labs | ${company.name}`,

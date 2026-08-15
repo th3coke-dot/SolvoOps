@@ -31,6 +31,7 @@ export const primaryNavigation: NavItem[] = [
 ]
 
 export const secondaryNavigation: NavItem[] = [
+  { id: 'company', label: 'Company', href: '/company', secondary: true },
   { id: 'pilot', label: 'Pilot', href: '/pilot', secondary: true },
   { id: 'privacy', label: 'Privacy', href: '/privacy', secondary: true },
   { id: 'terms', label: 'Terms', href: '/terms', secondary: true },
