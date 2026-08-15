@@ -3,7 +3,7 @@
 Marketing site for [SolvoOps](https://solvoops.com) — operational intelligence software for complex service delivery.
 
 **Primary products:** [Scope2Plan](https://www.scope2plan.com), [PartnerForge](https://partnerforge.vercel.app)  
-**Labs:** [BizDayz](https://www.bizdayz.com), [AutoNameSearch](https://www.autoname.pro)
+**Labs:** [BizDayz](https://www.bizdayz.com), [AutoNameSearch](https://autonamesearch.vercel.app)
 
 ## Development
 

@@ -140,7 +140,7 @@ export const products: ProductConfig[] = [
       'A systematic naming pipeline: phonetic generation, domain checks, brand collision search, and ranked shortlists built for enterprise feel.',
     status: productStatusById.autoname,
     statusLabel: getStatusLabel(productStatusById.autoname),
-    productUrl: 'https://www.autoname.pro',
+    productUrl: 'https://autonamesearch.vercel.app',
     route: '/labs',
     pilotUrl: '/pilot',
     bottleneck: 'Naming without the guesswork',
