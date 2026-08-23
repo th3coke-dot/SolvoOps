@@ -8,7 +8,7 @@ export const partnerforgePage = {
   },
   secondaryCta: {
     label: 'Open PartnerForge',
-    href: 'https://partnerforge.vercel.app',
+    href: 'https://partnerforge.solvoops.com',
   },
   problem: {
     title: 'Partner discovery should not depend on repeated searches and individual memory',
