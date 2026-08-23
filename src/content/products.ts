@@ -80,7 +80,7 @@ export const products: ProductConfig[] = [
     status: productStatusById.partnerforge,
     statusLabel: getStatusLabel(productStatusById.partnerforge),
     accent: 'partnerforge',
-    productUrl: 'https://partnerforge.vercel.app',
+    productUrl: 'https://partnerforge.solvoops.com',
     route: '/products/partnerforge',
     shortRoute: '/partnerforge',
     pilotUrl: '/pilot?product=partnerforge',
