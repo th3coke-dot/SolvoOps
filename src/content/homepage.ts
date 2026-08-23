@@ -28,6 +28,31 @@ export const homepageContent = {
     title: 'Focused products for critical delivery workflows',
     copy: 'Scope2Plan Generate and Control handle planning and change. PartnerForge handles partner intelligence. Labs explores adjacent tools.',
   },
+  marketplace: {
+    eyebrow: '03 / THE MARKETPLACE',
+    status: 'LIVE',
+    name: 'Who Gets the Call?',
+    headline: 'Four lanes. Every country. One visible position per lane.',
+    description:
+      'Who Gets the Call? is a global paid-advertising marketplace where companies claim a visible position in one of four commercial lanes. A separate organic Providers directory helps visitors find companies by market and capability.',
+    laneLine: 'Run it · Build it · Power it · Source it',
+    facts: [
+      '168 countries',
+      '4 lanes per country',
+      '672 positions',
+      'No customer account required',
+    ],
+    primaryCta: {
+      label: 'Visit the marketplace',
+      href: 'https://whogetsthecall.lol',
+    },
+    secondaryCta: {
+      label: 'See how it works',
+      href: '/marketplace/who-gets-the-call',
+    },
+    disclosure:
+      'Map positions are paid advertising. Provider listings are reviewed separately, and sponsorship does not affect provider ordering.',
+  },
   labs: {
     label: 'SolvoOps Labs',
     title: 'Smaller tools from SolvoOps Labs',

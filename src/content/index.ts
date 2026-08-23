@@ -5,11 +5,14 @@ export {
   primaryNavigation,
   secondaryNavigation,
   footerNavigation,
+  productsNavGroups,
   type NavItem,
+  type NavGroup,
 } from './navigation'
 export {
   products,
   primaryProducts,
+  marketplaceProducts,
   labsProducts,
   getProductById,
   type ProductConfig,
@@ -25,6 +28,10 @@ export { useCases } from './use-cases'
 export { homepageContent } from './homepage'
 export { scope2planPage } from './scope2plan'
 export { partnerforgePage } from './partnerforge'
+export {
+  whoGetsTheCallPage,
+  whoGetsTheCallUrls,
+} from './who-gets-the-call'
 export {
   pilotPageContent,
   pilotProductOptions,

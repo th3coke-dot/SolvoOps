@@ -20,6 +20,8 @@ describe('design system foundations', () => {
       [
         'available',
         'in-development',
+        'live',
+        'live-marketplace',
         'pilot',
         'planned',
         'private-preview',

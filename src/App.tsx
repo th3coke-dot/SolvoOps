@@ -16,6 +16,11 @@ const PartnerForgePage = lazy(() =>
     default: m.PartnerForgePage,
   })),
 )
+const WhoGetsTheCallPage = lazy(() =>
+  import('./pages/ProductDetailPages').then((m) => ({
+    default: m.WhoGetsTheCallPage,
+  })),
+)
 const HowItWorksPage = lazy(() =>
   import('./pages/CompanyPages').then((m) => ({ default: m.HowItWorksPage })),
 )
@@ -72,6 +77,10 @@ export default function App() {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/scope2plan" element={<Scope2PlanPage />} />
           <Route path="/products/partnerforge" element={<PartnerForgePage />} />
+          <Route
+            path="/marketplace/who-gets-the-call"
+            element={<WhoGetsTheCallPage />}
+          />
           <Route
             path="/scope2plan"
             element={<Navigate to="/products/scope2plan" replace />}

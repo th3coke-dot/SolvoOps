@@ -18,6 +18,8 @@
 .product-page--scope2plan { --page-accent: var(--vision-gold); }
 .product-page--partnerforge { --page-accent: var(--vision-teal); }
 .product-page--labs { --page-accent: #91a49d; }
+.product-page--marketplace { --page-accent: #d4a24c; }
+.product-page--marketplace .product-hero__title { max-width: 16ch; }
 .product-page--pilot { --page-accent: var(--vision-gold); }
 .product-page--about { --page-accent: var(--vision-gold); }
 
@@ -594,6 +596,7 @@
 .product-hero::after { bottom: 4.5rem; right: min(8vw, 6rem); background: var(--page-accent, #d4a24c); }
 .product-hero__label { color: var(--page-accent, #d4a24c); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 .product-hero__title { max-width: 12ch; color: #f7f4e9; font-size: clamp(3.4rem, 7vw, 6rem); line-height: .95; letter-spacing: -.065em; }
+.product-page--marketplace .product-hero__title { max-width: 16ch; }
 .product-hero__title em { font-family: inherit; font-weight: inherit; font-style: normal; color: inherit; }
 .product-hero__lede { color: #abc0b9; font-size: clamp(1rem, 1.7vw, 1.18rem); line-height: 1.7; }
 .product-hero__actions .ds-btn--secondary { color: #f7f4e9; border-color: rgba(247,244,233,.38); }

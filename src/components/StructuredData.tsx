@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { company } from '../content/company'
-import { primaryProducts } from '../content/products'
+import { marketplaceProducts, primaryProducts } from '../content/products'
 import { siteMetadata, type PageMetadata } from '../content'
 
 type JsonLdProps = {
@@ -40,14 +40,16 @@ export function StructuredData({ metadata }: JsonLdProps) {
       inLanguage: siteMetadata.locale,
     }
 
-    const softwareApps = primaryProducts.map((product) => ({
-      '@type': 'SoftwareApplication',
-      name: product.name,
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Web',
-      description: product.description,
-      url: `${company.siteUrl}${product.route}`,
-    }))
+    const softwareApps = [...primaryProducts, ...marketplaceProducts].map(
+      (product) => ({
+        '@type': 'SoftwareApplication',
+        name: product.name,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        description: product.description,
+        url: `${company.siteUrl}${product.route}`,
+      }),
+    )
 
     const webpage = {
       '@type': 'WebPage',
