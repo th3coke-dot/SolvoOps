@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import './ui.css'
 
@@ -51,6 +51,7 @@ export function Button({
 type LinkButtonProps = CommonProps & {
   to: string
   external?: boolean
+  onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
 export function LinkButton({
@@ -60,28 +61,39 @@ export function LinkButton({
   size = 'md',
   className,
   external = false,
+  onClick,
 }: LinkButtonProps) {
   const cls = classNames(variant, size, className)
+  const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
+    try {
+      onClick?.(event)
+    } catch {
+      // Analytics or other click handlers must never block navigation.
+    }
+  }
   if (
     external ||
     to.startsWith('http') ||
     to.startsWith('mailto:') ||
     to.startsWith('#')
   ) {
+    const isHttp = to.startsWith('http')
     return (
       <a
         className={cls}
         href={to}
-        {...(to.startsWith('http')
-          ? { target: '_blank', rel: 'noreferrer' }
+        onClick={handleClick}
+        {...(isHttp
+          ? { target: '_blank', rel: 'noopener noreferrer' }
           : {})}
       >
         {children}
+        {isHttp ? <span className="sr-only"> (opens in a new tab)</span> : null}
       </a>
     )
   }
   return (
-    <Link className={cls} to={to}>
+    <Link className={cls} to={to} onClick={handleClick}>
       {children}
     </Link>
   )

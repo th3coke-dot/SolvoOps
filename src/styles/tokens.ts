@@ -14,6 +14,7 @@ export const tokens = {
     scope2plan: '#3d4f9c',
     partnerforge: '#0f766e',
     labs: '#5c6670',
+    marketplace: '#b8842f',
   },
   font: {
     display: '"Bricolage Grotesque", Georgia, serif',
@@ -57,7 +58,7 @@ export const contrastNotes = [
   },
 ] as const
 
-export type ProductAccent = 'scope2plan' | 'partnerforge' | 'labs' | 'brand'
+export type ProductAccent = 'scope2plan' | 'partnerforge' | 'marketplace' | 'labs' | 'brand'
 
 export function accentCssVars(accent: ProductAccent = 'brand'): Record<string, string> {
   switch (accent) {
@@ -70,6 +71,11 @@ export function accentCssVars(accent: ProductAccent = 'brand'): Record<string, s
       return {
         '--accent': 'var(--color-accent-partnerforge)',
         '--accent-soft': 'var(--color-accent-partnerforge-soft)',
+      }
+    case 'marketplace':
+      return {
+        '--accent': 'var(--color-accent-marketplace)',
+        '--accent-soft': 'var(--color-accent-marketplace-soft)',
       }
     case 'labs':
       return {

@@ -7,6 +7,7 @@ import './ui.css'
 function productAccent(product: ProductConfig): ProductAccent {
   if (product.id === 'scope2plan') return 'scope2plan'
   if (product.id === 'partnerforge') return 'partnerforge'
+  if (product.tier === 'marketplace') return 'marketplace'
   if (product.tier === 'labs') return 'labs'
   return 'brand'
 }
@@ -14,6 +15,8 @@ function productAccent(product: ProductConfig): ProductAccent {
 type ProductCardProps = {
   product: ProductConfig
   ctaLabel?: string
+  /** Full CTA label when the default "{cta} {shortName}" pattern is too long. */
+  ctaText?: string
   /** Prefer internal product route over external URL for site IA cards. */
   preferInternalRoute?: boolean
   /** Render CTA with button mass instead of text link. */
@@ -23,6 +26,7 @@ type ProductCardProps = {
 export function ProductCard({
   product,
   ctaLabel = 'Explore',
+  ctaText,
   preferInternalRoute = true,
   emphasizeCta = false,
 }: ProductCardProps) {
@@ -42,13 +46,16 @@ export function ProductCard({
       <div>
         <p className="ds-product-card__headline">{product.headline}</p>
         <p className="ds-product-card__description">{product.description}</p>
+        {product.supportingLine ? (
+          <p className="ds-product-card__supporting">{product.supportingLine}</p>
+        ) : null}
       </div>
       <span
         className={
           emphasizeCta ? 'ds-btn ds-btn--secondary ds-btn--sm' : 'ds-product-card__cta'
         }
       >
-        {ctaLabel} {product.shortName}
+        {ctaText ?? `${ctaLabel} ${product.shortName}`}
       </span>
     </>
   )
@@ -67,9 +74,10 @@ export function ProductCard({
         href={href}
         style={accentCssVars(accent)}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         {content}
+        <span className="sr-only"> (opens in a new tab)</span>
       </a>
     )
   }

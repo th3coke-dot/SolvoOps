@@ -3,6 +3,7 @@ import { AppShell } from '../components/AppShell'
 import { HeroAtmosphere } from '../components/HeroAtmosphere'
 import { LinkButton } from '../components/ui'
 import { company, homepageContent, pagesMetadata, primaryProducts } from '../content'
+import { trackEvent } from '../lib/analytics'
 import './HomePage.css'
 
 const frictions = [
@@ -20,6 +21,47 @@ const principles = [
 
 function Arrow() {
   return <svg className="home-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="M5 15 15 5M8 5h7v7" /></svg>
+}
+
+function MarketplaceMap() {
+  return (
+    <svg
+      className="home-marketplace__map"
+      viewBox="0 0 280 180"
+      role="img"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="8" y="12" width="264" height="156" fill="none" stroke="currentColor" strokeOpacity="0.18" />
+      {Array.from({ length: 6 }, (_, index) => (
+        <line
+          key={`lat-${index}`}
+          x1="8"
+          x2="272"
+          y1={36 + index * 24}
+          y2={36 + index * 24}
+          stroke="currentColor"
+          strokeOpacity="0.12"
+        />
+      ))}
+      {Array.from({ length: 8 }, (_, index) => (
+        <line
+          key={`lng-${index}`}
+          y1="12"
+          y2="168"
+          x1={36 + index * 30}
+          x2={36 + index * 30}
+          stroke="currentColor"
+          strokeOpacity="0.12"
+        />
+      ))}
+      <ellipse cx="140" cy="90" rx="92" ry="48" fill="none" stroke="currentColor" strokeOpacity="0.28" />
+      <circle cx="78" cy="74" r="4" fill="var(--color-signal)" />
+      <circle cx="132" cy="108" r="4" fill="var(--color-signal)" />
+      <circle cx="176" cy="68" r="4" fill="var(--color-signal)" />
+      <circle cx="214" cy="112" r="4" fill="var(--color-signal)" />
+    </svg>
+  )
 }
 
 export function HomePage() {
@@ -83,8 +125,54 @@ export function HomePage() {
           <Link className="home-product home-product--scope" to={scope2plan.route}><b>01</b><div><small>{scope2plan.statusLabel}</small><h3>{scope2plan.name}</h3><h4>From scope to execution — in minutes.</h4><p>{scope2plan.description}</p><span>Generate · Control · Structured model</span></div><Arrow /></Link>
           <Link className="home-product home-product--partner" to={partnerforge.route}><b>02</b><div><small>{partnerforge.statusLabel}</small><h3>{partnerforge.name}</h3><h4>Find who can deliver. Know why they fit.</h4><p>{partnerforge.description}</p><span>Discover · Validate · Rank</span></div><Arrow /></Link>
         </div>
-        <Link className="home-labs" to="/labs"><small>LABS</small><div><strong>Small experiments. Useful outcomes.</strong><p>BizDayz and AutoNameSearch explore adjacent everyday workflows.</p></div><Arrow /></Link>
       </div></section>
+
+      <section className="home-marketplace" id="marketplace" aria-labelledby="marketplace-title">
+        <div className="home-wrap">
+          <p className="home-label">{homepageContent.marketplace.eyebrow}</p>
+          <article className="home-marketplace__panel">
+            <div>
+              <small>{homepageContent.marketplace.status}</small>
+              <h2 id="marketplace-title">{homepageContent.marketplace.name}</h2>
+              <h3>{homepageContent.marketplace.headline}</h3>
+              <p>{homepageContent.marketplace.description}</p>
+              <p className="home-marketplace__lanes">{homepageContent.marketplace.laneLine}</p>
+              <ul className="home-marketplace__facts">
+                {homepageContent.marketplace.facts.map((fact) => (
+                  <li key={fact}>{fact}</li>
+                ))}
+              </ul>
+              <div className="home-marketplace__actions">
+                <LinkButton
+                  to={homepageContent.marketplace.primaryCta.href}
+                  variant="primary"
+                  onClick={() =>
+                    trackEvent('who-gets-the-call', {
+                      placement: 'homepage-marketplace',
+                      action: 'visit-marketplace',
+                    })
+                  }
+                >
+                  {homepageContent.marketplace.primaryCta.label}
+                </LinkButton>
+                <LinkButton to={homepageContent.marketplace.secondaryCta.href} variant="ink">
+                  {homepageContent.marketplace.secondaryCta.label}
+                </LinkButton>
+              </div>
+              <p className="home-marketplace__disclosure">{homepageContent.marketplace.disclosure}</p>
+            </div>
+            <div className="home-marketplace__visual" aria-hidden="true">
+              <MarketplaceMap />
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="home-labs-wrap" aria-label="SolvoOps Labs">
+        <div className="home-wrap">
+          <Link className="home-labs" to="/labs"><small>LABS</small><div><strong>Small experiments. Useful outcomes.</strong><p>BizDayz and AutoNameSearch explore adjacent everyday workflows.</p></div><Arrow /></Link>
+        </div>
+      </section>
 
       <section className="home-principles" id="principles" aria-labelledby="principles-title"><div className="home-wrap home-principles__grid"><div><p className="home-label">04 / HOW WE THINK</p><h2 id="principles-title">Built around the workflow.<br /><em>Not the hype.</em></h2><p>Software should remove friction without hiding the reasoning or taking control away from the people responsible for delivery.</p></div><div className="home-principle-list">{principles.map(([title, body], index) => <article key={title}><small>0{index + 1}</small><b>{title}</b><p>{body}</p></article>)}</div></div></section>
 

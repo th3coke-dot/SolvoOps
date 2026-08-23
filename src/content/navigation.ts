@@ -7,6 +7,39 @@ export type NavItem = {
   secondary?: boolean
 }
 
+export type NavGroup = {
+  id: string
+  label: string
+  items: NavItem[]
+}
+
+export const productsNavGroups: NavGroup[] = [
+  {
+    id: 'operational-products',
+    label: 'Operational products',
+    items: [
+      { id: 'scope2plan', label: 'Scope2Plan', href: '/products/scope2plan' },
+      { id: 'partnerforge', label: 'PartnerForge', href: '/products/partnerforge' },
+    ],
+  },
+  {
+    id: 'marketplace',
+    label: 'Marketplace',
+    items: [
+      {
+        id: 'who-gets-the-call',
+        label: 'Who Gets the Call?',
+        href: '/marketplace/who-gets-the-call',
+      },
+    ],
+  },
+  {
+    id: 'labs',
+    label: 'Labs',
+    items: [{ id: 'labs-destination', label: 'Labs', href: '/labs' }],
+  },
+]
+
 /**
  * Primary navigation for the redesign shell.
  */
@@ -16,14 +49,7 @@ export const primaryNavigation: NavItem[] = [
     id: 'products',
     label: 'Products',
     href: '/products',
-    children: [
-      { id: 'scope2plan', label: 'Scope2Plan', href: '/products/scope2plan' },
-      {
-        id: 'partnerforge',
-        label: 'PartnerForge',
-        href: '/products/partnerforge',
-      },
-    ],
+    children: productsNavGroups.flatMap((group) => group.items),
   },
   { id: 'how-it-works', label: 'How It Works', href: '/how-it-works' },
   { id: 'about', label: 'About', href: '/about' },

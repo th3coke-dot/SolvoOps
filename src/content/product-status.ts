@@ -5,6 +5,8 @@ export type ProductStatus =
   | 'pilot'
   | 'in-development'
   | 'planned'
+  | 'live'
+  | 'live-marketplace'
 
 export const productStatusLabels: Record<ProductStatus, string> = {
   available: 'Available',
@@ -12,6 +14,8 @@ export const productStatusLabels: Record<ProductStatus, string> = {
   pilot: 'Pilot',
   'in-development': 'In development',
   planned: 'Planned',
+  live: 'Live',
+  'live-marketplace': 'Live marketplace',
 }
 
 /**
@@ -25,6 +29,7 @@ export const productStatusById = {
   partnerforge: 'private-preview',
   bizdayz: 'available',
   autoname: 'available',
+  'who-gets-the-call': 'live-marketplace',
 } as const satisfies Record<string, ProductStatus>
 
 export type ProductId = keyof typeof productStatusById

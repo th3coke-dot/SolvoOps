@@ -39,7 +39,13 @@ export const pagesMetadata: Record<string, PageMetadata> = {
     path: '/products',
     title: `Products | ${company.name}`,
     description:
-      'Explore Scope2Plan and PartnerForge — focused SolvoOps products for planning, control and partner intelligence.',
+      'Explore SolvoOps operational products — Scope2Plan and PartnerForge — and the Who Gets the Call? marketplace.',
+  },
+  whoGetsTheCall: {
+    path: '/marketplace/who-gets-the-call',
+    title: 'Who Gets the Call? | SolvoOps Marketplace',
+    description:
+      'A global paid sponsorship map with four commercial lanes in every country, built by SolvoOps.',
   },
   scope2plan: {
     path: '/products/scope2plan',
@@ -99,5 +105,6 @@ export const pagesMetadata: Record<string, PageMetadata> = {
 export function metadataForProduct(productId: string): PageMetadata | undefined {
   const product = getProductById(productId)
   if (!product) return undefined
+  if (productId === 'who-gets-the-call') return pagesMetadata.whoGetsTheCall
   return pagesMetadata[productId === 'scope2plan' ? 'scope2plan' : productId]
 }

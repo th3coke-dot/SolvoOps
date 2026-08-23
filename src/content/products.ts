@@ -4,7 +4,7 @@ import {
   type ProductStatus,
 } from './product-status'
 
-export type ProductTier = 'primary' | 'labs'
+export type ProductTier = 'primary' | 'marketplace' | 'labs'
 
 export type ProductConfig = {
   id: string
@@ -17,11 +17,14 @@ export type ProductConfig = {
   status: ProductStatus
   statusLabel: string
   accent?: string
+  /** Optional supporting line shown on portfolio cards. */
+  supportingLine?: string
   /** Public product environment URL — only when approved and accessible. */
   productUrl?: string
   route: string
   shortRoute?: string
-  pilotUrl: string
+  /** Commercial pilot request URL — omit for products outside the operational suite. */
+  pilotUrl?: string
   bottleneck?: string
   /** Capabilities confirmed for marketing as available / in pilot. */
   availableCapabilities: string[]
@@ -80,7 +83,7 @@ export const products: ProductConfig[] = [
     status: productStatusById.partnerforge,
     statusLabel: getStatusLabel(productStatusById.partnerforge),
     accent: 'partnerforge',
-    productUrl: 'https://partnerforge.solvoops.com',
+    productUrl: 'https://partnerforge.solvoops.com/',
     route: '/products/partnerforge',
     shortRoute: '/partnerforge',
     pilotUrl: '/pilot?product=partnerforge',
@@ -153,9 +156,36 @@ export const products: ProductConfig[] = [
     pilotCapabilities: [],
     plannedCapabilities: [],
   },
+  {
+    id: 'who-gets-the-call',
+    name: 'Who Gets the Call?',
+    shortName: 'Who Gets the Call?',
+    tier: 'marketplace',
+    category: 'Marketplace',
+    headline: 'Four lanes. Every country. One visible position per lane.',
+    description:
+      'A global sponsorship map with four paid positions in every country and a separate organic provider directory.',
+    supportingLine: 'Run it · Build it · Power it · Source it',
+    status: productStatusById['who-gets-the-call'],
+    statusLabel: getStatusLabel(productStatusById['who-gets-the-call']),
+    accent: 'marketplace',
+    productUrl: 'https://whogetsthecall.lol',
+    route: '/marketplace/who-gets-the-call',
+    bottleneck: 'Visible country-and-lane sponsorship positions',
+    availableCapabilities: [
+      '168 countries',
+      'Four commercial lanes',
+      '672 total country × lane positions',
+      'Website-only checkout',
+      'Separate organic Providers directory',
+    ],
+    pilotCapabilities: [],
+    plannedCapabilities: [],
+  },
 ]
 
 export const primaryProducts = products.filter((p) => p.tier === 'primary')
+export const marketplaceProducts = products.filter((p) => p.tier === 'marketplace')
 export const labsProducts = products.filter((p) => p.tier === 'labs')
 
 export function getProductById(id: string): ProductConfig | undefined {

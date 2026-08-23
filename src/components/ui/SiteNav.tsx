@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { primaryNavigation, type NavItem } from '../../content'
+import { primaryNavigation, productsNavGroups, type NavItem } from '../../content'
 import { LinkButton } from './Button'
 import './ui.css'
 
@@ -52,8 +52,6 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
     setOpen(false)
     setProductsOpen(false)
   }
-
-  const productsItem = primaryNavigation.find((item) => item.id === 'products')
 
   return (
     <header className="ds-shell-header" ref={headerRef}>
@@ -117,15 +115,30 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
                   >
                     All products
                   </NavLink>
-                  {item.children.map((child) => (
-                    <NavLink
-                      key={child.id}
-                      to={child.href}
-                      className="ds-site-nav__menu-link"
-                      onClick={close}
+                  {productsNavGroups.map((group) => (
+                    <div
+                      key={group.id}
+                      className="ds-site-nav__menu-group"
+                      role="group"
+                      aria-labelledby={`${productsId}-${group.id}`}
                     >
-                      {child.label}
-                    </NavLink>
+                      <p
+                        id={`${productsId}-${group.id}`}
+                        className="ds-site-nav__menu-heading"
+                      >
+                        {group.label}
+                      </p>
+                      {group.items.map((child) => (
+                        <NavLink
+                          key={child.id}
+                          to={child.href}
+                          className="ds-site-nav__menu-link"
+                          onClick={close}
+                        >
+                          {child.label}
+                        </NavLink>
+                      ))}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -170,15 +183,27 @@ export function SiteNav({ showPilotCta = true }: SiteNavProps) {
           {primaryNavigation.map((item) => (
             <MobileNavItem key={item.id} item={item} onNavigate={close} />
           ))}
-          {productsItem?.children?.map((child) => (
-            <NavLink
-              key={`${child.id}-mobile-child`}
-              to={child.href}
-              className="ds-site-nav__mobile-child"
-              onClick={close}
+          {productsNavGroups.map((group) => (
+            <div
+              key={`${group.id}-mobile`}
+              className="ds-site-nav__mobile-group"
+              role="group"
+              aria-labelledby={`${menuId}-${group.id}`}
             >
-              {child.label}
-            </NavLink>
+              <p id={`${menuId}-${group.id}`} className="ds-site-nav__mobile-heading">
+                {group.label}
+              </p>
+              {group.items.map((child) => (
+                <NavLink
+                  key={`${child.id}-mobile-child`}
+                  to={child.href}
+                  className="ds-site-nav__mobile-child"
+                  onClick={close}
+                >
+                  {child.label}
+                </NavLink>
+              ))}
+            </div>
           ))}
           {showPilotCta ? (
             <div onClick={close}>

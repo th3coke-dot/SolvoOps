@@ -35,6 +35,8 @@
   --color-accent-partnerforge-soft: #e0f2f0;
   --color-accent-labs: #5c6670;
   --color-accent-labs-soft: #eef0f2;
+  --color-accent-marketplace: #b8842f;
+  --color-accent-marketplace-soft: #f6edd8;
 
   /* Legacy aliases used by current homepage CSS */
   --ink: var(--color-ink);

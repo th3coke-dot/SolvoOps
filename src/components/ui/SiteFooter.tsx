@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import {
   company,
+  marketplaceProducts,
   primaryProducts,
   secondaryNavigation,
 } from '../../content'
@@ -48,6 +49,14 @@ export function SiteFooter() {
           {productLinks.map((item) => (
             <NavLink key={item.id} to={item.href} end={item.href === '/'}>
               {item.label}
+            </NavLink>
+          ))}
+        </nav>
+        <nav className="ds-site-footer__nav ds-site-footer__nav--marketplace" aria-label="Footer marketplace">
+          <p className="ds-site-footer__group-label">Marketplace</p>
+          {marketplaceProducts.map((product) => (
+            <NavLink key={product.id} to={product.route}>
+              {product.name}
             </NavLink>
           ))}
         </nav>
