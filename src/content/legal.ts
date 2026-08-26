@@ -27,11 +27,11 @@ export const privacyPageContent = {
     },
     {
       title: 'Analytics',
-      body: 'We may use Vercel Web Analytics to understand aggregate traffic and selected interaction events (for example that a pilot form was submitted). Event payloads are designed to exclude free-text message bodies.',
+      body: "We use Vercel Web Analytics and DataFast's cookieless analytics to understand aggregate traffic and selected interaction events (for example that a pilot form was submitted). Event payloads are designed to exclude free-text message bodies.",
     },
     {
       title: 'Cookies and similar technologies',
-      body: 'Essential hosting and security technologies may be used by our hosting provider. Analytics tooling may set or use first-party mechanisms according to the provider’s documentation.',
+      body: "DataFast is loaded through its cookieless analytics script. Essential hosting and security technologies may still be used by our hosting provider.",
     },
     {
       title: 'External product sites',
