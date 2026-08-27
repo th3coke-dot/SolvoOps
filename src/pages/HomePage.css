@@ -116,15 +116,21 @@
   font-size: var(--text-sm);
 }
 .home-marketplace__visual {
-  display: grid;
-  place-items: center;
-  min-height: 12rem;
-  padding: var(--space-5);
+  display: block;
+  align-self: center;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
   border: 1px solid var(--color-border);
-  background: linear-gradient(180deg, rgba(246, 237, 216, 0.55), var(--color-paper));
-  color: var(--color-ink);
+  background: #0b211b;
 }
-.home-marketplace__map { width: min(100%, 18rem); height: auto; }
+.home-marketplace__map {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+}
 .home-labs-wrap { padding-bottom: var(--space-section); }
 .home-labs { display: grid; grid-template-columns: 8rem 1fr auto; align-items: center; gap: var(--space-5); margin-top: 0; padding: var(--space-5); border: 1px solid var(--color-border); background: var(--color-mist); }
 .home-labs small { color: var(--color-signal-deep); font-weight: 700; }.home-labs p { margin-bottom: 0; }
