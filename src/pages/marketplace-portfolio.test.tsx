@@ -54,7 +54,7 @@ describe('marketplace portfolio pages', () => {
     expect(marketplaceBlock).toContain('href="/marketplace/who-gets-the-call"')
     expect(marketplaceBlock).toContain('Visit the marketplace')
     expect(marketplaceBlock).toContain(
-      'src="https://whogetsthecall.lol/og/call-map-live-v2.png"',
+      'src="https://whogetsthecall.lol/og/call-map.png"',
     )
     expect(marketplaceBlock).toContain(
       'alt="Who Gets the Call? live marketplace map"',
