@@ -123,7 +123,7 @@ export function HomePage() {
             <div className="home-marketplace__visual">
               <img
                 className="home-marketplace__map"
-                src="https://whogetsthecall.lol/og/call-map-live-v2.png"
+                src="https://whogetsthecall.lol/og/call-map.png"
                 alt="Who Gets the Call? live marketplace map"
                 width="1200"
                 height="630"
