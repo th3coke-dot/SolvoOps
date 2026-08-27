@@ -122,7 +122,7 @@ export function AboutPage() {
       >
         <SectionHeader
           label="Founder"
-          title={`${company.founder.name}, ${company.founder.role}`}
+          title={company.founder.role}
           copy={company.founder.summary}
           id="founder-title"
         />
@@ -133,7 +133,7 @@ export function AboutPage() {
             </p>
           ))}
           <blockquote className="about-founder__mission">
-            <strong>His mission is simple</strong>
+            <strong>The mission is simple</strong>
             {company.founderMission}
           </blockquote>
         </div>

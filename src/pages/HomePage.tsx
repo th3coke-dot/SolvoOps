@@ -148,7 +148,7 @@ export function HomePage() {
           <span>“</span>
           <h2 id="founder-title">I started building SolvoOps because I kept seeing capable people lose time to systems that made simple work unnecessarily hard.</h2>
           <p>SolvoOps is the practical answer: understand the workflow, find the friction, and build the smallest useful system that removes it.</p>
-          <strong>{company.founder.name}<small>{company.founder.role}, SolvoOps</small></strong>
+          <strong>{company.founder.role}<small>SolvoOps</small></strong>
         </article>
       </section>
       <section className="home-operating"><div className="home-wrap"><p>THE FOUNDER’S OPERATING PRINCIPLE</p><h2>Work smarter is not a slogan.<br />It is a design requirement.</h2></div></section>

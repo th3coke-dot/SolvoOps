@@ -73,7 +73,7 @@ describe('content model', () => {
 
   it('includes approved founder biography content', async () => {
     const { company } = await import('./company')
-    expect(company.founder.name).toBe('Morten')
+    expect(company.founder.role).toBe('Founder')
     expect(company.founder.paragraphs.length).toBeGreaterThan(3)
     expect(company.founderMission.toLowerCase()).toContain('smarter')
   })
