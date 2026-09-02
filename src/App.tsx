@@ -27,6 +27,9 @@ const HowItWorksPage = lazy(() =>
 const AboutPage = lazy(() =>
   import('./pages/CompanyPages').then((m) => ({ default: m.AboutPage })),
 )
+const CompanyPage = lazy(() =>
+  import('./pages/CompanyPages').then((m) => ({ default: m.CompanyPage })),
+)
 const LabsPage = lazy(() =>
   import('./pages/CompanyPages').then((m) => ({ default: m.LabsPage })),
 )
@@ -91,6 +94,7 @@ export default function App() {
           />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/company" element={<CompanyPage />} />
           <Route path="/labs" element={<LabsPage />} />
           <Route path="/pilot" element={<PilotPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />

@@ -57,6 +57,7 @@ describe('content model', () => {
       'partnerforge',
       'howItWorks',
       'about',
+      'company',
       'labs',
       'pilot',
       'privacy',
@@ -82,6 +83,16 @@ describe('content model', () => {
     const { company } = await import('./company')
     expect(company.operator.legalName).toBe('Pedersen IT Consulting')
     expect(company.operator.organizationNumber).toBe('924547405')
+    expect(company.operator.form).toBe('enkeltpersonforetak')
+    expect(company.plannedEntity.legalName).toBe('SolvoOps AS')
+    expect(company.plannedEntity.status).toBe('planned')
+  })
+
+  it('keeps the company page on the current operator, not the planned AS', async () => {
+    const { companyPageContent } = await import('./company-page')
+    expect(companyPageContent.lede).toContain('Pedersen IT Consulting')
+    expect(companyPageContent.lede.toLowerCase()).not.toContain('solvoops as')
+    expect(pagesMetadata.company.path).toBe('/company')
   })
 
   it('only links to approved external product URLs', () => {

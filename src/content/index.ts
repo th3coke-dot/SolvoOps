@@ -1,6 +1,7 @@
 export {
   company,
 } from './company'
+export { companyPageContent } from './company-page'
 export {
   primaryNavigation,
   secondaryNavigation,
