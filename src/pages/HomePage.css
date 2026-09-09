@@ -259,6 +259,68 @@
 .cinematic-scene__aurora {
   pointer-events: none;
   mix-blend-mode: screen;
+  will-change: opacity;
+}
+
+.cinematic-scene__aurora * {
+  pointer-events: none;
+}
+
+.cinematic-aurora__glow,
+.cinematic-aurora__curtains,
+.cinematic-aurora__reflection {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-play-state: paused;
+}
+
+.cinematic-aurora__glow {
+  animation: cinematic-aurora-breathe 11s ease-in-out infinite alternate;
+}
+
+.cinematic-aurora__curtains {
+  animation: cinematic-aurora-drift 17s ease-in-out infinite alternate;
+}
+
+.cinematic-aurora__reflection {
+  animation: cinematic-aurora-reflect 8s ease-in-out infinite alternate;
+}
+
+.cinematic-scene__aurora[data-running='true'] .cinematic-aurora__glow,
+.cinematic-scene__aurora[data-running='true'] .cinematic-aurora__curtains,
+.cinematic-scene__aurora[data-running='true'] .cinematic-aurora__reflection {
+  animation-play-state: running;
+}
+
+@keyframes cinematic-aurora-breathe {
+  from {
+    opacity: 0.76;
+    transform: scaleX(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1.018);
+  }
+}
+
+@keyframes cinematic-aurora-drift {
+  from {
+    transform: translate3d(-0.4%, -0.2%, 0) skewX(-0.5deg);
+  }
+  to {
+    transform: translate3d(0.65%, 0.35%, 0) skewX(0.65deg);
+  }
+}
+
+@keyframes cinematic-aurora-reflect {
+  from {
+    opacity: 0.48;
+    transform: scaleX(0.97);
+  }
+  to {
+    opacity: 0.72;
+    transform: scaleX(1.025);
+  }
 }
 
 .cinematic-scene__veil {
@@ -269,11 +331,12 @@
 
 .cinematic-scene__controls {
   position: absolute;
+  top: calc(var(--header-height) + 1rem);
   right: max(0.75rem, calc((100% - 1180px) / 2));
-  bottom: 1.25rem;
-  z-index: 4;
+  z-index: 30;
   max-width: calc(100vw - 1.5rem);
   pointer-events: auto;
+  isolation: isolate;
 }
 
 .cinematic-controls {
@@ -284,6 +347,8 @@
 }
 
 .cinematic-controls__btn {
+  position: relative;
+  z-index: 1;
   min-width: 44px;
   min-height: 44px;
   padding: 0.45rem 0.9rem;
@@ -291,11 +356,14 @@
   border-radius: 999px;
   background: #0a241f;
   color: #f6faf7;
+  pointer-events: auto;
   touch-action: manipulation;
+  cursor: pointer;
 }
 
 .cinematic-controls__btn:disabled {
   opacity: 0.48;
+  cursor: default;
 }
 
 .cinematic-hero__content {
@@ -489,7 +557,6 @@
   .cinematic-scene__controls {
     left: 12px;
     right: 12px;
-    bottom: auto;
     top: calc(var(--header-height) + 0.5rem);
     max-width: none;
   }
@@ -515,5 +582,11 @@
   .cinematic-scene__aurora,
   .cinematic-scene__night {
     transition: none;
+  }
+
+  .cinematic-aurora__glow,
+  .cinematic-aurora__curtains,
+  .cinematic-aurora__reflection {
+    animation: none;
   }
 }

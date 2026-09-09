@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { cinematicSceneAssets } from '../content/cinematic'
 import {
   canPause,
   canReplay,
   canResume,
   initialPlaybackState,
-  isActivationKey,
   reducePlayback,
   sceneProgress,
   type PlaybackEvent,
@@ -45,10 +44,18 @@ export function CinematicScene() {
       [cinematicSceneAssets.dusk, cinematicSceneAssets.blueHour].map((src) => {
         const image = new Image()
         image.src = src
-        return image.decode().catch(() => undefined)
+        return image
+          .decode()
+          .then(() => true)
+          .catch(() => false)
       }),
-    ).then(() => {
-      if (!cancelled) setPlatesReady(true)
+    ).then((results) => {
+      if (cancelled) return
+      if (results.every(Boolean)) {
+        setPlatesReady(true)
+        return
+      }
+      setState((current) => reducePlayback(current, { type: 'fail' }))
     })
     return () => {
       cancelled = true
@@ -104,7 +111,9 @@ export function CinematicScene() {
     }
   }, [])
 
-  const dispatch = (type: Extract<PlaybackEvent['type'], 'play' | 'pause' | 'resume' | 'replay'>) => {
+  const dispatch = (
+    type: Extract<PlaybackEvent['type'], 'pause' | 'resume' | 'replay'>,
+  ) => {
     setState((current) => reducePlayback(current, { type }))
   }
 
@@ -127,78 +136,89 @@ export function CinematicScene() {
       : clamp((progress.transition - 0.72) / 0.28) *
         (0.82 + 0.18 * Math.sin(progress.ambient * Math.PI * 2))
 
-  const showPlay = policy === 'static' && state.status === 'static'
+  const controlsAvailable = policy === 'auto' && state.status !== 'failed'
+  const toggleLabel = canResume(state) ? 'Resume' : 'Pause'
+  const auroraRunning =
+    state.status === 'playing' || state.status === 'ambient'
+  const failToStatic = () => {
+    setPlatesReady(false)
+    setState((current) => reducePlayback(current, { type: 'fail' }))
+  }
 
   return (
-    <div className="cinematic-scene" ref={rootRef}>
-      <div className="cinematic-scene__stage" aria-hidden="true">
-        <LockedTerrain />
-        <img
-          className="cinematic-scene__plate cinematic-scene__plate--sunset"
-          src={cinematicSceneAssets.sunset}
-          alt=""
-          width={1280}
-          height={720}
-          fetchPriority="high"
-          decoding="async"
-          onError={() => {
-            setPosterFailed(true)
-            setState((current) => reducePlayback(current, { type: 'fail' }))
-          }}
-          data-failed={posterFailed ? 'true' : 'false'}
-        />
-        {policy === 'auto' || platesReady ? (
-          <>
-            <img
-              className="cinematic-scene__plate"
-              src={cinematicSceneAssets.dusk}
-              alt=""
-              width={1280}
-              height={720}
-              decoding="async"
-              style={{ opacity: duskOpacity }}
-            />
-            <img
-              className="cinematic-scene__plate"
-              src={cinematicSceneAssets.blueHour}
-              alt=""
-              width={1280}
-              height={720}
-              decoding="async"
-              style={{ opacity: blueOpacity }}
-            />
-          </>
-        ) : null}
-        <div
-          className="cinematic-scene__night"
-          style={{ opacity: nightOpacity }}
-        />
-        <AuroraOverlay opacity={auroraOpacity} />
-        <div className="cinematic-scene__veil" />
-      </div>
-      <div className="cinematic-scene__controls">
-        <div className="cinematic-controls" role="toolbar" aria-label="Scene playback">
-          {showPlay ? (
-            <SceneControl label="Play" onActivate={() => dispatch('play')} />
+    <Fragment>
+      <div className="cinematic-scene" ref={rootRef}>
+        <div className="cinematic-scene__stage" aria-hidden="true">
+          <LockedTerrain />
+          <img
+            className="cinematic-scene__plate cinematic-scene__plate--sunset"
+            src={cinematicSceneAssets.sunset}
+            alt=""
+            width={1280}
+            height={720}
+            fetchPriority="high"
+            decoding="async"
+            onError={() => {
+              setPosterFailed(true)
+              setState((current) => reducePlayback(current, { type: 'fail' }))
+            }}
+            data-failed={posterFailed ? 'true' : 'false'}
+          />
+          {policy === 'auto' || platesReady ? (
+            <>
+              <img
+                className="cinematic-scene__plate"
+                src={cinematicSceneAssets.dusk}
+                alt=""
+                width={1280}
+                height={720}
+                decoding="async"
+                style={{ opacity: duskOpacity }}
+                onError={failToStatic}
+              />
+              <img
+                className="cinematic-scene__plate"
+                src={cinematicSceneAssets.blueHour}
+                alt=""
+                width={1280}
+                height={720}
+                decoding="async"
+                style={{ opacity: blueOpacity }}
+                onError={failToStatic}
+              />
+            </>
           ) : null}
-          <SceneControl
-            label="Pause"
-            disabled={!canPause(state)}
-            onActivate={() => dispatch('pause')}
+          <div
+            className="cinematic-scene__night"
+            style={{ opacity: nightOpacity }}
           />
-          <SceneControl
-            label="Resume"
-            disabled={!canResume(state)}
-            onActivate={() => dispatch('resume')}
-          />
-          <SceneControl
-            label="Replay"
-            disabled={!canReplay(state)}
-            onActivate={() => dispatch('replay')}
-          />
+          <AuroraOverlay opacity={auroraOpacity} running={auroraRunning} />
+          <div className="cinematic-scene__veil" />
         </div>
       </div>
-    </div>
+      {controlsAvailable ? (
+        <div className="cinematic-scene__controls">
+          <div
+            className="cinematic-controls"
+            role="toolbar"
+            aria-label="Scene playback"
+          >
+            <SceneControl
+              label={toggleLabel}
+              disabled={!canPause(state) && !canResume(state)}
+              onActivate={() =>
+                dispatch(toggleLabel === 'Pause' ? 'pause' : 'resume')
+              }
+            />
+            <SceneControl
+              label="Replay"
+              disabled={!canReplay(state)}
+              onActivate={() => dispatch('replay')}
+            />
+          </div>
+        </div>
+      ) : null}
+    </Fragment>
   )
 }
 
@@ -216,12 +236,6 @@ function SceneControl({
     onActivate()
   }
 
-  const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
-    if (!isActivationKey(event.key)) return
-    event.preventDefault()
-    activate()
-  }
-
   return (
     <button
       type="button"
@@ -229,7 +243,6 @@ function SceneControl({
       aria-label={`${label} scene`}
       disabled={disabled}
       onClick={activate}
-      onKeyDown={onKeyDown}
     >
       {label}
     </button>
@@ -274,31 +287,126 @@ function LockedTerrain() {
   )
 }
 
-function AuroraOverlay({ opacity }: { opacity: number }) {
+function AuroraOverlay({
+  opacity,
+  running,
+}: {
+  opacity: number
+  running: boolean
+}) {
   return (
     <svg
       className="cinematic-scene__aurora"
       viewBox="0 0 1600 900"
       preserveAspectRatio="xMidYMid slice"
       style={{ opacity }}
+      data-running={running ? 'true' : 'false'}
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="aurora-wash" x1="0.5" y1="0" x2="0.5" y2="1">
-          <stop offset="0%" stopColor="#79dcd3" stopOpacity="0.55" />
-          <stop offset="55%" stopColor="#79dcd3" stopOpacity="0.08" />
-          <stop offset="100%" stopColor="#79dcd3" stopOpacity="0" />
+        <linearGradient id="aurora-cyan" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#b7fff0" stopOpacity="0.12" />
+          <stop offset="18%" stopColor="#79f3d4" stopOpacity="0.72" />
+          <stop offset="72%" stopColor="#29c7bc" stopOpacity="0.16" />
+          <stop offset="100%" stopColor="#29c7bc" stopOpacity="0" />
         </linearGradient>
+        <linearGradient id="aurora-green" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#d6ffca" stopOpacity="0.08" />
+          <stop offset="24%" stopColor="#8effb1" stopOpacity="0.58" />
+          <stop offset="76%" stopColor="#56dfb3" stopOpacity="0.1" />
+          <stop offset="100%" stopColor="#56dfb3" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="aurora-reflection" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#82f6d2" stopOpacity="0.24" />
+          <stop offset="48%" stopColor="#48d9c8" stopOpacity="0.07" />
+          <stop offset="100%" stopColor="#48d9c8" stopOpacity="0" />
+        </linearGradient>
+        <filter id="aurora-glow" x="-45%" y="-30%" width="190%" height="170%">
+          <feGaussianBlur stdDeviation="42" />
+        </filter>
+        <filter id="aurora-soft" x="-35%" y="-25%" width="170%" height="155%">
+          <feGaussianBlur stdDeviation="18" />
+        </filter>
+        <filter id="aurora-water-soft" x="-30%" y="-30%" width="160%" height="170%">
+          <feGaussianBlur stdDeviation="24" />
+        </filter>
+        <clipPath id="aurora-sky-clip">
+          <rect width="1600" height="525" />
+        </clipPath>
+        <clipPath id="aurora-water-clip">
+          <rect y="525" width="1600" height="375" />
+        </clipPath>
       </defs>
-      <path
-        d="M420 0 C480 180 520 280 560 430 C500 520 470 600 510 900 L720 900 C690 620 740 420 700 0 Z"
-        fill="url(#aurora-wash)"
-      />
-      <path
-        d="M680 0 C760 160 790 300 820 470 C790 610 810 760 780 900 L960 900 C990 680 940 420 900 0 Z"
-        fill="url(#aurora-wash)"
-        opacity="0.7"
-      />
+      <g clipPath="url(#aurora-sky-clip)">
+        <g className="cinematic-aurora__glow" filter="url(#aurora-glow)">
+          <path
+            d="M130 -100 C250 22 280 166 365 286 C420 365 492 408 540 518"
+            fill="none"
+            stroke="#47e8cb"
+            strokeWidth="180"
+            strokeLinecap="round"
+            opacity="0.34"
+          />
+          <path
+            d="M700 -120 C640 52 730 155 690 276 C658 370 704 440 748 522"
+            fill="none"
+            stroke="#78f5bd"
+            strokeWidth="205"
+            strokeLinecap="round"
+            opacity="0.3"
+          />
+          <path
+            d="M1190 -95 C1080 42 1132 176 1054 292 C1002 372 1034 454 1082 524"
+            fill="none"
+            stroke="#58ded2"
+            strokeWidth="168"
+            strokeLinecap="round"
+            opacity="0.24"
+          />
+        </g>
+        <g className="cinematic-aurora__curtains" filter="url(#aurora-soft)">
+          <path
+            d="M92 -110 C220 36 176 122 292 236 C372 315 318 392 452 535 L594 535 C505 380 536 290 420 190 C324 108 365 12 292 -110 Z"
+            fill="url(#aurora-cyan)"
+            opacity="0.82"
+          />
+          <path
+            d="M510 -125 C626 4 578 118 660 206 C758 310 674 402 790 535 L930 535 C850 408 896 294 798 188 C718 100 760 -8 710 -125 Z"
+            fill="url(#aurora-green)"
+            opacity="0.76"
+          />
+          <path
+            d="M925 -110 C1035 18 974 132 1084 230 C1176 312 1092 420 1210 535 L1358 535 C1260 400 1318 312 1218 202 C1130 106 1184 4 1125 -110 Z"
+            fill="url(#aurora-cyan)"
+            opacity="0.6"
+          />
+          <path
+            d="M1260 -125 C1342 -18 1320 82 1400 174 C1478 264 1446 382 1535 535 L1648 535 L1648 -125 Z"
+            fill="url(#aurora-green)"
+            opacity="0.44"
+          />
+        </g>
+      </g>
+      <g
+        className="cinematic-aurora__reflection"
+        clipPath="url(#aurora-water-clip)"
+        filter="url(#aurora-water-soft)"
+      >
+        <path
+          d="M250 525 C300 608 270 682 338 770 C378 822 364 870 402 930 L548 930 C500 840 530 776 466 698 C408 628 452 570 410 525 Z"
+          fill="url(#aurora-reflection)"
+        />
+        <path
+          d="M665 525 C716 602 680 690 742 756 C808 826 770 876 820 930 L956 930 C904 842 946 784 878 714 C816 648 860 574 820 525 Z"
+          fill="url(#aurora-reflection)"
+          opacity="0.76"
+        />
+        <path
+          d="M1045 525 C1102 594 1064 666 1130 744 C1190 814 1158 874 1200 930 L1328 930 C1278 848 1312 788 1248 714 C1188 646 1230 572 1184 525 Z"
+          fill="url(#aurora-reflection)"
+          opacity="0.54"
+        />
+      </g>
     </svg>
   )
 }

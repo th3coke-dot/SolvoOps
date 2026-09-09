@@ -19,7 +19,6 @@ export type PlaybackState = {
 
 export type PlaybackEvent =
   | { type: 'init'; policy: ScenePolicy }
-  | { type: 'play' }
   | { type: 'pause' }
   | { type: 'resume' }
   | { type: 'replay' }
@@ -51,8 +50,6 @@ export function reducePlayback(
       return event.policy === 'static'
         ? { status: 'static', elapsedMs: 0, userPaused: false }
         : { status: 'playing', elapsedMs: 0, userPaused: false }
-    case 'play':
-      return { status: 'playing', elapsedMs: 0, userPaused: false }
     case 'pause':
       if (state.status === 'static' || state.status === 'failed') return state
       return { ...state, status: 'paused', userPaused: true }
@@ -113,8 +110,4 @@ export function canResume(state: PlaybackState): boolean {
 
 export function canReplay(state: PlaybackState): boolean {
   return state.status !== 'failed'
-}
-
-export function isActivationKey(key: string): boolean {
-  return key === 'Enter' || key === ' '
 }
