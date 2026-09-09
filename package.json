@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "test": "vitest run",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "measure:home": "node scripts/measure-home.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
