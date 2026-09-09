@@ -24,14 +24,29 @@ export const cinematicNav = [
   { id: 'about', label: 'About', href: '#about' },
 ] as const
 
+export type HeroHeadlineTone = 'light' | 'gold'
+
+export type HeroHeadlineLine = {
+  readonly id: string
+  readonly text: string
+  readonly tone: HeroHeadlineTone
+}
+
 export const cinematicHero = {
   eyebrow: 'COMPLEXITY IN. CLARITY OUT.',
-  headline: 'Clarity for complex delivery.',
+  headlineLines: [
+    { id: 'lead', text: 'Clarity for', tone: 'light' },
+    { id: 'accent', text: 'complex delivery.', tone: 'gold' },
+  ] as const satisfies readonly HeroHeadlineLine[],
   lede: 'Understand the bid. Plan the work. Find the right partners.',
   primaryCta: { label: 'Explore our products', href: '#products' },
   secondaryCta: { label: 'See how it works', href: '#how-it-works' },
   pilotCta: { label: 'Discuss a pilot', href: '/pilot' },
 } as const
+
+export const cinematicHeroHeadline = cinematicHero.headlineLines
+  .map((line) => line.text)
+  .join(' ')
 
 export const cinematicProducts = [
   {
@@ -86,6 +101,67 @@ export const cinematicBenefits = [
     body: 'Greater confidence at every step.',
   },
 ] as const
+
+export type WalkthroughStep = {
+  readonly id: string
+  readonly index: string
+  readonly product: string
+  readonly question: string
+  readonly summary: string
+  readonly moves: readonly string[]
+  readonly linkLabel: string
+  readonly href: string
+}
+
+export const cinematicWalkthrough = {
+  eyebrow: 'HOW IT WORKS',
+  title: 'One thread from tender to delivery.',
+  lede: 'Three products, used in the order the work arrives. Each one hands the next a structured result instead of another document.',
+  steps: [
+    {
+      id: 'understand',
+      index: '01',
+      product: 'SolvoBid',
+      question: 'What is this tender actually asking for?',
+      summary: 'Read the pack once. SolvoBid pulls the requirements out and keeps each one beside the evidence that answers it.',
+      moves: [
+        'Extract requirements from the tender pack',
+        'Attach the evidence that answers each one',
+        'Track review state before you respond',
+      ],
+      linkLabel: 'Discuss a SolvoBid pilot',
+      href: '/pilot?product=solvobid',
+    },
+    {
+      id: 'plan',
+      index: '02',
+      product: 'SolvoPlan',
+      question: 'What does delivering it look like?',
+      summary: 'Turn the accepted scope into something a delivery team can run, structured rather than written out in prose.',
+      moves: [
+        'Read the SOW into a structured project model',
+        'Generate the plan, runbook and transition pack',
+        'Export the package to PDF or DOCX',
+      ],
+      linkLabel: 'See SolvoPlan',
+      href: '/products/scope2plan',
+    },
+    {
+      id: 'find',
+      index: '03',
+      product: 'SolvoFind',
+      question: 'Who delivers it with you?',
+      summary: 'Search the partner network against the requirement and compare candidates on evidence you can read back.',
+      moves: [
+        'Describe the requirement in plain language',
+        'Filter by country, category, reach and distance',
+        'Read the ranking signals behind each candidate',
+      ],
+      linkLabel: 'See SolvoFind',
+      href: '/products/partnerforge',
+    },
+  ],
+} as const satisfies { eyebrow: string; title: string; lede: string; steps: readonly WalkthroughStep[] }
 
 export const cinematicAbout = {
   eyebrow: 'OUR MISSION',

@@ -1,4 +1,9 @@
-import { cinematicAbout, cinematicHero, cinematicProducts } from '../content/cinematic'
+import {
+  cinematicAbout,
+  cinematicHero,
+  cinematicHeroHeadline,
+  cinematicProducts,
+} from '../content/cinematic'
 import { escapeHtml } from './escapeHtml'
 
 /**
@@ -21,7 +26,7 @@ export function getHomePrerenderHtml(): string {
   <section class="cinematic-hero" aria-labelledby="home-hero-title">
     <div class="cinematic-hero__content container">
       <p class="cinematic-hero__eyebrow">${escapeHtml(cinematicHero.eyebrow)}</p>
-      <h1 class="cinematic-hero__title" id="home-hero-title">${escapeHtml(cinematicHero.headline)}</h1>
+      <h1 class="cinematic-hero__title" id="home-hero-title">${escapeHtml(cinematicHeroHeadline)}</h1>
       <p class="cinematic-hero__lede">${escapeHtml(cinematicHero.lede)}</p>
     </div>
   </section>

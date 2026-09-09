@@ -2,7 +2,7 @@ import type { ReactElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
-import { cinematicHero, cinematicProducts } from '../content/cinematic'
+import { cinematicProducts } from '../content/cinematic'
 import { HomePage } from './HomePage'
 
 function renderHome() {
@@ -14,12 +14,21 @@ function renderHome() {
   return renderToStaticMarkup(ui)
 }
 
+function sliceBetween(html: string, startMarker: string, endMarker: string) {
+  const start = html.indexOf(startMarker)
+  const end = html.indexOf(endMarker, start + startMarker.length)
+  expect(start).toBeGreaterThan(-1)
+  expect(end).toBeGreaterThan(start)
+  return html.slice(start, end)
+}
+
 describe('cinematic homepage', () => {
   it('renders the locked marketing copy and product names', () => {
     const html = renderHome()
-    expect(html).toContain(cinematicHero.eyebrow)
-    expect(html).toContain(cinematicHero.headline)
-    expect(html).toContain(cinematicHero.lede)
+    expect(html).toContain('COMPLEXITY IN. CLARITY OUT.')
+    expect(html).toContain(
+      'Understand the bid. Plan the work. Find the right partners.',
+    )
     expect(html).toContain('Explore our products')
     expect(html).toContain('href="#products"')
     expect(html).toContain('See how it works')
@@ -33,6 +42,57 @@ describe('cinematic homepage', () => {
       expect(html).toContain(product.rails.join(' · '))
     }
     expect(html.match(/Example/g)?.length).toBeGreaterThanOrEqual(3)
+  })
+
+  it('renders the headline as two toned lines with the accent in gold', () => {
+    const html = renderHome()
+    expect(html.match(/<h1\b/g)?.length).toBe(1)
+    const h1 = sliceBetween(html, '<h1', '</h1>')
+    expect(h1).toContain(
+      '<span class="cinematic-hero__title-line cinematic-hero__title-line--light">Clarity for</span>',
+    )
+    expect(h1).toContain(
+      '<span class="cinematic-hero__title-line cinematic-hero__title-line--gold">complex delivery.</span>',
+    )
+    expect(h1.match(/class="cinematic-hero__title-line /g)?.length).toBe(2)
+  })
+
+  it('walks through SolvoBid, SolvoPlan and SolvoFind under the how-it-works anchor', () => {
+    const html = renderHome()
+    expect(html.match(/id="how-it-works"/g)?.length).toBe(1)
+    const walkthrough = sliceBetween(html, 'id="how-it-works"', 'id="about"')
+    expect(walkthrough).toContain('aria-labelledby="how-it-works-title"')
+    expect(walkthrough).toContain(
+      '<h2 id="how-it-works-title">One thread from tender to delivery.</h2>',
+    )
+    expect(walkthrough).toContain('<h3>SolvoBid</h3>')
+    expect(walkthrough).toContain('<h3>SolvoPlan</h3>')
+    expect(walkthrough).toContain('<h3>SolvoFind</h3>')
+    expect(walkthrough).toContain('href="/pilot?product=solvobid"')
+    expect(walkthrough).toContain('href="/products/scope2plan"')
+    expect(walkthrough).toContain('href="/products/partnerforge"')
+    expect(walkthrough).toContain('Extract requirements from the tender pack')
+    expect(walkthrough).toContain('Export the package to PDF or DOCX')
+    expect(walkthrough).toContain('Filter by country, category, reach and distance')
+    expect(walkthrough).not.toContain('Scope2Plan')
+    expect(walkthrough).not.toContain('PartnerForge')
+    expect(walkthrough).not.toMatch(/\d+%/)
+  })
+
+  it('keeps the benefits strip between the deck and the walkthrough without the anchor', () => {
+    const html = renderHome()
+    const approachTag = sliceBetween(html, '<section class="cinematic-approach"', '>')
+    expect(approachTag).not.toContain('id="how-it-works"')
+    expect(approachTag).toContain('aria-label="Why SolvoOps"')
+    expect(html).toContain('Clearer decisions')
+    const products = html.indexOf('id="products"')
+    const approach = html.indexOf('class="cinematic-approach"')
+    const walkthrough = html.indexOf('id="how-it-works"')
+    const about = html.indexOf('id="about"')
+    expect(products).toBeGreaterThan(-1)
+    expect(approach).toBeGreaterThan(products)
+    expect(walkthrough).toBeGreaterThan(approach)
+    expect(about).toBeGreaterThan(walkthrough)
   })
 
   it('keeps original brand artwork and existing product routes', () => {

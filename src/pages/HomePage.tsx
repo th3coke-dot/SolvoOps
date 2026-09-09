@@ -9,9 +9,16 @@ import {
   cinematicBenefits,
   cinematicHero,
   cinematicProducts,
+  cinematicWalkthrough,
+  type HeroHeadlineTone,
 } from '../content/cinematic'
 import { pagesMetadata } from '../content'
 import './HomePage.css'
+
+const HEADLINE_TONE_CLASS: Record<HeroHeadlineTone, string> = {
+  light: 'cinematic-hero__title-line--light',
+  gold: 'cinematic-hero__title-line--gold',
+}
 
 function Arrow() {
   return (
@@ -37,7 +44,14 @@ export function HomePage() {
         <div className="cinematic-hero__content">
           <p className="cinematic-hero__eyebrow">{cinematicHero.eyebrow}</p>
           <h1 className="cinematic-hero__title" id="home-hero-title">
-            {cinematicHero.headline}
+            {cinematicHero.headlineLines.map((line) => (
+              <span
+                key={line.id}
+                className={`cinematic-hero__title-line ${HEADLINE_TONE_CLASS[line.tone]}`}
+              >
+                {line.text}
+              </span>
+            ))}
           </h1>
           <p className="cinematic-hero__lede">{cinematicHero.lede}</p>
           <div className="cinematic-hero__actions">
@@ -67,7 +81,7 @@ export function HomePage() {
               >
                 <ProductExample kind={product.exampleKind} label={product.exampleLabel} />
                 <h3>{product.name}</h3>
-                <p>{product.description}</p>
+                <p className="cinematic-product__description">{product.description}</p>
                 <p className="cinematic-product__rails">
                   {product.rails.join(' · ')}
                 </p>
@@ -80,15 +94,8 @@ export function HomePage() {
         </div>
       </section>
 
-      <section
-        className="cinematic-approach"
-        id="how-it-works"
-        aria-labelledby="approach-title"
-      >
+      <section className="cinematic-approach" aria-label="Why SolvoOps">
         <div className="container">
-          <h2 className="sr-only" id="approach-title">
-            Our approach
-          </h2>
           <ul className="cinematic-benefits">
             {cinematicBenefits.map((benefit) => (
               <li key={benefit.id}>
@@ -97,6 +104,41 @@ export function HomePage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section
+        className="cinematic-walkthrough"
+        id="how-it-works"
+        aria-labelledby="how-it-works-title"
+      >
+        <div className="container">
+          <div className="cinematic-walkthrough__header">
+            <p className="cinematic-hero__eyebrow">{cinematicWalkthrough.eyebrow}</p>
+            <h2 id="how-it-works-title">{cinematicWalkthrough.title}</h2>
+            <p className="cinematic-walkthrough__lede">{cinematicWalkthrough.lede}</p>
+          </div>
+          <ol className="cinematic-walkthrough__steps">
+            {cinematicWalkthrough.steps.map((step) => (
+              <li key={step.id} className="cinematic-walkthrough__step">
+                <span className="cinematic-walkthrough__index" aria-hidden="true">
+                  {step.index}
+                </span>
+                <h3>{step.product}</h3>
+                <p className="cinematic-walkthrough__question">{step.question}</p>
+                <p className="cinematic-walkthrough__summary">{step.summary}</p>
+                <ul className="cinematic-walkthrough__moves">
+                  {step.moves.map((move) => (
+                    <li key={move}>{move}</li>
+                  ))}
+                </ul>
+                <Link className="cinematic-walkthrough__link" to={step.href}>
+                  {step.linkLabel}
+                  <Arrow />
+                </Link>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

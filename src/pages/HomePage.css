@@ -9,7 +9,9 @@
   --scene-muted: #c5d4cf;
   --scene-card: rgba(7, 25, 29, 0.86);
   --scene-border: rgba(121, 220, 211, 0.3);
-  --header-height: 6rem;
+  --header-height: 5.5rem;
+  --deck-lift: 7rem;
+  --deck-reserve: 14.5rem;
   padding: 0;
   color: var(--scene-text);
   background: var(--scene-base);
@@ -28,6 +30,15 @@
   outline-offset: 3px;
 }
 
+.solvo-cinematic .ds-btn {
+  border-radius: 999px;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0.8rem 1.5rem;
+  font-weight: 650;
+}
+
 .solvo-cinematic .ds-btn--primary {
   background: var(--scene-gold);
   border-color: var(--scene-gold);
@@ -35,9 +46,15 @@
 }
 
 .solvo-cinematic .ds-btn--ghost {
-  background: rgba(7, 20, 17, 0.78);
-  border-color: rgba(246, 250, 247, 0.62);
+  background: rgba(5, 17, 20, 0.55);
+  border-color: rgba(246, 250, 247, 0.42);
   color: #f6faf7;
+  backdrop-filter: blur(10px);
+}
+
+.solvo-cinematic .ds-btn--ghost:hover:not(:disabled) {
+  background: rgba(5, 17, 20, 0.72);
+  border-color: rgba(246, 250, 247, 0.78);
 }
 
 @media (max-width: 760px) {
@@ -208,10 +225,10 @@
 .cinematic-hero {
   position: relative;
   isolation: isolate;
-  min-height: 100svh;
+  min-height: max(30rem, calc(100svh - var(--deck-reserve)));
   display: flex;
-  align-items: flex-end;
-  padding: calc(var(--header-height) + 3rem) 0 8rem;
+  align-items: flex-start;
+  padding: calc(var(--header-height) + 1.75rem) 0 3rem;
   overflow: clip;
 }
 
@@ -370,11 +387,24 @@
 .cinematic-hero__content {
   position: relative;
   z-index: 2;
-  width: min(38rem, calc(100% - 24px));
+  width: min(40rem, calc(100% - 24px));
   margin-inline: max(12px, calc((100% - 1180px) / 2));
-  padding: 1.15rem 1.15rem 1.25rem;
-  border-radius: 0.6rem;
-  background: rgba(7, 20, 17, 0.78);
+  padding: 0;
+}
+
+.cinematic-hero__content::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -3rem -8rem -4rem -50vw;
+  background: radial-gradient(
+    120% 116% at 6% 44%,
+    rgba(4, 15, 13, 0.9) 0%,
+    rgba(4, 15, 13, 0.72) 34%,
+    rgba(4, 15, 13, 0.34) 62%,
+    rgba(4, 15, 13, 0) 82%
+  );
+  pointer-events: none;
 }
 
 .cinematic-hero__content > * {
@@ -382,7 +412,7 @@
 }
 
 .cinematic-hero__eyebrow {
-  margin: 0 0 1rem;
+  margin: 0 0 0.85rem;
   color: #e2b45d;
   font-size: 0.78rem;
   font-weight: 700;
@@ -392,22 +422,35 @@
 }
 
 .cinematic-hero__title {
-  margin: 0 0 1rem;
-  max-width: 12ch;
+  display: grid;
+  margin: 0 0 1.1rem;
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 7vw, 5.4rem);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.96;
-  color: #f6faf7;
-  text-shadow: 0 2px 18px rgba(7, 20, 17, 0.7);
+  font-size: clamp(2.2rem, 4.8vw, 4.25rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-shadow: 0 2px 22px rgba(4, 15, 13, 0.55);
+}
+
+.cinematic-hero__title-line {
+  display: block;
+}
+
+.cinematic-hero__title-line--light {
+  color: #f7fbf8;
+}
+
+.cinematic-hero__title-line--gold {
+  color: #d4a24c;
 }
 
 .cinematic-hero__lede {
-  margin: 0 0 1.6rem;
-  max-width: 28ch;
-  color: #dce7e3;
-  font-size: var(--text-lg);
+  margin: 0 0 1.75rem;
+  max-width: 62ch;
+  color: #e3ede9;
+  font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+  line-height: 1.5;
+  text-shadow: 0 1px 12px rgba(4, 15, 13, 0.6);
 }
 
 .cinematic-hero__actions {
@@ -418,44 +461,89 @@
 
 .cinematic-products {
   position: relative;
-  z-index: 2;
-  margin-top: -6.5rem;
-  padding-bottom: 3rem;
+  z-index: 3;
+  margin-top: calc(-1 * var(--deck-lift));
+  padding-bottom: 2.5rem;
 }
 
 .cinematic-product-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
 .cinematic-product {
   position: relative;
+  isolation: isolate;
   display: grid;
-  gap: 0.75rem;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0.55rem;
   min-width: 0;
   min-height: 100%;
-  padding: 1.15rem 1.2rem 1.3rem;
-  border: 1px solid var(--scene-border);
-  border-radius: 0.75rem;
-  background: var(--scene-card);
+  padding: 1rem 1.15rem 1.2rem;
+  border: 1px solid rgba(150, 214, 206, 0.18);
+  border-radius: 1rem;
+  background: linear-gradient(
+    168deg,
+    rgba(20, 62, 60, 0.5) 0%,
+    rgba(7, 24, 28, 0.62) 46%,
+    rgba(5, 17, 20, 0.72) 100%
+  );
+  box-shadow:
+    0 28px 56px -34px rgba(0, 0, 0, 0.95),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px) saturate(120%);
   color: var(--scene-text);
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.cinematic-product::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    120% 70% at 18% -10%,
+    rgba(121, 220, 211, 0.16),
+    rgba(121, 220, 211, 0) 62%
+  );
+  pointer-events: none;
+}
+
+.cinematic-product:hover,
+.cinematic-product:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(212, 162, 76, 0.55);
+  box-shadow:
+    0 36px 64px -32px rgba(0, 0, 0, 1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .cinematic-product h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.65rem;
+  font-size: 1.45rem;
   letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
-.cinematic-product p {
+.cinematic-product__description {
   margin: 0;
   color: var(--scene-muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
 
 .cinematic-product__rails {
-  color: var(--scene-gold) !important;
+  margin: 0;
+  padding-right: 2.75rem;
+  align-self: end;
+  color: var(--scene-gold);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -463,20 +551,47 @@
 
 .cinematic-product__go {
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(246, 250, 247, 0.22);
+  border-radius: 999px;
+  color: var(--scene-text);
+  transition:
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.cinematic-product__go .home-arrow {
+  width: 0.9rem;
+}
+
+.cinematic-product:hover .cinematic-product__go,
+.cinematic-product:focus-visible .cinematic-product__go {
+  border-color: rgba(212, 162, 76, 0.75);
+  color: var(--scene-gold);
 }
 
 .product-example {
-  margin: 0 0 0.4rem;
+  margin: 0;
+}
+
+.product-example svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.55rem;
 }
 
 .product-example figcaption {
-  margin-bottom: 0.4rem;
-  color: var(--scene-gold);
-  font-size: 0.7rem;
+  margin: 0 0 0.45rem;
+  color: rgba(212, 162, 76, 0.92);
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -502,6 +617,124 @@
 .cinematic-benefits p {
   margin: 0;
   color: var(--scene-muted);
+}
+
+.cinematic-walkthrough {
+  padding: 3.5rem 0 4rem;
+  border-top: 1px solid rgba(121, 220, 211, 0.16);
+}
+
+.cinematic-walkthrough__header {
+  max-width: 44rem;
+  margin-bottom: 2.5rem;
+}
+
+.cinematic-walkthrough h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.cinematic-walkthrough__lede {
+  margin: 0;
+  max-width: 54ch;
+  color: var(--scene-muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.cinematic-walkthrough__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cinematic-walkthrough__step {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+  min-width: 0;
+  padding: 1.35rem 0 0.25rem;
+  border-top: 1px solid rgba(121, 220, 211, 0.16);
+}
+
+.cinematic-walkthrough__index {
+  color: var(--scene-gold);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.cinematic-walkthrough__step h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.cinematic-walkthrough__question {
+  margin: 0;
+  color: var(--scene-muted);
+  font-size: 1.02rem;
+  font-style: italic;
+}
+
+.cinematic-walkthrough__summary {
+  margin: 0;
+  color: #dfe9e5;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.cinematic-walkthrough__moves {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.35rem 0 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.cinematic-walkthrough__moves li {
+  position: relative;
+  padding-left: 1.35rem;
+  color: var(--scene-muted);
+  font-size: 0.93rem;
+  line-height: 1.45;
+}
+
+.cinematic-walkthrough__moves li::before {
+  content: '';
+  position: absolute;
+  top: 0.48em;
+  left: 0.15rem;
+  width: 0.5rem;
+  height: 0.28rem;
+  border-left: 1.5px solid var(--scene-aurora);
+  border-bottom: 1.5px solid var(--scene-aurora);
+  transform: rotate(-45deg);
+}
+
+.cinematic-walkthrough__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  justify-self: start;
+  color: var(--scene-gold);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.cinematic-walkthrough__link:hover,
+.cinematic-walkthrough__link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .cinematic-about {
@@ -538,21 +771,35 @@
 }
 
 @media (max-width: 880px) {
+  /* Leave the first card peeking above the fold so the deck reads as scrollable. */
+  .solvo-cinematic {
+    --deck-lift: 2rem;
+    --deck-reserve: 9rem;
+  }
+
   .cinematic-product-grid,
   .cinematic-benefits,
+  .cinematic-walkthrough__steps,
   .cinematic-about__grid {
     grid-template-columns: 1fr;
   }
 
+  /* Clears the scene controls, which move to the top band on narrow screens. */
   .cinematic-hero {
-    min-height: 100svh;
-    align-items: flex-end;
+    padding-top: calc(var(--header-height) + 4.5rem);
     padding-bottom: 2rem;
   }
 
   .cinematic-products {
-    margin-top: 0;
-    padding-top: 0.5rem;
+    padding-top: 0.75rem;
+  }
+
+  .cinematic-walkthrough__steps {
+    gap: 0;
+  }
+
+  .cinematic-walkthrough__step {
+    padding-bottom: 1.5rem;
   }
 
   .cinematic-scene__controls {
@@ -581,7 +828,9 @@
 @media (prefers-reduced-motion: reduce) {
   .cinematic-scene__plate,
   .cinematic-scene__aurora,
-  .cinematic-scene__night {
+  .cinematic-scene__night,
+  .cinematic-product,
+  .cinematic-product__go {
     transition: none;
   }
 
@@ -589,5 +838,10 @@
   .cinematic-aurora__curtains,
   .cinematic-aurora__reflection {
     animation: none;
+  }
+
+  .cinematic-product:hover,
+  .cinematic-product:focus-visible {
+    transform: none;
   }
 }

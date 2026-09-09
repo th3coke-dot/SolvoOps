@@ -35,15 +35,23 @@ Owns everything the visitor reads on the homepage.
 (`.cinematic-scene__*`). The layout owner writes those rules. The scene owner
 changes class names only by editing this table in the same commit.
 
-Scene control placement reads one layout token:
+Two layout tokens govern the vertical composition:
 
 ```css
-.solvo-cinematic { --deck-lift: 6.5rem; }
+.solvo-cinematic {
+  --deck-reserve: 14.5rem;
+  --deck-lift: 7rem;
+}
 ```
 
-`--deck-lift` is how far the product deck overlaps the hero. The deck sets
-`margin-top: calc(-1 * var(--deck-lift))` and the scene controls sit above it at
-`bottom: calc(var(--deck-lift) + 1rem)`. Change the token, not the two rules.
+`--deck-reserve` is the band the hero gives back at the bottom of the viewport.
+`--deck-lift` is how far the product deck climbs into it. Tune the fold with
+these two, not with hard-coded heights.
+
+Scene controls are anchored to the top of the hero and own their own
+`z-index`. They no longer read either token. The layout owner does not move
+them. If a future deck change puts content under them, raise `--deck-reserve`
+rather than repositioning the controls.
 
 ## Invariants
 
