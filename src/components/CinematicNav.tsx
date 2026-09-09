@@ -55,9 +55,9 @@ export function CinematicNav() {
           className="cinematic-nav__toggle"
           aria-expanded={open}
           aria-controls={menuId}
+          aria-label={open ? 'Close menu' : 'Open menu'}
           onClick={() => setOpen((value) => !value)}
         >
-          <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
           <span aria-hidden="true">{open ? 'Close' : 'Menu'}</span>
         </button>
       </div>

@@ -34,7 +34,7 @@ export function HomePage() {
 
       <section className="cinematic-hero" id="top" aria-labelledby="home-hero-title">
         <CinematicScene />
-        <div className="cinematic-hero__content container">
+        <div className="cinematic-hero__content">
           <p className="cinematic-hero__eyebrow">{cinematicHero.eyebrow}</p>
           <h1 className="cinematic-hero__title" id="home-hero-title">
             {cinematicHero.headline}

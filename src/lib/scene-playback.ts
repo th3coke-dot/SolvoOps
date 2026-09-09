@@ -114,3 +114,7 @@ export function canResume(state: PlaybackState): boolean {
 export function canReplay(state: PlaybackState): boolean {
   return state.status !== 'failed'
 }
+
+export function isActivationKey(key: string): boolean {
+  return key === 'Enter' || key === ' '
+}

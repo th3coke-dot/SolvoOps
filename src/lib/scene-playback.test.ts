@@ -4,6 +4,7 @@ import {
   canReplay,
   canResume,
   initialPlaybackState,
+  isActivationKey,
   reducePlayback,
   sceneProgress,
   SCENE_TRANSITION_MS,
@@ -69,6 +70,13 @@ describe('scene playback', () => {
       userPaused: false,
     })
     expect(canReplay(state)).toBe(true)
+  })
+
+  it('treats Enter and Space as activation keys for playback controls', () => {
+    expect(isActivationKey('Enter')).toBe(true)
+    expect(isActivationKey(' ')).toBe(true)
+    expect(isActivationKey('p')).toBe(false)
+    expect(isActivationKey('Tab')).toBe(false)
   })
 
   it('suspends when hidden and resumes only if the user did not pause', () => {

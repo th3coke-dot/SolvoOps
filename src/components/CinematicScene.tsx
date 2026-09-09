@@ -1,12 +1,14 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { cinematicSceneAssets } from '../content/cinematic'
 import {
   canPause,
   canReplay,
   canResume,
   initialPlaybackState,
+  isActivationKey,
   reducePlayback,
   sceneProgress,
+  type PlaybackEvent,
   type PlaybackState,
 } from '../lib/scene-playback'
 import {
@@ -72,6 +74,7 @@ export function CinematicScene() {
     const node = rootRef.current
     if (!node) return
 
+    const latestRatio = { current: 1 }
     const syncVisibility = () => {
       const hidden = document.hidden
       const ratio = latestRatio.current
@@ -86,7 +89,6 @@ export function CinematicScene() {
       }
     }
 
-    const latestRatio = { current: 1 }
     const observer = new IntersectionObserver(
       ([entry]) => {
         latestRatio.current = entry.intersectionRatio
@@ -101,6 +103,10 @@ export function CinematicScene() {
       document.removeEventListener('visibilitychange', syncVisibility)
     }
   }, [])
+
+  const dispatch = (type: Extract<PlaybackEvent['type'], 'play' | 'pause' | 'resume' | 'replay'>) => {
+    setState((current) => reducePlayback(current, { type }))
+  }
 
   const progress = sceneProgress(state.elapsedMs)
   const duskOpacity =
@@ -121,7 +127,6 @@ export function CinematicScene() {
       : clamp((progress.transition - 0.72) / 0.28) *
         (0.82 + 0.18 * Math.sin(progress.ambient * Math.PI * 2))
 
-  const showMotionControls = policy === 'auto' || state.status !== 'static'
   const showPlay = policy === 'static' && state.status === 'static'
 
   return (
@@ -171,56 +176,63 @@ export function CinematicScene() {
         <AuroraOverlay opacity={auroraOpacity} />
         <div className="cinematic-scene__veil" />
       </div>
-      <div className="cinematic-scene__controls" aria-hidden="false">
-        <div className="cinematic-controls" role="group" aria-label="Scene playback">
+      <div className="cinematic-scene__controls">
+        <div className="cinematic-controls" role="toolbar" aria-label="Scene playback">
           {showPlay ? (
-            <button
-              type="button"
-              className="cinematic-controls__btn"
-              onClick={() =>
-                setState((current) => reducePlayback(current, { type: 'play' }))
-              }
-            >
-              Play scene
-            </button>
+            <SceneControl label="Play" onActivate={() => dispatch('play')} />
           ) : null}
-          {showMotionControls ? (
-            <>
-              <button
-                type="button"
-                className="cinematic-controls__btn"
-                disabled={!canPause(state)}
-                onClick={() =>
-                  setState((current) => reducePlayback(current, { type: 'pause' }))
-                }
-              >
-                Pause
-              </button>
-              <button
-                type="button"
-                className="cinematic-controls__btn"
-                disabled={!canResume(state)}
-                onClick={() =>
-                  setState((current) => reducePlayback(current, { type: 'resume' }))
-                }
-              >
-                Resume
-              </button>
-              <button
-                type="button"
-                className="cinematic-controls__btn"
-                disabled={!canReplay(state)}
-                onClick={() =>
-                  setState((current) => reducePlayback(current, { type: 'replay' }))
-                }
-              >
-                Replay
-              </button>
-            </>
-          ) : null}
+          <SceneControl
+            label="Pause"
+            disabled={!canPause(state)}
+            onActivate={() => dispatch('pause')}
+          />
+          <SceneControl
+            label="Resume"
+            disabled={!canResume(state)}
+            onActivate={() => dispatch('resume')}
+          />
+          <SceneControl
+            label="Replay"
+            disabled={!canReplay(state)}
+            onActivate={() => dispatch('replay')}
+          />
         </div>
       </div>
     </div>
+  )
+}
+
+function SceneControl({
+  label,
+  disabled = false,
+  onActivate,
+}: {
+  label: string
+  disabled?: boolean
+  onActivate: () => void
+}) {
+  const activate = () => {
+    if (disabled) return
+    onActivate()
+  }
+
+  const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+    if (!isActivationKey(event.key)) return
+    event.preventDefault()
+    activate()
+  }
+
+  return (
+    <button
+      type="button"
+      className="cinematic-controls__btn"
+      aria-label={`${label} scene`}
+      disabled={disabled}
+      onClick={activate}
+      onKeyDown={onKeyDown}
+    >
+      {label}
+    </button>
   )
 }
 

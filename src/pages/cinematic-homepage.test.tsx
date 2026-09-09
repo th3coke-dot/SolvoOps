@@ -44,7 +44,12 @@ describe('cinematic homepage', () => {
     expect(html).toContain('href="/pilot?product=solvobid"')
     expect(html).toContain('href="/privacy"')
     expect(html).toContain('href="/terms"')
-    expect(html).toContain('Scene playback')
+    expect(html).toContain('aria-label="Scene playback"')
+    expect(html).toContain('aria-label="Pause scene"')
+    expect(html).toContain('aria-label="Resume scene"')
+    expect(html).toContain('aria-label="Replay scene"')
+    expect(html).toContain('Our approach')
+    expect(html).toContain('href="#about"')
   })
 
   it('omits fake claims, shared login, and a play-video CTA', () => {
@@ -54,6 +59,6 @@ describe('cinematic homepage', () => {
     expect(html).not.toContain('Log in')
     expect(html).not.toContain('Login')
     expect(html).not.toContain('See how it works ▶')
-    expect(html).not.toContain('aria-label="Play')
+    expect(html).not.toContain('Play video')
   })
 })
