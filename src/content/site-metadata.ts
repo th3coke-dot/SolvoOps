@@ -31,9 +31,9 @@ export const siteMetadata = {
 export const pagesMetadata: Record<string, PageMetadata> = {
   home: {
     path: '/',
-    title: 'SolvoOps | From operational complexity to controlled execution',
+    title: 'SolvoOps | Clarity for complex delivery',
     description:
-      'SolvoOps builds focused software for project planning, scope control, partner discovery and complex service-delivery workflows.',
+      'Understand the bid. Plan the work. Find the right partners. SolvoPlan, SolvoFind and SolvoBid help delivery organisations work with clarity and control.',
   },
   products: {
     path: '/products',

@@ -113,3 +113,16 @@
     --duration-slow: 1ms;
   }
 }
+
+.solvo-cinematic {
+  --scene-pine: #123c34;
+  --scene-pine-deep: #0a241f;
+  --scene-gold: #d4a24c;
+  --scene-base: #071411;
+  --scene-ocean: #071923;
+  --scene-aurora: #79dcd3;
+  --scene-text: #f6faf7;
+  --scene-muted: #c5d4cf;
+  --scene-card: rgba(7, 25, 29, 0.86);
+  --scene-border: rgba(121, 220, 211, 0.3);
+}

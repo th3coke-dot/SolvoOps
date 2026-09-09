@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest'
 import sitemap from '../../public/sitemap.xml?raw'
 import { SiteFooter } from '../components/ui/SiteFooter'
 import { SiteNav } from '../components/ui/SiteNav'
-import { homepageContent, partnerforgePage, whoGetsTheCallPage } from '../content'
+import { partnerforgePage, whoGetsTheCallPage } from '../content'
 import { HomePage } from './HomePage'
 import { PartnerForgePage } from './PartnerForgePage'
 import { ProductsPage } from './ProductsPage'
@@ -32,36 +32,22 @@ function publicHrefs(html: string) {
 describe('marketplace portfolio pages', () => {
   it('keeps Who Gets the Call? out of the homepage operational product stack', () => {
     const html = renderAt(<HomePage />)
-    const productsStart = html.indexOf('02 / THE PRODUCTS')
-    const marketplaceStart = html.indexOf('03 / THE MARKETPLACE')
-    const labsStart = html.indexOf('home-labs-wrap')
+    const productsStart = html.indexOf('id="products"')
+    const approachStart = html.indexOf('id="how-it-works"')
     expect(productsStart).toBeGreaterThan(-1)
-    expect(marketplaceStart).toBeGreaterThan(productsStart)
-    expect(labsStart).toBeGreaterThan(marketplaceStart)
+    expect(approachStart).toBeGreaterThan(productsStart)
 
-    const productsBlock = html.slice(productsStart, marketplaceStart)
-    expect(productsBlock).toContain('Scope2Plan')
-    expect(productsBlock).toContain('PartnerForge')
+    const productsBlock = html.slice(productsStart, approachStart)
+    expect(productsBlock).toContain('SolvoPlan')
+    expect(productsBlock).toContain('SolvoFind')
+    expect(productsBlock).toContain('SolvoBid')
+    expect(productsBlock).toContain('href="/products/scope2plan"')
+    expect(productsBlock).toContain('href="/products/partnerforge"')
+    expect(productsBlock).not.toContain('Scope2Plan')
+    expect(productsBlock).not.toContain('PartnerForge')
     expect(productsBlock).not.toContain('Who Gets the Call?')
     expect(productsBlock).not.toContain('BizDayz')
-
-    const marketplaceBlock = html.slice(marketplaceStart, labsStart)
-    expect(marketplaceBlock).toContain('Who Gets the Call?')
-    expect(marketplaceBlock).toContain('LIVE')
-    expect(marketplaceBlock).toContain(homepageContent.marketplace.headline)
-    expect(marketplaceBlock).toContain('Run it · Build it · Power it · Source it')
-    expect(marketplaceBlock).toContain('href="https://whogetsthecall.lol"')
-    expect(marketplaceBlock).toContain('href="/marketplace/who-gets-the-call"')
-    expect(marketplaceBlock).toContain('Visit the marketplace')
-    expect(marketplaceBlock).toContain(
-      'src="https://whogetsthecall.lol/og/call-map.png"',
-    )
-    expect(marketplaceBlock).toContain(
-      'alt="Who Gets the Call? live marketplace map"',
-    )
-    expect(marketplaceBlock).not.toContain('<ellipse')
-    expect(marketplaceBlock).not.toContain('Scope2Plan')
-    expect(marketplaceBlock).not.toContain('href="/labs"')
+    expect(html).not.toContain('03 / THE MARKETPLACE')
   })
 
   it('separates Marketplace from operational products on the products page', () => {

@@ -31,6 +31,7 @@ export const pilotProductOptions = [
   { value: '', label: 'Select a product' },
   { value: 'scope2plan', label: 'Scope2Plan (Generate / Control)' },
   { value: 'partnerforge', label: 'PartnerForge' },
+  { value: 'solvobid', label: 'SolvoBid' },
   { value: 'both', label: 'Both Scope2Plan and PartnerForge' },
   { value: 'unsure', label: 'Not sure yet' },
 ] as const

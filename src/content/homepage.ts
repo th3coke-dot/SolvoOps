@@ -1,9 +1,9 @@
 export const homepageContent = {
-  eyebrow: 'Operational intelligence software',
-  headline: 'From operational complexity to controlled execution',
-  lede: 'SolvoOps builds focused software that helps delivery organisations turn scopes into executable plans, find qualified partners and maintain control as projects change.',
+  eyebrow: 'COMPLEXITY IN. CLARITY OUT.',
+  headline: 'Clarity for complex delivery.',
+  lede: 'Understand the bid. Plan the work. Find the right partners.',
   primaryCta: { label: 'Explore our products', href: '#products' },
-  secondaryCta: { label: 'Discuss a pilot', href: '/pilot' },
+  secondaryCta: { label: 'See how it works', href: '#how-it-works' },
   problem: {
     label: 'The operational problem',
     title: 'Complex delivery still depends on fragmented manual work',

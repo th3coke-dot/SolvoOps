@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  cinematicProducts,
   getProductById,
   labsProducts,
   marketplaceProducts,
@@ -15,6 +16,19 @@ import {
 } from './index'
 
 describe('content model', () => {
+  it('uses SolvoPlan, SolvoFind and SolvoBid as homepage primary names only', () => {
+    expect(cinematicProducts.map((product) => product.name)).toEqual([
+      'SolvoPlan',
+      'SolvoFind',
+      'SolvoBid',
+    ])
+    expect(cinematicProducts.map((product) => product.href)).toEqual([
+      '/products/scope2plan',
+      '/products/partnerforge',
+      '/pilot?product=solvobid',
+    ])
+  })
+
   it('keeps Scope2Plan and PartnerForge as the only primary products', () => {
     expect(primaryProducts.map((p) => p.id).sort()).toEqual([
       'partnerforge',
