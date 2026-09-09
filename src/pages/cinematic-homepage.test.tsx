@@ -44,12 +44,16 @@ describe('cinematic homepage', () => {
     expect(html).toContain('href="/pilot?product=solvobid"')
     expect(html).toContain('href="/privacy"')
     expect(html).toContain('href="/terms"')
-    expect(html).toContain('aria-label="Scene playback"')
-    expect(html).toContain('aria-label="Pause scene"')
-    expect(html).toContain('aria-label="Resume scene"')
-    expect(html).toContain('aria-label="Replay scene"')
     expect(html).toContain('Our approach')
     expect(html).toContain('href="#about"')
+  })
+
+  it('prerenders a polished static scene without active playback controls', () => {
+    const html = renderHome()
+    expect(html).toContain('/scene/sunset.jpg')
+    expect(html).toContain('cinematic-aurora__curtains')
+    expect(html).toContain('cinematic-aurora__reflection')
+    expect(html).not.toContain('aria-label="Scene playback"')
   })
 
   it('omits fake claims, shared login, and a play-video CTA', () => {
