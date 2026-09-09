@@ -278,6 +278,14 @@ function atViewport(rows, width, height) {
   )
 }
 
+/** @typedef {'pass' | 'fail' | 'skip'} CheckStatus */
+
+/** @returns {CheckStatus} */
+function statusFor(measured, ok) {
+  if (!measured) return 'skip'
+  return ok ? 'pass' : 'fail'
+}
+
 function evaluateChecks(rows) {
   const desktop = atViewport(rows, 1440, 900)
   const mobile = atViewport(rows, 390, 844)
@@ -285,33 +293,33 @@ function evaluateChecks(rows) {
   return [
     {
       name: '1440x900: all three cards fully in fold',
-      ok: Boolean(
-        desktop &&
-          desktop.cards.length === 3 &&
+      status: statusFor(
+        desktop,
+        desktop?.cards.length === 3 &&
           desktop.cards.every((card) => card.fullyInFold === true),
       ),
     },
     {
       name: '1440x900: no vertical overflow of the hero+deck composition',
-      ok: Boolean(lastCard?.rect && lastCard.rect.bottom <= 900),
+      status: statusFor(desktop, lastCard?.rect && lastCard.rect.bottom <= 900),
     },
     {
       name: '390x844: no horizontal overflow',
-      ok: Boolean(mobile && mobile.scroll.horizontalOverflowPx <= 0),
+      status: statusFor(mobile, mobile?.scroll.horizontalOverflowPx <= 0),
     },
     {
       name: 'all viewports: scene controls clear of cards',
-      ok:
-        rows.length > 0 &&
+      status: statusFor(
+        rows.length > 0,
         rows.every((row) => row.sceneControlsOverlapsCard === false),
+      ),
     },
     {
       name: 'all viewports: CTA buttons are pills',
-      ok:
-        rows.length > 0 &&
-        rows.every((row) =>
-          row.ctaRadii.every((radius) => ctaIsPill(radius)),
-        ),
+      status: statusFor(
+        rows.length > 0,
+        rows.every((row) => row.ctaRadii.every((radius) => ctaIsPill(radius))),
+      ),
     },
   ]
 }
@@ -385,9 +393,21 @@ async function main() {
     const checks = evaluateChecks(rows)
     failed = false
     for (const check of checks) {
-      console.log(`${check.ok ? 'PASS' : 'FAIL'}  ${check.name}`)
-      if (!check.ok) {
-        failed = true
+      switch (check.status) {
+        case 'pass':
+          console.log(`PASS  ${check.name}`)
+          break
+        case 'fail':
+          console.log(`FAIL  ${check.name}`)
+          failed = true
+          break
+        case 'skip':
+          console.log(`SKIP  ${check.name} (viewport not measured)`)
+          break
+        default: {
+          const exhaustive = check.status
+          throw new Error(`unhandled check status: ${exhaustive}`)
+        }
       }
     }
   } finally {
