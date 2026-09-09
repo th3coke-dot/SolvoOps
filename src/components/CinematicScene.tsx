@@ -305,30 +305,30 @@ function AuroraOverlay({
     >
       <defs>
         <linearGradient id="aurora-cyan" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#b7fff0" stopOpacity="0.12" />
-          <stop offset="18%" stopColor="#79f3d4" stopOpacity="0.72" />
-          <stop offset="72%" stopColor="#29c7bc" stopOpacity="0.16" />
+          <stop offset="0%" stopColor="#b7fff0" stopOpacity="0.28" />
+          <stop offset="18%" stopColor="#79f3d4" stopOpacity="0.95" />
+          <stop offset="72%" stopColor="#29c7bc" stopOpacity="0.34" />
           <stop offset="100%" stopColor="#29c7bc" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="aurora-green" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#d6ffca" stopOpacity="0.08" />
-          <stop offset="24%" stopColor="#8effb1" stopOpacity="0.58" />
-          <stop offset="76%" stopColor="#56dfb3" stopOpacity="0.1" />
+          <stop offset="0%" stopColor="#d6ffca" stopOpacity="0.2" />
+          <stop offset="24%" stopColor="#8effb1" stopOpacity="0.84" />
+          <stop offset="76%" stopColor="#56dfb3" stopOpacity="0.24" />
           <stop offset="100%" stopColor="#56dfb3" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="aurora-reflection" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#82f6d2" stopOpacity="0.24" />
-          <stop offset="48%" stopColor="#48d9c8" stopOpacity="0.07" />
+          <stop offset="0%" stopColor="#82f6d2" stopOpacity="0.34" />
+          <stop offset="48%" stopColor="#48d9c8" stopOpacity="0.12" />
           <stop offset="100%" stopColor="#48d9c8" stopOpacity="0" />
         </linearGradient>
         <filter id="aurora-glow" x="-45%" y="-30%" width="190%" height="170%">
-          <feGaussianBlur stdDeviation="42" />
+          <feGaussianBlur stdDeviation="28" />
         </filter>
         <filter id="aurora-soft" x="-35%" y="-25%" width="170%" height="155%">
-          <feGaussianBlur stdDeviation="18" />
+          <feGaussianBlur stdDeviation="10" />
         </filter>
         <filter id="aurora-water-soft" x="-30%" y="-30%" width="160%" height="170%">
-          <feGaussianBlur stdDeviation="24" />
+          <feGaussianBlur stdDeviation="16" />
         </filter>
         <clipPath id="aurora-sky-clip">
           <rect width="1600" height="525" />
@@ -345,7 +345,7 @@ function AuroraOverlay({
             stroke="#47e8cb"
             strokeWidth="180"
             strokeLinecap="round"
-            opacity="0.34"
+            opacity="0.58"
           />
           <path
             d="M700 -120 C640 52 730 155 690 276 C658 370 704 440 748 522"
@@ -353,7 +353,7 @@ function AuroraOverlay({
             stroke="#78f5bd"
             strokeWidth="205"
             strokeLinecap="round"
-            opacity="0.3"
+            opacity="0.52"
           />
           <path
             d="M1190 -95 C1080 42 1132 176 1054 292 C1002 372 1034 454 1082 524"
@@ -361,29 +361,29 @@ function AuroraOverlay({
             stroke="#58ded2"
             strokeWidth="168"
             strokeLinecap="round"
-            opacity="0.24"
+            opacity="0.42"
           />
         </g>
         <g className="cinematic-aurora__curtains" filter="url(#aurora-soft)">
           <path
             d="M92 -110 C220 36 176 122 292 236 C372 315 318 392 452 535 L594 535 C505 380 536 290 420 190 C324 108 365 12 292 -110 Z"
             fill="url(#aurora-cyan)"
-            opacity="0.82"
+            opacity="0.96"
           />
           <path
             d="M510 -125 C626 4 578 118 660 206 C758 310 674 402 790 535 L930 535 C850 408 896 294 798 188 C718 100 760 -8 710 -125 Z"
             fill="url(#aurora-green)"
-            opacity="0.76"
+            opacity="0.9"
           />
           <path
             d="M925 -110 C1035 18 974 132 1084 230 C1176 312 1092 420 1210 535 L1358 535 C1260 400 1318 312 1218 202 C1130 106 1184 4 1125 -110 Z"
             fill="url(#aurora-cyan)"
-            opacity="0.6"
+            opacity="0.78"
           />
           <path
             d="M1260 -125 C1342 -18 1320 82 1400 174 C1478 264 1446 382 1535 535 L1648 535 L1648 -125 Z"
             fill="url(#aurora-green)"
-            opacity="0.44"
+            opacity="0.6"
           />
         </g>
       </g>

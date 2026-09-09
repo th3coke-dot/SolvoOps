@@ -259,6 +259,7 @@
 .cinematic-scene__aurora {
   pointer-events: none;
   mix-blend-mode: screen;
+  filter: saturate(1.2) brightness(1.08);
   will-change: opacity;
 }
 
