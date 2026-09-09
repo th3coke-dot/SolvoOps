@@ -4,16 +4,16 @@ import { useCases } from './use-cases'
 export const pilotPageContent = {
   label: 'Pilot',
   title: 'Test SolvoOps against a real workflow',
-  lede: 'We work with organisations that want to test Scope2Plan or PartnerForge against a defined operational challenge.',
+  lede: 'We work with organisations that want to test SolvoPlan or SolvoFind against a defined operational challenge.',
   options: [
     {
       id: 'scope2plan',
-      title: 'Scope2Plan Generate / Control pilot',
+      title: 'SolvoPlan Generate / Control pilot',
       body: 'Use a sanitised SOW to test Generate package creation, or explore Control for scope-versioning, change impact and governed updates.',
     },
     {
       id: 'partnerforge',
-      title: 'PartnerForge pilot',
+      title: 'SolvoFind pilot',
       body: 'Use a real sourcing requirement or project document to test multi-region discovery, filters, evidence quality, onboarded-network priority and ranking.',
     },
   ],
@@ -29,10 +29,10 @@ export const pilotPageContent = {
 
 export const pilotProductOptions = [
   { value: '', label: 'Select a product' },
-  { value: 'scope2plan', label: 'Scope2Plan (Generate / Control)' },
-  { value: 'partnerforge', label: 'PartnerForge' },
+  { value: 'scope2plan', label: 'SolvoPlan (Generate / Control)' },
+  { value: 'partnerforge', label: 'SolvoFind' },
   { value: 'solvobid', label: 'SolvoBid' },
-  { value: 'both', label: 'Both Scope2Plan and PartnerForge' },
+  { value: 'both', label: 'Both SolvoPlan and SolvoFind' },
   { value: 'unsure', label: 'Not sure yet' },
 ] as const
 

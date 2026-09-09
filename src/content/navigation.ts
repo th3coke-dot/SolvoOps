@@ -18,8 +18,8 @@ export const productsNavGroups: NavGroup[] = [
     id: 'operational-products',
     label: 'Operational products',
     items: [
-      { id: 'scope2plan', label: 'Scope2Plan', href: '/products/scope2plan' },
-      { id: 'partnerforge', label: 'PartnerForge', href: '/products/partnerforge' },
+      { id: 'scope2plan', label: 'SolvoPlan', href: '/products/scope2plan' },
+      { id: 'partnerforge', label: 'SolvoFind', href: '/products/partnerforge' },
     ],
   },
   {

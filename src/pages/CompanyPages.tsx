@@ -178,7 +178,7 @@ export function LabsPage() {
         <p className="product-hero__lede">
           Smaller tools and experiments used to explore new workflows,
           technologies and product ideas. Labs remains visually and strategically
-          secondary to Scope2Plan and PartnerForge.
+          secondary to SolvoPlan and SolvoFind.
         </p>
       </section>
       <section className="container product-section">

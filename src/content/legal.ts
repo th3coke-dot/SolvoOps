@@ -35,7 +35,7 @@ export const privacyPageContent = {
     },
     {
       title: 'External product sites',
-      body: 'Links to Scope2Plan, PartnerForge, BizDayz, AutoNameSearch and other products leave this marketing site. Those products have their own environments and practices.',
+      body: 'Links to SolvoPlan, SolvoFind, BizDayz, AutoNameSearch and other products leave this marketing site. Those products have their own environments and practices.',
     },
     {
       title: 'Contact',

@@ -33,10 +33,10 @@ export function ProductsPage() {
       <section className="container product-section" aria-labelledby="operational-products">
         <SectionHeader
           label="Operational products"
-          title="Scope2Plan and PartnerForge"
-          editorialAccent="PartnerForge"
+          title="SolvoPlan and SolvoFind"
+          editorialAccent="SolvoFind"
           id="operational-products"
-          copy="Scope2Plan Generate and Control for planning and change. PartnerForge for partner intelligence across regions."
+          copy="SolvoPlan Generate and Control for planning and change. SolvoFind for partner intelligence across regions."
         />
         <div>
           {primaryProducts.map((product) => (

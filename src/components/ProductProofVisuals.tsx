@@ -1,5 +1,5 @@
 /**
- * Illustrative Scope2Plan Generate package composition — not a product screenshot.
+ * Illustrative SolvoPlan Generate package composition — not a product screenshot.
  */
 export function Scope2PlanProofVisual() {
   const docs = [
@@ -13,7 +13,7 @@ export function Scope2PlanProofVisual() {
   return (
     <figure className="product-proof product-proof--scope2plan" aria-labelledby="s2p-proof-caption">
       <figcaption id="s2p-proof-caption" className="sr-only">
-        Illustrative Scope2Plan Generate flow from SOW into a delivery package.
+        Illustrative SolvoPlan Generate flow from SOW into a delivery package.
       </figcaption>
       <div className="product-proof__rail" aria-hidden="true">
         <div className="product-proof__source">
@@ -39,7 +39,7 @@ export function Scope2PlanProofVisual() {
 }
 
 /**
- * Illustrative PartnerForge ranking / evidence sketch — not a live UI.
+ * Illustrative SolvoFind ranking / evidence sketch — not a live UI.
  */
 export function PartnerForgeProofVisual() {
   const rows = [
@@ -62,7 +62,7 @@ export function PartnerForgeProofVisual() {
   return (
     <figure className="product-proof product-proof--partnerforge" aria-labelledby="pf-proof-caption">
       <figcaption id="pf-proof-caption" className="sr-only">
-        Illustrative PartnerForge flow from requirement or project document to ranked shortlist.
+        Illustrative SolvoFind flow from requirement or project document to ranked shortlist.
       </figcaption>
       <div className="product-proof__board" aria-hidden="true">
         <div className="product-proof__board-head">

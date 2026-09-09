@@ -1,21 +1,21 @@
 export const scope2planPage = {
-  label: 'Scope2Plan',
+  label: 'SolvoPlan',
   headline: 'From SOW to controlled delivery',
-  lede: 'Scope2Plan is two connected modules: Generate turns Statements of Work into delivery-ready project packages, and Control keeps that structured project model aligned as scopes, decisions and obligations change.',
+  lede: 'SolvoPlan is two connected modules: Generate turns Statements of Work into delivery-ready project packages, and Control keeps that structured project model aligned as scopes, decisions and obligations change.',
   modulesNote:
     'Generate is the live planning workspace. Control extends the same project model through delivery governance and change.',
   primaryCta: {
-    label: 'Discuss a Scope2Plan pilot',
+    label: 'Discuss a SolvoPlan pilot',
     href: '/pilot?product=scope2plan',
   },
   secondaryCta: {
-    label: 'Open Scope2Plan Generate',
+    label: 'Open SolvoPlan Generate',
     href: 'https://www.scope2plan.com',
   },
   modules: [
     {
       id: 'generate',
-      name: 'Scope2Plan Generate',
+      name: 'SolvoPlan Generate',
       status: 'pilot' as const,
       title: 'Create the delivery package from the SOW',
       summary:
@@ -23,7 +23,7 @@ export const scope2planPage = {
     },
     {
       id: 'control',
-      name: 'Scope2Plan Control',
+      name: 'SolvoPlan Control',
       status: 'in-development' as const,
       title: 'Keep the project model alive as work changes',
       summary:
@@ -89,9 +89,9 @@ export const scope2planPage = {
   },
   methodology: {
     title: 'Adapt the output to how your organisation delivers',
-    body: 'Scope2Plan is designed to support recognised project-management approaches and organisation-specific delivery methods. Profiles are aligned to these approaches — not certified or endorsed by methodology owners.',
+    body: 'SolvoPlan is designed to support recognised project-management approaches and organisation-specific delivery methods. Profiles are aligned to these approaches — not certified or endorsed by methodology owners.',
     profiles: [
-      'Scope2Plan Standard',
+      'SolvoPlan Standard',
       'PMP-aligned',
       'PRINCE2-aligned',
       'ITIL transition',
@@ -102,6 +102,6 @@ export const scope2planPage = {
   finalCta: {
     title: 'Turn your next project scope into a structured delivery package.',
     href: '/pilot?product=scope2plan',
-    label: 'Discuss a Scope2Plan pilot',
+    label: 'Discuss a SolvoPlan pilot',
   },
 } as const

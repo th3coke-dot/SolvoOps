@@ -73,7 +73,7 @@ export function Scope2PlanPage() {
 
       <section className="container product-section" aria-labelledby="generate-title">
         <SectionHeader
-          label="Scope2Plan Generate"
+          label="SolvoPlan Generate"
           title={page.generate.title}
           editorialAccent="project package"
           copy={page.generate.body}
@@ -102,7 +102,7 @@ export function Scope2PlanPage() {
 
       <section className="container product-section" aria-labelledby="control-title">
         <SectionHeader
-          label="Scope2Plan Control"
+          label="SolvoPlan Control"
           title={page.control.title}
           editorialAccent="as it changes"
           copy={

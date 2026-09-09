@@ -34,7 +34,7 @@ export function DesignSystemPage() {
           <SectionHeader
             label="Colour"
             title="Brand palette and product accents"
-            copy="Existing pine ink and amber signal are preserved. Product accents distinguish Scope2Plan and PartnerForge without replacing the logo."
+            copy="Existing pine ink and amber signal are preserved. Product accents distinguish SolvoPlan and SolvoFind without replacing the logo."
           />
           <div
             style={{
@@ -48,8 +48,8 @@ export function DesignSystemPage() {
               ['Ink', 'var(--color-ink)'],
               ['Signal', 'var(--color-signal)'],
               ['Mist', 'var(--color-mist)'],
-              ['Scope2Plan', 'var(--color-accent-scope2plan)'],
-              ['PartnerForge', 'var(--color-accent-partnerforge)'],
+              ['SolvoPlan', 'var(--color-accent-scope2plan)'],
+              ['SolvoFind', 'var(--color-accent-partnerforge)'],
             ].map(([label, color]) => (
               <div key={label}>
                 <div

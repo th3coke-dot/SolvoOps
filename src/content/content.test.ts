@@ -29,7 +29,7 @@ describe('content model', () => {
     ])
   })
 
-  it('keeps Scope2Plan and PartnerForge as the only primary products', () => {
+  it('keeps SolvoPlan and SolvoFind as the only primary products', () => {
     expect(primaryProducts.map((p) => p.id).sort()).toEqual([
       'partnerforge',
       'scope2plan',
@@ -179,9 +179,9 @@ describe('Who Gets the Call marketplace', () => {
   })
 })
 
-describe('PartnerForge regression', () => {
-  it('keeps Open PartnerForge on the production application URL', () => {
-    expect(partnerforgePage.secondaryCta.label).toBe('Open PartnerForge')
+describe('SolvoFind regression', () => {
+  it('keeps Open SolvoFind on the production application URL', () => {
+    expect(partnerforgePage.secondaryCta.label).toBe('Open SolvoFind')
     expect(partnerforgePage.secondaryCta.href).toBe(
       'https://partnerforge.solvoops.com/',
     )

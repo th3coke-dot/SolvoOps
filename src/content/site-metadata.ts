@@ -24,7 +24,7 @@ export const siteMetadata = {
   legacyHome: {
     title: 'SolvoOps — Tools that solve operational bottlenecks',
     description:
-      'SolvoOps builds tools that solve operational bottlenecks — demonstrated with Scope2Plan, BizDayz, PartnerForge, and AutoName.',
+      'SolvoOps builds tools that solve operational bottlenecks — demonstrated with SolvoPlan, BizDayz, SolvoFind, and AutoName.',
   },
 } as const
 
@@ -39,7 +39,7 @@ export const pagesMetadata: Record<string, PageMetadata> = {
     path: '/products',
     title: `Products | ${company.name}`,
     description:
-      'Explore SolvoOps operational products — Scope2Plan and PartnerForge — and the Who Gets the Call? marketplace.',
+      'Explore SolvoOps operational products — SolvoPlan and SolvoFind — and the Who Gets the Call? marketplace.',
   },
   whoGetsTheCall: {
     path: '/marketplace/who-gets-the-call',
@@ -49,13 +49,13 @@ export const pagesMetadata: Record<string, PageMetadata> = {
   },
   scope2plan: {
     path: '/products/scope2plan',
-    title: 'Scope2Plan | Generate and Control for Delivery',
+    title: 'SolvoPlan | Generate and Control for Delivery',
     description:
-      'Scope2Plan Generate turns SOWs into project plans, runbooks and transition packs. Scope2Plan Control keeps the project model aligned as work changes.',
+      'SolvoPlan Generate turns SOWs into project plans, runbooks and transition packs. SolvoPlan Control keeps the project model aligned as work changes.',
   },
   partnerforge: {
     path: '/products/partnerforge',
-    title: 'PartnerForge | Partner Intelligence and Ranked Shortlists',
+    title: 'SolvoFind | Partner Intelligence and Ranked Shortlists',
     description:
       'Discover and evaluate delivery partners with multi-region search, project-document matching, evidence and explainable ranking.',
   },
@@ -81,7 +81,7 @@ export const pagesMetadata: Record<string, PageMetadata> = {
     path: '/pilot',
     title: `Discuss a pilot | ${company.name}`,
     description:
-      'Test Scope2Plan Generate, Scope2Plan Control or PartnerForge against a real operational workflow.',
+      'Test SolvoPlan Generate, SolvoPlan Control or SolvoFind against a real operational workflow.',
   },
   privacy: {
     path: '/privacy',
