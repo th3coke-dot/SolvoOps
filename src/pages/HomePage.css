@@ -872,7 +872,7 @@
   --deck-lift: 17.5rem;
 }
 .cinematic-nav {
-  background: linear-gradient(180deg, rgba(4,17,24,.6), rgba(4,17,24,.08));
+  background: linear-gradient(180deg, rgba(4,17,24,.6), transparent);
   backdrop-filter: none;
   border-bottom: 0;
 }
@@ -1026,6 +1026,5 @@
 }
 
 @media(max-width:880px), (pointer:coarse) {
-  .cinematic-nav {backdrop-filter:none; background:#081e27f5;}
   .ds-app--cinematic .ds-site-footer a {min-height:44px; display:inline-flex; align-items:center; touch-action:manipulation;}
 }
