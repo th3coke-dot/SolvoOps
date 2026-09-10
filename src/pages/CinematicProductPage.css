@@ -71,3 +71,11 @@
   .product-entry-actions {flex-direction:column; align-items:stretch;}
   .product-scene-hero>.brand-scene__controls {bottom:18px;}
 }
+.product-page--cinematic .ds-product-card {border-color:#87c7c533;}
+.product-page--cinematic .ds-product-card:hover {background:#16353b;}
+.product-page--cinematic .ds-product-card__name,
+.product-page--cinematic .ds-product-card__headline {color:#eef5f2;}
+.product-page--cinematic .ds-product-card__category,
+.product-page--cinematic .ds-product-card__cta {color:#e9c47e;}
+.product-page--cinematic .ds-btn--secondary {color:#eef5f2; border-color:#9bc5c35c; background:transparent;}
+.product-page--cinematic .ds-btn--secondary:hover {background:#23414a; border-color:#b2d9d4;}
