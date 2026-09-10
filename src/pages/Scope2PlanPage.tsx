@@ -10,7 +10,6 @@ import {
 import { CinematicNav } from '../components/CinematicNav'
 import { ProductHero, ProductActions } from '../components/ProductHero'
 import {
-  company,
   getProductById,
   pagesMetadata,
   scope2planPage,
@@ -43,7 +42,6 @@ export function Scope2PlanPage() {
           editorialAccent="Control"
           id="modules-title"
           accent="scope2plan"
-          copy="One product family. Two modules for different moments in the delivery lifecycle."
         />
         <div className="product-module-grid">
           {page.modules.map((module) => (
@@ -77,15 +75,7 @@ export function Scope2PlanPage() {
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <div className="product-capability-grid" style={{ marginTop: 'var(--space-7)' }}>
-          <FeatureCard title="Generate capabilities">
-            <ul>
-              {product.availableCapabilities.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </FeatureCard>
-        </div>
+
       </section>
 
       <section className="container product-section" aria-labelledby="control-title">
@@ -136,7 +126,6 @@ export function Scope2PlanPage() {
         <CtaPanel
           title={page.finalCta.title}
           titleId="s2p-final-cta"
-          copy={company.connectedWorkflowNote}
           actions={<ProductActions name={page.label} toolHref={page.secondaryCta.href} pilotHref={page.finalCta.href} />}
         />
       </section>

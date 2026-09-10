@@ -19,7 +19,7 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 0;
   font-family: var(--font-body);
   font-size: var(--text-md);
   line-height: var(--leading-normal);

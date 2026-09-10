@@ -6,22 +6,22 @@ export const pilotPageContent = {
   title: 'Test SolvoOps against a real workflow',
   lede: 'We work with organisations that want to test SolvoPlan, SolvoFind or SolvoBid against a defined operational challenge.',
   options: [
-    { id: 'solvobid', title: 'SolvoBid pilot', body: 'Use a sanitised tender example to explore requirements, supporting evidence and the review workflow.' },
+    { id: 'solvobid', title: 'SolvoBid', body: 'Review tender requirements and the evidence needed to answer them.' },
     {
       id: 'scope2plan',
-      title: 'SolvoPlan Generate / Control pilot',
-      body: 'Use a sanitised SOW to test Generate package creation, or explore Control for scope-versioning, change impact and governed updates.',
+      title: 'SolvoPlan',
+      body: 'Generate a delivery package from a sanitised scope, or explore change control.',
     },
     {
       id: 'partnerforge',
-      title: 'SolvoFind pilot',
-      body: 'Use a real sourcing requirement or project document to test multi-region discovery, filters, evidence quality, onboarded-network priority and ranking.',
+      title: 'SolvoFind',
+      body: 'Test partner discovery and shortlist quality against a sourcing requirement.',
     },
   ],
   confidentialityNotice:
-    'Do not submit confidential customer information, contracts, credentials or personally identifiable third-party data through this form. Describe the workflow in general terms, or use a sanitised example.',
+    'Describe the workflow in general terms. Leave out confidential customer data, contracts, credentials and other people’s personal information.',
   formIntro:
-    'Tell us enough to start a conversation. Submissions open your email client with a structured message to SolvoOps — nothing is stored in a new database from this site.',
+    'This form prepares an email. Review it in your email app before sending.',
   successTitle: 'Ready to send',
   successBody:
     'Your email client should open with a structured pilot request. If it does not, use the fallback link or email us directly.',

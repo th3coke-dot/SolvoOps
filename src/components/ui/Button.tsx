@@ -1,5 +1,6 @@
 import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { prefetchRoute } from '../../lib/page-loaders'
 import './ui.css'
 
 type ButtonVariant = 'primary' | 'secondary' | 'ink' | 'ghost'
@@ -93,7 +94,8 @@ export function LinkButton({
     )
   }
   return (
-    <Link className={cls} to={to} onClick={handleClick}>
+    <Link className={cls} to={to} onClick={handleClick}
+      onPointerEnter={() => prefetchRoute(to)} onFocus={() => prefetchRoute(to)} onTouchStart={() => prefetchRoute(to)}>
       {children}
     </Link>
   )

@@ -22,7 +22,7 @@ describe('corporate product pages', () => {
     expect(html).toContain('rel="noopener noreferrer"')
     expect(html).toContain(`href="/pilot?product=${pilot}"`)
     expect(html).toContain('Discuss a pilot')
-    expect(html).toContain('href="/#products"')
+    expect(html).toContain('href="/products"')
     expect(html).toContain('/brand/solvoops-horizontal-dark.png')
     expect(html).not.toContain('Scope2Plan')
     expect(html).not.toContain('PartnerForge')
