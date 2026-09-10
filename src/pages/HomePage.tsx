@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom'
 import { AppShell } from '../components/AppShell'
 import { CinematicNav } from '../components/CinematicNav'
 import { CinematicScene } from '../components/CinematicScene'
 import { ProductExample } from '../components/ProductExample'
-import { LinkButton } from '../components/ui'
+import { AppLink, LinkButton } from '../components/ui'
 import {
   cinematicAbout,
   cinematicBenefits,
@@ -65,7 +64,7 @@ export function HomePage() {
           </h2>
           <div className="cinematic-product-grid">
             {cinematicProducts.map((product) => (
-              <Link
+              <AppLink
                 key={product.id}
                 className={`cinematic-product cinematic-product--${product.exampleKind}`}
                 to={product.href}
@@ -76,8 +75,8 @@ export function HomePage() {
                 <p className="cinematic-product__rails">
                   {product.rails.join(' · ')}
                 </p>
-                <span className="cinematic-product__action">Open {product.name}</span>
-              </Link>
+                <span className="cinematic-product__action">Explore {product.name}</span>
+              </AppLink>
             ))}
           </div>
         </div>
@@ -121,9 +120,9 @@ export function HomePage() {
                     <li key={move}>{move}</li>
                   ))}
                 </ul>
-                <Link className="cinematic-walkthrough__link" to={step.href}>
+                <AppLink className="cinematic-walkthrough__link" to={step.href}>
                   {step.linkLabel}
-                    </Link>
+                </AppLink>
               </li>
             ))}
           </ol>
@@ -147,3 +146,4 @@ export function HomePage() {
     </AppShell>
   )
 }
+

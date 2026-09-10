@@ -68,9 +68,9 @@ describe('cinematic homepage', () => {
     expect(walkthrough).toContain('<h3>SolvoBid</h3>')
     expect(walkthrough).toContain('<h3>SolvoPlan</h3>')
     expect(walkthrough).toContain('<h3>SolvoFind</h3>')
-    expect(walkthrough).toContain('href="https://solvobid.com/login"')
-    expect(walkthrough).toContain('href="https://solvoplan.com/login"')
-    expect(walkthrough).toContain('href="https://solvofind.com/login"')
+    expect(walkthrough).toContain('href="/products/solvobid"')
+    expect(walkthrough).toContain('href="/products/solvoplan"')
+    expect(walkthrough).toContain('href="/products/solvofind"')
     expect(walkthrough).toContain('Extract requirements from the tender pack')
     expect(walkthrough).toContain('Export the package to PDF or DOCX')
     expect(walkthrough).toContain('Filter by country, category, reach and distance')
@@ -108,13 +108,39 @@ describe('cinematic homepage', () => {
     const html = renderHome()
     expect(html).toContain('/brand/solvoops-horizontal-dark.png')
     expect(html).not.toContain('solvoops-horizontal-dark-alternate')
-    expect(html).toContain('href="https://solvoplan.com/login"')
-    expect(html).toContain('href="https://solvofind.com/login"')
-    expect(html).toContain('href="https://solvobid.com/login"')
+    expect(html).toContain('href="/products/solvoplan"')
+    expect(html).toContain('href="/products/solvofind"')
+    expect(html).toContain('href="/products/solvobid"')
     expect(html).toContain('href="/privacy"')
     expect(html).toContain('href="/terms"')
     expect(html).toContain('Our approach')
     expect(html).toContain('href="#about"')
+  })
+
+  it('keeps product cards and walkthrough links on the corporate product pages', () => {
+    const html = renderHome()
+    const products = sliceBetween(html, 'id="products"', 'class="cinematic-approach"')
+    for (const product of cinematicProducts) {
+      const card = sliceBetween(
+        products,
+        `cinematic-product--${product.exampleKind}`,
+        '</a>',
+      )
+      expect(card).toContain(`href="${product.href}"`)
+      expect(card).not.toContain('target="_blank"')
+      expect(card).not.toContain('rel="noopener noreferrer"')
+      expect(card).not.toContain('(opens in a new tab)')
+    }
+    const walkthrough = sliceBetween(html, 'id="how-it-works"', 'id="about"')
+    for (const href of [
+      '/products/solvobid',
+      '/products/solvoplan',
+      '/products/solvofind',
+    ]) {
+      const link = sliceBetween(walkthrough, `href="${href}"`, '</a>')
+      expect(link).not.toContain('target="_blank"')
+      expect(link).not.toContain('rel="noopener noreferrer"')
+    }
   })
 
   it('prerenders a polished static scene without active playback controls', () => {
@@ -135,3 +161,4 @@ describe('cinematic homepage', () => {
     expect(html).not.toContain('Play video')
   })
 })
+

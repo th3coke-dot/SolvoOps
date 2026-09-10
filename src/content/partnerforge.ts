@@ -8,7 +8,7 @@ export const partnerforgePage = {
   },
   secondaryCta: {
     label: 'Open SolvoFind',
-    href: 'https://partnerforge.solvoops.com/',
+    href: 'https://solvofind.com',
   },
   problem: {
     title: 'Partner discovery should not depend on repeated searches and individual memory',

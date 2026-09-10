@@ -4,8 +4,9 @@ import { useCases } from './use-cases'
 export const pilotPageContent = {
   label: 'Pilot',
   title: 'Test SolvoOps against a real workflow',
-  lede: 'We work with organisations that want to test SolvoPlan or SolvoFind against a defined operational challenge.',
+  lede: 'We work with organisations that want to test SolvoPlan, SolvoFind or SolvoBid against a defined operational challenge.',
   options: [
+    { id: 'solvobid', title: 'SolvoBid pilot', body: 'Use a sanitised tender example to explore requirements, supporting evidence and the review workflow.' },
     {
       id: 'scope2plan',
       title: 'SolvoPlan Generate / Control pilot',

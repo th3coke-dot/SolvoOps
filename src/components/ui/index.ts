@@ -1,3 +1,4 @@
+export { AppLink } from './AppLink'
 export { Button, LinkButton } from './Button'
 export { Badge, ProductStatusBadge } from './Badge'
 export { SectionHeader } from './SectionHeader'
@@ -5,3 +6,4 @@ export { ProductCard } from './ProductCard'
 export { FeatureCard, WorkflowSteps, CtaPanel } from './FeatureCard'
 export { SiteNav } from './SiteNav'
 export { SiteFooter } from './SiteFooter'
+

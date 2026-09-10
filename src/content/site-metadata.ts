@@ -41,6 +41,11 @@ export const pagesMetadata: Record<string, PageMetadata> = {
     description:
       'Explore SolvoOps operational products — SolvoPlan and SolvoFind — and the Who Gets the Call? marketplace.',
   },
+  solvobid: {
+    path: '/products/solvobid',
+    title: 'SolvoBid | Tender requirements and evidence',
+    description: 'Understand tender requirements, connect supporting evidence and review your response with SolvoBid.',
+  },
   whoGetsTheCall: {
     path: '/marketplace/who-gets-the-call',
     title: 'Who Gets the Call? | SolvoOps Marketplace',
@@ -48,13 +53,13 @@ export const pagesMetadata: Record<string, PageMetadata> = {
       'A global paid sponsorship map with four commercial lanes in every country, built by SolvoOps.',
   },
   scope2plan: {
-    path: '/products/scope2plan',
+    path: '/products/solvoplan',
     title: 'SolvoPlan | Generate and Control for Delivery',
     description:
       'SolvoPlan Generate turns SOWs into project plans, runbooks and transition packs. SolvoPlan Control keeps the project model aligned as work changes.',
   },
   partnerforge: {
-    path: '/products/partnerforge',
+    path: '/products/solvofind',
     title: 'SolvoFind | Partner Intelligence and Ranked Shortlists',
     description:
       'Discover and evaluate delivery partners with multi-region search, project-document matching, evidence and explainable ranking.',
