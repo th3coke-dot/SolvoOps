@@ -84,3 +84,7 @@
 .product-page--cinematic .ds-product-card__supporting {color:#b8cbc9;}
 .product-page--cinematic .ds-badge {background:#102d35; color:#b9e8df; border-color:#87c7c54d;}
 .product-page--cinematic .ds-product-card {border-radius:16px; background:linear-gradient(135deg,#16353b,#0a222a); padding:28px; margin-top:20px;}
+.product-page--cinematic .ds-product-card:hover .ds-product-card__name,
+.product-page--cinematic .ds-product-card:focus-visible .ds-product-card__name {color:#eef5f2;}
+.product-page--cinematic .ds-product-card:hover .ds-product-card__cta,
+.product-page--cinematic .ds-product-card:focus-visible .ds-product-card__cta {color:#e9c47e;}
