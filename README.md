@@ -20,6 +20,8 @@ npm run preview
 
 ## Redesign docs
 
+The approved **SolvoOps Aurora** design and reuse instructions live in [context.md](context.md). Start there when applying the design to another product.
+
 Release and rollback notes live under `docs/redesign/` (`release-checklist.md`, `rollback.md`, `merge-path.md`).
 
 Contact: `hello@solvoops.com`
