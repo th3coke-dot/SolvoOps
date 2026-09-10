@@ -1,53 +1,54 @@
 import { AppShell } from '../components/AppShell'
 import { LinkButton, ProductCard, SectionHeader } from '../components/ui'
-import { EditorialHeading } from '../components/ui/EditorialHeading'
+import { CinematicNav } from '../components/CinematicNav'
+import { BrandScene } from '../components/BrandScene'
+import { ProductExample } from '../components/ProductExample'
+import { AppLink } from '../components/ui'
+import { cinematicProducts } from '../content/cinematic'
 import {
   labsProducts,
   marketplaceProducts,
   pagesMetadata,
-  primaryProducts,
 } from '../content'
 import './ProductPage.css'
+import './HomePage.css'
+import './CinematicProductPage.css'
 
 export function ProductsPage() {
   return (
     <AppShell
       metadata={pagesMetadata.products}
       showPageHeader={false}
-      mainClassName="product-page product-page--index"
+      showShellNav={false}
+      shellTone="cinematic"
+      mainClassName="solvo-cinematic product-page product-page--cinematic product-page--index"
     >
-      <section className="container product-hero" aria-labelledby="products-title">
-        <p className="product-hero__label">Products</p>
-        <h1 className="product-hero__title" id="products-title">
-          <EditorialHeading
-            text="Focused products for critical delivery workflows"
-            accent="delivery workflows"
-          />
-        </h1>
-        <p className="product-hero__lede">
-          Each SolvoOps product solves a specific operational bottleneck while
-          remaining compatible with the systems organisations already use.
-        </p>
+      <CinematicNav />
+      <section className="product-scene-hero product-index-hero" aria-labelledby="products-title">
+        <BrandScene />
+        <div className="container product-scene-hero__grid">
+          <p className="cinematic-hero__eyebrow">Our products</p>
+          <h1 id="products-title">Clarity at every stage.<span>From bid to delivery.</span></h1>
+          <p className="product-scene-hero__lede">Explore the product that fits your workflow. Open the tool when you’re ready, or talk to us about a pilot.</p>
+        </div>
       </section>
 
       <section className="container product-section" aria-labelledby="operational-products">
         <SectionHeader
           label="Operational products"
-          title="Scope2Plan and PartnerForge"
-          editorialAccent="PartnerForge"
+          title="SolvoPlan, SolvoFind and SolvoBid"
+          editorialAccent="SolvoFind"
           id="operational-products"
-          copy="Scope2Plan Generate and Control for planning and change. PartnerForge for partner intelligence across regions."
+          copy="SolvoPlan Generate and Control for planning and change. SolvoFind for partner intelligence across regions. SolvoBid for tender requirements and evidence."
         />
-        <div>
-          {primaryProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              ctaLabel="Explore"
-              preferInternalRoute
-              emphasizeCta
-            />
-          ))}
+        <div className="product-index-grid">
+          {cinematicProducts.map((product) => <AppLink key={product.id} to={product.href}
+            className={`cinematic-product cinematic-product--${product.exampleKind}`}>
+            <h3>{product.name}</h3>
+            <p className="cinematic-product__description">{product.description}</p>
+            <ProductExample kind={product.exampleKind} label="Example" />
+            <span className="cinematic-product__action">Explore {product.name}</span>
+          </AppLink>)}
         </div>
       </section>
 

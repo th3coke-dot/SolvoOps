@@ -15,7 +15,7 @@ type AppShellProps = {
   showPageHeader?: boolean
   mainClassName?: string
   /** Lets a page opt into a deliberate, page-specific shell treatment. */
-  shellTone?: 'default' | 'light-landing'
+  shellTone?: 'default' | 'light-landing' | 'cinematic'
 }
 
 /**
@@ -37,7 +37,9 @@ export function AppShell({
   return (
     <>
       <DocumentMeta metadata={metadata} />
-      <div className={`ds-app${shellTone === 'light-landing' ? ' ds-app--light-landing' : ''}`}>
+      <div
+        className={`ds-app${shellTone === 'light-landing' ? ' ds-app--light-landing' : ''}${shellTone === 'cinematic' ? ' ds-app--cinematic' : ''}`}
+      >
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>

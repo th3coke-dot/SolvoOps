@@ -32,15 +32,15 @@ export const company = {
       'Following his military service, the founder built a career in international IT service delivery and project management, leading complex infrastructure and transformation projects for enterprise customers. Across both environments, he repeatedly encountered the same challenge: too much critical knowledge lived in people’s heads, processes were overly complex, and valuable time was spent on repetitive administrative work instead of execution.',
       'Rather than accepting that as the norm, he began building software to solve those problems.',
       'Working independently and self-funding development, the founder created SolvoOps with a simple philosophy: technology should make work easier, not more complicated. His personal motto, “Work smarter, not harder,” together with the engineering mindset behind the KISS principle—“Keep It Simple, Stupid”—guides every product he builds.',
-      'Under the SolvoOps umbrella, he has created products including Scope2Plan, which transforms scopes of work into complete project delivery packages and governance frameworks in minutes, and PartnerForge, which helps organizations discover, evaluate, and manage delivery partners for global IT projects. Each solution is built around the same objective: eliminate repetitive work, improve quality, and enable people to focus on decisions rather than administration.',
+      'Under the SolvoOps umbrella, he has created products including SolvoPlan, which transforms scopes of work into complete project delivery packages and governance frameworks in minutes, and SolvoFind, which helps organizations discover, evaluate, and manage delivery partners for global IT projects. Each solution is built around the same objective: eliminate repetitive work, improve quality, and enable people to focus on decisions rather than administration.',
       'The founder believes AI should enhance experienced professionals—not replace them. The best software fits naturally into existing workflows, reduces complexity, and delivers measurable operational value.',
     ],
   },
   narrative: {
     scope2plan:
-      'Scope2Plan Generate plans the work; Scope2Plan Control keeps it aligned.',
+      'SolvoPlan Generate plans the work; SolvoPlan Control keeps it aligned.',
     partnerforge:
-      'PartnerForge finds who can deliver it — with evidence and ranked shortlists.',
+      'SolvoFind finds who can deliver it — with evidence and ranked shortlists.',
     company:
       'SolvoOps connects operational complexity with controlled execution.',
   },

@@ -49,7 +49,7 @@ describe('honeypot and mailto', () => {
   it('builds a mailto without storing data', () => {
     const href = buildPilotMailto(valid)
     expect(href.startsWith('mailto:hello@solvoops.com?')).toBe(true)
-    expect(href).toContain(encodeURIComponent('Scope2Plan'))
+    expect(href).toContain(encodeURIComponent('SolvoPlan'))
     expect(href).toContain(encodeURIComponent(valid.challenge))
   })
 

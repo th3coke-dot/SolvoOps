@@ -1,0 +1,81 @@
+/* Scoped to the corporate product pages; other routes keep their own skins. */
+.product-page.product-page--cinematic {
+  --vision-ink:#f1f5f3; --vision-muted:#b8cbc9; --vision-line:#87c7c52e;
+  --vision-teal:#87d6ce; --page-accent:#e9c47e; --color-text-muted:#b8cbc9;
+  --color-ink:#f1f5f3; --color-border:#87c7c52e;
+  position:relative; background:#06191f; color:#eef5f2;
+}
+.product-scene-hero {position:relative; isolation:isolate; padding:170px 0 100px; min-height:760px; display:grid; align-items:center;}
+.product-scene-hero__grid {position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr); gap:7%; align-items:center;}
+.product-breadcrumb {display:inline-block; color:#c4d5d3; font-size:14px; text-decoration:underline; text-underline-offset:5px; margin-bottom:32px;}
+.product-scene-hero h1 {font-size:clamp(42px,4.7vw,72px); font-weight:400; letter-spacing:-.045em; line-height:1.07; margin:18px 0 24px; color:#f4f7f4;}
+.product-scene-hero h1 span {display:block; color:#e9c47e;}
+.product-scene-hero__lede {font-size:clamp(17px,1.45vw,20px); line-height:1.65; color:#d0ddda; max-width:56ch; margin:0 0 28px;}
+.product-entry-actions {display:flex; flex-wrap:wrap; gap:12px;}
+.product-scene-hero__example {min-width:0; padding:30px; border:1px solid #9bd5d44d; border-radius:20px; background:linear-gradient(145deg,#1a4144c9,#061a24e6); box-shadow:0 24px 80px #0005; backdrop-filter:blur(16px);}
+.product-scene-hero__example-name {font-size:27px; margin:0 0 26px; letter-spacing:-.03em;}
+.product-scene-hero__example .product-example {margin:0;}
+.product-scene-hero__example-note {color:#a8c9c6; font-size:14px; margin:24px 0 0; padding-top:22px; border-top:1px solid #a4ceca26;}
+.product-page--cinematic .product-section,
+.product-page--cinematic .product-section:nth-of-type(even),
+.product-page--cinematic .product-section:last-child {background:transparent; box-shadow:none; clip-path:none; border-color:#87c7c52e; padding-block:72px;}
+.product-page--cinematic .product-section::before {color:#e9c47e;}
+.product-page--cinematic .ds-section-header__title {color:#f1f5f3; font-weight:400; font-size:clamp(30px,3.3vw,46px); line-height:1.15; max-width:24ch;}
+.product-page--cinematic .ds-section-header__title em {font-family:inherit !important; font-style:normal !important; font-weight:inherit !important; color:#e9c47e !important;}
+.product-page--cinematic .ds-section-header__copy,
+.product-page--cinematic .ds-feature-card__body,
+.product-page--cinematic .ds-workflow__body,
+.product-page--cinematic .product-module p {color:#b8cbc9;}
+.product-page--cinematic .ds-section-header__label {color:#e9c47e;}
+.product-page--cinematic .product-module,
+.product-page--cinematic .ds-feature-card {background:linear-gradient(135deg,#16353b,#0a222a); border:1px solid #87c7c533; border-radius:16px; padding:28px; min-height:0;}
+.product-page--cinematic .product-module__meta h3,
+.product-page--cinematic .ds-feature-card__title,
+.product-page--cinematic .ds-workflow__title {color:#eef5f2; font-weight:500;}
+.product-page--cinematic .product-list li,
+.product-page--cinematic .ds-workflow__step {border-color:#87c7c52e;}
+.product-page--cinematic .product-list li::before,
+.product-page--cinematic .ds-workflow__step::before {color:#87d6ce;}
+.product-page--cinematic .product-proof__source,
+.product-page--cinematic .product-proof__engine,
+.product-page--cinematic .product-proof__board,
+.product-page--cinematic .product-proof__stack li {background:#102d35; color:#e7f1ed; border:1px solid #87c7c53d; border-radius:12px;}
+.product-page--cinematic .product-proof__board-head,
+.product-page--cinematic .product-proof__kicker {color:#e9c47e; background:transparent;}
+.product-page--cinematic .product-proof__rank,
+.product-page--cinematic .product-proof__score {color:#87d6ce;}
+.product-page--cinematic .ds-cta-panel {border:1px solid #e9c47e4a; border-radius:20px; background:linear-gradient(135deg,#183738,#0b2229); padding:clamp(24px,4vw,48px);}
+.product-page--cinematic .ds-cta-panel__actions {min-width:0;}
+.product-page--cinematic .ds-cta-panel .product-entry-actions {flex-direction:column;}
+.product-page--cinematic .product-index-hero {min-height:500px; padding-bottom:72px;}
+.product-page--cinematic .product-index-hero .product-scene-hero__grid {display:block;}
+.product-page--cinematic .product-index-hero h1 {max-width:18ch;}
+.product-page--cinematic .product-index-grid {display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px;}
+.product-page--cinematic .product-index-grid .cinematic-product {min-height:0;}
+@media(max-width:1000px) {
+  .product-scene-hero {padding-top:150px;}
+  .product-scene-hero__grid {gap:30px; grid-template-columns:minmax(0,1fr) minmax(0,.9fr);}
+  .product-scene-hero__example {padding:22px;}
+  .product-page--cinematic .product-index-grid {grid-template-columns:1fr;}
+}
+@media(max-width:760px) {
+  .product-scene-hero {padding:126px 0 84px; min-height:0;}
+  .product-scene-hero__grid {grid-template-columns:1fr; gap:38px;}
+  .product-scene-hero h1 {font-size:clamp(38px,9vw,56px);}
+  .product-breadcrumb {margin-bottom:24px;}
+  .product-scene-hero__example {padding:24px;}
+  .product-scene-hero__lede {font-size:17px;}
+  .product-page--cinematic .product-section {padding-block:48px;}
+  .product-page--cinematic .product-list {grid-template-columns:1fr;}
+  .product-page--cinematic .product-list li:nth-child(odd) {border-right:0;}
+  .product-entry-actions {flex-direction:column; align-items:stretch;}
+  .product-scene-hero>.brand-scene__controls {bottom:18px;}
+}
+.product-page--cinematic .ds-product-card {border-color:#87c7c533;}
+.product-page--cinematic .ds-product-card:hover {background:#16353b;}
+.product-page--cinematic .ds-product-card__name,
+.product-page--cinematic .ds-product-card__headline {color:#eef5f2;}
+.product-page--cinematic .ds-product-card__category,
+.product-page--cinematic .ds-product-card__cta {color:#e9c47e;}
+.product-page--cinematic .ds-btn--secondary {color:#eef5f2; border-color:#9bc5c35c; background:transparent;}
+.product-page--cinematic .ds-btn--secondary:hover {background:#23414a; border-color:#b2d9d4;}

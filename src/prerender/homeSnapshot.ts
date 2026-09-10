@@ -1,4 +1,9 @@
-import { company, homepageContent, primaryProducts } from '../content'
+import {
+  cinematicAbout,
+  cinematicHero,
+  cinematicHeroHeadline,
+  cinematicProducts,
+} from '../content/cinematic'
 import { escapeHtml } from './escapeHtml'
 
 /**
@@ -6,30 +11,32 @@ import { escapeHtml } from './escapeHtml'
  * React replaces this content on hydration; copy is sourced from content modules.
  */
 export function getHomePrerenderHtml(): string {
-  const scope2plan = primaryProducts.find((product) => product.id === 'scope2plan')!
-  const partnerforge = primaryProducts.find((product) => product.id === 'partnerforge')!
+  const productArticles = cinematicProducts
+    .map(
+      (product) => `
+    <article>
+      <h3>${escapeHtml(product.name)}</h3>
+      <p>${escapeHtml(product.description)}</p>
+    </article>`,
+    )
+    .join('')
 
   return `
-<main id="main-content" class="home-redesign">
-  <section class="home-hero" aria-labelledby="home-hero-title">
-    <div class="home-hero__content container">
-      <p class="home-hero__eyebrow">${escapeHtml(homepageContent.eyebrow)}</p>
-      <p class="home-hero__brand">${escapeHtml(company.name)}</p>
-      <h1 class="home-hero__title" id="home-hero-title">${escapeHtml(homepageContent.headline)}</h1>
-      <p class="home-hero__lede">${escapeHtml(homepageContent.lede)}</p>
+<main id="main-content" class="solvo-cinematic">
+  <section class="cinematic-hero" aria-labelledby="home-hero-title">
+    <div class="cinematic-hero__content container">
+      <p class="cinematic-hero__eyebrow">${escapeHtml(cinematicHero.eyebrow)}</p>
+      <h1 class="cinematic-hero__title" id="home-hero-title">${escapeHtml(cinematicHeroHeadline)}</h1>
+      <p class="cinematic-hero__lede">${escapeHtml(cinematicHero.lede)}</p>
     </div>
   </section>
   <section id="products" aria-labelledby="products-title">
-    <h2 id="products-title">${escapeHtml(homepageContent.products.title)}</h2>
-    <p>${escapeHtml(homepageContent.products.copy)}</p>
-    <article>
-      <h3>${escapeHtml(scope2plan.name)}</h3>
-      <p>${escapeHtml(scope2plan.description)}</p>
-    </article>
-    <article>
-      <h3>${escapeHtml(partnerforge.name)}</h3>
-      <p>${escapeHtml(partnerforge.description)}</p>
-    </article>
+    <h2 id="products-title">Products</h2>
+    ${productArticles}
+  </section>
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title">${escapeHtml(cinematicAbout.title)}</h2>
+    <p>${escapeHtml(cinematicAbout.body)}</p>
   </section>
 </main>`.trim()
 }

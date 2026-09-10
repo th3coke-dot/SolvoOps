@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage'
 const ProductsPage = lazy(() =>
   import('./pages/ProductsPage').then((m) => ({ default: m.ProductsPage })),
 )
+const SolvoBidPage = lazy(() => import('./pages/SolvoBidPage').then((m) => ({ default: m.SolvoBidPage })))
 const Scope2PlanPage = lazy(() =>
   import('./pages/ProductDetailPages').then((m) => ({
     default: m.Scope2PlanPage,
@@ -75,7 +76,10 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
-          <Route path="/products/scope2plan" element={<Scope2PlanPage />} />
+          <Route path="/products/solvoplan" element={<Scope2PlanPage />} />
+        <Route path="/products/solvofind" element={<PartnerForgePage />} />
+        <Route path="/products/solvobid" element={<SolvoBidPage />} />
+        <Route path="/products/scope2plan" element={<Scope2PlanPage />} />
           <Route path="/products/partnerforge" element={<PartnerForgePage />} />
           <Route
             path="/marketplace/who-gets-the-call"

@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest'
 import sitemap from '../../public/sitemap.xml?raw'
 import { SiteFooter } from '../components/ui/SiteFooter'
 import { SiteNav } from '../components/ui/SiteNav'
-import { homepageContent, partnerforgePage, whoGetsTheCallPage } from '../content'
+import { partnerforgePage, whoGetsTheCallPage } from '../content'
 import { HomePage } from './HomePage'
 import { PartnerForgePage } from './PartnerForgePage'
 import { ProductsPage } from './ProductsPage'
@@ -32,36 +32,22 @@ function publicHrefs(html: string) {
 describe('marketplace portfolio pages', () => {
   it('keeps Who Gets the Call? out of the homepage operational product stack', () => {
     const html = renderAt(<HomePage />)
-    const productsStart = html.indexOf('02 / THE PRODUCTS')
-    const marketplaceStart = html.indexOf('03 / THE MARKETPLACE')
-    const labsStart = html.indexOf('home-labs-wrap')
+    const productsStart = html.indexOf('id="products"')
+    const approachStart = html.indexOf('id="how-it-works"')
     expect(productsStart).toBeGreaterThan(-1)
-    expect(marketplaceStart).toBeGreaterThan(productsStart)
-    expect(labsStart).toBeGreaterThan(marketplaceStart)
+    expect(approachStart).toBeGreaterThan(productsStart)
 
-    const productsBlock = html.slice(productsStart, marketplaceStart)
-    expect(productsBlock).toContain('Scope2Plan')
-    expect(productsBlock).toContain('PartnerForge')
+    const productsBlock = html.slice(productsStart, approachStart)
+    expect(productsBlock).toContain('SolvoPlan')
+    expect(productsBlock).toContain('SolvoFind')
+    expect(productsBlock).toContain('SolvoBid')
+    expect(productsBlock).toContain('href="/products/solvoplan"')
+    expect(productsBlock).toContain('href="/products/solvofind"')
+    expect(productsBlock).not.toContain('Scope2Plan')
+    expect(productsBlock).not.toContain('PartnerForge')
     expect(productsBlock).not.toContain('Who Gets the Call?')
     expect(productsBlock).not.toContain('BizDayz')
-
-    const marketplaceBlock = html.slice(marketplaceStart, labsStart)
-    expect(marketplaceBlock).toContain('Who Gets the Call?')
-    expect(marketplaceBlock).toContain('LIVE')
-    expect(marketplaceBlock).toContain(homepageContent.marketplace.headline)
-    expect(marketplaceBlock).toContain('Run it · Build it · Power it · Source it')
-    expect(marketplaceBlock).toContain('href="https://whogetsthecall.lol"')
-    expect(marketplaceBlock).toContain('href="/marketplace/who-gets-the-call"')
-    expect(marketplaceBlock).toContain('Visit the marketplace')
-    expect(marketplaceBlock).toContain(
-      'src="https://whogetsthecall.lol/og/call-map.png"',
-    )
-    expect(marketplaceBlock).toContain(
-      'alt="Who Gets the Call? live marketplace map"',
-    )
-    expect(marketplaceBlock).not.toContain('<ellipse')
-    expect(marketplaceBlock).not.toContain('Scope2Plan')
-    expect(marketplaceBlock).not.toContain('href="/labs"')
+    expect(html).not.toContain('03 / THE MARKETPLACE')
   })
 
   it('separates Marketplace from operational products on the products page', () => {
@@ -79,8 +65,8 @@ describe('marketplace portfolio pages', () => {
       html.indexOf('ds-site-footer'),
     )
 
-    expect(operational).toContain('Scope2Plan')
-    expect(operational).toContain('PartnerForge')
+    expect(operational).toContain('SolvoPlan')
+    expect(operational).toContain('SolvoFind')
     expect(operational).not.toContain('Who Gets the Call?')
     expect(marketplace).toContain('Who Gets the Call?')
     expect(marketplace).toContain('Live marketplace')
@@ -113,23 +99,24 @@ describe('marketplace portfolio pages', () => {
     expect(html).not.toContain('/products/who-gets-the-call')
     expect(html).not.toContain('job board')
     expect(html).not.toContain('PartnerForge feature')
+    expect(html).not.toContain('SolvoFind feature')
   })
 
-  it('does not change PartnerForge internal routes or the Open PartnerForge destination', () => {
+  it('does not change SolvoFind internal routes or the Open SolvoFind destination', () => {
     const home = renderAt(<HomePage />)
     const products = renderAt(<ProductsPage />, '/products')
     const partnerforge = renderAt(<PartnerForgePage />, '/products/partnerforge')
     const scope2plan = renderAt(<Scope2PlanPage />, '/products/scope2plan')
 
-    expect(home).toContain('href="/products/partnerforge"')
-    expect(products).toContain('href="/products/partnerforge"')
+    expect(home).toContain('href="/products/solvofind"')
+    expect(products).toContain('href="/products/solvofind"')
     expect(partnerforge).toContain(`href="${partnerforgePage.secondaryCta.href}"`)
-    expect(partnerforge).toContain('Open PartnerForge')
+    expect(partnerforge).toContain('Open SolvoFind')
     expect(partnerforge).toContain('href="/pilot?product=partnerforge"')
-    expect(scope2plan).toContain('Scope2Plan')
+    expect(scope2plan).toContain('SolvoPlan')
     expect(scope2plan).toContain('href="/pilot?product=scope2plan"')
     expect(partnerforgePage.secondaryCta.href).toBe(
-      'https://partnerforge.solvoops.com/',
+      'https://solvofind.com',
     )
   })
 

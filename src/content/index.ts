@@ -26,6 +26,15 @@ export {
 } from './product-status'
 export { useCases } from './use-cases'
 export { homepageContent } from './homepage'
+export {
+  cinematicHero,
+  cinematicNav,
+  cinematicProducts,
+  cinematicBenefits,
+  cinematicAbout,
+  cinematicBrandAssets,
+  cinematicSceneAssets,
+} from './cinematic'
 export { scope2planPage } from './scope2plan'
 export { partnerforgePage } from './partnerforge'
 export {

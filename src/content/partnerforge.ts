@@ -1,18 +1,18 @@
 export const partnerforgePage = {
-  label: 'PartnerForge',
+  label: 'SolvoFind',
   headline: 'Partner discovery with geography, evidence and ranked shortlists',
-  lede: 'PartnerForge is a structured partner-intelligence workspace for service-delivery and sourcing teams. Describe a requirement, search with filters, or drop a project document — then review a ranked shortlist that prioritises onboarded network partners when they fit.',
+  lede: 'SolvoFind is a structured partner-intelligence workspace for service-delivery and sourcing teams. Describe a requirement, search with filters, or drop a project document — then review a ranked shortlist that prioritises onboarded network partners when they fit.',
   primaryCta: {
-    label: 'Discuss a PartnerForge pilot',
+    label: 'Discuss a SolvoFind pilot',
     href: '/pilot?product=partnerforge',
   },
   secondaryCta: {
-    label: 'Open PartnerForge',
-    href: 'https://partnerforge.solvoops.com/',
+    label: 'Open SolvoFind',
+    href: 'https://solvofind.com',
   },
   problem: {
     title: 'Partner discovery should not depend on repeated searches and individual memory',
-    body: 'Traditional sourcing is fragmented across search engines, spreadsheets, registries, CRM records and specialist knowledge. PartnerForge turns that into a controlled discovery workflow spanning intent, multi-source retrieval, entity intelligence, evidence, explainable ranking and a human-approved shortlist.',
+    body: 'Traditional sourcing is fragmented across search engines, spreadsheets, registries, CRM records and specialist knowledge. SolvoFind turns that into a controlled discovery workflow spanning intent, multi-source retrieval, entity intelligence, evidence, explainable ranking and a human-approved shortlist.',
   },
   coverage: {
     title: 'Built for multi-region delivery coverage',
@@ -90,12 +90,12 @@ export const partnerforgePage = {
     },
     {
       title: 'Existing-system compatibility',
-      body: 'PartnerForge complements CRM and supplier-management systems. Live CRM projection remains planned unless separately confirmed.',
+      body: 'SolvoFind complements CRM and supplier-management systems. Live CRM projection remains planned unless separately confirmed.',
     },
   ],
   differentiation: {
     title: 'More than an AI web search',
-    body: 'PartnerForge is a partner-intelligence system: search becomes structured entities with geography, evidence, network status and explainable ranking.',
+    body: 'SolvoFind is a partner-intelligence system: search becomes structured entities with geography, evidence, network status and explainable ranking.',
     points: [
       'Multi-region coverage',
       'Filter + natural-language search',
@@ -109,8 +109,8 @@ export const partnerforgePage = {
     ],
   },
   finalCta: {
-    title: 'Test PartnerForge against a real sourcing requirement.',
+    title: 'Test SolvoFind against a real sourcing requirement.',
     href: '/pilot?product=partnerforge',
-    label: 'Discuss a PartnerForge pilot',
+    label: 'Discuss a SolvoFind pilot',
   },
 } as const

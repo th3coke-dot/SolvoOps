@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  cinematicProducts,
   getProductById,
   labsProducts,
   marketplaceProducts,
@@ -15,7 +16,20 @@ import {
 } from './index'
 
 describe('content model', () => {
-  it('keeps Scope2Plan and PartnerForge as the only primary products', () => {
+  it('uses SolvoPlan, SolvoFind and SolvoBid as homepage primary names only', () => {
+    expect(cinematicProducts.map((product) => product.name)).toEqual([
+      'SolvoPlan',
+      'SolvoFind',
+      'SolvoBid',
+    ])
+    expect(cinematicProducts.map((product) => product.href)).toEqual([
+      '/products/solvoplan',
+      '/products/solvofind',
+      '/products/solvobid',
+    ])
+  })
+
+  it('keeps SolvoPlan and SolvoFind as the only primary products', () => {
     expect(primaryProducts.map((p) => p.id).sort()).toEqual([
       'partnerforge',
       'scope2plan',
@@ -85,9 +99,9 @@ describe('content model', () => {
   })
 
   it('only links to approved external product URLs', () => {
-    expect(getProductById('scope2plan')?.productUrl).toMatch(/scope2plan\.com/)
+    expect(getProductById('scope2plan')?.productUrl).toMatch(/solvoplan\.com/)
     expect(getProductById('partnerforge')?.productUrl).toBe(
-      'https://partnerforge.solvoops.com/',
+      'https://solvofind.com',
     )
     expect(getProductById('who-gets-the-call')?.productUrl).toBe(
       'https://whogetsthecall.lol',
@@ -165,11 +179,11 @@ describe('Who Gets the Call marketplace', () => {
   })
 })
 
-describe('PartnerForge regression', () => {
-  it('keeps Open PartnerForge on the production application URL', () => {
-    expect(partnerforgePage.secondaryCta.label).toBe('Open PartnerForge')
+describe('SolvoFind regression', () => {
+  it('keeps Open SolvoFind on the production application URL', () => {
+    expect(partnerforgePage.secondaryCta.label).toBe('Open SolvoFind')
     expect(partnerforgePage.secondaryCta.href).toBe(
-      'https://partnerforge.solvoops.com/',
+      'https://solvofind.com',
     )
     expect(partnerforgePage.primaryCta.href).toBe('/pilot?product=partnerforge')
     expect(partnerforgePage.finalCta.href).toBe('/pilot?product=partnerforge')
