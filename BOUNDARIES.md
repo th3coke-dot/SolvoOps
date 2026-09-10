@@ -53,6 +53,20 @@ Scene controls are anchored to the top of the hero and own their own
 them. If a future deck change puts content under them, raise `--deck-reserve`
 rather than repositioning the controls.
 
+The controls share the top band with the open mobile menu, so the layout owner
+hides them for that one state and nothing else:
+
+```css
+.cinematic-nav:has(.cinematic-nav__mobile[data-open='true'])
+  ~ .cinematic-hero
+  .cinematic-scene__controls {
+  visibility: hidden;
+}
+```
+
+Keep the mobile menu panel and the controls out of each other's way. If the
+scene owner moves the controls out of the top band, delete this rule.
+
 ## Invariants
 
 Neither owner breaks these.

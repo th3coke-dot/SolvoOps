@@ -95,6 +95,15 @@ describe('cinematic homepage', () => {
     expect(about).toBeGreaterThan(walkthrough)
   })
 
+  it('names the mobile nav toggle for screen readers now that it renders an icon', () => {
+    const html = renderHome()
+    const toggle = sliceBetween(html, '<button type="button" class="cinematic-nav__toggle"', '</button>')
+    expect(toggle).toContain('aria-label="Open menu"')
+    expect(toggle).toContain('aria-expanded="false"')
+    expect(toggle).toContain('cinematic-nav__toggle-icon')
+    expect(toggle).toContain('aria-hidden="true"')
+  })
+
   it('keeps original brand artwork and existing product routes', () => {
     const html = renderHome()
     expect(html).toContain('/brand/solvoops-horizontal-dark.png')

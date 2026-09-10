@@ -152,14 +152,23 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
+  width: 44px;
   min-width: 44px;
   min-height: 44px;
-  padding: 0 0.85rem;
-  border: 1px solid rgba(246, 250, 247, 0.45);
-  border-radius: 0.35rem;
-  background: rgba(7, 20, 17, 0.72);
+  padding: 0;
+  border: 1px solid rgba(246, 250, 247, 0.62);
+  border-radius: 0.65rem;
+  background: rgba(7, 20, 17, 0.85);
   color: var(--scene-text);
   touch-action: manipulation;
+}
+
+.cinematic-nav__toggle-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
 }
 
 .cinematic-nav__mobile {
@@ -174,6 +183,14 @@
 
 .cinematic-nav__mobile[data-open='true'] {
   display: grid;
+}
+
+/* The open menu panel and the scene controls share the top band, so the
+   controls would sit unreachable behind the panel and still take tab stops. */
+.cinematic-nav:has(.cinematic-nav__mobile[data-open='true'])
+  ~ .cinematic-hero
+  .cinematic-scene__controls {
+  visibility: hidden;
 }
 
 .cinematic-nav__mobile nav {
@@ -806,7 +823,7 @@
     left: 12px;
     right: 12px;
     top: calc(var(--header-height) + 0.5rem);
-    max-width: none;
+    max-width: calc(100% - 24px);
   }
 
   .cinematic-hero__content {
@@ -821,7 +838,7 @@
   }
 
   .cinematic-controls__btn {
-    flex: 1 1 auto;
+    padding: 0.45rem 0.75rem;
   }
 }
 

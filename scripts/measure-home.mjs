@@ -6,7 +6,15 @@ import { connect, launchChrome, newPage } from './cdp.mjs'
 
 const DEFAULT_BASE = 'http://127.0.0.1:4173'
 const DEFAULT_OUT = 'artifacts/home-measure'
-const DEFAULT_VIEWPORTS = ['1440x900', '1280x800', '1024x768', '390x844']
+const DEFAULT_VIEWPORTS = [
+  '1440x900',
+  '1280x800',
+  '1024x768',
+  '390x844',
+  '360x780',
+  '320x720',
+]
+const MOBILE_NAV_MAX_WIDTH = 959
 const PREVIEW_PORT = 4173
 const SETTLE_MS = 900
 
@@ -196,6 +204,19 @@ function measureHome(width, height) {
   const sceneControlsRect = rectOf(
     document.querySelector('.cinematic-scene__controls'),
   )
+  const clipsViewport = (rect) =>
+    Boolean(rect && (rect.left < 0 || rect.right > width))
+  const controlButtons = [
+    ...document.querySelectorAll('.cinematic-controls__btn'),
+  ].map(rectOf)
+  const toggle = document.querySelector('.cinematic-nav__toggle')
+  const toggleRect = rectOf(toggle)
+  const toggleHit =
+    toggleRect &&
+    document.elementFromPoint(
+      toggleRect.left + toggleRect.width / 2,
+      toggleRect.top + toggleRect.height / 2,
+    )
 
   return {
     viewport: { width, height },
@@ -214,6 +235,19 @@ function measureHome(width, height) {
       gapAboveEyebrowPx,
     },
     cards,
+    nav: {
+      toggleRect,
+      toggleShown: Boolean(toggle) && getComputedStyle(toggle).display !== 'none',
+      toggleHitsSelf: Boolean(toggleHit?.closest('.cinematic-nav__toggle')),
+      toggleClipped: clipsViewport(toggleRect),
+      toggleOverlapsBrand: intersects(
+        toggleRect,
+        rectOf(document.querySelector('.cinematic-nav__brand')),
+      ),
+    },
+    controlButtonCount: controlButtons.length,
+    controlsClipped:
+      clipsViewport(sceneControlsRect) || controlButtons.some(clipsViewport),
     sceneControlsRect,
     sceneControlsOverlapsCard: cards.some((card) =>
       intersects(sceneControlsRect, card.rect),
@@ -221,6 +255,60 @@ function measureHome(width, height) {
     ctaRadii: [...document.querySelectorAll('.cinematic-hero__actions a')].map(
       (el) => getComputedStyle(el).borderRadius,
     ),
+  }
+}
+
+function measureNavOpen(width, height) {
+  const round1 = (n) => Math.round(n * 10) / 10
+  const rectOf = (el) => {
+    if (!el) {
+      return null
+    }
+    const box = el.getBoundingClientRect()
+    return {
+      top: round1(box.top),
+      left: round1(box.left),
+      right: round1(box.right),
+      bottom: round1(box.bottom),
+      width: round1(box.width),
+      height: round1(box.height),
+    }
+  }
+  const overlaps = (a, b) =>
+    Boolean(
+      a &&
+        b &&
+        a.left < b.right &&
+        a.right > b.left &&
+        a.top < b.bottom &&
+        a.bottom > b.top,
+    )
+
+  const panel = document.querySelector('.cinematic-nav__mobile')
+  const panelRect = rectOf(panel)
+  const links = [...(panel?.querySelectorAll('a') ?? [])].map((el) =>
+    rectOf(el),
+  )
+  const controls = document.querySelector('.cinematic-scene__controls')
+  const controlsHidden =
+    !controls || getComputedStyle(controls).visibility === 'hidden'
+
+  return {
+    expanded:
+      document
+        .querySelector('.cinematic-nav__toggle')
+        ?.getAttribute('aria-expanded') ?? null,
+    dataOpen: panel?.getAttribute('data-open') ?? null,
+    panelRect,
+    panelClipped: Boolean(
+      panelRect && (panelRect.left < 0 || panelRect.right > width),
+    ),
+    linkCount: links.length,
+    smallestLinkHeight:
+      links.length > 0 ? Math.min(...links.map((rect) => rect?.height ?? 0)) : null,
+    linksBelowFold: links.filter((rect) => (rect?.bottom ?? 0) > height).length,
+    controlsHidden,
+    controlsCollide: !controlsHidden && overlaps(panelRect, rectOf(controls)),
   }
 }
 
@@ -259,6 +347,15 @@ function printReport(rows) {
     console.log(
       `  cta     ${row.ctaRadii.length > 0 ? row.ctaRadii.join(' | ') : '(none)'}`,
     )
+    console.log(
+      `  nav     toggle ${formatRect(row.nav.toggleRect)} shown=${row.nav.toggleShown} hitsSelf=${row.nav.toggleHitsSelf} clipped=${row.nav.toggleClipped} overlapsBrand=${row.nav.toggleOverlapsBrand}`,
+    )
+    console.log(
+      `  menu    expanded=${row.navOpen.expanded} links=${row.navOpen.linkCount} minLinkH=${row.navOpen.smallestLinkHeight} belowFold=${row.navOpen.linksBelowFold} clipped=${row.navOpen.panelClipped} ctrlHidden=${row.navOpen.controlsHidden} ctrlCollide=${row.navOpen.controlsCollide}`,
+    )
+    console.log(
+      `  ctrls   buttons=${row.controlButtonCount} clipped=${row.controlsClipped}`,
+    )
     console.log('')
   }
 }
@@ -289,6 +386,9 @@ function statusFor(measured, ok) {
 function evaluateChecks(rows) {
   const desktop = atViewport(rows, 1440, 900)
   const mobile = atViewport(rows, 390, 844)
+  const narrow = rows.filter(
+    (row) => row.viewport.width <= MOBILE_NAV_MAX_WIDTH,
+  )
   const lastCard = desktop?.cards.at(-1)
   return [
     {
@@ -321,6 +421,50 @@ function evaluateChecks(rows) {
         rows.every((row) => row.ctaRadii.every((radius) => ctaIsPill(radius))),
       ),
     },
+    {
+      name: 'all viewports: scene controls are not clipped',
+      status: statusFor(
+        rows.length > 0,
+        rows.every((row) => row.controlsClipped === false),
+      ),
+    },
+    {
+      name: 'narrow viewports: nav toggle is visible and hit-testable',
+      status: statusFor(
+        narrow.length > 0,
+        narrow.every(
+          (row) =>
+            row.nav.toggleShown &&
+            row.nav.toggleHitsSelf &&
+            !row.nav.toggleClipped &&
+            !row.nav.toggleOverlapsBrand &&
+            (row.nav.toggleRect?.width ?? 0) >= 44 &&
+            (row.nav.toggleRect?.height ?? 0) >= 44,
+        ),
+      ),
+    },
+    {
+      name: 'narrow viewports: open menu is reachable and tappable',
+      status: statusFor(
+        narrow.length > 0,
+        narrow.every(
+          (row) =>
+            row.navOpen.expanded === 'true' &&
+            row.navOpen.dataOpen === 'true' &&
+            row.navOpen.linkCount >= 4 &&
+            (row.navOpen.smallestLinkHeight ?? 0) >= 44 &&
+            row.navOpen.linksBelowFold === 0 &&
+            !row.navOpen.panelClipped,
+        ),
+      ),
+    },
+    {
+      name: 'narrow viewports: open menu does not bury the scene controls',
+      status: statusFor(
+        narrow.length > 0,
+        narrow.every((row) => row.navOpen.controlsCollide === false),
+      ),
+    },
   ]
 }
 
@@ -349,9 +493,24 @@ async function measureViewport(page, base, viewport) {
     format: 'png',
     captureBeyondViewport: false,
   })
+
+  await page.send('Runtime.evaluate', {
+    expression: `document.querySelector('.cinematic-nav__toggle')?.click()`,
+  })
+  await sleep(250)
+  const opened = await page.send('Runtime.evaluate', {
+    expression: `(${measureNavOpen.toString()})(${viewport.width}, ${viewport.height})`,
+    returnByValue: true,
+  })
+  const openShot = await page.send('Page.captureScreenshot', {
+    format: 'png',
+    captureBeyondViewport: false,
+  })
+
   return {
-    measurement: evaluated.result.value,
+    measurement: { ...evaluated.result.value, navOpen: opened.result.value },
     png: Buffer.from(shot.data, 'base64'),
+    openPng: Buffer.from(openShot.data, 'base64'),
   }
 }
 
@@ -379,8 +538,16 @@ async function main() {
 
     const rows = []
     for (const viewport of args.viewports) {
-      const { measurement, png } = await measureViewport(page, base, viewport)
+      const { measurement, png, openPng } = await measureViewport(
+        page,
+        base,
+        viewport,
+      )
       await writeFile(path.join(args.out, `${viewport.label}.png`), png)
+      await writeFile(
+        path.join(args.out, `${viewport.label}-menu-open.png`),
+        openPng,
+      )
       rows.push(measurement)
     }
 

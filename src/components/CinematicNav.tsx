@@ -6,6 +6,25 @@ import {
   cinematicNav,
 } from '../content/cinematic'
 
+function ToggleIcon({ open }: { open: boolean }) {
+  return (
+    <svg className="cinematic-nav__toggle-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      {open ? (
+        <>
+          <path d="M6 6 18 18" />
+          <path d="M18 6 6 18" />
+        </>
+      ) : (
+        <>
+          <path d="M4 7h16" />
+          <path d="M4 12h16" />
+          <path d="M4 17h16" />
+        </>
+      )}
+    </svg>
+  )
+}
+
 export function CinematicNav() {
   const [open, setOpen] = useState(false)
   const menuId = useId()
@@ -58,7 +77,7 @@ export function CinematicNav() {
           aria-label={open ? 'Close menu' : 'Open menu'}
           onClick={() => setOpen((value) => !value)}
         >
-          <span aria-hidden="true">{open ? 'Close' : 'Menu'}</span>
+          <ToggleIcon open={open} />
         </button>
       </div>
 
