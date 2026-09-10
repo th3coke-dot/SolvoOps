@@ -69,18 +69,19 @@ export function BrandScene() {
               <image href={terrain} width="1280" height="720" className={phase === 'day' ? 'brand-scene__day-terrain' : undefined}/>
               {phase !== 'evening' && <image href={sky} width="1280" height="335" preserveAspectRatio="none" clipPath={`url(#${phaseId}-sky)`}/>}
             </svg>
-            <div className="brand-scene__water">
-              <svg viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <defs>
-                  <clipPath id={`${phaseId}-reflection`}><path d={SKY_EDGE} transform="translate(0 802) scale(1 -1)"/></clipPath>
-                  <clipPath id={`${phaseId}-water`}><rect y="414" width="1280" height="306"/></clipPath>
-                </defs>
-                <g clipPath={`url(#${phaseId}-water)`}><g clipPath={`url(#${phaseId}-reflection)`}>
-                  {phase === 'evening'
-                    ? <image href={terrain} width="1280" height="720"/>
-                    : <image href={sky} width="1280" height="335" preserveAspectRatio="none" transform="translate(0 802) scale(1 -1)" opacity={phase === 'night' ? .4 : .3}/>}
-                </g></g>
-              </svg>
+            {/* Keep the shoreline clip fixed. Reflect the complete visible scene,
+                rather than moving a second, roughly traced skyline over the photo. */}
+            <div className="brand-scene__water-window">
+              <div className="brand-scene__water">
+                <svg viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <defs><clipPath id={`${phaseId}-water-sky`}><path d={SKY_EDGE}/></clipPath></defs>
+                  <g transform="translate(0 802) scale(1 -1)">
+                    <image href={terrain} width="1280" height="720" className={phase === 'day' ? 'brand-scene__day-terrain' : undefined}/>
+                    {phase !== 'evening' && <image href={sky} width="1280" height="335" preserveAspectRatio="none" clipPath={`url(#${phaseId}-water-sky)`}/>}
+                  </g>
+                  <rect width="1280" height="720" fill="#041520" opacity=".28"/>
+                </svg>
+              </div>
             </div>
           </div>;
         })}
