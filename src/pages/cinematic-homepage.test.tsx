@@ -119,9 +119,9 @@ describe('cinematic homepage', () => {
 
   it('prerenders a polished static scene without active playback controls', () => {
     const html = renderHome()
-    expect(html).toContain('/scene/sunset.jpg')
-    expect(html).toContain('cinematic-aurora__curtains')
-    expect(html).toContain('cinematic-aurora__reflection')
+    expect(html).toContain('/scene/aurora-sky.webp')
+    expect(html).toContain('brand-scene__night')
+    expect(html).toContain('data-running="false"')
     expect(html).not.toContain('aria-label="Scene playback"')
   })
 

@@ -994,3 +994,8 @@
   .cinematic-hero__eyebrow {margin-bottom:.8rem;}
   .cinematic-hero__lede {margin-bottom:1.25rem;}
 }
+
+/* Keep playback beside the landscape and clear of the product deck. */
+.cinematic-hero>.brand-scene__controls { bottom:19rem; }
+@media(max-width:700px) { .cinematic-hero>.brand-scene__controls {top:94px;bottom:auto;right:20px;} }
+.solvo-cinematic:has(.cinematic-nav__mobile[data-open="true"]) .brand-scene__controls { visibility:hidden; }
