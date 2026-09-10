@@ -35,6 +35,7 @@
 | `/products/partnerforge` | PartnerForge product | Optional short alias `/partnerforge` |
 | `/how-it-works` | Method narrative | |
 | `/about` | Company / founder | Founder copy TBD |
+| `/company` | Legal operating entity | Current operator only; AS cutover in `docs/business/solvoops-as-setup.md` |
 | `/labs` | BizDayz, AutoNameSearch, experiments | Visually secondary |
 | `/pilot` | Pilot conversion | Form + mailto fallback |
 | `/privacy` | Privacy | |

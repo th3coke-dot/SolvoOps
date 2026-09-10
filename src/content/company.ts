@@ -20,6 +20,26 @@ export const company = {
     legalName: 'Pedersen IT Consulting',
     organizationNumber: '924547405',
     organizationNumberLabel: '924 547 405',
+    form: 'enkeltpersonforetak',
+    formLabel: 'Enkeltpersonforetak',
+    country: 'Norway',
+    countryCode: 'NO',
+    registryName: 'Brønnøysundregistrene',
+    registryLookupUrl: 'https://virksomhet.brreg.no/nb/oppslag/enheter/924547405',
+  },
+  /**
+   * Planned dedicated company. Do not publish as registered until
+   * Foretaksregisteret has issued an organisation number.
+   */
+  plannedEntity: {
+    legalName: 'SolvoOps AS',
+    form: 'aksjeselskap',
+    formLabel: 'Aksjeselskap (AS)',
+    country: 'Norway',
+    countryCode: 'NO',
+    status: 'planned',
+    statusLabel: 'Planned — not yet registered',
+    minimumShareCapitalNok: 30_000,
   },
   connectedWorkflowNote:
     'Designed to support a connected delivery workflow.',

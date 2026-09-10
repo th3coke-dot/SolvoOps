@@ -24,10 +24,20 @@ export function StructuredData({ metadata }: JsonLdProps) {
       '@type': 'Organization',
       '@id': `${company.siteUrl}/#organization`,
       name: company.name,
+      legalName: company.operator.legalName,
       url: company.siteUrl,
       email: company.contactEmail,
       description: siteMetadata.defaultDescription,
       logo: `${company.siteUrl}/favicon.svg`,
+      identifier: {
+        '@type': 'PropertyValue',
+        name: 'Organisation number',
+        value: company.operator.organizationNumber,
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: company.operator.countryCode,
+      },
     }
 
     const website = {

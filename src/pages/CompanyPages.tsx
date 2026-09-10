@@ -11,6 +11,7 @@ import {
 import { EditorialHeading } from '../components/ui/EditorialHeading'
 import {
   company,
+  companyPageContent,
   labsProducts,
   pagesMetadata,
 } from '../content'
@@ -157,6 +158,114 @@ export function AboutPage() {
               {pillar.body}
             </FeatureCard>
           ))}
+        </div>
+        <p style={{ marginTop: 'var(--space-6)' }}>
+          <LinkButton to="/company" variant="secondary">
+            Company and legal identity
+          </LinkButton>
+        </p>
+      </section>
+    </AppShell>
+  )
+}
+
+export function CompanyPage() {
+  return (
+    <AppShell
+      metadata={pagesMetadata.company}
+      showPageHeader={false}
+      mainClassName="product-page product-page--about"
+    >
+      <section className="container product-hero" aria-labelledby="company-title">
+        <p className="product-hero__label">{companyPageContent.label}</p>
+        <h1 className="product-hero__title" id="company-title">
+          <EditorialHeading
+            text={companyPageContent.title}
+            accent={companyPageContent.titleAccent}
+          />
+        </h1>
+        <p className="product-hero__lede">{companyPageContent.lede}</p>
+        <p className="product-hero__lede">{companyPageContent.secondaryLede}</p>
+        <div className="product-hero__actions">
+          <LinkButton to="/pilot" variant="ink">
+            Discuss a pilot
+          </LinkButton>
+          <LinkButton to="/about" variant="secondary">
+            About the founder
+          </LinkButton>
+        </div>
+      </section>
+      <section
+        className="container product-section"
+        aria-labelledby="company-identity"
+      >
+        <SectionHeader
+          label={companyPageContent.identity.label}
+          title={companyPageContent.identity.title}
+          editorialAccent={companyPageContent.identity.titleAccent}
+          id="company-identity"
+        />
+        <div className="product-capability-grid">
+          {companyPageContent.identity.facts.map((fact) => (
+            <FeatureCard key={fact.id} title={fact.title}>
+              {fact.body}
+            </FeatureCard>
+          ))}
+        </div>
+        <p style={{ marginTop: 'var(--space-6)' }}>
+          <LinkButton
+            to={company.operator.registryLookupUrl}
+            variant="secondary"
+          >
+            Look up org.nr. {company.operator.organizationNumberLabel}
+          </LinkButton>
+        </p>
+      </section>
+      <section
+        className="container product-section"
+        aria-labelledby="company-engage"
+      >
+        <SectionHeader
+          label={companyPageContent.engage.label}
+          title={companyPageContent.engage.title}
+          editorialAccent={companyPageContent.engage.titleAccent}
+          copy={companyPageContent.engage.copy}
+          id="company-engage"
+        />
+        <div className="product-capability-grid">
+          {companyPageContent.engage.options.map((option) => (
+            <FeatureCard key={option.id} title={option.title}>
+              {option.body}
+            </FeatureCard>
+          ))}
+        </div>
+        <p style={{ marginTop: 'var(--space-6)' }}>
+          <LinkButton to="/pilot" variant="ink">
+            Request a pilot conversation
+          </LinkButton>
+        </p>
+      </section>
+      <section
+        className="container product-section"
+        aria-labelledby="company-documents"
+      >
+        <SectionHeader
+          label={companyPageContent.documents.label}
+          title={companyPageContent.documents.title}
+          editorialAccent={companyPageContent.documents.titleAccent}
+          copy={companyPageContent.documents.copy}
+          id="company-documents"
+        />
+        <div className="product-hero__actions">
+          <LinkButton to="/privacy" variant="secondary">
+            Privacy
+          </LinkButton>
+          <LinkButton to="/terms" variant="secondary">
+            Terms
+          </LinkButton>
+          <LinkButton to="/about" variant="secondary">
+            About
+          </LinkButton>
         </div>
       </section>
     </AppShell>
