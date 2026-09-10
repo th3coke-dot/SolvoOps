@@ -57,3 +57,5 @@
  .company-story__body {font-size:17px;}
  .company-section-actions {flex-direction:column;}
 }
+.company-story {align-items:start;}
+.company-page .ds-badge {justify-self:start;}

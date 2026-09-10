@@ -11,7 +11,6 @@ import {
   WorkflowSteps,
 } from '../components/ui'
 import { company, primaryProducts } from '../content'
-import { contrastNotes } from '../styles/tokens'
 import type { PageMetadata } from '../content'
 
 const metadata: PageMetadata = {
@@ -45,11 +44,11 @@ export function DesignSystemPage() {
             }}
           >
             {[
-              ['Ink', 'var(--color-ink)'],
-              ['Signal', 'var(--color-signal)'],
-              ['Mist', 'var(--color-mist)'],
-              ['SolvoPlan', 'var(--color-accent-scope2plan)'],
-              ['SolvoFind', 'var(--color-accent-partnerforge)'],
+              ['Ocean', '#06191f'],
+              ['Surface', '#16353b'],
+              ['Gold', '#e9c47e'],
+              ['Aurora', '#87d6ce'],
+              ['Text', '#eef5f2'],
             ].map(([label, color]) => (
               <div key={label}>
                 <div
@@ -66,13 +65,7 @@ export function DesignSystemPage() {
               </div>
             ))}
           </div>
-          <ul style={{ marginTop: 'var(--space-4)' }}>
-            {contrastNotes.map((note) => (
-              <li key={note.pair}>
-                <strong>{note.pair}</strong> — {note.usage} ({note.target})
-              </li>
-            ))}
-          </ul>
+
         </div>
 
         <div>
