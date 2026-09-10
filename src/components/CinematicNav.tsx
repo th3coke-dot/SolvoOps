@@ -7,6 +7,23 @@ import {
   cinematicNav,
 } from '../content/cinematic'
 
+// Reuse the original lockup; only its symbol moves. Play once per page load,
+// so navigation between company and product pages never restarts the effect.
+let logoTurnPlayed = false
+function BrandLogo() {
+  const [turning, setTurning] = useState(false)
+  return <span className="cinematic-nav__logo" aria-hidden="true">
+    <img className="cinematic-nav__wordmark" src={cinematicBrandAssets.logoDark} alt=""
+      width={1853} height={559} decoding="async" onLoad={() => {
+        if (!logoTurnPlayed) { logoTurnPlayed = true; setTurning(true) }
+      }} />
+    <span className="cinematic-nav__symbol" data-turning={turning}
+      onAnimationEnd={() => setTurning(false)}>
+      <img src={cinematicBrandAssets.logoDark} alt="" width={1853} height={559} decoding="async" />
+    </span>
+  </span>
+}
+
 function ToggleIcon({ open }: { open: boolean }) {
   return (
     <svg className="cinematic-nav__toggle-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -52,14 +69,7 @@ export function CinematicNav() {
           onClick={close}
           aria-label="SolvoOps home"
         >
-          <img
-            className="cinematic-nav__logo"
-            src={cinematicBrandAssets.logoDark}
-            alt=""
-            width={232}
-            height={70}
-            decoding="async"
-          />
+          <BrandLogo />
         </AppLink>
 
         <nav className="cinematic-nav__desktop" aria-label="Primary">
