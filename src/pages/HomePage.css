@@ -987,3 +987,10 @@
 .cinematic-aurora__reflection {animation:none;opacity:.5;}
 @keyframes aurora-light {from {opacity:.87;} to {opacity:1;}}
 @media(prefers-reduced-motion:reduce) {.cinematic-aurora__curtains {animation:none;}}
+/* Keep copy and product cards separate on shorter laptop screens. */
+@media (min-width:881px) and (max-height:820px) {
+  .cinematic-hero {padding-top:118px;}
+  .cinematic-hero__title {font-size:clamp(3.6rem,5vw,4.4rem);margin-bottom:1rem;}
+  .cinematic-hero__eyebrow {margin-bottom:.8rem;}
+  .cinematic-hero__lede {margin-bottom:1.25rem;}
+}
