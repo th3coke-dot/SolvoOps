@@ -20,13 +20,6 @@ const HEADLINE_TONE_CLASS: Record<HeroHeadlineTone, string> = {
   gold: 'cinematic-hero__title-line--gold',
 }
 
-function Arrow() {
-  return (
-    <svg className="home-arrow" aria-hidden="true" viewBox="0 0 20 20" fill="none">
-      <path d="M5 15 15 5M8 5h7v7" />
-    </svg>
-  )
-}
 
 export function HomePage() {
   return (
@@ -57,11 +50,9 @@ export function HomePage() {
           <div className="cinematic-hero__actions">
             <LinkButton to={cinematicHero.primaryCta.href} variant="primary">
               {cinematicHero.primaryCta.label}
-              <Arrow />
             </LinkButton>
             <LinkButton to={cinematicHero.secondaryCta.href} variant="ghost">
               {cinematicHero.secondaryCta.label}
-              <Arrow />
             </LinkButton>
           </div>
         </div>
@@ -85,9 +76,7 @@ export function HomePage() {
                 <p className="cinematic-product__rails">
                   {product.rails.join(' · ')}
                 </p>
-                <span className="cinematic-product__go" aria-hidden="true">
-                  <Arrow />
-                </span>
+                <span className="cinematic-product__action">Open {product.name}</span>
               </Link>
             ))}
           </div>
@@ -134,8 +123,7 @@ export function HomePage() {
                 </ul>
                 <Link className="cinematic-walkthrough__link" to={step.href}>
                   {step.linkLabel}
-                  <Arrow />
-                </Link>
+                    </Link>
               </li>
             ))}
           </ol>
@@ -152,7 +140,6 @@ export function HomePage() {
             <p>{cinematicAbout.body}</p>
             <LinkButton to={cinematicAbout.cta.href} variant="ghost">
               {cinematicAbout.cta.label}
-              <Arrow />
             </LinkButton>
           </div>
         </div>
