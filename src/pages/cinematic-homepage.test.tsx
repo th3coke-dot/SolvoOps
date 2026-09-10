@@ -117,6 +117,32 @@ describe('cinematic homepage', () => {
     expect(html).toContain('href="#about"')
   })
 
+  it('renders product and walkthrough external CTAs as native anchors', () => {
+    const html = renderHome()
+    const products = sliceBetween(html, 'id="products"', 'class="cinematic-approach"')
+    for (const product of cinematicProducts) {
+      const card = sliceBetween(
+        products,
+        `cinematic-product--${product.exampleKind}`,
+        '</a>',
+      )
+      expect(card).toContain(`href="${product.href}"`)
+      expect(card).toContain('target="_blank"')
+      expect(card).toContain('rel="noopener noreferrer"')
+      expect(card).toContain('(opens in a new tab)')
+    }
+    const walkthrough = sliceBetween(html, 'id="how-it-works"', 'id="about"')
+    for (const href of [
+      'https://solvobid.com/login',
+      'https://solvoplan.com/login',
+      'https://solvofind.com/login',
+    ]) {
+      const link = sliceBetween(walkthrough, `href="${href}"`, '</a>')
+      expect(link).toContain('target="_blank"')
+      expect(link).toContain('rel="noopener noreferrer"')
+    }
+  })
+
   it('prerenders a polished static scene without active playback controls', () => {
     const html = renderHome()
     expect(html).toContain('/scene/aurora-sky.webp')
