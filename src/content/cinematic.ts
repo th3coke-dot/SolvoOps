@@ -116,7 +116,7 @@ export type WalkthroughStep = {
 export const cinematicWalkthrough = {
   eyebrow: 'HOW IT WORKS',
   title: 'One thread from tender to delivery.',
-  lede: 'Three products, used in the order the work arrives. Each one hands the next a structured result instead of another document.',
+  lede: 'Understand what is required. Structure the work. Find the people to deliver it. Choose the tool that fits the decision in front of you.',
   steps: [
     {
       id: 'understand',

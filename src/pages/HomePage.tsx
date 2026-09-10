@@ -76,12 +76,12 @@ export function HomePage() {
             {cinematicProducts.map((product) => (
               <Link
                 key={product.id}
-                className="cinematic-product"
+                className={`cinematic-product cinematic-product--${product.exampleKind}`}
                 to={product.href}
               >
-                <ProductExample kind={product.exampleKind} label={product.exampleLabel} />
                 <h3>{product.name}</h3>
                 <p className="cinematic-product__description">{product.description}</p>
+                <ProductExample kind={product.exampleKind} label={product.exampleLabel} />
                 <p className="cinematic-product__rails">
                   {product.rails.join(' · ')}
                 </p>

@@ -862,3 +862,128 @@
     transform: none;
   }
 }
+
+/* Homepage art direction: the light belongs to the landscape. */
+.solvo-cinematic {
+  --scene-base: #06171d;
+  --scene-gold: #ebc477;
+  --scene-muted: #c6d5d9;
+  --font-display: 'Source Sans 3', 'Segoe UI', sans-serif;
+  --deck-lift: 17.5rem;
+}
+.cinematic-nav {
+  background: linear-gradient(180deg, rgba(4,17,24,.6), rgba(4,17,24,.08));
+  backdrop-filter: none;
+  border-bottom: 0;
+}
+.cinematic-nav__bar, .solvo-cinematic .container { width: min(1300px, calc(100% - 112px)); }
+.cinematic-nav__logo { width: 224px; }
+.cinematic-nav__desktop { gap: 2.4rem; }
+.cinematic-nav__pilot { background: rgba(5,20,27,.25); border: 1px solid #ebc477; color: #f3d598; padding-inline: 1.6rem; }
+.cinematic-hero { min-height: clamp(700px, 90svh, 880px); padding-top: 148px; }
+.cinematic-scene__plate { object-position: center; }
+.cinematic-scene__veil {
+  background: linear-gradient(90deg, rgba(3,14,23,.58), rgba(3,14,23,.22) 43%, transparent 72%),
+    linear-gradient(180deg, rgba(3,14,23,.12), transparent 55%, rgba(6,23,29,.35) 76%, #06171d 100%);
+}
+.cinematic-scene__night { background: linear-gradient(180deg, rgba(5,21,37,.04),rgba(5,21,37,.2)); }
+.cinematic-hero__content { width: min(800px, calc(100% - 112px)); margin-inline: max(56px, calc((100% - 1300px)/2)); }
+.cinematic-hero__content::before { display: none; }
+.cinematic-hero__eyebrow { font-size: .75rem; font-weight: 500; letter-spacing: .26em; color: #f0ce8b; margin-bottom: 1.1rem; }
+.cinematic-hero__title { font-size: clamp(3.6rem, 5.7vw, 5.35rem); line-height: 1.02; font-weight: 300; letter-spacing: -.025em; margin-bottom: 1.4rem; }
+.cinematic-hero__title-line--gold { color: #edc77f; }
+.cinematic-hero__lede { font-size: 1.2rem; max-width: 470px; line-height: 1.5; margin-bottom: 1.6rem; }
+.solvo-cinematic .ds-btn { min-height: 46px; padding: .65rem 1.5rem; font-size: .95rem; font-weight: 600; }
+.solvo-cinematic .ds-btn--primary { background: linear-gradient(110deg,#f1d38e,#dfb45f); border-color: #edca82; color: #102126; box-shadow: 0 4px 25px #e8b96018; }
+.cinematic-scene__controls { top: auto; bottom: 19rem; right: max(56px,calc((100% - 1300px)/2)); }
+.cinematic-controls__btn { background: rgba(4,20,28,.52); backdrop-filter: blur(12px); border-color: #d8e7e64d; font-size: .85rem; }
+.cinematic-product-grid { gap: 20px; }
+.cinematic-products { padding-bottom: 0; }
+.cinematic-product {
+  padding: 23px 23px 21px; border-radius: 12px; gap: 9px;
+  grid-template-rows: auto auto 1fr auto;
+  background: linear-gradient(135deg,rgba(37,80,86,.42),rgba(5,24,32,.82) 72%);
+  border-color: rgba(126,200,209,.38);
+  box-shadow: inset 0 1px 0 #ffffff16, 0 16px 48px #0003;
+  backdrop-filter: blur(14px);
+}
+.cinematic-product--find { border-color: #d3b47166; background: linear-gradient(135deg,#6c5c3347,#061922df 75%); }
+.cinematic-product h3 { font-weight: 400; font-size: 1.75rem; letter-spacing: -.025em; }
+.cinematic-product__description { font-size: 1rem; max-width: 35ch; min-height: 46px; }
+.cinematic-product__rails { font-size: .75rem; font-weight: 400; letter-spacing: .15em; margin-top: 8px; }
+.product-example { border-top: 1px solid #cce3e51c; margin-top: 7px; padding-top: 9px; }
+.product-example figcaption { font-size: .75rem; color: #9eb5ba; font-weight: 400; letter-spacing: .1em; text-transform: none; margin-bottom: 6px; }
+.example-heading { display: flex; justify-content: space-between; gap: 8px; font-size: .75rem; color: #aec8cf; margin-bottom: 7px; }
+.example-heading span:last-child { color: #87a6af; }
+.example-plan__row { display:grid; grid-template-columns: 1.3fr 30px 1fr; align-items: center; gap: 7px; min-height: 26px; font-size: .8rem; }
+.example-plan__row small { color:#a4bec4; font-size: .75rem; }
+.example-plan__track { display: block; background: repeating-linear-gradient(90deg,#b9d6da10 0 1px,transparent 1px 25%); }
+.example-plan__track i { display: block; height: 6px; border-radius: 2px; background:#7fd6d0; box-shadow: 0 0 10px #7fd6d026; }
+.example-plan__row:last-child i { background:#e6be76; }
+.example-find__row { display: grid; grid-template-columns: 25px 1fr auto; gap:7px; align-items:center; min-height:39px; font-size: .8rem; }
+.example-find__row small { display:block; color:#94b0b9; font-size:.75rem; }
+.example-avatar {display:grid;place-items:center;width:23px;height:25px;border:1px solid #d9bd744d;border-radius:5px;color:#e7ca8a;}
+.example-tag {font-size:.75rem;color:#99dfd5;white-space:nowrap;}
+.example-tag--muted {color:#a7bfc6;}
+.example-tag--gold {color:#edca87;}
+.example-bid__row {display:flex;justify-content:space-between;gap:8px;align-items:center;min-height:26px;font-size:.8rem;}
+.cinematic-product__go { width: 30px; height:30px; border-color:#dac28e80;color:#ecd299;right:20px;bottom:17px; }
+.cinematic-approach { padding: 28px 0 30px; }
+.cinematic-benefits { gap: 30px; }
+.cinematic-benefits li { border-left: 1px solid #97c7d040; padding-left:20px; }
+.cinematic-benefits h3 {font-weight:500;font-size:1.1rem;margin-bottom:3px;}
+.cinematic-benefits p {font-size:.95rem;}
+.cinematic-walkthrough {padding:60px 0 65px;background:linear-gradient(150deg,#0d2933,#071b23 70%);}
+.cinematic-walkthrough__header {max-width:none;display:grid;grid-template-columns:1.3fr 1fr;gap:10px 70px;align-items:end;margin-bottom:32px;}
+.cinematic-walkthrough__header .cinematic-hero__eyebrow {grid-column:1/-1;margin:0;}
+.cinematic-walkthrough h2 {font-weight:300;font-size:clamp(2rem,3.3vw,3.2rem);max-width:18ch;margin:0;letter-spacing:-.02em;}
+.cinematic-walkthrough__step h3 {font-weight:400;font-size:1.6rem;}
+.cinematic-walkthrough__steps {gap:36px;}
+.cinematic-walkthrough__question {font-style:normal;color:#f2d495;}
+.cinematic-walkthrough__index {font-size:.75rem;}
+.cinematic-walkthrough__link {font-weight:500;}
+.cinematic-about {padding:56px 0;background:linear-gradient(90deg,#06171df5,#06171dbb),url('/scene/blue-hour.jpg') center 53%/cover;}
+.cinematic-about h2 {font-weight:300;font-size:clamp(2.1rem,3.5vw,3.3rem);max-width:18ch;letter-spacing:-.02em;}
+.ds-app--cinematic .ds-site-footer {padding-top:30px;padding-bottom:25px;background:#05141a;}
+.ds-app--cinematic .ds-site-footer__brand img {max-width:224px;}
+@media (max-width:1100px) and (min-width:881px) {
+  .cinematic-nav__bar,.solvo-cinematic .container {width:calc(100% - 64px);}
+  .cinematic-hero__content {margin-inline:32px;width:calc(100% - 64px);}
+  .cinematic-product {padding:18px 16px;}
+  .cinematic-product__description {min-height:70px;}
+  .example-find__row {grid-template-columns:1fr auto;}
+  .example-avatar {display:none;}
+}
+@media(max-width:880px) {
+  .solvo-cinematic {--deck-lift:80px;}
+  .cinematic-nav__bar,.solvo-cinematic .container {width:calc(100% - 40px);}
+  .cinematic-nav {background:linear-gradient(#071923bd,transparent);}
+  .cinematic-nav__mobile {background:#09232c;}
+  .cinematic-nav__logo {width:190px;}
+  .cinematic-hero {min-height:660px;padding-top:150px;}
+  .cinematic-hero__content {width:calc(100% - 40px);margin-inline:20px;}
+  .cinematic-hero__title {font-size:clamp(2.6rem,7.7vw,4.5rem);line-height:1.08;}
+  .cinematic-hero__lede {max-width:330px;font-size:1.1rem;}
+  .cinematic-scene__controls {top:94px;bottom:auto;left:auto;right:20px;}
+  .cinematic-scene__veil {background:linear-gradient(90deg,#04152099,#04152022),linear-gradient(180deg,#04152022,transparent 65%,#06171d);}
+  .cinematic-product-grid {gap:16px;}
+  .cinematic-product {padding:22px;}
+  .cinematic-products {padding-top:0;}
+  .cinematic-product__description {min-height:0;max-width:none;}
+  .cinematic-benefits {gap:20px;}
+  .cinematic-approach {padding:30px 0;}
+  .cinematic-walkthrough {padding:40px 0;}
+  .cinematic-walkthrough__header {grid-template-columns:1fr;gap:15px;}
+  .cinematic-about__grid {gap:25px;}
+}
+@media(max-width:390px) {
+  .cinematic-hero__title {font-size:2.6rem;}
+  .cinematic-hero__actions {gap:10px;}
+  .solvo-cinematic .ds-btn {padding-inline:1.1rem;font-size:.9rem;}
+}
+/* Photographic sky stays clipped behind the fixed mountain silhouette. */
+.cinematic-scene__aurora {mix-blend-mode:normal;filter:none;}
+.cinematic-aurora__curtains {animation:aurora-light 12s ease-in-out infinite alternate;animation-play-state:paused;}
+.cinematic-aurora__reflection {animation:none;opacity:.5;}
+@keyframes aurora-light {from {opacity:.87;} to {opacity:1;}}
+@media(prefers-reduced-motion:reduce) {.cinematic-aurora__curtains {animation:none;}}

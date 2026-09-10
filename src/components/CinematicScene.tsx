@@ -41,7 +41,7 @@ export function CinematicScene() {
     if (policy !== 'auto') return
     let cancelled = false
     Promise.all(
-      [cinematicSceneAssets.dusk, cinematicSceneAssets.blueHour].map((src) => {
+      [cinematicSceneAssets.dusk, cinematicSceneAssets.blueHour, '/scene/aurora-sky.webp'].map((src) => {
         const image = new Image()
         image.src = src
         return image
@@ -287,125 +287,32 @@ function LockedTerrain() {
   )
 }
 
-function AuroraOverlay({
-  opacity,
-  running,
-}: {
-  opacity: number
-  running: boolean
-}) {
+// The photograph and mask share the same 1280×720 coordinate system.
+// Only sky and its water reflection are exposed: the terrain never moves.
+const SKY_EDGE = 'M0 0H1280V247L1233 251L1198 231L1165 221L1122 215L1086 194L1046 170L1035 174L1007 207L983 215L961 211L949 220L940 229L929 231L918 249L902 268L886 284L862 307L832 288L805 285L784 276L769 279L746 297L734 289L718 284L706 288L690 298L671 303L642 302L608 306L584 315L554 317L534 324L512 313L494 305L474 285L451 277L426 272L385 269L347 273L327 272L311 250L295 230L280 224L259 209L235 206L205 203L181 190L160 182L135 178L99 173L60 165L0 155Z'
+
+function AuroraOverlay({ opacity, running }: { opacity: number; running: boolean }) {
   return (
-    <svg
-      className="cinematic-scene__aurora"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="xMidYMid slice"
-      style={{ opacity }}
-      data-running={running ? 'true' : 'false'}
-      aria-hidden="true"
-    >
+    <svg className="cinematic-scene__aurora" viewBox="0 0 1280 720"
+      preserveAspectRatio="xMidYMid slice" style={{ opacity }}
+      data-running={running ? 'true' : 'false'} aria-hidden="true">
       <defs>
-        <linearGradient id="aurora-cyan" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#b7fff0" stopOpacity="0.28" />
-          <stop offset="18%" stopColor="#79f3d4" stopOpacity="0.95" />
-          <stop offset="72%" stopColor="#29c7bc" stopOpacity="0.34" />
-          <stop offset="100%" stopColor="#29c7bc" stopOpacity="0" />
+        <clipPath id="aurora-sky-clip"><path d={SKY_EDGE} /></clipPath>
+        <clipPath id="aurora-water-clip"><path d={SKY_EDGE} transform="translate(0 802) scale(1 -1)" /></clipPath>
+        <linearGradient id="water-fade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="white" stopOpacity=".55" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
-        <linearGradient id="aurora-green" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#d6ffca" stopOpacity="0.2" />
-          <stop offset="24%" stopColor="#8effb1" stopOpacity="0.84" />
-          <stop offset="76%" stopColor="#56dfb3" stopOpacity="0.24" />
-          <stop offset="100%" stopColor="#56dfb3" stopOpacity="0" />
-        </linearGradient>
-        <linearGradient id="aurora-reflection" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#82f6d2" stopOpacity="0.34" />
-          <stop offset="48%" stopColor="#48d9c8" stopOpacity="0.12" />
-          <stop offset="100%" stopColor="#48d9c8" stopOpacity="0" />
-        </linearGradient>
-        <filter id="aurora-glow" x="-45%" y="-30%" width="190%" height="170%">
-          <feGaussianBlur stdDeviation="28" />
-        </filter>
-        <filter id="aurora-soft" x="-35%" y="-25%" width="170%" height="155%">
-          <feGaussianBlur stdDeviation="10" />
-        </filter>
-        <filter id="aurora-water-soft" x="-30%" y="-30%" width="160%" height="170%">
-          <feGaussianBlur stdDeviation="16" />
-        </filter>
-        <clipPath id="aurora-sky-clip">
-          <rect width="1600" height="525" />
-        </clipPath>
-        <clipPath id="aurora-water-clip">
-          <rect y="525" width="1600" height="375" />
-        </clipPath>
+        <mask id="water-reflection-mask"><rect y="401" width="1280" height="319" fill="url(#water-fade)" /></mask>
+        <filter id="water-soft"><feGaussianBlur stdDeviation="1.5 3" /></filter>
       </defs>
       <g clipPath="url(#aurora-sky-clip)">
-        <g className="cinematic-aurora__glow" filter="url(#aurora-glow)">
-          <path
-            d="M130 -100 C250 22 280 166 365 286 C420 365 492 408 540 518"
-            fill="none"
-            stroke="#47e8cb"
-            strokeWidth="180"
-            strokeLinecap="round"
-            opacity="0.58"
-          />
-          <path
-            d="M700 -120 C640 52 730 155 690 276 C658 370 704 440 748 522"
-            fill="none"
-            stroke="#78f5bd"
-            strokeWidth="205"
-            strokeLinecap="round"
-            opacity="0.52"
-          />
-          <path
-            d="M1190 -95 C1080 42 1132 176 1054 292 C1002 372 1034 454 1082 524"
-            fill="none"
-            stroke="#58ded2"
-            strokeWidth="168"
-            strokeLinecap="round"
-            opacity="0.42"
-          />
-        </g>
-        <g className="cinematic-aurora__curtains" filter="url(#aurora-soft)">
-          <path
-            d="M92 -110 C220 36 176 122 292 236 C372 315 318 392 452 535 L594 535 C505 380 536 290 420 190 C324 108 365 12 292 -110 Z"
-            fill="url(#aurora-cyan)"
-            opacity="0.96"
-          />
-          <path
-            d="M510 -125 C626 4 578 118 660 206 C758 310 674 402 790 535 L930 535 C850 408 896 294 798 188 C718 100 760 -8 710 -125 Z"
-            fill="url(#aurora-green)"
-            opacity="0.9"
-          />
-          <path
-            d="M925 -110 C1035 18 974 132 1084 230 C1176 312 1092 420 1210 535 L1358 535 C1260 400 1318 312 1218 202 C1130 106 1184 4 1125 -110 Z"
-            fill="url(#aurora-cyan)"
-            opacity="0.78"
-          />
-          <path
-            d="M1260 -125 C1342 -18 1320 82 1400 174 C1478 264 1446 382 1535 535 L1648 535 L1648 -125 Z"
-            fill="url(#aurora-green)"
-            opacity="0.6"
-          />
-        </g>
+        <image className="cinematic-aurora__curtains" href="/scene/aurora-sky.webp"
+          width="1280" height="335" preserveAspectRatio="none" />
       </g>
-      <g
-        className="cinematic-aurora__reflection"
-        clipPath="url(#aurora-water-clip)"
-        filter="url(#aurora-water-soft)"
-      >
-        <path
-          d="M250 525 C300 608 270 682 338 770 C378 822 364 870 402 930 L548 930 C500 840 530 776 466 698 C408 628 452 570 410 525 Z"
-          fill="url(#aurora-reflection)"
-        />
-        <path
-          d="M665 525 C716 602 680 690 742 756 C808 826 770 876 820 930 L956 930 C904 842 946 784 878 714 C816 648 860 574 820 525 Z"
-          fill="url(#aurora-reflection)"
-          opacity="0.76"
-        />
-        <path
-          d="M1045 525 C1102 594 1064 666 1130 744 C1190 814 1158 874 1200 930 L1328 930 C1278 848 1312 788 1248 714 C1188 646 1230 572 1184 525 Z"
-          fill="url(#aurora-reflection)"
-          opacity="0.54"
-        />
+      <g clipPath="url(#aurora-water-clip)" mask="url(#water-reflection-mask)" filter="url(#water-soft)">
+        <image className="cinematic-aurora__reflection" href="/scene/aurora-sky.webp"
+          width="1280" height="335" preserveAspectRatio="none" transform="translate(0 802) scale(1 -1)" />
       </g>
     </svg>
   )
