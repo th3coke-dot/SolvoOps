@@ -1,1 +1,17 @@
-<!doctype html><html lang="en"><meta name="robots" content="noindex"><title>Site viewport review</title><style>body{margin:12px;background:#ddd;font:14px sans-serif}iframe{border:0;display:block}nav{margin-bottom:10px}a{margin-right:12px}</style><nav id="routes"></nav><iframe title="Phone" width="390" height="844"></iframe><script>const p=new URLSearchParams(location.search);const f=document.querySelector("iframe");f.width=p.get("width")||390;f.src=p.get("path")||"/about";const paths=["/","/about","/how-it-works","/labs","/pilot?product=scope2plan","/privacy","/terms","/marketplace/who-gets-the-call","/products","/products/solvoplan","/products/solvofind","/products/solvobid","/design-system","/missing"];document.getElementById("routes").innerHTML=paths.map(x=>`<a href="?path=${encodeURIComponent(x)}&width=${f.width}">${x}</a>`).join("");</script></html>
+<!doctype html><html lang="en"><meta name="robots" content="noindex"><title>Site viewport review</title>
+<style>body{margin:12px;background:#ddd;font:14px sans-serif}iframe{border:0;display:block}nav{margin-bottom:10px}a{margin-right:12px}</style>
+<nav id="routes"></nav><iframe title="Phone" width="390" height="844"></iframe>
+<script>
+const p=new URLSearchParams(location.search),f=document.querySelector("iframe");
+f.width=p.get("width")||390;
+f.addEventListener("load",()=>{
+const phase=p.get("phase");
+if(!["night","day","evening"].includes(phase))return;
+const style=f.contentDocument.createElement("style");
+style.textContent=".brand-scene__phase{animation:none!important;opacity:0!important}.brand-scene__"+phase+"{opacity:1!important}.brand-scene__water{animation:none!important}";
+f.contentDocument.head.append(style);
+});
+f.src=p.get("path")||"/about";
+const paths=["/","/about","/how-it-works","/labs","/pilot?product=scope2plan","/privacy","/terms","/marketplace/who-gets-the-call","/products","/products/solvoplan","/products/solvofind","/products/solvobid","/design-system","/missing"];
+document.getElementById("routes").innerHTML=paths.map(x=>'<a href="?path='+encodeURIComponent(x)+'&width='+f.width+'&phase='+(p.get("phase")||'')+'">'+x+'</a>').join("");
+</script></html>
