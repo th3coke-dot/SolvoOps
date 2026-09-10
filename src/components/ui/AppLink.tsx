@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { prefetchRoute } from '../../lib/page-loaders'
 
 type AppLinkProps = {
   to: string
@@ -33,7 +34,10 @@ export function AppLink({ to, className, children, ...rest }: AppLinkProps) {
     )
   }
   return (
-    <Link className={className} to={to} {...rest}>
+    <Link className={className} to={to} {...rest}
+      onPointerEnter={event => { prefetchRoute(to); rest.onPointerEnter?.(event) }}
+      onFocus={event => { prefetchRoute(to); rest.onFocus?.(event) }}
+      onTouchStart={event => { prefetchRoute(to); rest.onTouchStart?.(event) }}>
       {children}
     </Link>
   )

@@ -1,6 +1,8 @@
 /* 72 seconds: aurora hold, daylight, evening, then a seamless return. */
 .brand-scene { position:absolute; inset:0; overflow:hidden; pointer-events:none; background:#081c28; z-index:0; }
-.brand-scene>svg { width:100%; height:100%; position:absolute; inset:0; }
+.brand-scene__layers, .brand-scene__phase, .brand-scene__water, .brand-scene svg { width:100%; height:100%; position:absolute; inset:0; }
+/* Animate HTML wrappers, not filtered SVG subtrees: terrain stays rasterised. */
+.brand-scene { contain:paint; }
 .brand-scene__veil { position:absolute; inset:0; background:linear-gradient(90deg,#041520b8,transparent 80%),linear-gradient(180deg,#04152024,transparent 70%,#06171d); }
 .brand-scene__day-terrain { filter:brightness(1.55) saturate(.7); }
 .brand-scene__day,.brand-scene__evening { opacity:0; }
@@ -9,10 +11,17 @@
 .brand-scene__water { animation:brand-water 7s ease-in-out infinite alternate; transform-origin:center; }
 .brand-scene[data-running=false] * { animation-play-state:paused !important; }
 .brand-scene__controls { position:absolute; right:clamp(20px,4vw,64px); bottom:24px; z-index:5; display:flex; gap:4px; padding:4px; border:1px solid #d9ede636; border-radius:24px; background:#051922b8; backdrop-filter:blur(12px); }
-.brand-scene__controls button { border:0; background:transparent; color:#e5ecea; border-radius:20px; min-height:36px; padding:6px 14px; font:inherit; font-size:13px; cursor:pointer; }
+.brand-scene__controls button { border:0; background:transparent; color:#e5ecea; border-radius:20px; min-height:44px; touch-action:manipulation; padding:6px 14px; font:inherit; font-size:13px; cursor:pointer; }
 .brand-scene__controls button:hover { background:#ffffff18; }
 .brand-scene__controls button:focus-visible { outline:2px solid #e9bf72; outline-offset:2px; }
 @keyframes brand-day { 0%,11.11% {opacity:0;} 33.33%,66.67% {opacity:1;} 77.78%,100% {opacity:0;} }
 @keyframes brand-evening { 0%,47.22% {opacity:0;} 66.67%,77.78% {opacity:1;} 100% {opacity:0;} }
 @keyframes brand-water { 0% {transform:translate(-1px,0);} 50% {transform:translate(.5px,.65px);} 100% {transform:translate(1px,-.4px);} }
 @media(prefers-reduced-motion:reduce) { .brand-scene * {animation:none !important;} .brand-scene__day,.brand-scene__evening {display:none;} .brand-scene__controls {display:none;} }
+
+.brand-scene[data-running=true] .brand-scene__day,
+.brand-scene[data-running=true] .brand-scene__evening {will-change:opacity;}
+.brand-scene[data-running=true] .brand-scene__water {will-change:transform;}
+@media(max-width:880px), (pointer:coarse) {
+  .brand-scene__controls {backdrop-filter:none; background:#071e28ee;}
+}

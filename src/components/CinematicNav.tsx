@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { AppLink } from './ui/AppLink'
 import {
   cinematicBrandAssets,
   cinematicHero,
@@ -27,7 +28,8 @@ function ToggleIcon({ open }: { open: boolean }) {
 
 export function CinematicNav() {
   const { pathname } = useLocation()
-  const navHref = (href: string) => pathname === '/' ? href : `/${href}`
+  const destinations: Record<string, string> = { '#products': '/products', '#how-it-works': '/how-it-works', '#about': '/about' }
+  const navHref = (href: string) => pathname === '/' ? href : destinations[href] ?? href
   const [open, setOpen] = useState(false)
   const menuId = useId()
 
@@ -44,7 +46,7 @@ export function CinematicNav() {
   return (
     <header className="cinematic-nav">
       <div className="cinematic-nav__bar">
-        <Link
+        <AppLink
           className="cinematic-nav__brand"
           to="/"
           onClick={close}
@@ -58,17 +60,17 @@ export function CinematicNav() {
             height={70}
             decoding="async"
           />
-        </Link>
+        </AppLink>
 
         <nav className="cinematic-nav__desktop" aria-label="Primary">
           {cinematicNav.map((item) => (
-            <a key={item.id} className="cinematic-nav__link" href={navHref(item.href)}>
+            <AppLink key={item.id} className="cinematic-nav__link" to={navHref(item.href)}>
               {item.label}
-            </a>
+            </AppLink>
           ))}
-          <Link className="cinematic-nav__pilot" to={cinematicHero.pilotCta.href}>
+          <AppLink className="cinematic-nav__pilot" to={cinematicHero.pilotCta.href}>
             {cinematicHero.pilotCta.label}
-          </Link>
+          </AppLink>
         </nav>
 
         <button
@@ -92,13 +94,13 @@ export function CinematicNav() {
       >
         <nav aria-label="Mobile primary">
           {cinematicNav.map((item) => (
-            <a key={item.id} href={navHref(item.href)} onClick={close}>
+            <AppLink key={item.id} to={navHref(item.href)} onClick={close}>
               {item.label}
-            </a>
+            </AppLink>
           ))}
-          <Link to={cinematicHero.pilotCta.href} onClick={close}>
+          <AppLink to={cinematicHero.pilotCta.href} onClick={close}>
             {cinematicHero.pilotCta.label}
-          </Link>
+          </AppLink>
         </nav>
       </div>
     </header>

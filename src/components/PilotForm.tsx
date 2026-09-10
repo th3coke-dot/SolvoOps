@@ -184,7 +184,7 @@ export function PilotForm({ initialProduct }: PilotFormProps) {
           error={errors.challenge}
           required
           maxLength={pilotFormLimits.challengeMax}
-          hint="Describe the workflow in general terms. Do not paste confidential scopes, customer data or credentials."
+          hint="What takes too long, creates rework or makes decisions difficult?"
           className="pilot-form__span"
         />
       </div>
@@ -205,7 +205,7 @@ export function PilotForm({ initialProduct }: PilotFormProps) {
 
       <div className="pilot-form__actions">
         <Button type="submit" variant="ink">
-          Request a pilot conversation
+          Prepare pilot email
         </Button>
         <LinkButton to={`mailto:${company.contactEmail}`} variant="secondary">
           {pilotPageContent.mailtoFallbackLabel}

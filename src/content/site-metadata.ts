@@ -39,7 +39,7 @@ export const pagesMetadata: Record<string, PageMetadata> = {
     path: '/products',
     title: `Products | ${company.name}`,
     description:
-      'Explore SolvoOps operational products — SolvoPlan and SolvoFind — and the Who Gets the Call? marketplace.',
+      'Explore SolvoOps operational products — SolvoPlan, SolvoFind and SolvoBid — and the Who Gets the Call? marketplace.',
   },
   solvobid: {
     path: '/products/solvobid',
@@ -86,7 +86,7 @@ export const pagesMetadata: Record<string, PageMetadata> = {
     path: '/pilot',
     title: `Discuss a pilot | ${company.name}`,
     description:
-      'Test SolvoPlan Generate, SolvoPlan Control or SolvoFind against a real operational workflow.',
+      'Test SolvoPlan Generate, SolvoPlan Control, SolvoFind or SolvoBid against a real operational workflow.',
   },
   privacy: {
     path: '/privacy',
