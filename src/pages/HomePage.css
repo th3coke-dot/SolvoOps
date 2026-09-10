@@ -872,7 +872,7 @@
   --deck-lift: 17.5rem;
 }
 .cinematic-nav {
-  background: linear-gradient(180deg, rgba(4,17,24,.6), rgba(4,17,24,.08));
+  background: linear-gradient(180deg, rgba(4,17,24,.6), transparent);
   backdrop-filter: none;
   border-bottom: 0;
 }
@@ -1026,6 +1026,19 @@
 }
 
 @media(max-width:880px), (pointer:coarse) {
-  .cinematic-nav {backdrop-filter:none; background:#081e27f5;}
   .ds-app--cinematic .ds-site-footer a {min-height:44px; display:inline-flex; align-items:center; touch-action:manipulation;}
+}
+
+/* Preserve the exact artwork and rotate only the S/O symbol, once on arrival. */
+.cinematic-nav__logo {position:relative; display:block; height:auto; aspect-ratio:1853 / 559; perspective:600px;}
+.cinematic-nav__wordmark {display:block; width:100%; height:100%; clip-path:inset(0 0 0 37.24%);}
+.cinematic-nav__symbol {position:absolute; left:0; top:0; width:37.24%; height:100%; overflow:hidden; transform-origin:54% 50%;}
+.cinematic-nav__symbol img {display:block; width:268.52846%; max-width:none; height:100%;}
+.cinematic-nav__symbol[data-turning=true] {animation:brand-symbol-turn 2.8s cubic-bezier(.3,.05,.2,1) .35s both; will-change:transform;}
+@keyframes brand-symbol-turn {
+  0% {transform:rotateY(0deg);}
+  100% {transform:rotateY(360deg);}
+}
+@media(prefers-reduced-motion:reduce) {
+  .cinematic-nav__symbol[data-turning=true] {animation:none; will-change:auto;}
 }
