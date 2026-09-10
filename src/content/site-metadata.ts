@@ -17,7 +17,8 @@ export const siteMetadata = {
   siteUrl: company.siteUrl,
   locale: 'en',
   ogLocale: 'en_GB',
-  ogImagePath: '/og-default.png',
+  ogImagePath: '/og-solvoops-aurora-v1.jpg',
+  ogImageAlt: 'SolvoOps — Clarity for complex delivery. Aurora above a mountain lake, with SolvoPlan, SolvoFind and SolvoBid.',
   defaultTitle,
   defaultDescription,
   /** Current production homepage metadata until PR 5 / PR 10 cutover. */

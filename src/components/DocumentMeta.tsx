@@ -53,14 +53,16 @@ export function DocumentMeta({ metadata }: DocumentMetaProps) {
     upsertMeta('property', 'og:description', metadata.description)
     upsertMeta('property', 'og:url', canonical)
     upsertMeta('property', 'og:image', ogImage)
+    upsertMeta('property', 'og:image:type', 'image/jpeg')
     upsertMeta('property', 'og:image:width', '1200')
     upsertMeta('property', 'og:image:height', '630')
-    upsertMeta('property', 'og:image:alt', `${siteMetadata.siteName} — operational intelligence`)
+    upsertMeta('property', 'og:image:alt', siteMetadata.ogImageAlt)
 
     upsertMeta('name', 'twitter:card', 'summary_large_image')
     upsertMeta('name', 'twitter:title', metadata.title)
     upsertMeta('name', 'twitter:description', metadata.description)
     upsertMeta('name', 'twitter:image', ogImage)
+    upsertMeta('name', 'twitter:image:alt', siteMetadata.ogImageAlt)
   }, [metadata])
 
   return <StructuredData metadata={metadata} />
