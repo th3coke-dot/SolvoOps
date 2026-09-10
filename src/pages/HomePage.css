@@ -999,3 +999,10 @@
 .cinematic-hero>.brand-scene__controls { bottom:19rem; }
 @media(max-width:700px) { .cinematic-hero>.brand-scene__controls {top:94px;bottom:auto;right:20px;} }
 .solvo-cinematic:has(.cinematic-nav__mobile[data-open="true"]) .brand-scene__controls { visibility:hidden; }
+
+/* Product actions read as actions, with a consistent text treatment. */
+.cinematic-product__rails {padding-right:0;}
+.cinematic-product__action {display:block;width:fit-content;color:#edce94;font-size:15px;font-weight:500;line-height:1.4;border-bottom:1px solid #edce944d;padding:5px 0;margin-top:6px;transition:border-color .2s,color .2s;}
+.cinematic-product:hover .cinematic-product__action,.cinematic-product:focus-visible .cinematic-product__action {color:#ffe2ae;border-color:currentColor;}
+.cinematic-walkthrough__link {display:inline-flex;min-height:44px;align-items:center;border-bottom:1px solid #edce9455;text-decoration:none;}
+.cinematic-walkthrough__link:hover,.cinematic-walkthrough__link:focus-visible {border-bottom-color:currentColor;}

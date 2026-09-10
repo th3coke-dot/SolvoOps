@@ -23,9 +23,9 @@ describe('content model', () => {
       'SolvoBid',
     ])
     expect(cinematicProducts.map((product) => product.href)).toEqual([
-      '/products/scope2plan',
-      '/products/partnerforge',
-      '/pilot?product=solvobid',
+      'https://solvoplan.com/login',
+      'https://solvofind.com/login',
+      'https://solvobid.com/login',
     ])
   })
 

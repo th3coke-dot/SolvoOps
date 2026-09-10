@@ -28,7 +28,7 @@ export function SiteFooter() {
     ...primaryProducts.map((product) => ({
       id: product.id,
       label: product.name,
-      href: product.route,
+      href: product.id === "scope2plan" ? "https://solvoplan.com/login" : "https://solvofind.com/login",
     })),
     { id: 'labs', label: 'Labs', href: '/labs' },
     { id: 'how-it-works', label: 'How It Works', href: '/how-it-works' },
