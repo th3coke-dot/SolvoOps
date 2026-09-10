@@ -81,13 +81,6 @@ export function PartnerForgePage() {
           id="pf-caps"
           accent="partnerforge"
         />
-        <div className="product-capability-grid">
-          {page.capabilities.map((item) => (
-            <FeatureCard key={item.title} title={item.title}>
-              {item.body}
-            </FeatureCard>
-          ))}
-        </div>
         <div className="product-capability-grid" style={{ marginTop: 'var(--space-7)' }}>
           <FeatureCard title="Available capabilities">
             <ul>
@@ -111,22 +104,6 @@ export function PartnerForgePage() {
             </ul>
           </FeatureCard>
         </div>
-      </section>
-
-      <section className="container product-section" aria-labelledby="pf-diff">
-        <SectionHeader
-          label="Differentiation"
-          title={page.differentiation.title}
-          editorialAccent="AI web search"
-          copy={page.differentiation.body}
-          id="pf-diff"
-          accent="partnerforge"
-        />
-        <ul className="product-list">
-          {page.differentiation.points.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
       </section>
 
       <section className="container product-section" aria-labelledby="pf-final-cta">

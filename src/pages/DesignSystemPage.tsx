@@ -1,4 +1,4 @@
-import { AppShell } from '../components/AppShell'
+import { CinematicPage } from '../components/CinematicPage'
 import {
   Badge,
   Button,
@@ -23,18 +23,18 @@ const metadata: PageMetadata = {
 
 export function DesignSystemPage() {
   return (
-    <AppShell
+    <CinematicPage
       metadata={metadata}
-      eyebrow="Internal"
+      label="Internal"
       title="Design system foundations"
-      copy="Reusable tokens and components for the SolvoOps redesign. Not linked from primary navigation. Favicon and brand mark are unchanged."
+      intro="Reusable components for the SolvoOps cinematic design." quiet
     >
-      <section style={{ display: 'grid', gap: 'var(--space-8)' }}>
+      <section className="container product-section" style={{ display: 'grid', gap: 'var(--space-8)' }}>
         <div>
           <SectionHeader
             label="Colour"
             title="Brand palette and product accents"
-            copy="Existing pine ink and amber signal are preserved. Product accents distinguish SolvoPlan and SolvoFind without replacing the logo."
+            copy="Deep ocean surfaces, warm gold actions and aurora accents. Original brand artwork."
           />
           <div
             style={{
@@ -168,6 +168,6 @@ export function DesignSystemPage() {
           />
         </div>
       </section>
-    </AppShell>
+    </CinematicPage>
   )
 }

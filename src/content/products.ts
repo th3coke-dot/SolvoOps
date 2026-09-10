@@ -114,7 +114,7 @@ export const products: ProductConfig[] = [
     category: 'SolvoOps Labs',
     headline: 'Multi-country workday and employment-cost planning',
     description:
-      'Workdays, public holidays, countdowns, and employment-cost planning across Norway, Sweden, Denmark, Finland, the UK, Germany, Poland, and Iceland — in each market’s local language plus English. Norway also includes dedicated holiday-pay tools.',
+      'Calculate workdays, public holidays and employment costs across eight European countries, in local languages and English. Includes Norwegian holiday-pay tools.',
     status: productStatusById.bizdayz,
     statusLabel: getStatusLabel(productStatusById.bizdayz),
     productUrl: 'https://www.bizdayz.com',

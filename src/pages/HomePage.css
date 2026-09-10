@@ -1006,3 +1006,26 @@
 .cinematic-product:hover .cinematic-product__action,.cinematic-product:focus-visible .cinematic-product__action {color:#ffe2ae;border-color:currentColor;}
 .cinematic-walkthrough__link {display:inline-flex;min-height:44px;align-items:center;border-bottom:1px solid #edce9455;text-decoration:none;}
 .cinematic-walkthrough__link:hover,.cinematic-walkthrough__link:focus-visible {border-bottom-color:currentColor;}
+
+/* Mobile performance: keep the glass colours without repeatedly blurring
+   moving pixels underneath every card and touch target. */
+@media(max-width:880px), (pointer:coarse) {
+  .solvo-cinematic .cinematic-product,
+  .solvo-cinematic .product-scene-hero__example,
+  .solvo-cinematic .ds-btn--ghost {backdrop-filter:none; -webkit-backdrop-filter:none;}
+  .solvo-cinematic .cinematic-product {background:linear-gradient(135deg,#183c44f2,#071e28f7); transition:border-color 100ms ease;}
+  .solvo-cinematic .cinematic-product--find {background:linear-gradient(135deg,#333b30f2,#071e28f7);}
+  .solvo-cinematic .product-scene-hero__example {background:linear-gradient(135deg,#193c43f5,#071e28f7);}
+  .solvo-cinematic .ds-btn--ghost {background:#071d27eb;}
+  .solvo-cinematic a,.solvo-cinematic button {touch-action:manipulation;}
+  .solvo-cinematic .product-breadcrumb {min-height:44px; display:inline-flex; align-items:center; margin-bottom:16px;}
+}
+@media(hover:none) {
+  .solvo-cinematic .cinematic-product:hover {transform:none; box-shadow:inset 0 1px 0 #ffffff16,0 16px 48px #0003;}
+  .solvo-cinematic .cinematic-product:active {border-color:#edc77f;}
+}
+
+@media(max-width:880px), (pointer:coarse) {
+  .cinematic-nav {backdrop-filter:none; background:#081e27f5;}
+  .ds-app--cinematic .ds-site-footer a {min-height:44px; display:inline-flex; align-items:center; touch-action:manipulation;}
+}

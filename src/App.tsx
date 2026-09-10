@@ -1,47 +1,48 @@
-import { lazy, Suspense, useEffect } from 'react'
+import { lazy, Suspense, useLayoutEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { LegacyHashRedirect } from './components/LegacyHashRedirect'
 import { HomePage } from './pages/HomePage'
+import { loadProducts, loadProductDetails, loadSolvoBid, loadCompany } from './lib/page-loaders'
 
 const ProductsPage = lazy(() =>
-  import('./pages/ProductsPage').then((m) => ({ default: m.ProductsPage })),
+  loadProducts().then((m) => ({ default: m.ProductsPage })),
 )
-const SolvoBidPage = lazy(() => import('./pages/SolvoBidPage').then((m) => ({ default: m.SolvoBidPage })))
+const SolvoBidPage = lazy(() => loadSolvoBid().then((m) => ({ default: m.SolvoBidPage })))
 const Scope2PlanPage = lazy(() =>
-  import('./pages/ProductDetailPages').then((m) => ({
+  loadProductDetails().then((m) => ({
     default: m.Scope2PlanPage,
   })),
 )
 const PartnerForgePage = lazy(() =>
-  import('./pages/ProductDetailPages').then((m) => ({
+  loadProductDetails().then((m) => ({
     default: m.PartnerForgePage,
   })),
 )
 const WhoGetsTheCallPage = lazy(() =>
-  import('./pages/ProductDetailPages').then((m) => ({
+  loadProductDetails().then((m) => ({
     default: m.WhoGetsTheCallPage,
   })),
 )
 const HowItWorksPage = lazy(() =>
-  import('./pages/CompanyPages').then((m) => ({ default: m.HowItWorksPage })),
+  loadCompany().then((m) => ({ default: m.HowItWorksPage })),
 )
 const AboutPage = lazy(() =>
-  import('./pages/CompanyPages').then((m) => ({ default: m.AboutPage })),
+  loadCompany().then((m) => ({ default: m.AboutPage })),
 )
 const LabsPage = lazy(() =>
-  import('./pages/CompanyPages').then((m) => ({ default: m.LabsPage })),
+  loadCompany().then((m) => ({ default: m.LabsPage })),
 )
 const PilotPage = lazy(() =>
-  import('./pages/CompanyPages').then((m) => ({ default: m.PilotPage })),
+  loadCompany().then((m) => ({ default: m.PilotPage })),
 )
 const PrivacyPage = lazy(() =>
-  import('./pages/CompanyPages').then((m) => ({ default: m.PrivacyPage })),
+  loadCompany().then((m) => ({ default: m.PrivacyPage })),
 )
 const TermsPage = lazy(() =>
-  import('./pages/CompanyPages').then((m) => ({ default: m.TermsPage })),
+  loadCompany().then((m) => ({ default: m.TermsPage })),
 )
 const NotFoundPage = lazy(() =>
-  import('./pages/CompanyPages').then((m) => ({ default: m.NotFoundPage })),
+  loadCompany().then((m) => ({ default: m.NotFoundPage })),
 )
 const DesignSystemPage = lazy(() =>
   import('./pages/DesignSystemPage').then((m) => ({
@@ -58,11 +59,16 @@ function RouteFallback() {
 }
 
 function ScrollToTop() {
-  const { pathname, search } = useLocation()
+  const { pathname, search, hash } = useLocation()
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 })
-  }, [pathname, search])
+  useLayoutEffect(() => {
+    // Run after the destination has mounted, not while its chunk is loading.
+    // Page changes must not inherit the smooth scroll used for in-page anchors.
+    let target: HTMLElement | null = null
+    try { target = hash ? document.getElementById(decodeURIComponent(hash.slice(1))) : null } catch { /* malformed URL fragment */ }
+    if (target) target.scrollIntoView({ behavior: 'instant' })
+    else window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname, search, hash])
 
   return null
 }
@@ -71,8 +77,8 @@ export default function App() {
   return (
     <>
       <LegacyHashRedirect />
-      <ScrollToTop />
       <Suspense fallback={<RouteFallback />}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />

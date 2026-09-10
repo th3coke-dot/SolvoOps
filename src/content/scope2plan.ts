@@ -1,7 +1,7 @@
 export const scope2planPage = {
   label: 'SolvoPlan',
   headline: 'From SOW to controlled delivery',
-  lede: 'SolvoPlan is two connected modules: Generate turns Statements of Work into delivery-ready project packages, and Control keeps that structured project model aligned as scopes, decisions and obligations change.',
+  lede: 'Turn a Statement of Work into a delivery package with Generate. Explore Control, in development, for managing scope changes.',
   modulesNote:
     'Generate is the live planning workspace. Control extends the same project model through delivery governance and change.',
   primaryCta: {
@@ -32,9 +32,9 @@ export const scope2planPage = {
   ],
   generate: {
     title: 'Create the project package',
-    body: 'Upload or paste the SOW, extract a structured project model in memory, review the interpretation, then generate the planning and governance artefacts you need for kick-off — typically a project plan, runbook/SOP and transition pack.',
+    body: 'Review the scope interpretation, then generate a project plan, runbook and transition pack.',
     value:
-      'Generate reduces repetitive project-initiation work while improving consistency, completeness and methodology alignment. Privacy by design: uploaded files and generated documents are processed in memory for the working session rather than kept as a persistent archive.',
+      'Files and generated documents are processed in memory for the working session, rather than kept as a persistent archive.',
     flow: [
       {
         title: 'Upload or paste the SOW',
@@ -67,7 +67,7 @@ export const scope2planPage = {
   control: {
     title: 'Keep the project aligned as it changes',
     body: 'Control is the governance layer for the same structured project model. As customer scopes, decisions and obligations evolve, Control helps teams compare versions, understand impact and keep plans, registers and evidence consistent.',
-    note: 'Control is in active development. Capabilities below are labelled honestly and are not presented as fully available in production today.',
+    note: 'Control is in development.',
     flow: [
       {
         title: 'Establish the baseline',

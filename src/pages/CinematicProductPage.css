@@ -1,4 +1,4 @@
-/* Scoped to the corporate product pages; other routes keep their own skins. */
+/* Shared cinematic content styling across corporate routes. */
 .product-page.product-page--cinematic {
   --vision-ink:#f1f5f3; --vision-muted:#b8cbc9; --vision-line:#87c7c52e;
   --vision-teal:#87d6ce; --page-accent:#e9c47e; --color-text-muted:#b8cbc9;
@@ -79,3 +79,8 @@
 .product-page--cinematic .ds-product-card__cta {color:#e9c47e;}
 .product-page--cinematic .ds-btn--secondary {color:#eef5f2; border-color:#9bc5c35c; background:transparent;}
 .product-page--cinematic .ds-btn--secondary:hover {background:#23414a; border-color:#b2d9d4;}
+
+.product-page--cinematic .ds-product-card__description,
+.product-page--cinematic .ds-product-card__supporting {color:#b8cbc9;}
+.product-page--cinematic .ds-badge {background:#102d35; color:#b9e8df; border-color:#87c7c54d;}
+.product-page--cinematic .ds-product-card {border-radius:16px; background:linear-gradient(135deg,#16353b,#0a222a); padding:28px; margin-top:20px;}

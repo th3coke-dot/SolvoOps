@@ -29,7 +29,7 @@ export function ProductsPage() {
         <div className="container product-scene-hero__grid">
           <p className="cinematic-hero__eyebrow">Our products</p>
           <h1 id="products-title">Clarity at every stage.<span>From bid to delivery.</span></h1>
-          <p className="product-scene-hero__lede">Explore the product that fits your workflow. Open the tool when you’re ready, or talk to us about a pilot.</p>
+          <p className="product-scene-hero__lede">Understand the tender, plan the delivery and find the right partners.</p>
         </div>
       </section>
 
@@ -39,7 +39,6 @@ export function ProductsPage() {
           title="SolvoPlan, SolvoFind and SolvoBid"
           editorialAccent="SolvoFind"
           id="operational-products"
-          copy="SolvoPlan Generate and Control for planning and change. SolvoFind for partner intelligence across regions. SolvoBid for tender requirements and evidence."
         />
         <div className="product-index-grid">
           {cinematicProducts.map((product) => <AppLink key={product.id} to={product.href}
@@ -58,7 +57,6 @@ export function ProductsPage() {
           title="Who Gets the Call?"
           editorialAccent="Who Gets the Call?"
           id="marketplace-products"
-          copy="A separate public marketplace and paid-advertising product, owned and built by SolvoOps."
           accent="marketplace"
         />
         <div>
@@ -77,10 +75,9 @@ export function ProductsPage() {
       <section className="container product-section" aria-labelledby="labs-products">
         <SectionHeader
           label="SolvoOps Labs"
-          title="Explore adjacent tools"
-          editorialAccent="adjacent tools"
+          title="Small tools for everyday work"
+          editorialAccent="everyday work"
           id="labs-products"
-          copy="Labs tools remain secondary to the primary commercial products, but they are part of the SolvoOps portfolio."
           accent="labs"
         />
         <div>

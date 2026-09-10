@@ -1,7 +1,7 @@
 export const partnerforgePage = {
   label: 'SolvoFind',
   headline: 'Partner discovery with geography, evidence and ranked shortlists',
-  lede: 'SolvoFind is a structured partner-intelligence workspace for service-delivery and sourcing teams. Describe a requirement, search with filters, or drop a project document — then review a ranked shortlist that prioritises onboarded network partners when they fit.',
+  lede: 'Describe the requirement and search by location and capability. Review ranked partners before choosing who to contact.',
   primaryCta: {
     label: 'Discuss a SolvoFind pilot',
     href: '/pilot?product=partnerforge',
@@ -11,8 +11,8 @@ export const partnerforgePage = {
     href: 'https://solvofind.com',
   },
   problem: {
-    title: 'Partner discovery should not depend on repeated searches and individual memory',
-    body: 'Traditional sourcing is fragmented across search engines, spreadsheets, registries, CRM records and specialist knowledge. SolvoFind turns that into a controlled discovery workflow spanning intent, multi-source retrieval, entity intelligence, evidence, explainable ranking and a human-approved shortlist.',
+    title: 'Bring partner research into one place',
+    body: 'Compare candidate profiles and ranking signals in one workspace, with supporting evidence available in pilot.',
   },
   coverage: {
     title: 'Built for multi-region delivery coverage',
@@ -26,38 +26,9 @@ export const partnerforgePage = {
     ],
   },
   workflow: [
-    {
-      title: 'Describe the requirement',
-      body: 'Use natural language, structured filters, or both — location, capability, delivery type and reach.',
-    },
-    {
-      title: 'Or match from a project document',
-      body: 'Drop a project document to derive a ranked shortlist from real delivery intent.',
-    },
-    {
-      title: 'Resolve geography and intent',
-      body: 'Interpret geographic and technical meaning before retrieval so results stay relevant.',
-    },
-    {
-      title: 'Search configured sources',
-      body: 'Combine public, registry and approved internal sources where available.',
-    },
-    {
-      title: 'Construct candidate entities',
-      body: 'Normalise, deduplicate and enrich partners into structured profiles.',
-    },
-    {
-      title: 'Attach evidence',
-      body: 'Link supporting sources to capabilities, locations and other claims.',
-    },
-    {
-      title: 'Rank with an explainable core',
-      body: 'Score candidates deterministically; onboarded network partners rise when they fit.',
-    },
-    {
-      title: 'Review and shortlist',
-      body: 'Keep humans in control of final selection and next commercial steps.',
-    },
+    { title: 'Describe the requirement', body: 'Use natural language and filters for location, capability and reach. Project-document matching is available in pilot.' },
+    { title: 'Compare candidates', body: 'Review structured profiles and ranking signals. Evidence attachment and onboarded-network priority are pilot capabilities.' },
+    { title: 'Build the shortlist', body: 'Check the fit and choose which partners to contact.' },
   ],
   capabilities: [
     {
