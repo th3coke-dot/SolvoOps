@@ -3,12 +3,12 @@ import { Scope2PlanProofVisual } from '../components/ProductProofVisuals'
 import {
   CtaPanel,
   FeatureCard,
-  LinkButton,
   ProductStatusBadge,
   SectionHeader,
   WorkflowSteps,
 } from '../components/ui'
-import { EditorialHeading } from '../components/ui/EditorialHeading'
+import { CinematicNav } from '../components/CinematicNav'
+import { ProductHero, ProductActions } from '../components/ProductHero'
 import {
   company,
   getProductById,
@@ -16,6 +16,8 @@ import {
   scope2planPage,
 } from '../content'
 import './ProductPage.css'
+import './HomePage.css'
+import './CinematicProductPage.css'
 
 export function Scope2PlanPage() {
   const product = getProductById('scope2plan')
@@ -26,27 +28,13 @@ export function Scope2PlanPage() {
     <AppShell
       metadata={pagesMetadata.scope2plan}
       showPageHeader={false}
-      mainClassName="product-page product-page--scope2plan"
+      showShellNav={false}
+      shellTone="cinematic"
+      mainClassName="solvo-cinematic product-page product-page--cinematic product-page--scope2plan"
     >
-      <section className="container product-hero" aria-labelledby="s2p-title">
-        <div className="product-hero__meta">
-          <p className="product-hero__label">{page.label}</p>
-          <ProductStatusBadge status={product.status} />
-        </div>
-        <h1 className="product-hero__title" id="s2p-title">
-          <EditorialHeading text={page.headline} accent="controlled delivery" />
-        </h1>
-        <p className="product-hero__lede">{page.lede}</p>
-        <p className="product-hero__lede">{page.modulesNote}</p>
-        <div className="product-hero__actions">
-          <LinkButton to={page.primaryCta.href} variant="primary">
-            {page.primaryCta.label}
-          </LinkButton>
-          <LinkButton to={page.secondaryCta.href} variant="secondary">
-            {page.secondaryCta.label}
-          </LinkButton>
-        </div>
-      </section>
+      <CinematicNav />
+      <ProductHero name={page.label} kind="plan" title="From scope to" accent="controlled delivery."
+        description={page.lede} toolHref={page.secondaryCta.href} pilotHref={page.primaryCta.href} />
 
       <section className="container product-section" aria-labelledby="modules-title">
         <SectionHeader
@@ -149,11 +137,7 @@ export function Scope2PlanPage() {
           title={page.finalCta.title}
           titleId="s2p-final-cta"
           copy={company.connectedWorkflowNote}
-          actions={
-            <LinkButton to={page.finalCta.href} variant="primary">
-              {page.finalCta.label}
-            </LinkButton>
-          }
+          actions={<ProductActions name={page.label} toolHref={page.secondaryCta.href} pilotHref={page.finalCta.href} />}
         />
       </section>
     </AppShell>

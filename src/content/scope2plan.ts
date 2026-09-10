@@ -9,8 +9,8 @@ export const scope2planPage = {
     href: '/pilot?product=scope2plan',
   },
   secondaryCta: {
-    label: 'Open SolvoPlan Generate',
-    href: 'https://www.scope2plan.com',
+    label: 'Open SolvoPlan',
+    href: 'https://solvoplan.com',
   },
   modules: [
     {

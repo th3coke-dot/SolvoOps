@@ -41,8 +41,8 @@ describe('marketplace portfolio pages', () => {
     expect(productsBlock).toContain('SolvoPlan')
     expect(productsBlock).toContain('SolvoFind')
     expect(productsBlock).toContain('SolvoBid')
-    expect(productsBlock).toContain('href="https://solvoplan.com/login"')
-    expect(productsBlock).toContain('href="https://solvofind.com/login"')
+    expect(productsBlock).toContain('href="/products/solvoplan"')
+    expect(productsBlock).toContain('href="/products/solvofind"')
     expect(productsBlock).not.toContain('Scope2Plan')
     expect(productsBlock).not.toContain('PartnerForge')
     expect(productsBlock).not.toContain('Who Gets the Call?')
@@ -108,15 +108,15 @@ describe('marketplace portfolio pages', () => {
     const partnerforge = renderAt(<PartnerForgePage />, '/products/partnerforge')
     const scope2plan = renderAt(<Scope2PlanPage />, '/products/scope2plan')
 
-    expect(home).toContain('href="https://solvofind.com/login"')
-    expect(products).toContain('href="/products/partnerforge"')
+    expect(home).toContain('href="/products/solvofind"')
+    expect(products).toContain('href="/products/solvofind"')
     expect(partnerforge).toContain(`href="${partnerforgePage.secondaryCta.href}"`)
     expect(partnerforge).toContain('Open SolvoFind')
     expect(partnerforge).toContain('href="/pilot?product=partnerforge"')
     expect(scope2plan).toContain('SolvoPlan')
     expect(scope2plan).toContain('href="/pilot?product=scope2plan"')
     expect(partnerforgePage.secondaryCta.href).toBe(
-      'https://partnerforge.solvoops.com/',
+      'https://solvofind.com',
     )
   })
 

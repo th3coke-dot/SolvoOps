@@ -23,9 +23,9 @@ describe('content model', () => {
       'SolvoBid',
     ])
     expect(cinematicProducts.map((product) => product.href)).toEqual([
-      'https://solvoplan.com/login',
-      'https://solvofind.com/login',
-      'https://solvobid.com/login',
+      '/products/solvoplan',
+      '/products/solvofind',
+      '/products/solvobid',
     ])
   })
 
@@ -99,9 +99,9 @@ describe('content model', () => {
   })
 
   it('only links to approved external product URLs', () => {
-    expect(getProductById('scope2plan')?.productUrl).toMatch(/scope2plan\.com/)
+    expect(getProductById('scope2plan')?.productUrl).toMatch(/solvoplan\.com/)
     expect(getProductById('partnerforge')?.productUrl).toBe(
-      'https://partnerforge.solvoops.com/',
+      'https://solvofind.com',
     )
     expect(getProductById('who-gets-the-call')?.productUrl).toBe(
       'https://whogetsthecall.lol',
@@ -183,7 +183,7 @@ describe('SolvoFind regression', () => {
   it('keeps Open SolvoFind on the production application URL', () => {
     expect(partnerforgePage.secondaryCta.label).toBe('Open SolvoFind')
     expect(partnerforgePage.secondaryCta.href).toBe(
-      'https://partnerforge.solvoops.com/',
+      'https://solvofind.com',
     )
     expect(partnerforgePage.primaryCta.href).toBe('/pilot?product=partnerforge')
     expect(partnerforgePage.finalCta.href).toBe('/pilot?product=partnerforge')

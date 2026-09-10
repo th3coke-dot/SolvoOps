@@ -38,3 +38,4 @@ export function AppLink({ to, className, children, ...rest }: AppLinkProps) {
     </Link>
   )
 }
+

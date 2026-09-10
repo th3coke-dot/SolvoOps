@@ -1,5 +1,5 @@
 import { useEffect, useId, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import {
   cinematicBrandAssets,
   cinematicHero,
@@ -26,6 +26,8 @@ function ToggleIcon({ open }: { open: boolean }) {
 }
 
 export function CinematicNav() {
+  const { pathname } = useLocation()
+  const navHref = (href: string) => pathname === '/' ? href : `/${href}`
   const [open, setOpen] = useState(false)
   const menuId = useId()
 
@@ -60,7 +62,7 @@ export function CinematicNav() {
 
         <nav className="cinematic-nav__desktop" aria-label="Primary">
           {cinematicNav.map((item) => (
-            <a key={item.id} className="cinematic-nav__link" href={item.href}>
+            <a key={item.id} className="cinematic-nav__link" href={navHref(item.href)}>
               {item.label}
             </a>
           ))}
@@ -90,7 +92,7 @@ export function CinematicNav() {
       >
         <nav aria-label="Mobile primary">
           {cinematicNav.map((item) => (
-            <a key={item.id} href={item.href} onClick={close}>
+            <a key={item.id} href={navHref(item.href)} onClick={close}>
               {item.label}
             </a>
           ))}

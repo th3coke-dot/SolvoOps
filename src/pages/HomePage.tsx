@@ -75,7 +75,7 @@ export function HomePage() {
                 <p className="cinematic-product__rails">
                   {product.rails.join(' · ')}
                 </p>
-                <span className="cinematic-product__action">Open {product.name}</span>
+                <span className="cinematic-product__action">Explore {product.name}</span>
               </AppLink>
             ))}
           </div>
@@ -146,3 +146,4 @@ export function HomePage() {
     </AppShell>
   )
 }
+
