@@ -27,3 +27,4 @@ dist-ssr
 
 # Local verification artifacts
 artifacts
+.dashboard/
